@@ -1,0 +1,4 @@
+$ ls -l clout.*
+-rw-r-----    1 kurtz    gistaff       285 2005-02-21 16:41 clout.2.0.match
+-rw-r-----    1 kurtz    gistaff       289 2005-02-21 16:41 clout.2.2.match
+-rw-r-----    1 kurtz    gistaff       491 2005-02-21 16:41 clout.3.1.match

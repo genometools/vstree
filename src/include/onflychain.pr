@@ -1,0 +1,27 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initmaintainedfragments(Maintainedfragments *maintainedfragments,
+                             BOOL overqueue);
+
+Sint processnewquhit(BOOL chainqhits,
+                     Uint maxdistance,
+                     Maintainedfragments *maintainedfragments,
+                     Uint fraglength,
+                     Uint startpos0,
+                     Uint startpos1,
+                     Outflychain outputchain,
+                     void *outinfo);
+
+Sint wrapmaintainedfragments(Maintainedfragments *maintainedfragments,
+                             Outflychain outputchain,
+                             void *outinfo);
+
+Sint chainingofmatches(BOOL chainqhits,
+                       Uint maxdistance,
+                       Onflyfragment *fragmentstore,
+                       Uint numoffragments);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void mkcldtabnextlIndex(Childinfo *cldtab,Uchar *lcptab,
+                        ArrayPairUint *largelcpvalues,Uint totallength);
+
+void mkcldtabupdown(Childinfo *cldtab,Uchar *lcptab,
+                    ArrayPairUint *largelcpvalues,Uint totallength);
+
+void compresscldtab(Virtualtree *virtualtree,Uchar *cldtab1);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,20 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint editextend(BOOL rcmode,
+                BOOL querycompare,
+                Evalues *evalues,
+                Uint maxdist,
+                Uint userdefinedleastlength,
+                Uint seedlength,
+                Match *seed,
+                Multiseq *multiseq1,
+                Multiseq *multiseq2,
+                Match *ematch,
+                void *info,
+                Processfinalfunction processallmax,
+                Processfinalfunction processfinal);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,20 @@
+$ mkvtree -protein -db swissp.sp.gz -pl -lcp -suf -tis -ois -bwt -bck -v
+reading gzipped file "swissp.sp.gz"
+maximal value for argument of option -pl is 2, recommended value is 2
+total length of sequences: 4566 (including 7 separators)
+alphabet of size 21: LVIFKREDAGSTNQYWPHMCX
+creating file "swissp.sp.gz.tis"
+creating file "swissp.sp.gz.ois"
+creating file "swissp.sp.gz.des"
+creating file "swissp.sp.gz.sds"
+creating file "swissp.sp.gz.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 2
+sorting all buckets
+creating file "swissp.sp.gz.llv"
+creating file "swissp.sp.gz.bck"
+creating file "swissp.sp.gz.suf"
+creating file "swissp.sp.gz.bwt"
+creating file "swissp.sp.gz.prj"
+creating file "swissp.sp.gz.al1"
+overall space peak: main=0.18 MB (40.80 bytes/symbol), secondary=0.00 MB

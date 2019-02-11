@@ -1,0 +1,30 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initmulttab(Uint *multtab,Uint rows,Uint columns);
+
+Sint readblastmatrixgeneric(const char *bmfile,
+                            Uint undefsymbol,
+                            BOOL readalpha,
+                            Alphabet *alpha,
+                            Scorematrix *scorematrix,
+                            char *envstring,
+                            SCORE wildcardmismatch);
+
+Sint readblastmatrix(const char *bmfile,Uint undefsymbol,BOOL readalpha,
+                     Alphabet *alpha,Scorematrix *scorematrix,
+                     SCORE wildcardmismatch);
+
+void freeblastmatrix(Scorematrix *scoremtrix);
+
+void fillscorematrix(Scorefunction *scorefunction,
+                     Alphabet *alpha,
+                     SCORE matchscore,SCORE mismatchscore,SCORE indelscore);
+
+void showblastmatrix(Alphabet *alpha,Scorematrix *scorematrix);
+
+void showscoredistribution(Alphabet *alpha,Scorematrix *scorematrix);
+
+#ifdef __cplusplus
+}
+#endif

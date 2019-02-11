@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void localbese(Uint mersize,Uchar **l,Uchar **r,Uint d);
+
+#ifdef __cplusplus
+}
+#endif

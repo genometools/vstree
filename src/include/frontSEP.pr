@@ -1,0 +1,28 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint extendedrightSEP(Greedyalignreservoir *gar,
+                      Sint maxdist,
+                      Uchar *useq,
+                      Sint ulen,
+                      Uchar *vseq,
+                      Sint vlen);
+
+Sint extendedleftSEP(Greedyalignreservoir *gar,
+                     Sint maxdist,
+                     Uchar *useq,
+                     Sint ulen,
+                     Uchar *vseq,
+                     Sint vlen,
+                     Uint reachlength);
+
+Sint unitedistfrontSEPgeneric(BOOL withmaxdist,
+                              Uint maxdist,
+                              Uchar *useq,
+                              Sint ulen,
+                              Uchar *vseq,
+                              Sint vlen);
+
+#ifdef __cplusplus
+}
+#endif

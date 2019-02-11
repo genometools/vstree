@@ -1,0 +1,11 @@
+$ ramaco -l 6 -rare 5 ATS ATs-01 ATs-02 ATs-03
+# match ATs-01 against index ATS
+# redblacktreespacepeak = 0.00 MB
+# match ATs-02 against index ATS
+# redblacktreespacepeak = 0.00 MB
+# match ATs-03 against index ATS
+# redblacktreespacepeak = 0.00 MB
+6 250 338 583 292
+6 62 453 74 461
+6 62 453 74 2
+# number of rare MEMs is 3

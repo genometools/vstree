@@ -1,0 +1,7 @@
+One of my student has recently finished a Studienprojekt, where he implemented
+a tool to manipulate and study clusters of matches. This is essentially a GUI
+where you can choose different strategies for clustering matches: clustering 
+based on positions of the matches (cf. the paper by Salzberg and Volfovsky) or 
+on sequence content (i.e.\ the matches have global alignment with few errros).
+Clusters can be selected, and the matches in a cluster are 
+isplayed as a match graph like in genalyzer.

@@ -1,0 +1,29 @@
+$ uniquesub -output subjectpos querypos sequence indexname-bothstrands.rcm queryfile.fna
+# reading file "queryfile.fna"
+unit 0 (sequence 1): minimum unique length is 3
+0 -15 25 tca
+0 +34 31 gac
+0 -44 37 tcg
+0 -13 61 ttt
+0 -13 62 ttt
+0 -13 63 ttt
+0 -13 74 ttt
+0 -13 75 ttt
+0 +54 82 aaa
+0 -13 96 ttt
+0 -13 110 ttt
+0 -13 111 ttt
+0 -13 112 ttt
+0 -13 113 ttt
+0 -13 114 ttt
+unit 1 (sequence 2): minimum unique length is 3
+0 -13 4 ttt
+0 -13 5 ttt
+0 +54 12 aaa
+0 -13 26 ttt
+0 -13 40 ttt
+0 -13 41 ttt
+0 -13 42 ttt
+0 -13 43 ttt
+0 -13 44 ttt
+# overall space peak: main=0.06 MB, secondary=0.00 MB

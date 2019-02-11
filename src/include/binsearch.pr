@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ Sint *binsearch(Sint key, Sint *left, Sint *right);
+
+/*@null@*/ char **binsearchstring(char *key, char **left, char **right);
+
+/*@null@*/ PairUint *binsearchPairUint(Uint key,PairUint *left,PairUint *right);
+
+#ifdef __cplusplus
+}
+#endif

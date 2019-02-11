@@ -1,0 +1,4 @@
+VMAT=${COMPILEDIR}vmatfind4.o ${COMPILEDIR}vmatcount4.o ${COMPILEDIR}vmatfind12.o ${COMPILEDIR}vmatcount12.o ${COMPILEDIR}vmatfind21.o ${COMPILEDIR}vmatcount21.o ${COMPILEDIR}vmatfind31.o ${COMPILEDIR}vmatcount31.o ${COMPILEDIR}vmatfind42.o ${COMPILEDIR}vmatcount42.o ${COMPILEDIR}vmatfind53.o ${COMPILEDIR}vmatcount53.o ${COMPILEDIR}vmatfind66.o ${COMPILEDIR}vmatcount66.o 
+
+VMATDBG=${COMPILEDIR}vmatfind4.dbg.o ${COMPILEDIR}vmatcount4.dbg.o ${COMPILEDIR}vmatfind12.dbg.o ${COMPILEDIR}vmatcount12.dbg.o ${COMPILEDIR}vmatfind21.dbg.o ${COMPILEDIR}vmatcount21.dbg.o ${COMPILEDIR}vmatfind31.dbg.o ${COMPILEDIR}vmatcount31.dbg.o ${COMPILEDIR}vmatfind42.dbg.o ${COMPILEDIR}vmatcount42.dbg.o ${COMPILEDIR}vmatfind53.dbg.o ${COMPILEDIR}vmatcount53.dbg.o ${COMPILEDIR}vmatfind66.dbg.o ${COMPILEDIR}vmatcount66.dbg.o 
+

@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint esaapm(Sint (*processapmstartpos)(Uint,Uint,void *),
+            void *apmoutinfo,
+            Virtualtree *virtualtree,
+            DPbitvector4 *Eqs4,
+            Uint plen,
+            Uint threshold);
+
+#ifdef __cplusplus
+}
+#endif

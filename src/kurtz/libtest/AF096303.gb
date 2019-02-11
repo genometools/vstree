@@ -1,0 +1,153 @@
+LOCUS       AF096303                5744 bp    DNA     linear   PRI 26-JAN-1999
+DEFINITION  Homo sapiens putative sterol reductase SR-1 (TM7SF2) gene, complete
+            cds.
+ACCESSION   AF096303
+VERSION     AF096303.1  GI:4191402
+KEYWORDS    .
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 5744)
+  AUTHORS   Holmer,L., Pezhman,A. and Worman,H.J.
+  TITLE     The human lamin B receptor/sterol reductase multigene family
+  JOURNAL   Genomics 54 (3), 469-476 (1998)
+  MEDLINE   99097347
+   PUBMED   9878250
+REFERENCE   2  (bases 1 to 5744)
+  AUTHORS   Holmer,L., Pezhman,A. and Worman,H.J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (01-OCT-1998) Medicine and Anatomy and Cell Biology,
+            Columbia University, College of Physicians and Surgeons, 630 W.
+            168th St., 10th Floor, Rm. 508, New York, NY 10032, USA
+FEATURES             Location/Qualifiers
+     source          1..5744
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /chromosome="11"
+                     /map="11q13"
+     gene            <1223..>5278
+                     /gene="TM7SF2"
+     mRNA            join(<1223..1274,1719..1915,2015..2069,2423..2617,
+                     2694..2797,3938..4057,4137..4305,4538..4618,4700..4822,
+                     5118..>5278)
+                     /gene="TM7SF2"
+                     /product="putative sterol reductase SR-1"
+     CDS             join(1223..1274,1719..1915,2015..2069,2423..2617,
+                     2694..2797,3938..4057,4137..4305,4538..4618,4700..4822,
+                     5118..5278)
+                     /gene="TM7SF2"
+                     /note="similar to the product encoded by GenBank Accession
+                     Number AF048704; LBR paralog"
+                     /codon_start=1
+                     /product="putative sterol reductase SR-1"
+                     /protein_id="AAD09769.1"
+                     /db_xref="GI:4191403"
+                     /translation="MAPTQGPRAPLEFGGPLGAAALLLLLPATMFHLLLAARSGPARL
+                     LGPPASLPGLEVLWSPRALLLWLAWLGLQAALYLLPARKVAEGQELKDKSRLRYPING
+                     FQALVLTALLVGLGMSAGLPLGALPEMLLPLAFVATLTAFIFSLFLYMKAQVAPVSAL
+                     APGGNSGNPIYDFFLGRELNPRICFFDFKYFCELRPGLIGWVLINLALLMKEAELRGS
+                     PSLAMWLVNGFQLLYVGDALWHEEAVLTTMDITHDGFGFMLAFGDMAWVPFTYSLQAQ
+                     FLLHHPQPLGLPMASVICLINAIGYYIFRGANSQKNTFRKNPSDPRVAGLETISTATG
+                     RKLLVSGWWGMVRHPNYLGDLIMALAWSLPCGVSHLLPYFYLLYFTALLVHREARDER
+                     QCLQKYGLAWQEYCRRVPYRIMPYIY"
+BASE COUNT     1072 a   1656 c   1792 g   1224 t
+ORIGIN      
+        1 gcggccgctc tagaactagt ggatcccggg gagggttggc tggagcagcc cacacctgcc
+       61 caaggagccc caggactctg tgaccaactg ggggtgaccc tgaccctcca gtctctgtct
+      121 ctagggctgt ttttaggtag tacagagtgc cctgcctcca aatcccacag cccttgtccc
+      181 agtcttggtg tatgcccagc ctgagtctgg gtgctgacct gggattactg tttgcccttg
+      241 tccttatccc cacagtagtc ttgggtcctc cccagggttt tctgttcacc catggtccct
+      301 gccccgcctc actccaagct cagggatgcc tctgattgct gggccctacc tgtcccctgc
+      361 cctccagatg acggcgctaa tattgtatcc ctcccctctt atctggcccc ggagactttc
+      421 tgcctcatcc cagctacttc catcgtatgt ctcccgggcc cctgcttgga acttgggtgt
+      481 cccccacaca cacctgcagt ccccaagctg catccctgtg tccctgcctg caggtgtcgg
+      541 tgctgaccgg catcatcaag atcagcctga agacgctgct ggagtgtgtg cggctgcgca
+      601 cctttgggcg cttcgggctg cagcaggtgc aagtggactg ccactttctg cagctctacc
+      661 tgtggcgttt tgtggccgac gaagaactcg tgcacttgct gctggacgaa gtggtggcct
+      721 ctgctgccct gcgctgccca gaccctgtgc ccatggagcc cagtgtggtt gaggtcatct
+      781 gcgagcgcgg ctaggcgcag ccgctgccat gcaccggtct gtccctgcac cccatggcac
+      841 ccaggatctg gtctcggtgg tccttccccg caggcaggtg tcaggaccgg cctaataaac
+      901 atgtgtggcc tcctcctctc gcttgctggg cgggcctttc cgggggcggg gttttgaagc
+      961 tgaggcttct gaggcgcccg cgtcgggtcc gcccccgagc gccgattggc tggtgtgctg
+     1021 ggcccagcat gggcaggggg cggttccact taaaaaccct gggacgagag cggtccttgt
+     1081 ctgcgttccg tgtccaggca ggtgcaggcg ccgcggggcc ggatcctccg cgcggccgag
+     1141 tccatctcct gggaaatggg gcggacagtg tttccttgac tgactattgt gagcgccctc
+     1201 tctctccggc ggagcggaga ccatggcccc cactcagggc ccccgggccc cgctggaatt
+     1261 cggagggccc ctgggtaatg gggcagagag atggacctgg ggcaaaggct aagcgaagga
+     1321 gagctggagc gggtgaacta agagcggggg cgagatctga ggatggaagg ctttgggggt
+     1381 gtcggaggca gagggacccg ggggtttgca gcgaagggtg tctggagagg gagagctgag
+     1441 gaggggccgg ttctgggggc tgcagaacgg ggatttatgg tgtcgactgg gagcaggagg
+     1501 agggtcttcg aggggcctgg gggcggggga ctaagatgga cgcctgggaa gggaactggg
+     1561 aggcagcggg gtgcctgggg gccgagggct gaggacgggg tgcggaggcg cactctggga
+     1621 atgccgagag ggtcccgcag agacgtcagg gcgccgtgcg ggccggcggg gagctggggg
+     1681 gctaggggcg gacgccgacg tgatggccct tcccgcaggc gccgcggctc tgctactgct
+     1741 gctgcccgcc accatgttcc acctgctcct ggcggcccgt tcgggccccg cgcgcctgct
+     1801 gggtccaccc gcgtccctgc ccgggctgga ggtgctgtgg agcccacggg cgctgctgct
+     1861 gtggctcgcc tggctcggcc tgcaggcggc gctctaccta ctgccggcgc gcaaggtgcg
+     1921 ggccccgctc gcggacgctc gggggaggga agcgaatggg ctcggcgagg gaaaggacgc
+     1981 cccgggcctt atcagagccc ccttggaccc gcaggtggcc gaagggcagg aattgaagga
+     2041 caagagtcgc ctgcgctatc ctattaacgg tgcctaggga cgggccctcg cgctggagtt
+     2101 aagcggccgg gggtggagct ccaggcctag cggggaggtc cacggagatt ggcccccacc
+     2161 ccaggctcct ttgtgtgcct ctgttacgcc caggacagac gccgggggct ctccctatgc
+     2221 ccctcgtccc cacagcctta ccccatttac tgctactccg tgcaccacag cagtggctgg
+     2281 ggtgatcctc tgaaagccag ggtggcagcc taatgcttgg ggcagggtct gtggcccccc
+     2341 tgagttttgg gctctgcgtg tgtttgcggg gtggggatgt ggaggcgcgc agccccaggg
+     2401 ctcactgtgc gctgtggttc aggcttccag gccctggtgc tgacagccct gttggtgggg
+     2461 ctggggatgt cagcggggct gcctctgggg gcgctcccgg aaatgctcct gcccttggcg
+     2521 tttgtcgcca ccctcaccgc tttcatcttc agcctctttc tctacatgaa ggcgcaggta
+     2581 gccccagttt cggccctggc acctgggggg aactcaggtg agaggggtcc tggggtggag
+     2641 acggaggcag attggggcgt ctgcctgtac attcactctc caatattctc caggcaatcc
+     2701 gatttacgac ttttttctgg gacgagagct caaccctcgt atctgtttct tcgacttcaa
+     2761 atatttctgt gaactgcgac ccggcctcat cggctgggta tgttgggctt gactgagctg
+     2821 gcctcaggcc agggggaggg ttagggtggg tgagcagcgc ttgggcaggg cagggccaaa
+     2881 actgtgcaga tgcgagtcat taaccattca tattccacaa acatttgttc aatccacctg
+     2941 tgcctaggta ctgggagaca aaaataaagt tagaggcaaa aaagcatctt tgctgcagag
+     3001 agcctacatt ctggtgggaa agacagaaaa aaataagcaa aatatataca gcatgtcagg
+     3061 gatgacgtta ggagagcacg tgcaattctc aacagcagtc aagcacagaa tctattccca
+     3121 gggagtgacc gcatgctcgc ttgatggtca aggcagtgca gaacctgaaa ttgatcgctg
+     3181 gggttagcaa cctacccgtc actagtggcc ttgacaacat tccaactgtg acccctgggt
+     3241 ccgtggccaa gattacccaa agaaactctt gggcaaggcc cctcctgtcg ccctggaaat
+     3301 tatcttaccc gaggcaggag tggccaggtg cccaccctgg aactgggtcc ctggcctcga
+     3361 tgacaggcac attctgagga cacttcctca tctttgagat gtgataaaat taaagctttc
+     3421 tcctaagatt actgggaaga ttagaagagg taatctttat gacagaacag agctcagtgt
+     3481 caaatgcagg cgcccagcac aggcttgctc cggctagcca ccactgagca cgtaccactt
+     3541 ggccagggga cgctatggga gggcttcaaa cacgatgatg ccattgagtc atgacaggcc
+     3601 catgattatc cccatttttt cacacagggg tggaggaaag tagtctgtgg agagggcaag
+     3661 caaccttccc aagtgatgat gctgagatct gaaaacaggc tctgtttgag cactgaagcc
+     3721 tcacccgaaa gctatacgga cagacacggc aagaagaaag caggctgcgg gcacctccct
+     3781 gtgccacagt ctcccgtgcc tggggtctag ggcctggatc cacttaagag ctggagctgc
+     3841 taactgacag cttgagaaaa ggccaagaag gctggccact gctcctgccc aaggctgcca
+     3901 cttctgtgga gactactgcc ttgttccctc tccccaggtc ctcatcaacc tggccctgtt
+     3961 gatgaaggag gcagagcttc gaggcagtcc ctcactggcc atgtggctgg tcaatggctt
+     4021 ccagttgctc tacgtgggtg atgccctctg gcacgaggtg aggctggact ggacgagggt
+     4081 gggtgtctga gggccgcata gggactaagc cagtgtgtct ggttttgtcc ctgcaggagg
+     4141 ccgtcctcac caccatggat atcacacatg acgggtttgg cttcatgctg gcgtttgggg
+     4201 acatggcctg ggtgcccttc acctacagcc tgcaggccca gttcctgctg caccacccgc
+     4261 agcccctggg gttgcccatg gcctctgtca tctgcctcat caatggtcag tcaggaaggg
+     4321 gcagcaggct gggcccatct tccccctatc cctttgattc atgctctgtt tacacgcacc
+     4381 accacatagg tgctaacccc agggttctct aaagccaggg cagggtcctg ggggtccagg
+     4441 cagagtgtgg gctgcagaca agttgggcag atgttcgggg tcaggcagga ggctgccaac
+     4501 ccttgacctt gaccaccggt tcacactctc tcaccagcta ttggttacta catcttccgt
+     4561 ggggcgaatt cccagaaaaa cactttccga aagaatcctt ctgaccccag agtggctggt
+     4621 gagctggttc tctagggcca tgggtgaggt ggggcagctg ggcttcctgg gaactctcca
+     4681 ccctgctgtc tttccccagg gcttgagacc atctctacag ccacagggcg gaaactgctg
+     4741 gtgtctgggt ggtggggtat ggtccgccat cccaactatc ttggagacct catcatggct
+     4801 ctggcttggt ccttgccctg cggtgagtgg cccatgtgga tatgggtagg gacatgtgag
+     4861 gggaagaggt ggctcagcga ccacaggatg cctactttgg gtatgcacca gtgagagtag
+     4921 tcagagagct gggggtggac ccagtgtgtg gctggggcac acctctgtgc caacctagta
+     4981 ccgtgtgctt tgctgcagac cctggcgctt ttgctgctga gccccgatgc ccacatgagc
+     5041 catgaggtgt ggaaacgttt gtaaactgcg gggtggaggg gccggcaggg tggtcacaga
+     5101 gcctcccttc tctacagggg tgtcacacct gctgccctac ttctacctcc tctacttcac
+     5161 cgcgctgctg gtgcaccgtg aggcccggga tgagcggcag tgcctgcaga agtacggcct
+     5221 ggcctggcag gagtactgcc ggcgtgtgcc ttaccgcatc atgccctaca tctactgagg
+     5281 atgaacaacc tcagagaaga ggtggtttag agcaaggaaa aaaatgaaac cagtgaccaa
+     5341 aatcggagat gctcttcctc ctttggataa acactgggaa cccttggtgc acttctctcc
+     5401 cctaagactg gctgggtcag cactgatcag ggaaactgaa catggcttgt gggcccagaa
+     5461 tctggggtct ggtgggacaa taactatccc tcaaaacaaa caacagggct gaacattcca
+     5521 ctttattaat gaccaaggta accccttcac taggaactcc tcaataaaat tctttggggc
+     5581 agttgcacgg gctccccaaa accctccact ccccattaag gcggcctctc cgctacaaca
+     5641 tggctttgtt aaccttcccc tctaaaacgg ttttaaggcc cccttctttg tcccaaaaaa
+     5701 tgcctttccg gccgtaaaaa tccctctacc gcttttccgg ccgc
+//
+

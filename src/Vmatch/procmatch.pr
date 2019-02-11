@@ -1,0 +1,24 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint arrangevmatchinput(Matchcallinfo *matchcallinfo,
+                        Procmultiseq *procmultiseq,
+                        Virtualtree *virtualtree,
+                        Virtualtree *queryvirtualtree,
+                        Virtualtree *sixframeofqueryvirtualtree,
+                        Virtualtree *dnavirtualtree,
+                        Virtualtree **queryvirtualtreeformatching,
+                        BOOL *didreadqueryfromindex);
+
+Sint procmatch(Matchcallinfo *matchcallinfo,
+               Virtualtree *virtualtree,
+               Virtualtree *queryvirtualtreeformatching,
+               Procmultiseq *procmultiseq,
+               BOOL didreadqueryfromindex,
+               const char *functionname,
+               void *processinfo,
+               Showmatchfuntype showmatchfun);
+
+#ifdef __cplusplus
+}
+#endif

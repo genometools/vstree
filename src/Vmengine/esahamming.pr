@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint esahamming(Sint (*processapmstartpos)(Uint,Uint,void *),
+                void *apmoutinfo,
+                Virtualtree *virtualtree,
+                Uchar *pattern,
+                Uint plen,
+                Uint threshold);
+
+#ifdef __cplusplus
+}
+#endif

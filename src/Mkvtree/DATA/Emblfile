@@ -1,0 +1,64 @@
+ID   AA03518    standard; DNA; FUN; 237 BP.
+XX
+AC   U03518;
+XX
+SV   U03518.1
+XX
+NI   g424136
+XX
+DT   24-NOV-1993 (Rel. 37, Created)
+DT   18-FEB-1995 (Rel. 42, Last updated, Version 2)
+XX
+DE   Aspergillus awamori internal transcribed spacer 1 (ITS1) and 18S
+DE   rRNA and 5.8S rRNA genes, partial sequence.
+XX
+KW   .
+XX
+OS   Aspergillus awamorii
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-237
+RX   MEDLINE; 94303342.
+RA   Borsuk P., Gniadkowski M., Kucharski R., Bisko M., Kanabus M.,
+RA   Stepien P.P., Bartnik E.;
+RT   "Evolutionary conservation of the transcribed spacer sequences of the
+RT   rDNA repeat unit in three species of the genus Aspergillus";
+RL   Acta Biochim. Pol. 41:73-77(1994).
+XX
+RN   [2]
+RP   1-237
+RA   Borsuk P.;
+RT   ;
+RL   Submitted (17-NOV-1993) to the EMBL/GenBank/DDBJ databases.
+RL   Borsuk P., University of Warsaw, Department of Genetics, Al.Ujazdowskie
+RL   4, Warsaw, Pl-00478, Poland
+XX
+CC   NCBI gi: 424136
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..237
+FT                   /organism="Aspergillus awamorii"
+FT                   /db_xref="taxon:5055"
+FT                   /clone="clone pAaw1"
+FT                   /clone_lib="A.awamori Sau3AI partial digest genomic library
+FT                   in pUC18"
+FT                   /strain="wild type"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="mycelia, young"
+FT   rRNA            <1..20
+FT                   /product="18S ribosomal RNA"
+FT   misc_RNA        21..205
+FT                   /standard_name="Internal transcribed spacer 1 (ITS1)"
+FT   rRNA            206..>237
+FT                   /product="5.8S ribosomal RNA"
+XX
+SQ   Sequence 237 BP; 41 A; 77 C; 67 G; 52 T; 0 other;
+     aacctgcgga aggatcatta ccgagtgcgg gtcctttggg cccaacctcc catccgtgtc        60
+     tattgtaccc tgttgcttcg gcgggcccgc cgcttgtcgg ccgccggggg ggcgcctctg       120
+     ccccccgggc ccgtgcccgc cggagacccc aacacgaaca ctgtctgaaa gcgtgcagtc       180
+     tgagttgatt gaatgcaatc agttaaaact ttcaacaatg gatctcttgg ttccggc          237
+//
+

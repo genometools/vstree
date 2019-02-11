@@ -1,0 +1,23 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint checksortmode(const char *arg);
+
+Uint undefsortmode(void);
+
+char *concatsortmodes(void);
+
+char *concatsorthelp(void);
+
+void sortallmatches(StoreMatch *storematchtab,
+                    Uint numofmatches,
+                    Uint sortmode);
+
+void groupmatchesbyseqnum(Uint *sortedpermutation,
+                          StoreMatch *storematchtab,
+                          Uint numofmatches,
+                          Uint numofsequences1);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,62 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL checkifvstreetabfileexists(const char *indexname,const char *suffix);
+
+Sint removeexistingindexfile(Showverbose showverbose,char *filename);
+
+Sint removeexistingindex(Showverbose showverbose,char *indexname);
+
+Sint showvirtualtreestatus(Virtualtree *virtualtree,
+                           const char *indexname,
+                           Showverbose showverbose);
+
+Sint showvirtualtreestatusonstdout(Virtualtree *virtualtree,
+                                   char *indexname);
+
+Sint pumpthroughcache(Virtualtree *virtualtree,Uint demand);
+
+Sint mapskptab(Virtualtree *virtualtree,const char *indexname);
+
+void makeemptyvirtualtree(Virtualtree *virtualtree);
+
+Sint mapvirtualtreeifyoucan(Virtualtree *virtualtree,
+                            const char *indexname,
+                            Uint demand);
+
+Sint mapallofvirtualtreewhatsthere(Virtualtree *virtualtree,
+                                   const char *indexname);
+
+/*@null@*/ Uchar *getoriginal(char *indexname);
+
+Sint freevirtualtreemain(Virtualtree *virtualtree);
+
+Sint freevirtualtree(Virtualtree *virtualtree);
+
+void integercode2string(void (*processstring)(char *),
+                        Uint code,
+                        Uint numofchars,
+                        Uint prefixlen,
+                        Uchar *characters);
+
+Sint virtual2tex(Uint which,BOOL bckhz,
+                 BOOL showstring,Virtualtree *virtualtree);
+
+Sint verifysuffixofindexname(const char *indexname,const char *suffix);
+
+Sint prepareforsixframeselfmatch(Virtualtree *dnavirtualtree,
+                                 const char *indexname,
+                                 BOOL maporig,
+                                 Showverbose showverbose);
+
+Sint checkshowstringmultiple(Uint showstring);
+
+void comparePairUinttab(char *tag,PairUint *tab1,PairUint *tab2,Uint len);
+
+void comparebwttab(Virtualtree *virtualtree1,Virtualtree *virtualtree2);
+
+void compareVirtualtree(Virtualtree *virtualtree1,Virtualtree *virtualtree2);
+
+#ifdef __cplusplus
+}
+#endif

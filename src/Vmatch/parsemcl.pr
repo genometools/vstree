@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsematchcluster(BOOL fromvmatch,
+                       Matchclustercallinfo *matchclustercallinfo,
+                       const char * const*argv,
+                       Argctype argc);
+
+#ifdef __cplusplus
+}
+#endif

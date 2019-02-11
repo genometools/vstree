@@ -1,0 +1,12 @@
+$ vmatch -i -exdrop 5 -l 4000 -identity 85 EcoliO157H7
+# args=-i -exdrop 5 -l 4000 -identity 85 EcoliO157H7
+# all 223
+# 4113 3
+# 4289 29
+# 4884 36
+# 5446 39
+# 5480 19
+# 6147 16
+# 7494 21
+# 7753 46
+# 83654 14

@@ -1,0 +1,20 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint vm_recommendedprefixlength(Uint numofchars,
+                             Uint totallength,
+                             Uint sizeofbckentry);
+
+Uint vm_whatisthemaximalprefixlength(Uint numofchars,
+                                  Uint totallength,
+                                  Uint sizeofbckentry,
+                                  Uint prefixlenbits);
+
+Sint vm_checkprefixlength(Uint maxprefixlen,Uint prefixlength);
+
+void vm_showmaximalprefixlength(Showverbose showverbose,Uint maxprefixlen,
+                             Uint recommended);
+
+#ifdef __cplusplus
+}
+#endif

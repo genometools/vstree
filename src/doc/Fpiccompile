@@ -1,0 +1,11 @@
+This example shows how to compile a shared object from more than
+one C-file:
+
+mycode.o:
+        gcc ${CFLAGS} -fPIC -c mycode.c
+
+selstartend.o:
+        gcc ${CFLAGS} -fPIC -c selstartend.c
+
+selstartend.so:selstartend.o mycode.o
+        ld -G -o selstartend.so selstartend.o mycode.o

@@ -1,0 +1,373 @@
+
+EVALXDROPEDIT
+{
+  Xdropscore tmpscore, 
+             *nextcurrentscore,
+             *nextpreviousscore,
+             dback = -(xdropbelowscore+HALFMATCHSCORE)/
+                      (MATCHSCORE-MISMATCHSCORE),
+             *Ttabptr,
+             dmulti = 0,
+             bestscore,
+             dbackvalue,
+             Ttabspace[STATICDISTSPACE];
+  Sint i, j, k, d = (Sint) 1, lower = 0, upper = 0, minisfinite, maxisfinite,
+       maxisN, minisM, Ttabsize, bestivalue, bestjvalue, integermax, integermin;
+  Uchar a, b;
+  Generation generation1, generation2, *previousgen, *currentgen;
+  //Sint totalwidth = 0;
+
+  integermax = MAX(ulen,vlen);
+  integermin = -integermax;
+  Ttabptr = &Ttabspace[0];
+  Ttabsize = (Sint) STATICDISTSPACE;
+  generation1.scores = &generation1.scorespace[0];
+  generation2.scores = &generation2.scorespace[0];
+  generation1.allocated = generation2.allocated = (Sint) STATICSCORESPACE;
+  
+#define CHECKIDENTITY
+#ifdef CHECKIDENTITY
+  for(i=0; i<MIN(ulen,vlen); i++)
+  {
+    COMPARESYMBOLSSEP(i,i);
+  }
+#else
+  i=0;
+#endif
+  currentgen = &generation1;
+  currentgen->smallestk = 0;
+  nextcurrentscore = currentgen->scores;
+  NEWRVALUE(i);
+  bestscore = i+i;
+  bestivalue = bestjvalue = i;
+  Ttabptr[0] = bestscore - xdropbelowscore;
+  while(True)
+  {
+    DEBUG2(3,"lower=%ld,upper=%ld\n",(Showsint) lower,(Showsint) upper);
+    dmulti += (MATCHSCORE - MISMATCHSCORE);
+    if(currentgen == &generation1)
+    {
+      currentgen = &generation2;
+      previousgen = &generation1;
+    } else
+    {
+      currentgen = &generation1;
+      previousgen = &generation2;
+    }
+    currentgen->smallestk = lower-1;
+    while(upper - lower + 3 >= currentgen->allocated)
+    {
+      if(currentgen->allocated == (Sint) STATICSCORESPACE)
+      {
+        Xdropscore *ptr = currentgen->scores;
+        ALLOCASSIGNSPACE(currentgen->scores,
+                         NULL,Xdropscore,
+                         (Uint) (currentgen->allocated+STATICSCORESPACE));
+        memcpy(currentgen->scores,ptr,
+               (size_t) (sizeof(Xdropscore) * currentgen->allocated));
+      } else
+      {
+        ALLOCASSIGNSPACE(currentgen->scores,currentgen->scores,Xdropscore,
+                         (Uint) (currentgen->allocated+STATICSCORESPACE));
+      }
+      currentgen->allocated += STATICSCORESPACE;
+    }
+    nextcurrentscore = currentgen->scores;
+    nextpreviousscore 
+      = previousgen->scores + lower - 1 - previousgen->smallestk;
+    minisfinite = minisM = integermax;
+    maxisfinite = maxisN = integermin;
+    dbackvalue = TTAB(dback);
+    for(k=lower-1; k<=upper+1; k++)
+    {
+      //totalwidth += (upper - lower + 3);
+      DEBUG1(3,"k=%ld\n",(Showsint) k);
+      i = MINUSINFINITYSCORE;
+      if(k < upper)     // INSERTIONEOP
+      {
+        tmpscore = *(nextpreviousscore+1);
+        if(tmpscore != MINUSINFINITYSCORE && i < tmpscore)
+        {
+          i = tmpscore;
+        }
+      }
+      if(lower <= k && k <= upper)   // MISMATCHEOP
+      {
+        tmpscore = *nextpreviousscore;
+        if(tmpscore != MINUSINFINITYSCORE && i <= tmpscore)
+        {
+          i = tmpscore + 1;
+        }
+      }
+      if(lower < k)        // DELETIONEOP
+      {
+        tmpscore = *(nextpreviousscore-1);
+        if(tmpscore != MINUSINFINITYSCORE && i <= tmpscore)
+        {
+          i = tmpscore + 1;
+        } 
+      }
+      nextpreviousscore++;
+      if(i == MINUSINFINITYSCORE)
+      {
+        NEWRVALUEMINUSINFINITYSCORE;
+      } else
+      {
+        j = i - k;
+        if(SPRIME(i+j) < dbackvalue)
+        {
+          NEWRVALUEMINUSINFINITYSCORE;
+        } else
+        {
+          while(True)
+          {
+            if(i >= ulen)
+            {
+              break;
+            }
+            if(j >= vlen)
+            {
+              break;
+            }
+            COMPARESYMBOLSSEP(i,j);
+            i++;
+            j++;
+          }
+          if(j == vlen)
+          {
+            maxisN = k;
+	  }
+	  if(i == ulen && minisM > k)
+          {
+            minisM = k;
+          }
+          if(minisfinite > k)
+          {
+            minisfinite = k;
+          }
+          maxisfinite = k;
+          NEWRVALUE(i);
+          tmpscore = SPRIME(i+j);
+          if(bestscore < tmpscore)
+          {
+            bestscore = tmpscore;
+            bestivalue = i;
+            bestjvalue = j;
+          }
+        }
+      }
+    }
+    if(minisfinite > maxisN + 2)
+    {
+      lower = minisfinite;
+    } else
+    {
+      lower = maxisN + 2;
+    }
+    if(maxisfinite < minisM - 2)
+    {
+      upper = maxisfinite;
+    } else
+    {
+      upper = minisM - 2;
+    }
+    if(lower > upper + 2)
+    {
+      break;
+    }
+    if(d >= Ttabsize)
+    {
+      if(Ttabsize == (Sint) STATICDISTSPACE)
+      {
+        ALLOCASSIGNSPACE(Ttabptr,NULL,Xdropscore,
+                         (Uint) (Ttabsize + STATICDISTSPACE));
+        memcpy(Ttabptr,&Ttabspace[0],
+               (size_t) (sizeof(Xdropscore) * STATICDISTSPACE));
+      } else
+      {
+        ALLOCASSIGNSPACE(Ttabptr,Ttabptr,Xdropscore,
+                         (Uint) (Ttabsize + STATICDISTSPACE));
+      }
+      Ttabsize += STATICDISTSPACE;
+    }
+    Ttabptr[d++] = bestscore - xdropbelowscore;
+    dback++;
+  }
+  FREEXDROPSPACE;
+  bestmatch->score = bestscore;
+  bestmatch->ivalue = (Uint) bestivalue;
+  bestmatch->jvalue = (Uint) bestjvalue;
+  //printf("totalwidth= %ld\n",(Showsint) totalwidth);
+}
+
+void EVALXDROPTABLE(Galignbest *galignbest,
+                    ArrayAlignmentGeneration *generations,
+                    ArrayXdropscore *scoretab,
+                    Uchar *useq,Sint ulen,
+                    Uchar *vseq,Sint vlen,
+                    Xdropscore xdropbelowscore)
+{
+  Xdropscore tmpscore, 
+             dback = -(xdropbelowscore+HALFMATCHSCORE)/
+                      (MATCHSCORE-MISMATCHSCORE),
+             dmulti = 0,
+             dbackvalue;
+  Sint i, j, k, lower = 0, upper = 0, minisfinite, maxisfinite,
+       maxisN, minisM, nextpreviousscore, integermax, integermin;
+  Uchar a, b;
+  AlignmentGeneration *currentgen;
+#ifdef DEBUG
+  Sint totalwidth = (Sint) 1;
+#endif
+
+  integermax = MAX(ulen,vlen);
+  integermin = -integermax;
+  GETNEXTFREEINARRAY(currentgen,generations,AlignmentGeneration,256);
+  currentgen->smallestk = currentgen->largestk = 0;
+  currentgen->scoreoffset = 0;
+  for(i=0; i<MIN(ulen,vlen); i++)
+  {
+    COMPARESYMBOLSSEP(i,i);
+  }
+  STORENEWRVALUE(i);
+  galignbest->score = i+i;
+  galignbest->kbest = galignbest->dbest = 0;
+  galignbest->ivalue = galignbest->jvalue = i;
+  currentgen->ttabvalue = galignbest->score - xdropbelowscore;
+  while(True)
+  {
+    DEBUG2(3,"lower=%ld,upper=%ld\n",(Showsint) lower,(Showsint) upper);
+    dmulti += (MATCHSCORE - MISMATCHSCORE);
+    GETNEXTFREEINARRAY(currentgen,generations,AlignmentGeneration,256);
+    currentgen->smallestk = lower-1;
+    currentgen->largestk = upper+1;
+    currentgen->scoreoffset = scoretab->nextfreeXdropscore;
+    nextpreviousscore 
+      = (Sint) ((currentgen-1)->scoreoffset + 
+                lower - 1 - (currentgen-1)->smallestk);
+    minisfinite = minisM = integermax;
+    maxisfinite = maxisN = integermin;
+    if(dback < 0)
+    {
+      dbackvalue = -xdropbelowscore;
+    } else
+    {
+      dbackvalue = generations->spaceAlignmentGeneration[dback].ttabvalue;
+    }
+#ifdef DEBUG
+    totalwidth += (upper - lower + 3);
+#endif
+    for(k=lower-1; k<=upper+1; k++)
+    {
+      DEBUG1(3,"k=%ld\n",(Showsint) k);
+      DEBUG1(3,"-oo=%ld\n",(Showsint) MINUSINFINITYSCORE);
+      i = MINUSINFINITYSCORE;
+      if(lower < k)     // DELETIONEOP
+      {
+        tmpscore = scoretab->spaceXdropscore[nextpreviousscore-1];
+        if(tmpscore != MINUSINFINITYSCORE)
+        {
+          i = tmpscore + 1;
+        } 
+      }
+      if(lower <= k && k <= upper)    // MISMATCHEOP
+      {
+        tmpscore = scoretab->spaceXdropscore[nextpreviousscore];
+        if(tmpscore != MINUSINFINITYSCORE && i <= tmpscore)
+        {
+          i = tmpscore + 1;
+        }
+      }
+      if(k < upper)   // INSERTIONEOP
+      {
+        tmpscore = scoretab->spaceXdropscore[nextpreviousscore+1];
+        if(i < tmpscore)
+        {
+          i = tmpscore;
+        }
+      }
+      nextpreviousscore++;
+      if(i == MINUSINFINITYSCORE)
+      {
+        STORENEWRVALUE(MINUSINFINITYSCORE);
+      } else
+      {
+        j = i - k;
+        if(SPRIME(i+j) < dbackvalue)
+        {
+          STORENEWRVALUE(MINUSINFINITYSCORE);
+        } else
+        {
+          while(True)
+          {
+            if(i >= ulen)
+            {
+              break;
+            }
+            if(j >= vlen)
+            {
+              break;
+            }
+            COMPARESYMBOLSSEP(i,j);
+            i++;
+            j++;
+          }
+          if(j == vlen)
+          {
+            maxisN = k;
+	  }
+	  if(i == ulen && minisM > k)
+          {
+            minisM = k;
+          }
+          if(minisfinite > k)
+          {
+            minisfinite = k;
+          }
+          maxisfinite = k;
+          STORENEWRVALUE(i);
+          tmpscore = SPRIME(i+j);
+          if(galignbest->score < tmpscore)
+          {
+            galignbest->score = tmpscore;
+            galignbest->kbest = k;
+            galignbest->dbest 
+              = (Sint) (generations->nextfreeAlignmentGeneration -
+                        UintConst(1));
+            galignbest->ivalue = i;
+            galignbest->jvalue = j;
+          }
+        }
+      }
+    }
+    if(minisfinite > maxisN + 2)
+    {
+      lower = minisfinite;
+    } else
+    {
+      lower = maxisN + 2;
+    }
+    if(maxisfinite < minisM - 2)
+    {
+      upper = maxisfinite;
+    } else
+    {
+      upper = minisM - 2;
+    }
+    if(lower > upper + 2)
+    {
+      break;
+    }
+    currentgen->ttabvalue = galignbest->score - xdropbelowscore;
+    dback++;
+  }
+#ifdef DEBUG
+  if(totalwidth != (Sint) scoretab->nextfreeXdropscore)
+  {
+    fprintf(stderr,"totalwidth=%ld != %lu=scoretab->nextfreeXdropscore\n",
+                    (Showsint) totalwidth,
+                    (Showuint) scoretab->nextfreeXdropscore);
+    exit(EXIT_FAILURE);
+  }
+#endif
+}

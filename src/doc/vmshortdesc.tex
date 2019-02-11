@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide,times}
+\author{Stefan Kurtz}
+\title{\textbf{
+A short description of Vmatch
+}}
+\date{\today}
+\parskip5pt
+\parindent0pt
+\pagestyle{empty}
+\begin{document}
+\maketitle
+
+Vmatch is a 
+%DELETE versatile 
+collection of software tools for 
+%DELETE efficiently
+solving large scale sequence matching tasks. It comes with a 
+%REPLACE flexible user BY command line
+command line interface and provides several 
+%REPLACE unique BY unusual
+unusual features.
+%REPLACE achieves BY is designed to achieve
+Vmatch is designed to achieve
+efficiency by precomputing the sequence databases into an
+index structure which is stored on different files.
+The index structure 
+%DELETE efficiently 
+represents all substrings of the database sequences and allows,
+unlike most other tools, to solve
+%ADD many
+many matching tasks in time 
+independent of the size of the index. Different matching
+tasks require different parts of the index, and only the 
+required parts of the index are accessed during the matching process.
+
+Vmatch allows to solve a multitude of different matching tasks 
+over the index constructed in the preprocessing step. 
+Every matching task is basically characterized by
+the kind of matches sought,
+additional constraints on the matches, and
+the kind of postprocessing to be done with the matches.
+In particular, Vmatch can compute the following kinds of matches:
+maximal repeats, maximal substring matches, and complete matches.  
+Maximal repeats and maximal substring matches can be taken as 
+exact seeds and extended with two different strategies to obtain 
+degenerate matches. The user can specify identity- and E-value-constraints
+to select interesting matches. For each match found (exact or 
+degenerate), the match and the corresponding alignment can be
+shown. Alternatively, several postprocessing options are
+available.
+
+One of the 
+%REPLACE unique BY unusual
+unusual features of Vmatch is its alphabet
+independency. It can process DNA and protein sequences,
+but also sequences over 
+%REPLACE any kind of alphabet, as specified by the user BY user defined alphabets
+user defined alphabets.
+
+The most common formats for input sequences (Fasta, Genbank, EMBL, and
+SWISSPROT) are accepted by Vmatch. The user does not have to specify 
+the input
+%ADD if possible
+format. It is automatically recognized, if possible. All input files can contain
+%REPLACE an arbitrary number of BY many
+many sequences. 
+Gzipped compressed inputs are accepted.
+
+The output of Vmatch 
+%REPLACE is easy to parse BY can be parsed
+can be parsed by other programs. 
+Several options allow to customize the output.
+New output formats can be incorporated without changing the 
+program code. Certain subsets of matches can be selected by
+user defined criteria.
+
+\end{document}

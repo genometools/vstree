@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint findsupermax(Virtualtree *virtualtree,
+                  /*@unused@*/ Uint numberofprocessors,
+                  Uint searchlength,
+                  /*@unused@*/ void *repeatgapspecinfo,
+                  void *outinfo,
+                  Outputfunction output);
+
+#ifdef __cplusplus
+}
+#endif

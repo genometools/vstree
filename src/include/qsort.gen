@@ -1,0 +1,137 @@
+
+#ifndef POPQSORT
+#define POPQSORT(V1,V2)\
+        NOTSUPPOSEDTOBENULL(stack);\
+        V1 = stack[--stacktop];\
+        V2 = stack[--stacktop]
+#endif
+
+#ifndef SWAPVALS
+#define SWAPVALS(P1,P2)\
+        tmp = *(P2);\
+        *(P2) = *(P1);\
+        *(P1) = tmp
+#endif
+
+#ifndef PUSHQSORT
+#define PUSHQSORT(TYPE,V1,V2)\
+        if(stacktop + 1 >= stacksize)\
+        {\
+          stacksize += 128;\
+          ALLOCASSIGNSPACE(stack,stack,TYPE *,stacksize);\
+        }\
+        NOTSUPPOSEDTOBENULL(stack);\
+        stack[stacktop++] = V1;\
+        stack[stacktop++] = V2
+#endif
+
+QSORTHEADER
+{
+  ELEM tmp, itmp, rtmp, **stack = NULL, *mid, *i, *j, *k, *left, *right;
+  Uint stacktop = 0, stacksize = 0, width; 
+
+  left = l;
+  right = r;
+  width = (Uint) (right-left+1);
+
+  while(True)
+  {
+    if(width > UintConst(10))
+    {
+      mid = left + (((Uint) (right - left)) >> 1);
+      if(ELEMGREATER(left,mid))
+      {
+        SWAPVALS(left,mid);
+      } 
+      if(ELEMGREATER(mid,right))
+      {
+        SWAPVALS(mid,right);
+      }
+      if(ELEMGREATER(left,mid))
+      {
+        SWAPVALS(left,mid);
+      } 
+      SWAPVALS(mid,right-1);
+      rtmp = *(right-1);
+      i = left; 
+      j = right-1;
+      while(True)
+      {
+        while(True)
+        {
+          i++;
+          if(ELEMGREATEREQ(i,&rtmp))
+          {
+            break;
+          }
+        }
+        while(True)
+        {
+          j--;
+          if(ELEMGREATEREQ(&rtmp,j))
+          {
+            break;
+          }
+        }
+        if(i >= j) 
+        {
+          break;
+        }
+        SWAPVALS(i,j);
+      }
+      SWAPVALS(i,right-1);
+      if (i - left > right - i) 
+      {
+        PUSHQSORT(ELEM,left,i-1);
+        left = i+1;
+      } else 
+      {
+        PUSHQSORT(ELEM,i+1,right);
+        right = i-1;
+      }
+    } else
+    {
+      if(width == UintConst(2))
+      {
+        if(ELEMGREATER(left,right))
+        {
+          SWAPVALS(left,right);
+        }
+      } else
+      {
+        if(width > UintConst(2))
+        {
+          i = left;
+          while(++i <= right)
+          {
+            itmp = *i;
+            k = i;
+            while(True)
+            {
+              if(ELEMGREATEREQ(&itmp,k-1))
+              {
+                break;
+              }
+              *k = *(k-1);
+              if(--k == left)
+              {
+                break;
+              }
+            }
+            *k = itmp;
+          }
+        }
+      }
+      if(stacktop == 0)
+      {
+        if(stack != NULL)
+        {
+          FREESPACE(stack);
+        }
+        return;
+      } 
+      POPQSORT(right,left);
+    }
+    width = (Uint) (right - left + 1);
+  }
+}

@@ -1,0 +1,27 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint makereversecomplement(Uchar *outseq,Uchar *inseqstart,Uint len);
+
+Sint makereversecomplementorig(Uchar *outseq,Uchar *inseqstart,Uint len);
+
+/*@null@*/ Uchar *copymultiseqRC(Multiseq *multiseq);
+
+/*@null@*/ Uchar *copymultiseqRCorig(Multiseq *multiseq);
+
+Sint readmultiseq(BOOL storedesc,
+                  BOOL sixframematch,
+                  const char *dnasymbolmapprotvsdna,
+                  Alphabet *virtualalpha,
+                  Uint numoffiles,
+                  Multiseq *multiseq,
+                  Showverbose showverbose);
+
+Sint readmultiseqagain(Fileinfo *allfiles,
+                       Uint numoffiles,
+                       Uchar **originalsequence,
+                       Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

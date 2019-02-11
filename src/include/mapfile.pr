@@ -1,0 +1,32 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Filedesctype simplefileOpen(char *file,
+                            Uint line,
+                            const char *filename,
+                            Uint *numofbytes);
+
+/*@null@*/ void *creatememorymapforfiledesc(char *file,
+                                            Uint line,
+                                            const char *fdfile,
+                                            Filedesctype fd,
+                                            BOOL writemap,
+                                            Uint numofbytes);
+
+/*@null@*/ void *creatememorymap(char *file,Uint line,
+                                 const char *filename,
+                                 BOOL writemap,Uint *numofbytes);
+
+Sint deletememorymap(char *file,Uint line,const void *mappedfile);
+
+void mmcheckspaceleak(void);
+
+void mmshowspace(void);
+
+Uint mmgetspacepeak(void);
+
+Sint setlocalpagesize(void);
+
+#ifdef __cplusplus
+}
+#endif

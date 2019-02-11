@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint karlinunitcostpp(double *lambda, double *K);
+
+double significance (double lambda,double K,double multiplier,Sint score);
+
+#ifdef __cplusplus
+}
+#endif

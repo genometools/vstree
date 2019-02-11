@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void checkfilesep(Uint numoffiles,Uint *filesep,Uchar *sequence);
+
+Sint parseMultiformat(BOOL *dnatype,Uchar *database,Uint dblen);
+
+#ifdef __cplusplus
+}
+#endif

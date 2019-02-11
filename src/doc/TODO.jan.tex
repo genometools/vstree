@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{german}
+\begin{document}
+\begin{enumerate}
+\item
+in match data viewer: Auswahl der Anzeige von
+Alignment, IUB-code, description, annotation, 
+distance, E-value, score, identity
+genau in dieser Reihenfolge
+\item
+es gibt an vielen Stellen noch vorkommen des Wortes repeat.
+Probier mal 
+
+\texttt{strings genalyzer | grep -i repeat}
+
+Die Vorkommen des wortes repeat sollte man durch matches ersetzen.
+Das ist ja an einigen Stellen schon geschehen.
+
+\item
+Die folgende Meldung im Match data browser ist unn"otig, wenn alle matches
+angezeigt werden.
+
+\texttt{Notice: Match number is limited by Inspector.}
+\item
+alle sortierkrierien, die auch vmatchselect kennt, sollten auch im
+Match-Data browser zu Verf"ugung stehen.
+\item
+substring-match mit xdrop strategy funktioniert nicht. Es gibt keine
+M"oglichkeit die Parameter einzugeben. Das gilt sowohl
+f"ur die self-comparison als auch f"ur die Query comparison.
+\item
+Match data viewer:
+explanation fehlt: rufe die Funktion explainmatchinfo in explain.c
+auf. Die habe ich extra f"ur Dich geschrieben.
+\item
+Wenn die Matches ohne Alignment angezeigt werden,
+dann wird der output nicht korrekt aligniert.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,35 @@
+TO DO:
+
+defines some programming and documentation rules.
+
+include documentation of the following modules:
+
+> codon
+> dpacp
+> extendED
+> extendHD
+> file2lines
+> front
+> frontSEP
+> galign
+> getEqs
+> getfasta
+> karlin
+> matsort
+> maxpref
+> mkcld
+> outindextab
+> qsort
+> recvirt
+> remdups
+> reverse
+> searchpat
+> showibit
+> smcontain
+> smwa
+> uedist
+> vbfstrav
+> vnodes
+> wheels
+> xdropal1
+> xdropal2

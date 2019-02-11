@@ -1,0 +1,1087 @@
+\documentclass[12pt]{article}
+\usepackage{url}
+\usepackage{a4wide}
+\usepackage{alltt}
+\usepackage{xspace}
+\usepackage{times}
+\usepackage{listings}
+\usepackage{bbm}
+\usepackage{verbatim}
+\usepackage{skaff}
+\usepackage{prognames}
+\usepackage{optionman}
+\newcommand{\Size}[1]{|#1|}
+\newcommand{\Subchar}[2]{#1[#2]}
+\newcommand{\Substring}[3]{#1[#2..#3]}
+\newcommand{\MM}{\texttt{multimat}\xspace}
+\newcommand{\SEMM}{\texttt{ramaco}\xspace}
+\newcommand{\MEMSPEall}{\texttt{Memspeall.pl}\xspace}
+\newcommand{\Ignore}[1]{}
+\newcommand{\MultiMatch}[2]{(#1,#2_{0},#2_{1},\ldots,#2_{k-1})}
+\newcommand{\MMEM}[0]{\textit{multiMEM}\xspace}
+\newcommand{\MEM}[0]{\textit{MEM}\xspace}
+\newcommand{\MEMset}[0]{\textit{MEMset}\xspace}
+\newcommand{\SingleCM}[0]{p}
+\newcommand{\Expect}{\mathbbm{E}}
+\newcommand{\PR}{\mathbbm{P}}
+\newcommand{\MMevalues}{\mathit{mmevalues}}
+\newcommand{\Datatype}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Selectionfunction}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Filename}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Keyword}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Environmentvariable}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Indexfile}[1]{\mathit{indexname}.\texttt{#1}}
+\newcommand{\Indexfilesixfr}[1]{\mathit{indexname.6fr}.\texttt{#1}}
+\newcommand{\TIS}[0]{\mathit{tistab}}
+\newcommand{\OIS}[0]{\mathit{oistab}}
+\newcommand{\AboutVmatchcmd}[1]{}
+\newcommand{\AboutMkdnasixcmd}[1]{#1}
+\newcommand{\EXECUTE}[1]{}
+
+\newenvironment{Output}{%
+\begin{scriptsize}
+\begin{alltt}}{%
+\end{alltt}
+\end{scriptsize}%
+\addvspace{-\medskipamount}
+}
+
+\newenvironment{LargeOutput}{%
+ \begin{footnotesize}
+ \begin{alltt}}{%
+ \end{alltt}
+ \end{footnotesize}%
+ \addvspace{-\medskipamount}
+}
+
+\lstset{language=C,
+        basicstyle=\ttfamily\footnotesize,
+        stringstyle=\ttfamily,
+        keywordstyle=\ttfamily,
+        commentstyle=\ttfamily\itshape,
+        showstringspaces=false}
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+
+\title{\MM and \SEMM:\\
+       \textbf{Finding Maximal Multiple Matches}\\
+       \textbf{in Large Sequences}\\[2mm]
+       \textbf{Manual}}
+\begin{document}
+\maketitle
+
+\section{The Programs \MM and \SEMM}
+The programs \MM and \SEMM both find \MMEM{s} in \(k\geq 2\) sequences 
+\(G_{0},\ldots,G_{k-1}\). \MM additionally can compute multiple exact match 
+sets. These are a more compact representation of \MMEM{s} avoiding a
+combinatorial explosion in the output. \MM assumes that 
+the sequences \(G_{0},\ldots,G_{k-1}\) have been preprocessed by one 
+of the programs \MKV, \MKRC, or \MKDNASIX. \SEMM only works on indexes
+preprocessed by \MKV. All three programs \MKV, \MKRC, or \MKDNASIX
+deliver an index referred to by \emph{indexname} in the sequel.
+The program \MKRC and \MKDNASIX are described in this manual.
+For more information on \MKV and the underlying index technique, see the
+\emph{Vmatch} website at \url{http://www.vmatch.de}.
+Readers who are interested in the formal definitions of 
+the notion used here, are referred to Appendix \ref{BasicNotions}.
+
+\MM implements two different algorithms to compute \MMEM{s}:
+The first algorithm is described in \cite{HOEH:KUR:OHL:2002}
+and it runs in \(O(kn+r)\), where \(n\) is the total length of
+all sequences \(G_{0},\ldots,G_{k-1}\) and \(r\) is the number
+of right maximal multiple matches.
+The second algorithm is described in \cite{KUR:LON:2004}
+and it runs in \(O(\Size{\Sigma}kn+m)\), where \(\Sigma\) is the
+sequence alphabet and \(m\) is the number of \MMEM{s}.
+If the alphabet size is small (e.g.\ in case of DNA alphabets)
+and the number of sequences is small, then \(m\) is usually much
+smaller than \(r\), which implies that the second algorithm is faster
+than the first. In all other cases we recommend to use option
+\Showoption{algorithm} with argument \Showoptionarg{fast},
+to trigger the first algorithm.
+Additionally \MM implements an algorithm to compute multiple exact
+match sets. This is triggered by option 
+\Showoption{algorithm} with argument \Showoptionarg{memset}.
+\MM and \SEMM provide an option \Showoption{rare} to compute
+rare \MMEM{s}. \MM computes rare \MMEM{s} using an 
+algorithm described in \cite{ABO:KUR:OHL:2006}. The corresponding algorithm
+used in \SEMM is described in \cite{OHL:KUR:2007}. Note that in
+\cite{ABO:KUR:OHL:2006}, the notion \textit{infrequent} is used as a synonym 
+for rare.
+
+\subsection{Options for \MM}
+
+\begin{Showprogramwithoptions}{\MM}{}
+
+\Option{units}{\Showoptionarg{unitfilename}}{
+Specify \Showoptionarg{unitfilename} which describes sequence
+units. In many cases, a genome consists of several sequence parts 
+(e.g.\ contigs). When computing \MMEM{s}, it is often desired that these
+sequence parts are considered as a single unit. To facilitate this, we
+have developed a notation which allows to specify these units. 
+To keep the notation simple, we suppose that all sequences which make up 
+a unit, build a consecutive block in the index produced by the
+program \MKV. As a consequence, their descriptions directly follows each other
+in the sequence description file \Showoptionarg{indexname}.\texttt{des}, 
+where \Showoptionarg{indexname} is the name of the index.
+So we can specify the units by separating the appropriate blocks of
+description lines in a copy of the file 
+\Showoptionarg{indexname}.\texttt{des}.
+To produce a \Showoptionarg{unitfilename} in the correct format,
+one makes a copy of \Showoptionarg{indexname}.\texttt{des}
+into a file, say \Showoptionarg{indexname}.\texttt{units},
+and edits this copy using a standard text editor. Each unit
+of sequences is separated from the next unit by a single line beginning
+with the keyword \texttt{UNITSEP} (called unit separator line). For 
+example, if the first five sequences make up the unit, then one inserts a 
+unit separator line after the fifth description line. The first and the last
+line of the unit description file are not allowed to be unit separator
+lines. Moreover, please do not modify the descriptions themselves, since 
+they are checked to be identical to the original description lines in 
+\Showoptionarg{indexname}.\Keyword{des}.
+}
+
+\Option{range}{\Showoptionarg{i}~\Showoptionarg{l}~\mbox{$\lbrack\Showoptionarg{r}\rbrack$}}{
+Specify that in the \Showoptionarg{i}th sequence of the index to search,
+the match has to start between position \Showoptionarg{l} and 
+position \Showoptionarg{r}. \Showoptionarg{i} must be a valid sequence number 
+in the range $[0,k-1]$, where \(k\) is the number of sequences. 
+\(l\) must be in the range \([0,q-1]\), where \(q\) is the length of
+the sequence with number \(i\). If \Showoptionarg{r} is given, then
+it must be in the range \([l,q-1]\).  
+If the optional argument \Showoptionarg{r} is missing, then
+\(r\) is interpreted as \(q-1\). This option can be used more than
+once, even for the same sequence number.
+}
+
+\Option{l}{$\ell$}{
+Specify the length parameter $\ell$. This must be a positive integer.
+Only multiple matches of length at least $\ell$ are reported. This option is
+mandatory.
+}
+
+\Option{d}{~~~}{
+Report direct matches. This option can be combined with option \Showoption{p}.
+}
+
+\Option{p}{~~~}{
+Report palindromic matches. In the first sequence \(G_{0}\),
+a palindromic match always refers to the forward strand. On at least
+one of the sequences \(G_{1},\ldots,G_{k-1}\), the corresponding position
+refers to the reverse complemented strand, which is signified by
+prepending the symbol \symbol{45} in front of the position. Computing
+palindromic matches only works for two kinds of special indices:
+\begin{itemize}
+\item
+a \emph{reverse complemented index} which was constructed for the given
+DNA input sequences using an extra program \MKRC. 
+\item
+a \emph{six-frame translation index} which was constructed for the
+DNA input sequences using an extra program \MKDNASIX.
+\end{itemize}
+These programs are described below. Option \Showoption{p} can be combined 
+with option \Showoption{d}. If neither option \Showoption{d} nor 
+\Showoption{p} is used, then only direct matches are reported.
+}
+
+\Option{count}{~~~}{
+Only count the number of matches.
+Do not show matches, but a distribution of their lengths.
+}
+
+\Option{algorithm}{\Showoptionarg{fast}$\mid$\Showoptionarg{memset}}{
+If the argument \Showoptionarg{fast} is used, then the 
+algorithm described in \cite{HOEH:KUR:OHL:2002} is used.
+This computes matches faster in many cases, compared to the default 
+algorithm, described in \cite{KUR:LON:2004}. 
+If the argument \Showoptionarg{memset} is used, then multiple exact
+match sets are computed. These represent a superset of all
+\MMEM{s} in a more compact way.
+}
+
+\Option{unitol}{$\tau$}{
+Specify the uniqueness tolerance \(\tau\) which is a non-negative
+integer. The larger this value, the more tolerant the program is if multiple
+matching substrings are not unique in the given input sequences. 
+To understand the effects of this option,
+consider the case that a particular substring, say \(u\), occurs 
+\(q_{i}\geq 1\) times in
+sequence \(G_{i}\) for \(i\in[0,k-1]\). Ignoring the effects of requiring
+left maximality and right maximality, this results in 
+\(\prod_{i=0}^{k-1}q_{i}\) multiple exact matches for \(u\). That is, 
+there is a combinatorial explosion in the number of multiple matches, if 
+\(u\) occurs more than once in any of the sequences \(G_{i}\). Note that 
+\(\sum_{i=0}^{k-1}q_{i}\geq k\) because \(q_{i}\geq 1\).
+The uniqueness tolerance specifies an upper bound \(k+\tau\) on this sum.
+That is, when specifying \(\tau\) with this option, 
+\(k+\tau\geq\sum_{i=0}^{k-1}q_{i}\) must hold.
+Consider the case that \(\tau=0\). Then \(\sum_{i=0}^{k-1}q_{i}=k\) which
+implies \(q_{i}=1\) for all \(i\in[0,k-1]\). As a consequence, 
+only those \MMEM{s} are reported, whose matching substring 
+occurs exactly once in each of the input sequences 
+\(G_{0},G_{1},\ldots,G_{k-1}\). That is, it is a unique \MMEM. 
+If \(\tau=1\), then in sequence \(G_{j}\) for some \(j\in[0,k-1]\), the 
+multiple matching substring occurs twice, while in all 
+\(G_{i}\), \(i\neq j\), it occurs exactly once.
+If \(\tau=2\), then there are two alternatives:
+\begin{itemize}
+\item
+in one sequence \(G_{j}\) for some \(j\in[0,k-1]\), 
+the multiple matching substring occurs three times, while in all \(G_{i}\), 
+\(i\neq j\), it occurs exactly once.
+\item
+in two different sequences \(G_{j}\) and \(G_{j'}\) for some 
+\(j,j'\in[0,k-1]\), the multiple matching substring occurs twice,
+while in all \(G_{i}\), \(i\neq j\) and \(i\neq j'\) it occurs exactly once.
+\end{itemize}
+For larger values of \(\tau\), corresponding argumentation holds.
+}
+
+\Option{rare}{\lbrack$i$\rbrack~$t_{i}$}{
+Specify the rare occurrence threshold \(t_{i}\geq 1\) 
+for genome \(i\in[0,k-1]\). That is, one specifies the rare occurrence 
+threshold for a specific genome. If the first argument $i$ is missing, then
+the given value $t_{i}$ applies to each \(i\in[0,k-1]\), except to
+those \(i\in[0,k-1]\) for which the rareness occurrence was specified
+otherwise. That is, the single argument use of this option
+allows to specify the rare occurrence threshold for several genomes. 
+This option can be used more than once. Only one 
+single argument occurrence of this option is allowed.
+To understand the effects of this option,
+consider the case that a particular substring, say \(u\), occurs
+\(q_{i}\geq 1\) times in sequence \(G_{i}\) for \(i\in[0,k-1]\). If this
+option is specified then a \MMEM for \(u\) is only computed if 
+\(q_{i}\leq t_{i}\). In other words, $t_{i}$ is a threshold on the number
+of occurrences of multiple matching substring in \(G_{i}\).
+}
+
+\Option{selfun}{\Showoptionarg{filename}~\mbox{$\lbrack\Showoptionarg{extraargs}\rbrack$}}{
+Access file \Showoptionarg{filename}, which must be a shared object file 
+containing a multimatch selection function bundle. If the access to
+such a function bundle is not possible, then the program 
+terminates with
+error code 1.  If \Showoptionarg{filename} is  not  an absolute path  
+(i.e., it does not begin with a forward slash (`\texttt{\SY{47}}'), then
+the file is searched for in the colon-separated list of directories specified
+by the environment variable \LDlibpath.
+For details on selection functions see Section \ref{Applications} and
+Appendix \ref{SelectionConcept}.
+\Showoptionarg{filename} must have the appropriate extension. This depends 
+on the particular platform. For most Unix-platforms the extension
+\Filenamesuffix{.so} is valid. For HP-UX, the valid file extension is 
+\Filenamesuffix{.sl}. Option \Showoption{filename}
+can be followed by an optional
+list \Showoptionarg{extraargs} of extra arguments
+(not beginning with the symbol \texttt{\symbol{45}}).
+These are ignored by \VM and \VMS. Since they are stored in the
+argument vector passed to the function \Selectionfunction{selectmatchHeader}
+(see Section \ref{SelectionConcept}), they can be evaluated in the
+selection function bundle.
+}
+
+\Option{maxnummatches}{$m$}{
+Restrict the number of \MMEM{s} reported to at most \(m\). That is,
+if there are more than \(m\) \MMEM{s} only the first \(m\) matches
+in order of their computation are reported and the program stops.
+}
+
+\Option{showevalue}{~~~}{
+Output the E-value of a \MMEM, according to the model described in
+Appendix \ref{MMEMevalue}.
+}
+
+\Option{s}{$\lbrack$\Showoptionarg{q}$\rbrack$}{
+Additionally report the matching substring.
+The optional parameter value \Showoptionarg{q} specifies the linewidth. 
+That is, the matching
+substring is formatted to \Showoptionarg{q} symbols per line.
+If \Showoptionarg{q} is not specified, then the default linewidth is 
+60.
+}
+
+\Option{absolute}{}{
+Show the absolute positions of the matches (i.e.\ with respect to 
+the first position of the first sequence) instead of relative positions
+(i.e.\ with respect to the first position of the corresponding sequence).
+}
+
+\Option{seqnumrel}{}{
+If the option \Showoption{units} is used, then in the default case,
+all positions are reported relative to the first position of the 
+unit. If this option is used, then all positions are reported relative
+to the first position of the sequence.
+}
+
+\Option{v}{~}{
+Be verbose, that is, give reports about the different steps as well as the
+resource requirements of the computation.
+}
+
+\Option{version}{}{
+Show the version of the program, and report the compilation date as well
+as the compilation options.
+}
+
+\Option{help}{}{
+Show a summary of all options and terminate.
+}
+\end{Showprogramwithoptions}
+
+Now note the following rules when combining options:
+\begin{enumerate}
+\item
+Each of the options can be specified only once, except for option
+\Showoption{range} which can be used multiple times.
+\item
+If option \Showoption{count} is used, then
+any of the options  
+\Showoption{unitol},
+\Showoption{selfun},
+\Showoption{maxnummatches},
+\Showoption{showevalue},
+\Showoption{s},
+\Showoption{absolute},
+\Showoption{seqnumrel}, and
+\Showoption{p}
+\Showoption{rare}
+cannot be used.
+\item
+Option \Showoption{seqnumrel} is incompatible with option
+\Showoption{absolute}.
+\item
+Option \Showoption{range} is used, then option 
+\Showoption{p} and \Showoption{unitol} cannot be used.
+\item
+Option \Showoption{seqnumrel} requires that option
+\Showoption{units} is used.
+\item
+Option \Showoption{rare} and \Showoption{unitol} cannot be 
+combined with option \Showoption{algorithm memset}.
+\end{enumerate}
+
+\subsection{Options for \SEMM}
+
+The program is called as follows:
+\par
+\noindent\SEMM [\emph{options}] \emph{idx} 
+\texttt{[+-]}$\mathit{f}_{1}$
+\texttt{[+-]}$\mathit{f}_{2}$\ldots
+\texttt{[+-]}$\mathit{f}_{k}$
+\par
+where \emph{idx} is the name of an index computed by \MKV and 
+\(\mathit{f}_{1},\mathit{f}_{2},\ldots,\mathit{f}_{k}\)  are 
+\(k\geq 1\) query files. Note that the name of each query file can optionally
+be prefixed by the symbol \texttt{+} or \texttt{-} to specify that the
+file is matched on the forward strand (symbol \texttt{+}) or the reverse
+strand (symbol \texttt{-}). If neither  \texttt{+} nor \texttt{-} is used,
+then the corresponding query file is matched on the forward strand. Note
+that no white space is allowed between the sign-symbols and the filename.
+Also note that the symbols cannot be combined. If it is required to
+compute rare \MMEM{s} for all $2^{k}$ possible combinations of strands,
+then use the the perl-script \MEMSPEall, described below in Section
+\ref{MEMSPEallsection}.
+
+Suppose that one wants to compute rare multiple
+exact matches between \(k+1\) sequences. Then one has to compute an 
+index, say \texttt{idx}, for the first sequence file \(f_{0}\). This
+can be done using the following call to \MKV:
+
+\begin{small}
+\texttt{mkvtree -indexname idx -dna -tis -sti1 -bck -suf -lcp -pl -v -db }$f_{0}$
+\end{small}
+
+Given the index one calls \SEMM as specified above. \SEMM allows the following
+options: 
+\par
+\begin{Justshowoptions}
+\item
+\Option{l}{$\ell$}{
+Specify the length parameter $\ell$. See same option for \MM for more
+details.
+}
+
+\Option{phase}{(\Showoptionkey{search}$\mid$\Showoptionkey{output})}{
+specify that either only matches are searched (option argument
+\Showoptionkey{search}), or that matches are output (option argument
+\Showoptionkey{output}). If it is specified that matches are
+only searched, then for all query sequences \(f_{1},f_{2},\ldots,f_{k}\),
+the result of the search is stored in a file named 
+\texttt{idx.}$f_{i}\mathit{flag}$match, where \(\mathit{flag}\) is \texttt{+},
+if \(f_{i}\) was matched on the forward strand, and \texttt{+}, if it was
+matched on the reverse strand.
+}
+
+\Option{rare}{$i$~$t_{i}$}{
+Specify the rare occurrence threshold \(t_{i}\geq 1\) 
+for genome \(i\in[0,k-1]\).  See same option for \MM for more details.
+}
+
+\Option{showevalue}{~~~}{
+Output the E-value of a \MMEM, according to the model described in
+Appendix \ref{MMEMevalue}.
+}
+
+\Option{s}{$\lbrack$\Showoptionarg{q}$\rbrack$}{
+Additionally report the matching substring.  See same option for \MM for more
+details.
+}
+
+\Option{v}{~}{
+Be verbose, that is, give reports about the different steps as well as the
+resource requirements of the computation.
+}
+
+\Option{version}{}{
+Show the version of the program, and report the compilation date as well
+as the compilation options.
+}
+
+\Option{help}{}{
+Show a summary of all options and terminate.
+}
+\end{Justshowoptions}
+The following options available for \MM may also be useful for
+\SEMM: \Showoption{range}, 
+\Showoption{selfun},
+\Showoption{count},
+\Showoption{maxnummatches}. If you would like to use these options
+for \SEMM, please contact me.
+
+\section{The perl-script \MEMSPEall}\label{MEMSPEallsection}
+The perl-script \MEMSPEall iterates \SEMM for a given index and a 
+list of query files to compute all matches for all combinations
+of strands. The first argument for \MEMSPEall is 
+the path to \SEMM, the second is a string serving as the prefix
+for the resultfiles produced by the different calls to 
+\SEMM. That is, if this argument is the string \texttt{result},
+then the output for the different calls is stored in
+files which begin with \texttt{result} and ending with a 
+sequence of length \(k\) over the the symbol set \(\{\texttt{+},\texttt{-}\}\).
+For example, the matches for the run with 3 query files all matched on the
+forward strand is stored in \texttt{result+++}. The matches for the run with 3
+query files where the first is matched on the reverse strand, while
+the other are matched on the forward strand is stored in file
+\texttt{result-++}. The third argument for \MEMSPEall is the minimum length
+of the matches to be searched. The fourth parameter is specify the 
+rare parameter, which is common to all sequences. The remaining arguments
+specify the index and the query files.
+
+\section{The Program \MKRC}
+\MKRC is required whenever you want to compute reverse complemented
+multiple matches. \MKRC generates from the given input
+files an index (i.e.\ a collection of files) which allow \MM to compute
+reverse complemented \MMEM{s}. In these, in at least one (but not all) 
+sequences, the matching substring is on the reverse strand. 
+\input{mkrcidx}
+
+\section{The Program \MKDNASIX}\label{MKDNASIXSECTION}
+\input{mkdna6}
+
+\section{Example Applications}\label{Applications}
+Suppose file \Filename{seqs4} contains the following sequences in fasta-format:
+
+\begin{LargeOutput}
+>seq0
+ctttgactgtagttt
+>seq1
+cggtttaca
+>seq2
+cttttgt
+>seq3
+ggtttagt
+\end{LargeOutput}
+
+We use the program \MKV to generate the index required for \MM:
+
+\EXECUTE{mkvtree -pl -suf -bwt -lcp -tis -dna -db seqs4 -v}
+
+\subsection{Simple Usage of \MM}
+
+The simplest call of \MM just uses the option \Showoption{l}:
+
+\EXECUTE{multimat -l 3 seqs4}
+
+Here we have \(k=4\). Each maximal multiple match 
+\((l,p_{0},p_{1},p_{2},p_{3})\) is shown on a single line
+as \(l~p_{0}~p_{1}~p_{2}~p_{3}\). Additionally using the option
+\Showoption{s} in the call of \MM, also the matching substrings are reported.
+
+\EXECUTE{multimat -l 3 -s seqs4}
+
+Sometimes it is helpful to report E-values, using the option
+\Showoption{showevalue}.
+
+\EXECUTE{multimat -l 3 -showevalue seqs4}
+
+Alternatively, we can count the distribution of the match lengths, using the
+option \Showoption{count}. We use 1 for the minimum match length
+(not recommended in real world applications).
+
+\EXECUTE{multimat -l 1 -count seqs4}
+
+This means that there are 
+398 \MMEM{s} of length 1 (89.24\% of all \MMEM{s} found),
+44 \MMEM{s} of length 2 (9.87\% of all \MMEM{s} found), and
+4 \MMEM{s} of length 3 (0.9\% of all \MMEM{s} found). Also the 
+cumulative value of the distribution is reported. For example,
+99.10\% of all \MMEM{s} reported are  of length at most 2.
+
+Now suppose we want to restrict the positions where to find a
+match. Let us restrict the range of positions from 1 to 5 in the
+first sequence (which has number 0):
+
+\EXECUTE{multimat -l 3 -range 0 1 5 seqs4}
+
+Note that the two \MMEM{s} starting at position 12 in the first
+sequence are not reported, because of the specified range restriction.
+
+Now consider a larger sequence file \Filename{ATsmall} containing 11 input
+sequences. Calling \MKV, we compute the appropriate index:
+
+\EXECUTE{mkvtree -pl -suf -bwt -lcp -tis -dna -v -db ATsmall}
+
+The longest \MMEM{s} are of length 5:
+
+\EXECUTE{multimat -l 5 ATsmall}
+
+One easily recognizes that all multimatches are for the
+same substring, and that the positions only vary in
+sequence 4, 5, and 8 (counting from 0). Using the option
+\Showoption{algorithm}~\Showoptionarg{memset} allows to
+reduce the above list of matches to a single multiple exact match set:
+
+\EXECUTE{multimat -s -l 5 -algorithm memset ATsmall}
+
+Note that for sequences 4, 5, and 8 the position sets \(P_{4}\),
+\(P_{5}\) and \(P_{8}\) corresponding to sequences \(G_{4}\),
+\(G_{5}\) and \(G_{8}\) are shown in standard mathematical notation
+within a pair of curly brackets and comma separated elements. 
+The other position sets only contain one position, so that the pair of
+curly brackets is omitted.
+
+\subsection{Simple Usage of \SEMM}
+
+To show the use of \SEMM, we split the file \texttt{ATsmall} into 11 files 
+and only use the first four of these files named
+\texttt{\small ATs-00}, 
+\texttt{\small ATs-01},
+\texttt{\small ATs-02}, and
+\texttt{\small ATs-03}.
+
+We only index the first file as follows:
+
+\EXECUTE{mkvtree -indexname ATS -dna -tis -sti1 -bck -suf -lcp -pl -v -db ATs-00}
+
+and use the other three files as queries. This time we look for 
+matches of length at least 6 such that the match occurs at most
+5 times in each of the 4 sequences:
+
+\EXECUTE{ramaco -l 6 -rare 5 ATS ATs-01 ATs-02 ATs-03}
+
+That is, we have found 3 rare \MMEM{s}. The 5 numbers show the length
+and the positions where the matches occur in the corresponding sequence. 
+The first number is the length, the second position
+refers to the sequence in the index, the third refers to the
+first query, etc.
+
+We split the search and the output phase by calling 
+\SEMM two times. The only difference in the calls is 
+the argument top option \Showoption{phase}.
+
+\EXECUTE{ramaco -v -phase search -l 6 -rare 5 ATS ATs-01 ATs-02 ATs-03}
+
+This generates three files \texttt{\small ATS.ATs-01+match}, 
+\texttt{\small ATS.ATs-02+match}, and \texttt{\small ATS.ATs-03+match}. 
+These are used in the second call to produce the output:
+
+\EXECUTE{ramaco -v -phase output -l 6 -rare 5 ATS ATs-01 ATs-02 ATs-03}
+
+Note that the three files intermediate files \texttt{\small ATS.ATs-01+match}, 
+\texttt{\small ATS.ATs-02+match}, and \texttt{\small ATS.ATs-03+match} can also 
+be generated by three separate calls to \SEMM: 
+
+\begin{Output}
+ramaco -phase search -l 6 -rare 5 ATS ATs-01
+ramaco -phase search -l 6 -rare 5 ATS ATs-02
+ramaco -phase search -l 6 -rare 5 ATS ATs-03
+\end{Output}
+
+These three search-calls can be done in parallel, since they do not
+depend on each other.
+
+If additionally one want to compute matches on the reverse strand of the
+sequences in \texttt{\small ATs-01}, then one calls
+
+\EXECUTE{ramaco -v -phase search -l 6 -rare 5 ATS -ATs-01}
+
+to obtain the output as follows:
+
+\EXECUTE{ramaco -phase output -l 6 -rare 5 ATS -ATs-01 ATs-02 ATs-03}
+
+Note that for this call the intermediate files 
+\texttt{\small ATS.ATs-02+match} and \texttt{\small ATS.ATs-03+match} 
+are reused. More general, for $k$ queries we have to call
+\texttt{ramaco -phase search ...} \(2\cdot k\) times, and
+\texttt{ramaco -phase output ...} \(2^{k}\) times to produce the matches
+for all possible strand combinations. This is what the script
+\MEMSPEall does.
+
+\subsection{\MM with units, palindromic and 6-frame indexes}
+
+To show the use of the option \textit{units}, we consider the
+file \Filename{ATsmall.des}, produced by the last but one call to
+\MKV. The file contains the sequence description and looks as follows:
+
+\EXECUTE{cat ATsmall.des}
+
+Note that we have cut each line after 70 characters. We make a copy of
+this file
+
+\begin{LargeOutput}
+cp ATsmall.des ATsmall.units
+\end{LargeOutput}
+
+and edit \Filename{ATsmall.units}, inserting the keyword \Keyword{UNITSEP}
+after every second sequence. We obtain the following file contents:
+
+\EXECUTE{cat ATsmall.units}
+
+Thus the sequences (identified by their \emph{gi}-number)
+are grouped into 6 units as follows:
+\begin{center}
+\begin{tabular}{l}
+\(\{\Keyword{5587835},\Keyword{4714049}\}\),\\
+\(\{\Keyword{4714048},\Keyword{4714047}\}\),\\
+\(\{\Keyword{4714046},\Keyword{4714045}\}\),\\
+\(\{\Keyword{4714044},\Keyword{4714043}\}\),\\
+\(\{\Keyword{4714042},\Keyword{4714041}\}\),\\
+\(\{\Keyword{4714040}\}\).
+\end{tabular}
+\end{center}
+
+Now option \Showoption{units} allows to compute \MMEM{s} between the 6 units.
+Each position is reported relative to the first position of the first
+sequence in the unit. For example, position 1002 in the first \MMEM is 
+relative to the start of the sequence with \emph{gi}-number \Keyword{4714048}.
+
+\EXECUTE{multimat -s -l 7 -units ATsmall.units ATsmall}
+
+There are many more \MMEM{s} if we reduce the length threshold:
+
+\EXECUTE{multimat -count -l 5 -units ATsmall.units ATsmall}
+
+However, if we restrict to unique \MMEM{s}, then only one match remains:
+
+\EXECUTE{multimat -unitol 0 -s -l 5 -units ATsmall.units ATsmall}
+
+We obtain the same result using the rare option for the first three units:
+
+\EXECUTE{multimat -rare 1 -s -l 5 -units ATsmall.units ATsmall}
+
+If we relax the rare-parameter for the first unit, we obtain 9 matches:
+
+\EXECUTE{multimat -rare 0 2 -rare 1 -l 5 -units ATsmall.units ATsmall}
+
+Next we want to compute palindromic \MMEM{s}. To do so, we have to compute
+a reverse complemented index using the program \MKRC. We do this for 
+the small sequence set of the initial example:
+
+\EXECUTE{mkrcidx -db seqs4 -v}
+
+We use the option \Showoption{p} for \MM:
+
+\EXECUTE{multimat -l 2 -p -s seqs4.rcm}
+
+Consider the first \MMEM. It is of length 2. In the first sequence
+contained in file \Filename{seqs4}, namely \texttt{ctttgactgtagttt},
+the substring \texttt{ac} occurs at position 5 (counting from 0). The
+reverse complement \texttt{gt} of \texttt{ac} occurs at position 2 in
+the second sequence \texttt{cggtttaca}, at position 5 in the third
+sequence \texttt{cttttgt}, and at position 6 in the fourth sequence
+\texttt{ggtttagt}. Hence the positions 2, 5, and 6 are shown as 
+negative numbers.
+
+Next we want to compute multiple matches in a set of DNA sequences
+which occur on the protein level. To do so, we have to compute
+a six-frame translation index using the program \MKDNASIX. We do this for 
+a file \texttt{seqs3} with 3 sequences.
+Since we want to relax the matching on the protein level, we specify a
+symbol map \texttt{TransProt11}, when constructing the six-frame translation
+index:
+
+\EXECUTE{mkdna6idx -tis -ois -db seqs3 -smap TransProt11 -v}
+
+We use the options \Showoption{d} and \Showoption{p} for \MM, applied to
+the six-frame index \texttt{seqs3.6fr}.
+
+\EXECUTE{multimat -l 15 -d -s seqs3.6fr}
+
+Thus there is a \MMEM of length 15. Since the match is on the translated
+codons, the DNA-substrings are not necessarily the same. Hence for each 
+sequence they are reported. Furthermore, the last line of the 
+match reports the corresponding amino acid sequence corresponding
+to the first dna sequence.
+
+The concept of selection functions is explained in Appendix 
+\ref{SelectionConcept}. Here we give an example.
+
+Consider the following functions defined in a file 
+\Filename{selmulticontext.c}:
+
+\begin{lstlisting}{}
+Sint selectmultimatchHeader(int argc,const char **argv)
+{
+  int i;
+
+  printf("#");
+  for(i=0; i<argc; i++)
+  {
+    printf(" %s",argv[i]);
+  }
+  printf("\n");
+  return 1;   // map the transformed input sequence
+}
+
+Sint selectmultimatch(Virtualtree *virtualtree,
+                      Uint *unitboundaries,
+                      Uint numofunits,
+                      Multimatch *multimatch)
+{
+  if(virtualtree->multiseq.sequence == NULL)
+  {
+    fprintf(stderr,"selectmultimatch: sequence not read: use option -s\n");
+    return (Sint) -1;
+  }
+  // does matching sequence begin with first character of alphabet?
+  if(virtualtree->multiseq.sequence[multimatch->positions[0]] == 0)
+  {
+    return 1;
+  }
+  return 0;
+}
+\end{lstlisting}
+
+The function \Selectionfunction{selectmultimatchHeader} is called before
+the index is read. The arguments \lstinline{argc} and \lstinline{argv}
+allow access to the arguments \MM was called with. The function first
+checks if the input sequence is available in main memory. If not,
+then an error is produced. Then it simply echoes all given
+arguments to stdout. The function
+The function \Selectionfunction{selectmultimatch} is applied to each match
+match found. If matching sequence begins with the first character of
+the alphabet (s indicated by comparison with 0), then the function
+returns \lstinline{1}, which means that \MM echoes the match to 
+stdout. If the \Selectionfunction{selectmultimatch} is applied to each
+\MMEM found. If the matching sequence does not begin with the first character of
+the alphabet, then  the function returns \lstinline{0}, which tells
+\MM to not output the \MMEM{}. 
+
+To make use of these functions we have to compile a shared object.
+This is done by appropriately calling a
+compiler, as specified in \lstinline{SELECT/makefile}. For example,
+on Linux we use \texttt{gcc}-compiler with the following options:
+
+\begin{LargeOutput}
+gcc -Wall -Werror -O3 -shared selmulticontext.c -o selmulticontext.so
+\end{LargeOutput}
+
+This produces the shared object \Filename{selmulticontext.so}, which we
+use as an argument to option \Showoption{selfun} when calling \MM:
+
+\EXECUTE{multimat -s -l 6 -selfun selmulticontext.so -units ATsmall.units ATsmall | head -n 12}
+
+As expected, the arguments of \MM are echoed, and all \MMEM{s} are
+output, whose matching sequence starts with the first character of 
+the alphabet.
+
+Other examples for selection functions can be found in the subdirectory
+\Filename{SELECT}. This also contains a \Filename{makefile}, showing how to
+compile a shared object for the supported platforms.
+
+\appendix
+
+\section{Basic Notions}\label{BasicNotions}
+We index the characters of a sequence from \(0\). That is, a sequence
+\(S\) of length \(n\) is written as 
+\(S=\Subchar{S}{0}\Subchar{S}{1}\ldots\Subchar{S}{n-1}\).
+A \emph{substring} of \(S\) is a sequence \(\Subchar{S}{i}\ldots\Subchar{S}{j}\)
+for some \(i,j\in[0,n-1]\). If \(i>j\), then
+\(\Subchar{S}{i}\ldots\Subchar{S}{j}\) denotes the empty
+string. \(\Subchar{S}{i}\ldots\Subchar{S}{j}\) is also written as
+\(\Substring{S}{i}{j}\).
+A \emph{prefix} of \(S\) is a sequence \(\Substring{S}{0}{i}\) for some
+\(i\in[0,n-1]\). A \emph{suffix} of \(S\) is a sequence 
+\(\Substring{S}{j}{n-1}\) for some \(j\in[0,n-1]\).
+Consider a set \(\{G_{0},\ldots,G_{k-1}\}\) of \(k\geq 2\) sequences,
+the genomes. A \emph{multiple exact match}
+is a \((k+1)\)-tuple \(\MultiMatch{l}{p}\) such that \(l>0\),
+\(p_{q}\in[0,\Size{G_{q}}-l]\), and
+\(\Substring{G_{q}}{p_{q}}{p_{q}+l-1}=\Substring{G_{q'}}{p_{q'}}{p_{q'}+l-1}\)
+for all \(q,q'\in[0,k-1]\). If \(\MultiMatch{l}{p}\) is a multiple exact match,
+then \(\Substring{G_{q}}{p_{0}}{p_{0}+l-1}\) is the \emph{matching substring}.
+A multiple exact match is \emph{left maximal} if
+for at least one pair \((q,q')\in[0,k-1]\times[0,k-1]\),
+we either have \(p_{q}=0\), or \(p_{q'}=0\), or
+\(\Subchar{G_{q}}{p_{q}-1}\neq\Subchar{G_{q'}}{p_{q'}-1}\).
+A multiple exact match is \emph{right maximal} if
+for at least one pair \((q,q')\in[0,k-1]\times[0,k-1]\),
+we either have
+\(p_{q}+l=\Size{G_{q}}\), or
+\(p_{q'}+l=\Size{G_{q'}}\), or
+\(\Subchar{G_{q}}{p_{q}+l}\neq\Subchar{G_{q'}}{p_{q'}+l}\).
+A multiple exact match is \emph{maximal} if it is left maximal and right
+maximal. A maximal multiple exact match is also called \MMEM.
+For \(k=2\), we often use the notion \MEM.
+Roughly speaking, a \MMEM is a sequence of length $l$ that
+occurs in all sequences $G_{0},\ldots,G_{k-1}$
+(at positions $p_{0},\ldots,p_{k-1}$),
+and cannot simultaneously be extended to the left or to the right
+in every sequence.
+
+Let \(w\) be a sequence of length \(l\) occurring as a substring 
+in all sequences
+\(G_{0},\ldots,G_{k-1}\). For each \(i\in[0,k-1]\), let
+\(P_{i}\) be the set of positions in $G_{i}$ where \(w\) occurs.
+Note that by assumption \(P_{i}\neq\emptyset\) for \(i\in[0,k-1]\).
+The \((k+1)\)-tuple \((l,P_{0},\ldots,P_{k-1})\) is called
+\emph{multiple exact matching set} for \(w\), abbreviated
+\MEMset. Note that each \MMEM is an element of 
+\(P_{0}\times\cdots\times P_{k-1}\).
+However, due to the maximality constraint, there may be elements
+in \(P_{0}\times\cdots\times P_{k-1}\) which do not correspond to a \MMEM.
+
+\section{Significance of \MMEM{s}}\label{MMEMevalue}
+In order to assess the significance of a \MMEM,
+we compute its E-value, i.e., the number of \MMEM{s} of
+the same length or longer, that one would expect to find in 
+\(k\) random sequences of the same length.
+As a model of random sequences, we assume a uniform Bernoulli
+model, where each base has the same probability of occurrence.
+
+Let \(\sigma=\Size{\Sigma}\). Assume a fixed
+choice of positions \(p_{0},\ldots,p_{k}\), where
+\(p_{q}\in[0,\Size{G_{q}}-1]\) for \(q\in[0,k-1]\). We now 
+consider the following events:
+\begin{itemize}
+\item
+the event of a single character match at these positions, i.e.\
+\(\Subchar{G}{p_{q}}=\Subchar{G}{p_{q'}}\) for each pair 
+\((q,q')\in[0,k-1]\times[0,k-1]\).
+\item
+the event of a single character mismatch at these positions, i.e.\
+\(\Subchar{G}{p_{q}}\neq\Subchar{G}{p_{q'}}\) for at least one pair 
+\((q,q')\in[0,k-1]\times[0,k-1]\).
+\end{itemize}
+Obviously, there are \(\sigma\) events of single character matches and 
+\(\sigma^{k}-\sigma\) events of single character mismatches.
+Thus, the probability of a single character match is 
+\[
+\frac{\sigma}{(\sigma^{k}-\sigma)+\sigma}
+    =\frac{\sigma}{\sigma^{k}}
+    =\frac{1}{\sigma^{k-1}}
+\]
+Hence, the probability of a single character mismatch is 
+\(1-\frac{1}{\sigma^{k-1}}\). Let \(p=\frac{1}{\sigma^{k-1}}\). 
+
+It is easy to see that the probability of a
+multiple exact match of length exactly \(\ell\)
+at positions \(p_{0},\ldots,p_{k}\), 
+\(p_{q}\in[0,\Size{G_{q}}-\ell]\), \(q\in[0,k-1]\),
+is \(p^{\ell}\).
+
+Based on these results, it is not difficult to calculate the
+sought probability. At first, observe that the number of \MMEM{s} of 
+length $\geq \ell $ is the same as the number of (only) left-maximal 
+multiple exact match of length exactly $\ell$. Moreover, ignoring
+boundary effects, for each \(q\in[0,k-1]\), there are 
+\(n_{q}:=\Size{G_{q}}-(\ell-1)\) choices of \(p_{q}\) in \(G_{q}\). 
+Hence, we obtain
+\begin{eqnarray}
+\lefteqn{\Expect[\# \mbox{ of \MMEM{s} of length $\geq\ell$}]}\nonumber \\
+& = &
+\Expect[\# \mbox{ of left-maximal multiple exact matches of length $\ell$}]\nonumber \\
+& = &
+\sum_{q\in[0,k-1],p_{q}\in[0,\Size{G_{q}}-\ell+1]}
+  \PR [
+  {\setlength{\arraycolsep}{0em}
+   \begin{array}[t]{l}
+     \mbox{multiple exact match at positions }p_{0},\ldots,p_{k-1}\mbox{ and}\\
+     \mbox{mismatch at positions }p_{0}+\ell,\ldots,p_{k-1}+\ell]
+   \end{array}
+  }\nonumber \\
+& = &
+\sum_{q\in[0,k-1],p_{q}\in[0,\Size{G_{q}}-\ell+1]}
+ \SingleCM^{\ell}(1-\SingleCM)\nonumber\\
+& = &
+\prod_{q=0}^{k-1}n_{q}~~~ \SingleCM^{\ell} (1-\SingleCM).\label{MultiProb}
+\end{eqnarray}
+
+\subsection{Computation of E-values}
+The dominating expressions in (\ref{MultiProb}) are
+\(\prod_{q=0}^{k-1}n_{q}\) and \(p^{\ell}\). The former can be a
+very large value while the latter can be a very small value. To prevent 
+overflows in the computation, we determine
+\(l_{q}=\log_{\sigma}n_{q}\) for each \(q\in[0,k-1]\).
+Then we evaluate \(m=\sum_{q\in[0,k-1]}l_{q}-(k-1)\ell\) and we obtain
+\begin{eqnarray*}
+\sigma^{m}&=&\sigma^{\sum_{q\in[0,k-1]}l_{q}-(k-1)\ell}\\
+          &=&\sigma^{l_{0}}\cdot \ldots \cdot \sigma^{l_{k-1}} \cdot
+                                              \frac{1}{\sigma^{(k-1)\ell}}\\
+          &=&\prod_{q=0}^{k-1}n_{q}~~~\SingleCM^{\ell}.
+\end{eqnarray*}
+Thus \(\sigma^{m}(1-\SingleCM)\) is the E-value to be computed. 
+The E-values are precomputed in a table \(\MMevalues\) indexed by
+\(l\). This table is defined by:
+\[
+\MMevalues[l]=(1-p)\cdot\sigma^{\sum_{q\in[0,k-1]}l_{q}-(k-1)l}\\
+\]
+Obviously, the following equations hold:
+\begin{eqnarray*}
+\MMevalues[0]&=&(1-p)\cdot \sigma^{\sum_{q\in[0,k-1]}l_{q}}\\
+\MMevalues[l+1]
+&=&(1-p)\cdot \sigma^{\sum_{q\in[0,k-1]}l_{q}-(k-1)(l+1)}\\
+&=&(1-p)\cdot \sigma^{\sum_{q\in[0,k-1]}l_{q}-((k-1)l+(k-1))}\\
+&=&(1-p)\cdot \sigma^{\sum_{q\in[0,k-1]}l_{q}-(k-1)l-(k-1)}\\
+&=&(1-p)\cdot \sigma^{\sum_{q\in[0,k-1]}l_{q}-(k-1)l}\cdot\sigma^{-(k-1)}\\
+&=&\MMevalues[l]\cdot\frac{1}{\sigma^{k-1}}\\
+&=&\MMevalues[l]\cdot p\\
+\end{eqnarray*}
+The first entry in \(\MMevalues\) can be computed in \(O(k)\) steps.
+All other entries can be computed from the previous value in constant
+time. The entries in \(\MMevalues\) become smaller with growing values
+of \(l\). We compute them until we reach the E-value 0.0. Assuming that
+we compute more than \(k\) values in \(\MMevalues\), the computation time
+is proportional to the size of the table.
+
+\section{Selection Function Bundles}\label{SelectionConcept}
+To provide flexible and fast on-the-fly postprocessing 
+of the \MMEM{s} without extra effort for output and parsing, \MM provides
+the concept of \emph{selection functions}. This is very similar to 
+the corresponding concept in \VM (see the \VM-manuals for justification 
+of the concept). Selection functions allow to access the matches and 
+the sequences involved in the match immediately after they are computed. The
+selection is applied before further output is done.
+
+Technically, a selection
+function is specified by a bundle of functions written in the programming
+language C. The program code implementing the selection functions
+is compiled independently from \MM, but based on the data structures 
+used in \MM. Using the option \Showoption{selfun}, \MM calls the 
+selection functions via shared library calls (sometimes also called dynamic 
+libraries). Since the definition of a selection function bundle requires a 
+basic knowledge in C-programming, this concept is probably not suited
+for the average user. Nevertheless, we describe this concept 
+carefully to give an idea of the flexibility it allows.
+\index{shared object}
+
+A \emph{selection function bundle} consists of four functions
+with the following function headers:
+\index{selection function!bundle}
+\begin{LargeOutput}
+Sint selectmultimatchHeader(int argc,const char **argv);
+
+Sint selectmultimatchInit(Virtualtree *virtualtree,
+                          Uint *unitboundaries,
+                          Uint numofunits);
+
+Sint selectmultimatch(Virtualtree *virtualtree,
+                      Uint *unitboundaries,
+                      Uint numofunits,
+                      Multimatch *multimatch);
+
+Sint selectmultimatchWrap(Virtualtree *virtualtree,
+                          Uint *unitboundaries,
+                          Uint numofunits);
+
+\end{LargeOutput}
+
+\Datatype{Sint} is a type synonym for signed integers, and
+\Datatype{Uint} is a type synonym for unsigned integers. Both are defined
+the header file \Filename{types.h}.
+The two C-structures \Datatype{Virtualtree} and \Datatype{Multimatch}
+are defined in different header files. These are part of the distribution 
+of the programs described in this manual.
+If the option \Showoption{units} is specified when calling the program
+\MM, then the parameter \Datatype{unitboundaries} refers to an array 
+storing the boundary positions for \Datatype{numofunits} units.
+
+Now suppose that these functions are specified in an extra
+file, and that they are compiled in the appropriate way (see below). 
+Then the following holds:
+\begin{itemize}
+\item
+The function \Selectionfunction{selectmultimatchHeader} is called \emph{before} 
+the index is read. The first argument of the 
+function is the number of arguments of the corresponding call of 
+\MM and the second argument is the corresponding argument 
+vector storing pointers
+\[
+\mathtt{argv[0]},\ldots,\mathtt{argv[argc-1]}
+\]
+to the arguments of \MM.
+\item
+The function \Selectionfunction{selectmultimatchInit} is called 
+\emph{after} the index is read and
+\emph{before} the first \MMEM is processed.
+The index can be accessed via the pointer \Datatype{virtualtree}.
+This function can e.g.\ be used to initialize internal data 
+structures defined by the user.
+\item
+The function \Selectionfunction{selectmultimatch} is applied to each match
+referenced by \Datatype{multimatch}.
+\begin{itemize}
+\item
+If \Selectionfunction{selectmultimatch} returns 
+a value smaller than 0, then this is interpreted as an error,
+and \MM exits with \index{error code} error code 1. 
+\item
+If \Selectionfunction{selectmultimatch} returns 0, then this is interpreted as 
+\emph{false} and the match pointed to by \Datatype{multimatch}
+is not selected. That is, it is discarded.  
+\item
+If \Selectionfunction{selectmultimatch} returns 1, then this is interpreted as 
+\emph{true} and the match pointed to by \Datatype{multimatch}
+is selected. That is, it is output by \MM according to 
+the options given.
+\end{itemize}
+\item
+The function \Selectionfunction{selectmultimatchWrap} is called \emph{after} the
+last match has been processed. It can, e.g., be used to 
+output internal data structures which store accumulated information 
+about the \MMEM{s} found.
+\end{itemize}
+A selection function bundle must define at least the function
+\Selectionfunction{selectmultimatch}. The other functions
+can be omitted in the C-file declaring the selection function bundle.
+
+The distribution of the programs described in this manual comes with a 
+subdirectory \Filename{SELECT} containing
+selection functions for diverse tasks:
+
+\begin{description}
+\item[formatmm.c]
+provides a different output format for the output matches.
+\item[selmulticontext.c]
+selects a match whose first character begins with the first character 
+of the given alphabet.
+\item[sortmultimatches.c]
+lexicographically sorts the multiple matches according to their
+positions. To do so, the function
+\Selectionfunction{selectmultimatchInit} first initializes a local table
+to store the matches. \Selectionfunction{selectmultimatch}
+stores the matches in this table. After the last match 
+has been stored, the matches are sorted and output in
+\Selectionfunction{selectmultimatchWrap}.
+\end{description}
+Note that in all these C-program files we use a macro
+\Selectionfunction{DECLAREdynamicseqnumshared} which verifies that the
+shared objects is called from the correct variant of \MM.
+
+Besides these files, subdirectory
+\Filename{SELECT} also contains a \Filename{makefile}, specifying how to
+compile a shared object for the supported platforms.
+
+\bibliographystyle{plain}
+\bibliography{kurtz}
+
+\end{document}

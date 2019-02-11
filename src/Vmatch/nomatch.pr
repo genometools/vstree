@@ -1,0 +1,19 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint nomatchsubstringsout(Showverbose showverbose,
+                          Multiseq *multiseq,
+                          Alphabet *alpha,
+                          Uint *markmatchtab,
+                          Uint posoffset,
+                          Uint seqnumoffset,
+                          Uint len,
+                          FILE *outfp,
+                          Uint showstring,
+                          Uint showmode,
+                          Showdescinfo *showdesc,
+                          Nomatch *nomatch);
+
+#ifdef __cplusplus
+}
+#endif

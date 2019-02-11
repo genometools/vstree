@@ -1,0 +1,42 @@
+
+static Sint FINDAUTOMATAMATCHES(void *info,Uint seqnum2,
+                                Uchar *pattern,Uint plen)
+{
+  Matchstate *matchstate = (Matchstate *) info;
+  Matcherstruct matcherstruct;
+  Automatchinfo automatchinfo;
+
+  INITMATCHER(&matcherstruct);
+  matcherstruct.seqtype = FINDAUTOMATAMATCHESFILETYPE;
+  matcherstruct.alphabet = &matchstate->virtualtree->alpha;
+  matcherstruct.type = MATCHER_REGEXEC;
+  if(matcher_compile(&matcherstruct,
+                     (char *) pattern,
+                     plen,
+                     PATTERNTYPE_POSIX_EXTENDED,
+                     False) != 0)
+  {
+    return (Sint) -1;
+  }
+  automatchinfo.match.position2 = 0;
+  automatchinfo.match.relpos2 = 0;
+  automatchinfo.match.distance = 0;
+  automatchinfo.match.flag = FLAGQUERY;
+  automatchinfo.match.seqnum2 = seqnum2;
+  automatchinfo.matchstate = matchstate;
+  if(matcher_execute(&matcherstruct,
+                     &matchstate->virtualtree->multiseq,
+                     matchstate->virtualtree,
+                     0,
+                     0,
+                     0,
+                     0,
+                     automatamatch,
+                     &automatchinfo) == -1)
+  {
+    matcher_free(&matcherstruct);
+    return (Sint) -2;
+  }
+  matcher_free(&matcherstruct);
+  return 0;
+}

@@ -1,0 +1,45 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+SCORE smithwatermanDP(DPpoint *swdptable,
+                      Scorefunction *scorefunction,
+                      Uchar *useq,
+                      Uint ulen,
+                      Uchar *vseq,
+                      Uint vlen);
+
+SCORE localsimilarityscore(SCORE *scol,
+                           PairUint *maxpair,
+                           Scorefunction *scorefunction,
+                           Uchar *useq,
+                           Uint ulen,
+                           Uchar *vseq,
+                           Uint vlen);
+
+void localsimilarityregion(DPpoint *scol,
+                           DPregion *maxentry,
+                           Scorefunction *scorefunction,
+                           Uchar *useq,
+                           Uint ulen,
+                           Uchar *vseq,
+                           Uint vlen);
+
+void maximalDPedges(Retracebits *edges,SCORE *scol,
+                    Scorefunction *scorefunction,
+                    Uchar *useq,Uint ulen,Uchar *vseq, Uint vlen);
+
+void tracebackDPedges(ArrayEditoperation *alignment,Uint ulen,
+                      Uint vlen,Retracebits *edges);
+
+SCORE evalalignmentscore(Scorefunction *scorefunction,
+                         Uchar *useq, Uint ulen, Uchar *vseq, Uint vlen,
+                         Editoperation *alignment,Uint numofeops);
+
+SCORE producealignment(ArrayEditoperation *alignment,
+                       Retracebits *edges,SCORE *scol,
+                       Scorefunction *scorefunction,
+                       Uchar *useq,Uint ulen,Uchar *vseq, Uint vlen);
+
+#ifdef __cplusplus
+}
+#endif

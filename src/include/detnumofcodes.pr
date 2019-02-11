@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint vm_determinenumofcodes(Uint numofchars,Uint prefixlength);
+
+#ifdef __cplusplus
+}
+#endif

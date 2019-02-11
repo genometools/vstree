@@ -1,0 +1,24 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void vmatchxmlheader(FILE *outfp,Argctype argc,const char * const*argv);
+
+void vmatchxmlinit(FILE *outfp,
+                   Alphabet *alpha,
+                   Multiseq *virtualmultiseq,
+                   Multiseq *querymultiseq);
+
+void closeMatchtag(FILE *outfp);
+
+void vmatchxmlmatch(FILE *outfp,
+                    BOOL withclosematchtag,
+                    Showdescinfo *showdesc,
+                    Multiseq *virtualmultiseq,
+                    Multiseq *querymultiseq,
+                    StoreMatch *storematch);
+
+void vmatchxmlwrap(FILE *outfp);
+
+#ifdef __cplusplus
+}
+#endif

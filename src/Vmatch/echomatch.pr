@@ -1,0 +1,42 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint echomatch2file(FILE *outfp,
+                    BOOL fancy,
+                    Uint showmode,
+                    Showdescinfo *showdesc,
+                    Uint showstring,
+                    Digits *digits,
+                    Multiseq *virtualmultiseq,
+                    Multiseq *querymultiseq,
+                    Alphabet *virtualalpha,
+                    StoreMatch *storematch);
+
+Sint immediatelyechothematch(void *voidoutinfo,
+                             /*@unused@*/ Multiseq *virtualmultiseq,
+                             /*@unused@*/ Multiseq *querymultiseq,
+                             StoreMatch *storematch);
+
+Sint simpleechomatch2file(FILE *outfp,
+                          Multiseq *virtualmultiseq,
+                          Multiseq *querymultiseq,
+                          StoreMatch *storematch);
+
+/*@null@*/ Uchar *echomatch2ram(BOOL fancy,
+                                Uint showmode,
+                                Showdescinfo *showdesc,
+                                Uint showstring,
+                                Digits *digits,
+                                Multiseq *virtualmultiseq,
+                                Alphabet *virtualalpha,
+                                Multiseq *querymultiseq,
+                                StoreMatch *storematch,
+                                Uint numofmatches,
+                                Uint *numofbytes,
+                                Tmpfiledesc *tmpfiledesc);
+
+Sint clearMatchram(Uchar **eptr,Tmpfiledesc *tmpfiledesc);
+
+#ifdef __cplusplus
+}
+#endif

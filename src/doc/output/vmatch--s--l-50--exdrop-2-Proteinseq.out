@@ -1,0 +1,8 @@
+$ vmatch -s -l 50 -exdrop 2 Proteinseq
+# args=-s -l 50 -exdrop 2 Proteinseq
+57    0   1   D 56    1   2   3    2.36e-47 104    94.74
+Sbjct: PTFFLLPPGEGGAESYFNNIVKR-RQTNMFILNNYYFHSKRIRTIEELAEMYLDQVRG            58
+         =         !!         !     ===    =    =  =             
+Sbjct: PTLFLLPPGEGG--SYFNNIVKRLRQTNMVVFNNYYLHSKRLRTFEELAEMYLDQVRG            58
+
+

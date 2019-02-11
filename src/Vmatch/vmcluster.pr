@@ -1,0 +1,25 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint initvmcluster(Sequenceclusterinfo *clusterinfo,
+                   Clusterparms *clusterparms,
+                   Outinfo *mcoutinfo,
+                   char *args,
+                   Multiseq *virtualmultiseq);
+
+void showclusterparms(Clusterparms *clusterparms,Uint userdefinedleastlength,
+                      Uint identity,Uint leastscore);
+
+Sint addvmcluster(void *showmatchinfo,
+                  Multiseq *virtualmultiseq,
+                  /*@unused@*/ Multiseq *multiseq,
+                  StoreMatch *storematch);
+
+Sint processvmcluster(Sequenceclusterinfo *clusterinfo,
+                      Showverbose showverbose);
+
+void freevmcluster(Sequenceclusterinfo *clusterinfo);
+
+#ifdef __cplusplus
+}
+#endif

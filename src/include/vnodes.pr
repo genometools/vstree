@@ -1,0 +1,31 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint enumvleaves(Virtualtree *virtualtree,
+                 void *info,
+                 void (*processvleaf)(void *,Vleaf *));
+
+Sint enumvnodes(Virtualtree *virtualtree,void *info,
+                Sint (*processvnode)(void *,Vnode *));
+
+BOOL findparentinterval(Vnode *parent,
+                        Vnode *child,
+                        Uint globalleft,
+                        Uint globalright,
+                        Uint width,
+                        Virtualtree *virtualtree);
+
+Sint findsiblings(Virtualtree *virtualtree,
+                  Uint searchlength,
+                  Uint maxintvleft,
+                  Uint maxintvright,
+                  Uint maxlcp,
+                  Uint globalleft,
+                  Uint globalright,
+                  /*@unused@*/ void *info,
+                  Uchar *qsubstring,
+                  Uchar *qseqptr);
+
+#ifdef __cplusplus
+}
+#endif

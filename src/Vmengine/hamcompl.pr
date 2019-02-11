@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint findhammingcompletematchesonline(void *info,
+                                      Uint seqnum2,
+                                      Uchar *pattern,
+                                      Uint plen);
+
+Sint findhammingcompletematchesindex(void *info,
+                                     Uint seqnum2,
+                                     Uchar *pattern,
+                                     Uint plen);
+
+#ifdef __cplusplus
+}
+#endif

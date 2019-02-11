@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\begin{document}
+\parindent0pt
+\parskip10pt
+
+\section*{A whole genome comparison approach to find pathogen signatures}
+
+goal: identify pathogens and distinguish them from harmless near neighbors
+
+first step: locate signature, i.e. region of the pathogen genome that is
+unique (does not occur in the available sequence data)
+
+whole genome approach: compare pathogen against all other microbial genomes 
+(``Allmicrobes DB'')
+
+use Vmatch software developed at ZBH to 
+search for substrings in pathogen (length \(\geq 18\)) that
+have a match in Allmicrobes DB
+
+output all regions in pathogen that have \underline{no} match
+
+this subtracts Allmicrobes DB from pathogen sequence
+
+Vmatch can very efficiently handle large datasizes:
+
+requires less than an hour for \(\approx\) 1 GB Allmicrobes DB and typical 
+pathogen (e.g.\ B.\ Anthracis: 5 MB)
+
+Vmatch is now part of the KPATH-System (developed at LLNL)
+to compute high-quality signatures
+
+success rates of signatures have improve by about 2 orders of magnitude 
+(compared to wet-lab designed signatures)
+
+unique assays are now used in a nationwide detection system for pathogens
+
+\end{document}

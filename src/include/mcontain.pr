@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint matchcontainer(void *info,Match *match);
+
+Sint applymatchcontainer(void *info,Sint (*processthematch)(void *,Match *),
+                         ArrayMatch *mstore);
+
+#ifdef __cplusplus
+}
+#endif

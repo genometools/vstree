@@ -1,0 +1,59 @@
+SPLINTALL=\
+  allwhatsthere.splint\
+  bese.splint\
+  cprsuf.splint\
+  endian.splint\
+  gccont.splint\
+  mapcfrcrf.splint\
+  mkcfr.splint\
+  mkcld.mn.splint\
+  mkdna6idx.splint\
+  mkiso.splint\
+  mklsf.splint\
+  mkrcidx.splint\
+  mksti.splint\
+  mkvcmp.splint\
+  mkvfile.splint\
+  mkvinput.splint\
+  mkvprocess.splint\
+  mkvram.splint\
+  mkvtree.splint\
+  ppsort.splint\
+  remainsort.splint\
+  turn.splint\
+  vseqinfo.splint\
+  vseqselect.splint\
+  vstree2tex.splint\
+  vsubseqselect.splint
+
+cleanbuild:
+	rm -f ${COMPILEDIR}*.[ox]
+
+${COMPILEDIR}%.o:%.c
+	${CC} ${CFLAGS} -c $< -o $@ -MT $@ -MMD -MP -MF $(@:.o=.d)
+
+${COMPILEDIR}%.dbg.o:%.c
+	${CC} ${CFLAGS} -DDEBUG -c $< -o $@
+
+%.so:%.c
+	${CC} ${CFLAGS} ${SHARED} $< -o $@
+
+%.prepro:%.c
+	${CC} -E -g3 ${CFLAGS} -DDEBUG -c $< -o $@
+	indent $@
+
+%.pr:%.c
+	skproto $< > $@
+
+%.splint:%.c
+	splint ${SPLINTFLAGS} $<
+	touch $*.splint
+
+splintall:${SPLINTALL}
+
+splintclean:
+	rm -f *.splint
+
+.PHONY:mkdircompiledir
+mkdircompiledir:
+	mkdir -p ${COMPILEDIR}

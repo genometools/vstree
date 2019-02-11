@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint vpluginopen(const char *filename,Vpluginbundle *vplugininfo);
+
+Sint vpluginclose(Vpluginbundle *vplugininfo);
+
+#ifdef __cplusplus
+}
+#endif

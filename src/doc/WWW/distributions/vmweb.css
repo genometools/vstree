@@ -1,0 +1,44 @@
+body {
+  font-family: Verdana, Geneva, Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  color:black;
+}
+#w3checklogo {
+  float: right;
+  clear: right;
+}
+#downloadbox {
+  float: right;
+  clear: right;
+  width: 280px;
+  padding-right: 20px;
+}
+#downloadbox li {
+  list-style-type: none;
+}
+#downloadbox li a {
+  list-style-type: none;
+  border : 1px solid black;
+  display: block;
+  padding: 4px 15px 4px 15px;
+  text-decoration: none;
+}
+#downloadbox li a:link {
+  color: black;
+  background: rgb(90%, 90%, 20%);
+}
+#downloadbox li a:visited {
+  color: gray;
+  background: rgb(90%, 90%, 20%);
+}
+#downloadbox li a:hover {
+  color: white;
+  background: rgb(60%, 60%, 90%);
+}
+#footer {
+  font-size: 66%;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #DDDDDD;
+}

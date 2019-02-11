@@ -1,0 +1,96 @@
+   16   yeast_chro 266664   D    16   P0  0   2    5.71e-01     26    87.50
+Sbjct: CAGTTAAT-CCATCTCA                                                 266680
+          !    !        
+Query: CAG-TAATACCATCTCA                                                     16
+
+
+   17   yeast_chro 245290   D    16   P0  0   3    2.04e+01     24    82.35
+Sbjct: CAGTATAT-CCATCATCA                                                245307
+            !  !     !   
+Query: CAGTA-ATACCATC-TCA                                                    16
+
+
+   15   yeast_chro 214376   D    16   P0  0   3    2.04e+01     22    81.25
+Sbjct: CAGT-ATAACCATC-CA                                                 214391
+           !  !      !  
+Query: CAGTAAT-ACCATCTCA                                                     16
+
+
+   15   yeast_chro 212651   D    16   P0  0   3    2.04e+01     22    81.25
+Sbjct: -AGTATATACCAT-TCA                                                 212666
+       !    !       !   
+Query: CAGTA-ATACCATCTCA                                                     16
+
+
+   13   yeast_chro 188205   D    16   P0  0   3    2.04e+01     20    81.25
+Sbjct: CA-TAATA-CATCT-A                                                  188218
+         !     !     ! 
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   15   yeast_chro 181692   D    16   P0  0   3    2.04e+01     22    81.25
+Sbjct: -AGTAATATCCTCTCA                                                  181707
+       !       ! !     
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   14   yeast_chro 158658   D    16   P0  0   3    2.04e+01     21    81.25
+Sbjct: CAGT-ATACCAGCT-A                                                  158672
+           !      !  ! 
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   16   yeast_chro 155408   D    16   P0  0   3    2.04e+01     23    81.25
+Sbjct: CA-TAAATCCCATCTCA                                                 155424
+         ! !   !        
+Query: CAGT-AATACCATCTCA                                                     16
+
+
+   15   yeast_chro 121721   D    16   P0  0   3    2.04e+01     22    81.25
+Sbjct: CTGGAATACC-TCTCA                                                  121736
+        ! !      !     
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   14   yeast_chro  24550   D    16   P0  0   3    2.04e+01     21    81.25
+Sbjct: CAGT-ATA-CATGTCA                                                   24564
+           !   !   !   
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   13   yeast_chro    749   D    16   P0  0   3    2.04e+01     20    81.25
+Sbjct: -A-T-ATACCATCTCA                                                     762
+       ! ! !           
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   17   yeast_chro    745   D    16   P0  0   1    7.87e-03     30    94.12
+Sbjct: CAGTATATACCATCTCA                                                    762
+            !           
+Query: CAGTA-ATACCATCTCA                                                     16
+
+
+   19   yeast_chro    743   D    16   P0  0   3    2.04e+01     26    84.21
+Sbjct: TACAGTATATACCATCTCA                                                  762
+       !!     !           
+Query: --CAGTA-ATACCATCTCA                                                   16
+
+
+   19   yeast_chro 263372   D    20   P1  0   3    1.62e-01     30    85.00
+Sbjct: TCATCTGCATCAATGTAG-T                                              263391
+            !!           ! 
+Query: TCATCAACATCAATGTAGAT                                                  20
+
+
+   21   yeast_chro   3784   D    20   P1  0   1    3.84e-05     38    95.24
+Sbjct: TCATCAACATCATATGTAGAT                                               3805
+                   !        
+Query: TCATCAACATCA-ATGTAGAT                                                 20
+
+
+   23   yeast_chro   3782   D    20   P1  0   3    1.62e-01     34    86.96
+Sbjct: TCTCATCAACATCATATGTAGAT                                             3805
+       !!            !        
+Query: --TCATCAACATCA-ATGTAGAT                                               20
+
+

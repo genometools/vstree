@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint multiseqreverse(Multiseq *multiseq);
+
+Sint multiseqonlycomplement(Multiseq *multiseq);
+
+Sint multiseqreversecomplement(Multiseq *multiseq);
+
+#ifdef __cplusplus
+}
+#endif

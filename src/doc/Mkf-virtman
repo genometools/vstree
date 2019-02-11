@@ -1,0 +1,19 @@
+VIRTMANSRC=virtman.tex mkvhelpinc.tex vmhelpinc.tex Dataflow.png
+	
+all:virtman.pdf
+
+virtman.pdf:${VIRTMANSRC}
+	touch virtman.ind
+	pdflatex virtman
+	pdflatex virtman
+	makeindex -q virtman.idx
+	bibtex virtman
+	pdflatex virtman
+	bibtex virtman
+	pdflatex virtman
+	pdflatex virtman
+
+.PHONY:clean
+clean:
+	rm -f *.toc *.ilg *.out *.idx *.ind *.dvi *.ps *.log *.aux
+	rm -f *.bbl *.blg

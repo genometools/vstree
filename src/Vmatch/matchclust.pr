@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint domatchclustering(Uint numofmatches,
+                       Mclinfo *mclinfo);
+
+#ifdef __cplusplus
+}
+#endif

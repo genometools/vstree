@@ -1,0 +1,27 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL cmpEvaluetype(Evaluetype a,Evaluetype b);
+
+void debugcheckevalue(Evalues *hpt,Evaluetype probmatch,Evaluetype prob,
+                      Sint l,Sint k);
+
+void precomputehammingEvalues(Evalues *hpt,Evaluetype probmatch,Sint kmax);
+
+Evaluetype getEvalue(Evalues *hpt,Evaluetype multiplier,
+                     Sint distance,Uint length);
+
+void inithammingEvalues(Evalues *hpt,Evaluetype probmatch);
+
+void incprecomputehammingEvalues(Evalues *hpt,Sint kmax);
+
+Evaluetype incgetEvalue(Evalues *hpt,Evaluetype multiplier,
+                        Sint distance,Uint length);
+
+void freeEvalues(Evalues *hpt);
+
+void checkhamming(Evaluetype probmatch,Sint kmax);
+
+#ifdef __cplusplus
+}
+#endif

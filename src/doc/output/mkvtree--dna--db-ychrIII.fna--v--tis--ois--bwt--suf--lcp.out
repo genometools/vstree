@@ -1,0 +1,16 @@
+$ mkvtree -dna -db ychrIII.fna -v -tis -ois -bwt -suf -lcp
+reading file "ychrIII.fna"
+total length of sequences: 315339
+create file "ychrIII.fna.tis"
+create file "ychrIII.fna.ois"
+create file "ychrIII.fna.des"
+create file "ychrIII.fna.sds"
+create file "ychrIII.fna.lcp"
+initializing data structures
+sorting suffixes
+create file "ychrIII.fna.llv"
+create file "ychrIII.fna.suf"
+create file "ychrIII.fna.bwt"
+create file "ychrIII.fna.prj"
+create file "ychrIII.fna.al1"
+overall space peak: main=2.82 MB (9.38 bytes/symbol), secondary=0.31 MB

@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsequeryparameters(Matchcallinfo *matchcallinfo,
+                          const char * const*argv,
+                          Argctype argc,
+                          Uint argnum,
+                          const char *optionname);
+
+#ifdef __cplusplus
+}
+#endif

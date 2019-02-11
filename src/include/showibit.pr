@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+char *intbits2string(Uint bs);
+
+Uint string2uint(char *cs);
+
+#ifdef __cplusplus
+}
+#endif

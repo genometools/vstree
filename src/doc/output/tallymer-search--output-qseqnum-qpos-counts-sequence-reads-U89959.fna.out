@@ -1,0 +1,7 @@
+$ tallymer-search -output qseqnum  qpos counts sequence reads U89959.fna 
+# indexfilename = reads.mer
+# alphasize = 4
+# mersize = 19
+# numofmers = 3166
+# merbytes = 5
+# prefixlength = 4

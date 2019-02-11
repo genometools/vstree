@@ -1,0 +1,17 @@
+$ mkvtree -dna -pl -suf -tis -v -db indexfile.fna -indexname indexname
+reading file "indexfile.fna"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 2,
+the recommended prefixlength is 1
+total length of sequences: 70
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "indexname.tis"
+create file "indexname.des"
+create file "indexname.sds"
+initializing data structures
+sorting suffixes according to prefix of length 1
+sorting all buckets
+create file "indexname.suf"
+create file "indexname.prj"
+create file "indexname.al1"
+overall space peak: main=0.08 MB (1186.49 bytes/symbol), secondary=0.00 MB

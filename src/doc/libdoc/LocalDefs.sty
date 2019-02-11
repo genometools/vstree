@@ -1,0 +1,29 @@
+\usepackage{alltt,makeidx,dina4,default,command,environment}
+\usepackage[colorlinks=true,linkcolor=red,hyperindex]{hyperref}
+\newcommand{\Cfunction}[1]{\index{#1@{\textsf{#1}}}\hypertarget{#1}{}}
+\newcommand{\Typedef}[1]{\index{#1@{\emph{#1}}}\hypertarget{#1}{}}
+\newcommand{\Define}[1]{\index{#1@{\texttt{#1}}}\hypertarget{#1}{}}
+\newcommand{\Hyperlink}[1]{\hyperlink{#1}{#1}}
+\newcommand{\Indexheader}[0]{Index of Types and Functions}
+\newcommand{\CharQuote}[1]{\texttt{\symbol{39}#1\symbol{39}}}
+\newcommand{\StringQuote}[1]{\texttt{\symbol{34}#1\symbol{34}}}
+\renewcommand{\indexname}{\section{\Indexheader} We
+use emphasize mode for type names, sans serif font for function names, and
+typewriter font for macro names}
+\setcounter{tocdepth}{3}
+
+\newcommand{\Showheaderfile}[2]{\FILEINFO{#1.h}{Stefan Kurtz}{#2}%
+                                \subsection{The Header File \texttt{#1.h}}%
+                                \input{#1.h.inc}%
+                                }
+
+\newcommand{\Showcodefile}[2]{\FILEINFO{#1.c}{Stefan Kurtz}{#2}%
+                              \subsection{The Code File \texttt{#1.c}}%
+                              \input{#1.c.inc}%
+                              }
+
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+
+\title{\textbf{Library Documentation}}
+

@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+\begin{document}
+Some rules to make the vstree software portable to 64 bit platform.
+\begin{enumerate}
+\item
+Do not directly use the types int, long, unsigned int, or unsigned long.
+\item
+Use Sint and Uint for signed and unsigned integer values. These are defined
+appropriately in types.h. The size of Sint and Uint is identical, they
+can be of size 32 or 64 bits. Do not assume anything else about the size of 
+these types. If you need to access the most significant bit of an
+unsigned integer, then use the definition \texttt{FIRSTBIT} in file
+\texttt{intbits.h}.
+\item
+use \texttt{size_t} in \texttt{fwrite}, \texttt{fread}, \texttt{qsort},
+\texttt{memcmp}, \texttt{memcmp}, \texttt{strncpy}, \texttt{strncmp}.
+\item
+Be careful when using type casts between values of different sizes:
+casting (unsigned long) to (unsigned int) may work on 32-bit machines,
+but not on 64-bit machines, since information is lost. However, casting
+from smaller to larger types should work appropriately.
+\item
+Consistently use the format character d and u if Sint = int and
+Uint = unsigned int. Do not use ld or lu
+\item
+The script checkformat.sh searches for characters that are not transformed.
+\item
+Do not use unsigned char and unsigned short. Use the 
+types Uchar and Ushort. 
+\item
+Use short only when appropriate, e.g.\ for saving space.
+\end{document}

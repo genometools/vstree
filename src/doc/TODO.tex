@@ -1,0 +1,1149 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\author{Stefan Kurtz}
+\title{To Do List for Virtual Suffix Trees}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item
+
+Add option -maxocc in vmerstat.
+
+\item
+
+Implement seed and extend algorithm in match-cluster to help Gunduz problems.
+
+\item
+
+What is electronic pcr?
+
+\item
+
+use the followign typedef
+
+typedef union
+{
+  Sint is;
+  float fs;
+} Chainscoretype;
+
+A global parameter determines if the score is an integer or if the score
+is a float.
+
+delete UNDEFCHAR from the code.
+
+vstree2tex hat probleme mit zwei Tabellen bei option -bck.:
+vstree2tex -ois -suf -bwt -bck -lcp -s bugseqs
+
+Seqfault bei
+vstree2tex -s -tis bugseqs
+
+Allow range specification also for option -dnavsprot.
+
+\item
+
+Berechnung von Matches nur auf den drei Vorw"artsleserahmen oder auf
+den drei R"uckw"artsleserahmen.
+
+\item
+
+Baue BLAT strategie ein: finde matches auf der gleichen Diagonale
+und verbinde diese zu einem Match
+
+\item
+
+Option f"ur RARE matches.
+
+\item
+
+output option (laut Vorschlag von G Anders, 7.3.2005).
+
+offset 1: Zeige Positionen beginnend mit 1
+ignore # lines am Anfang
+delimiter f"ur spaltenweise Ausgabe
+
+siehe auch weitere Vorschl"age von G Anders, 7.3.2005.
+
+\item
+
+Ausgabe der Symbolverteilung in der Ausgabe von mkvtree
+Kompaktere Darstellung aller Matches als cluster
+
+\item
+
+int x = 1;
+        if(*(char *)&x == 1)
+                printf("little-endian\n");
+        else    printf("big-endian\n");
+
+\item
+
+mention the usefulness of the online option.
+
+\item
+
+extend a protein level match on the DNA sequence to become maximal?
+
+\item
+
+combine Supermaximal repeats together with option -p?
+
+\item
+Provides large collection of algorithms which are partly published,
+but usually not available in a working tool.
+
+\item
+Add definition of clustering.
+
+\item
+
+-supermax and -i  gives wrong distribution of repeats.
+
+\item
+Several algorithms were published before, but Vmatch is the
+first tool which implements them all.
+
+\item
+
+Algorithmic highlights of the paper
+
+Look at competitor programs, according to E-mail from Mieg
+20.10.2004.
+
+\item
+Add program to generate random sequences.
+
+\item
+
+nonredundant: see example for Tom Slezak
+add examples from Newlink-Website.
+All against-all script: siehe genallagainstall.pl
+Mimic repfind and repselect
+mimic maxmat3.x
+
+\item
+
+E-mail von Menzel: 
+fragen, ob die Publikation akzeptiert ist.
+Ja ist akzeptiert, publikation erscheint anfang April. Karin
+bitten.
+
+\item
+
+Ebenso Martin Huh fragen.
+
+\item
+
+Ask Wei Zhu, see E-mail from 28. May, 2004.
+
+\item
+
+VMdb fertig machen.
+
+\item
+
+Script for hierarchical clustering: add this
+
+\item
+
+Now science:
+
+I recently found some time to work on multimat, the program
+implementing the first phase of MGA. It computes multiple matches
+between the given genomes. To test multimat on a large dataset
+I downloaded all sequences having the accession numbers you
+listed in your last E-mail (Mouthfootdesease). Download was on Oct 1.
+I got 126 files with a total of 8124 sequences. Their lengths
+is in the range between 7733 and 8280.
+Since construction of index mfdindex for all
+the files took very long, there seemed to
+be long common substrings. Indeed if I cluster the
+sequenes with the following call of vmatch:
+
+vmatch -l 7000 -seedlength 1000 -exdrop 2 -dbcluster 100 100 mfdindex
+
+I obtain 110 clusters and 1 one singlet:
+
+# 8123 elements out of 8124 (99.99%) are in clusters
+# 1 elements out of 8124 (0.01%) are singlets
+
+This means that mfdindex is the cluster index.
+I clustered based on matches of length >= 7000 with seeds
+of length >= 1000 and Xdrop value 2. The dbcluster parameters
+100 100 specify that two sequences are clustered only if
+a match covers the sequence completely. That is, the
+sequences in each cluster are pairwise identical.
+
+So it only makes sense to continue with the singlet and
+one sequence from each cluster. I used the following call
+to extract the 111 nonredundant sequences:
+
+vmatch -l 7000 -seedlength 1000 -exdrop 2 -dbcluster 100 100 -v -nonredundant
+nrset mfdindex
+
+The non-redundant sequences are stored in the fasta file nrset.
+Another call to mkvtree constructs the index nrset for the fasta file nrset.
+Now lets looks for multimatches of length at least 10:
+
+\item
+
+Vmatch
+
+The fastest, most memory-efficient way of comparing whole genomes!
+
+The task of rapidly comparing entire chromosomes have typically required very
+large computational resources. Such computing power and memory requirements are
+orders of magnitude beyond what most users have on their workstations or
+laptops. With the introduction of Vmatch this has dramatically changed! Very
+large-scale sequence matching problems are now easily handled on systems found
+on most researchers desktops or their portables.
+
+The key to Vmatch's performance and small memory footprint is its incorporation
+of an advanced data structure/indexing technique called Enhanced Suffix Arrays.
+This variant of Suffix Trees has proven to be as powerful, with the advantage
+of reducing both memory requirements and processing time. Careful
+implementation of the data structures and algorithms have led to highly
+optimized and robust operation. The standard version of Vmatch, compiled in
+32-bit mode, allows the processing of sequences up to 400 million symbols. On
+larger server class machines, Vmatch is available in 64-bit mode allowing the
+processing of sequences gigabases in length.
+
+Vmatch is extremely versatile enabling many different types of string matching
+tasks including complete matches, maximal substring matches, maximal repeats,
+branching tandem repeats and supermaximal repeats. Additionally Vmatch can take
+the computed seeds and extend them to obtain long inexact matches and
+alignments. Postprocessing operations enable the determination of substrings
+not covered by a match, the masking of substrings covered by a match, and the
+clustering of sets of sequences according to the found matches.
+
+Vmatch already is being used in the following bioinformatics applications:
+
+	· Comparing Two Complete Genomes 	· SNP Analysis
+	· Genome Mapping 	· Sequence Clustering
+	· Oligo Design 	· Sequence Masking
+	· Designing Microarray Probes 	· Reducing Sequence Redundancy
+
+\item
+In this benchmarking exercise Vmatch, running on a Pentium IV 1.7 GHz PC,
+outperforms the TimeLogic Decypher BLAST Solution by almost a full order of
+magnitude!  (Under 3 hours versus 28 hours)
+
+TimeLogic is a leading company in high speed bioinformatics computing. One of
+its products is the DeCypher BLAST Solution, which is an innovative combination
+of hardware engineering and software design to speed up BLAST searches. The
+DeCypher BLAST Solution was shown to map 1.7 million 25-mer nucleic sequences
+of proprietary SNP data to the human genome in 28 hours on a Sun Ultra Sparc
+III server, which is 24X faster than a regular BLASTN search on a Linux cluster
+of 30 Pentium III 1 GHz CPUs (see SNP Analysis graph midway down the DeCypher
+BLAST Solution page).
+
+For comparison, we generated 1.7 million simulated SNP data (file size about
+85M) based on the lastest human genome assembly (Release 19.34b, downloaded
+from Ensembl at ftp.ensembl.org/pub/human-19.34b/data/golden_path). It took
+less than three hours for Vmatch to complete the entire mapping of these SNPs
+onto the human genome on a Pentium IV 1.7 GHz CPU.
+
+
+Summary of Vmatch Command Line Output
+
+1. Make the virtual suffix tree (done in 79 seconds)
+>mkvtree -dna -pl 12 -allout -v -db snp.fa
+reading file "snp.fa"
+maximal value for argument of option -pl is 12, recommended value is 11
+total length of sequences: 44199999 (including 1699999 separators)
+alphabet of size 5: acgtn
+creating file "snp.fa.tis"
+creating file "snp.fa.ois"
+creating file "snp.fa.des"
+creating file "snp.fa.sds"
+creating file "snp.fa.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 12
+sorting all buckets
+creating file "snp.fa.llv"
+creating file "snp.fa.bck"
+creating file "snp.fa.suf"
+creating file "snp.fa.sti1"
+creating file "snp.fa.bwt"
+creating file "snp.fa.prj"
+creating file "snp.fa.al1"
+creating file "snp.fa.skp"
+overall space peak: main=575.07 MB (13.64 bytes/symbol), secondary=123.27 MB
+
+2. Map to the genome (done in 10,305 seconds)
+> search_genome.csh snp.fa
+reading file snp.fa
+Mon Mar 22 17:41:05 CST 2004
+Searching the genomic sequence /ensembl/19_34b_2/10.fa against snp.fa ...
+Mon Mar 22 17:46:24 CST 2004
+Searching the genomic sequence /ensembl/19_34b_2/10.masked.fa against snp.fa
+...
+Mon Mar 22 17:49:06 CST 2004
+Searching the genomic sequence /ensembl/19_34b_2/11.fa against snp.fa ...
+Mon Mar 22 17:54:23 CST 2004
+Searching the genomic sequence /ensembl/19_34b_2/11.masked.fa against snp.fa
+...
+Mon Mar 22 17:56:59 CST 2004
+...
+
+
+Shell script source (search_genome.csh)
+#!/bin/csh -f
+
+set fout = "search.out"
+rm -f $fout
+
+foreach file (/ensembl/19_34b_2/[0-9XY]*.fa)
+   date
+   echo " Searching the genomic sequence $file against $1 ..."
+
+   vmatch -q $file -l 25 -showdesc 0 -seedlength 12 -e 1 -d -p $1 >> $fout
+
+   echo "" >> $fout
+end 
+
+\item
+
+Case Study #2:  Oligonucleotide Probe Design and Validation
+
+In this study Vmatch demonstrates its ability to detect potential
+cross-hybridization, which may well prevent costly misinterpretation of
+oligoarray experiments!
+
+
+A critical problem in oligonucleotide probe design is to identify
+unique regions in the target sequence set to avoid cross-hybridization with
+non-target regions. Vmatch provides an efficient solution to this problem even
+for very large target sequence sets. To illustrate this, we validate probe sets
+used in a recent study by Kapranov et al to evaluate transcriptional activity
+in human chromosomes 21 and 22 (http://www.sciencemag.org/
+cgi/content/full/296/5569/916). Our validation consists of checking how many of
+the probes have exact matches on human chromosome 1, thus potentially confusing
+the original study by probe cross-hybridization to non-chromsome 21/22
+transcripts. Full validation would merely involve running the same vmatch
+commands on all human chromosomes.
+
+The probe sets were downloaded from
+http://www.affymetrix.com/transcriptome/sci_21_22_ paper/rawdata.html. The
+13249s_del set interrogates every base pair of the Di George critical region
+(362,901 bp) on the human chromosome 22. Using the clustering option of Vmatch
+we show that 96.60% of the probes are non-redundant. Mapping to chromosome 1
+revealed 1,632 distinct probes matching to 849,054 loci on that chromosome. The
+second probe set (chipA) consists of selected probes in order to minimize
+cross-hybridization, consisting of chromosome 21 and 22 sites with an average
+35 bp gap between probes. This set is 99.57% non-redundant according to Vmatch
+output, and it includes nine probes that perfectly match 272 distinct sites on
+chromosome 1. Not all of these sites will be within the transcriptome. 
+
+Command Line Output (13249s_del probe set)
+
+1. Retrieve the probe sequences from the downlowded CDF file
+>getProbe.pl 13249s_del.cdf > probe_13249.fa
+
+Here is the retrieved 'probe_13249.fa' data.
+
+
+2. Make the virtual suffix tree for the probe sequences
+> mkvtree -dna -pl -allout -v -db probe_13249.fa
+reading file "probe_13249.fa"
+maximal value for argument of option -pl is 11, recommended value is 10
+total length of sequences: 21013251 (including 808201 separators)
+alphabet of size 5: acgtn
+creating file "probe_13249.fa.tis"
+creating file "probe_13249.fa.ois"
+creating file "probe_13249.fa.des"
+creating file "probe_13249.fa.sds"
+creating file "probe_13249.fa.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 10
+sorting all buckets
+creating file "probe_13249.fa.llv"
+creating file "probe_13249.fa.bck"
+creating file "probe_13249.fa.suf"
+creating file "probe_13249.fa.sti1"
+creating file "probe_13249.fa.bwt"
+creating file "probe_13249.fa.prj"
+creating file "probe_13249.fa.al1"
+creating file "probe_13249.fa.skp"
+overall space peak: main=166.01 MB (8.28 bytes/symbol), secondary=55.02 MB
+
+3. Clustering
+> vmatch -l 25 -dbcluster 100 100 dgcr -showdesc 0 probe_13249.fa
+# args=-l 25 -showdesc 0 -dbcluster 100 100 dgcr
+# /home/weizhu/dn/genechip/probe_13249.fa
+# 9544 clusters
+# 27486 elements out of 808202 (3.40%) are in clusters
+# 780716 elements out of 808202 (96.60%) are singlets
+# 6518 clusters of size 2
+# 1236 clusters of size 3
+# 696 clusters of size 4
+# 316 clusters of size 5
+# 284 clusters of size 6
+# 200 clusters of size 7
+# 90 clusters of size 8
+# 52 clusters of size 9
+# 30 clusters of size 10
+# 34 clusters of size 11
+# 22 clusters of size 12
+# 18 clusters of size 13
+# 14 clusters of size 14
+# 4 clusters of size 15
+# 8 clusters of size 17
+# 6 clusters of size 18
+# 2 clusters of size 19
+# 2 clusters of size 20
+# 2 clusters of size 22
+# 2 clusters of size 25
+# 2 clusters of size 28
+# 2 clusters of size 29
+# 2 clusters of size 31
+# 2 clusters of size 33
+0:
+Cell417163_515_564
+Cell417165_516_564
+Cell417167_517_564
+Cell417169_518_564
+Cell417171_519_564
+Cell417173_520_564
+Cell417175_521_564
+Cell417177_522_564
+1:
+Cell363779_523_504
+Cell417179_523_564
+Cell515493_730_674
+Cell526259_773_686
+2:
+...
+
+4. Search against the human chromosome 1
+> vmatch -l 25 -showdesc 0 -v -q /ensembl/19_34b_2/1.fa probe_13249.fa
+# args=-l 25 -showdesc 0 -v -q /TEMP/ensembl/19_34b_2/1.fa
+# /home/weizhu/dn/genechip/probe_13249.fa
+# matches are reported in the following way
+# l(S) h(S) r(S) t l(Q) h(Q) r(Q) d e s i
+# where:
+# l = length
+# h = sequence header
+# r = relative position
+# t = type (D=direct, P=palindromic)
+# d = distance value (negative=hamming distance, 0=exact, positive=edit
+# distance)
+# e = E-value
+# s = score value (negative=hamming score, positive=edit score)
+# i = percent identity
+# (S) = in Subject
+# (Q) = in Query
+# file=probe_13249.fa 36679661 21013251
+# databaselength=21013251 (including 808201 separators)
+# sequence lengths: minimal=25, maximal=25, average=25.00
+# alphabet of size 5: acgtn
+# probe_13249.fa.tis read
+# probe_13249.fa.suf read
+# probe_13249.fa.lcp read
+# probe_13249.fa.sti1 read
+# probe_13249.fa.bck read
+# probe_13249.fa.des read
+# probe_13249.fa.sds read
+# probe_13249.fa.ssp read
+# reading file "/TEMP/ensembl/19_34b_2/1.fa"
+# querylength=246127941
+# find direct substring matches against query
+25 Cell648636_551_824 0 D 25 1 34697 0 2.58e+00 50 100.00
+25 Cell648645_556_824 0 D 25 1 34698 0 2.58e+00 50 100.00
+25 Cell648637_552_824 0 D 25 1 34698 0 2.58e+00 50 100.00
+25 Cell187925_335_306 0 D 25 1 34698 0 2.58e+00 50 100.00
+25 Cell187917_331_306 0 D 25 1 34698 0 2.58e+00 50 100.00
+...
+
+
+
+Command Line Output (chipA probe set)*
+
+1. Retrieve the probe sequences from the downlowded CDF file
+>getProbe.pl chipA.cdf > probe_chipA.fa
+
+Here is the retrieved 'probe_chipA.fa' data.
+
+
+3. Clustering
+> vmatch -l 25 -dbcluster 100 100 chipA -showdesc 0 probe_chipA.fa
+# args=-l 25 -dbcluster 100 100 chipA ?showdesc 0 /
+
+\item
+
+abbreviub still shows [NG] if a wild card is involved in a 
+match. Use the union of the two characters instead.
+
+\item
+
+In vmatch -l 50 0 10 -i EcoliO157H7, the arguments 0 10 are ignored.
+
+\item
+
+Why are the branching tandem repeats not included in the repeats
+computed by vmatch -l 50 0 0 EcoliO157H7?
+
+\item
+besides leftseq and rightseq, allow bothseq. This requires to compute 
+a consensus of the two given sequences.
+
+\item
+Efficient decision procedure for deciding about similarities
+between pairs of matches: use 
+
+\item 
+Implementiere Option -mumcand in Vmatch
+
+\item
+Bei Berechnung von paarweisen matches f"ur das clustern m"ussen nicht
+immer alle vier paarungen gerechnet werden. Falls ein Match einen distanzwert
+von 0 hat, dann reicht eine der beiden Matchinstanzen. Ordne die zu
+vergleichden Sequenzpaare so, das die Paare 1/1 und 2/2 
+zuerst kommen. Nehme zuerst die Paare mit "ahnlicher L"anger,
+denn diese k"onnen "eher den gleichen Distanzwert erreichen.
+Benutze evtl. Filtermethoden.
+
+\item
+
+checkgalign.x: option -ff sollte Fastafiles lesen k"onen, bw. eine
+multiples fasta file um dann alle paarweisen alignments zu 
+berechnen.
+
+\item
+folgendes Flag k"onnte das sein, was Du suchst.
+
+#define SHOWALIGNMENTREVERSESUBJECTPOS (UintConst(1) << 8)
+
+Daf"ur musst Du allerdings die showalignmentgeneric() Funktion benutzen.
+Das gilt nur f"ur die obere Sequenz. Gordon fragen. 
+21.2.2005: Will er erledigen.
+
+\item
+
+read pattern input from standard error. LATER
+
+\item
+
+indentation f"ur xml auf xmlindent umstellen. DONE. 2005-02-15
+
+\item
+add option -i to vmatchselect, as well as other options
+
+\item
+modify showdesc such that tab-separated output is given.
+
+\item
+Check alignments of complete matches, they look strange.
+
+\item
+
+generate compact environment a use this to compute approximate matches.
+Verstehe ich nicht.
+
+\item
+
+modify alphabet such that there is an extra component 
+wildcardoutchar, instead of having this stored in an array.
+
+\item
+
+XML-output for vmatch. DONE
+Jan kann das so "andern wie er es m"ochte. Nachfragen.
+
+\item
+
+Why does the bwt change after the migration? Need other machine.
+
+\item
+
+maximum number of errors for pattern matching is only relevant
+for computing edist substring matches. Also the greedy alignment function
+have this restriction. It would be important to extend the greedy 
+alignment function to work for arbitray many errors.
+
+allow vmatch to process several different tasks of 
+options in a row, for example, first mask internal repeats or
+duplications, then mask repbase repeats, etc.
+
+Sind die
+> Rechte von  /vol/vstree/bin/SELECT/ mit Absicht so gesetzt ? Das ich
+> als nicht Gruppenmitglied dort nicht schreiben kann ok, aber nicht lesen ...
+
+> - wenig Sinn machen meiner Meinung nach auch die Rechte in
+> /vol/vstree/share/doc/*.
+
+Eine Sache ist mir im Manual aufgefallen. Der Parameter -online ist nicht
+gl"ucklich erkl"art. Ich bin nach (zugegeben fl"uchtigem) lesen nicht
+davon ausgegangen, dass man trotzdem eine (wenn auch kurze und schnelle)
+Vorverarbeitung mit mkvtree durchlaufen muss.
+
+- Du solltest evtl. andere Benutzer darauf aufmerksam machen, das sich das
+  Interface der Selectionsfunktionen geändert hat.
+
+- Wenn man -online verwendet und für das query file der komplette Index
+  vorhanden ist, wird trotzdem nur tis, des und sds gelesen und der 
+  Index nochmal berechnet.
+
+- Folgendes Problem ist noch offen:
+
+
+BUG in smitwaterman: optimal local alignment of SmithWat Simple.fna
+should be
+
+CTTCGATCACTCGAC-CG
+ !   !     !   !
+CCTCGCTCACT-GACTCG
+
+Add function to show Protein/DNA matches.
+
+Allow vmatch to read rcm indexes and 6frame indexes. The rcm index
+would for example allow to find tandem repats where one instance
+is reverse complemented to the other.
+
+store space blocks in a tree but not in a linear list. DONE.
+
+manual: describe the different modes of showing an alignment: e.g.
+        a =-symbol is put if there are symbols which map to the
+        same number, due to an alphabet transformation.
+
+for repeat-masking do not output the comment line 
+in an extra header line, but add it to the description line.
+
+Check the differences to reputer:
+
+repfind.x -l 49 -e 3 -p -s /vol/biodata/DNA-mix/Grumbach/chntxx.seq
+
+gives one more match.
+
+integrate offline computation of complete matches with
+errors into the program
+
+Implement Simple Min-Cut Algorithms a la Stoer/Wagner
+
+Evalues a la Karlin
+
+/home/gremme/usr/arch/i686-pc-linux-gnu/vstree/include
+
+Das bisherige sed skript l"oscht nur das Ende und l"ast
+
+/home/gremme/usr/arch
+
+add a function 
+
+"ubrig
+
+-----------------
+
+Siehe auch Hinweise in Wei Email vom 1.3.2004.
+
+Entwicklung eines Programms zu Design von bestimmen Fragmenten,
+siehe Zusammenarbeit mit der Genomforschung in Bielefeld (Anke
+Becker).
+
+Compute Repeats with spacers according to the papers by Jens
+Stoye.
+
+Immitate the ARB programm, see mail from F.O. Gl"ockner.
+
+for multimat: 
+Compute a list of indices i for which asizes[i] is 1. This is the
+constant list. Compute the leftchar for the constant list. If there
+are different characters, then the match is always right maximal and
+no extra checks are necessary. Otherwise, one has to compute the number 
+of different characters.
+
+consider a way to combine the virtual tree with position
+information. That is solve queries like given an interval,
+find if their is another match within a given sequence
+range.
+
+match a set of query sequences one by one.
+
+add programs to add index tables to an existing index.
+
+"readmulti.c", line 329: warning: statement not reached
+
+Problems with cast from pointer to unsigned integer leads to problems
+on tru64 machine:
+cast from pointer to integer of different size
+see bestmatch.c (in cmpBestmatch)   DONE
+
+Eliminate all occurrences of random and initstate in the code.
+
+Robert Homan merkt an.
+
+Die von mapvirtualtreeifyoucan() ausgefuellte Virtualtree-Struktur
+beinhaltet eine fehlerhafte Multiseq-Struktur. Die Werte von
+vstree->multiseq.markpos.nextfreeUint und
+vstree->multiseq.markpos.allocatedUint sind immer 0, auch wenn mehrere
+Sequenzen vorhanden sind, der Wert von nextfreeUint sollte allerdings
+vstree->multiseq.numofsequences-1 betragen. Das dazugehoerige Array
+vstree->multiseq.markpos.spaceUint ist dagegen in Ordnung.
+
+DONE, 21.2.2004
+
+2. Ein Aufruf von checkspaceleak() gibt "space.c: line 393: This case is
+not supposed to occur", wenn im Programm kein Speicher allokiert wurde.
+Ich muss also z.b. in einem meiner Testprogramme einmal ein Byte
+allokieren und es wieder freigeben, damit das Programm nicht einfach durch
+checkspaceleak() beendet wird.
+
+DONE, 21.2.2004
+
+Es waere auch praktisch, wenn das Verzeichnis /vol/vstree/src/vstree/src
+fuer die Gruppe lesbar gemacht werden koennte, dann koennte ich Dir auch
+direkt Patches schicken.
+
+implement a method with computes 
+matches in a scanning approach over the query.
+The last matches stretching over some 
+region to the left of the scanning position are locally chained.
+A chain exceeding some quality is then processed further.
+
+sequenzposition bei -s option z"ahlen die gaps mit. Dadurch 
+enstehen positionen, die of gar nicht mehr in der Sequenz
+vorkommen.
+(2) Gaps werden bei der Berechnung der Positionen nicht abgezogen.
+Im Alignment passen die angezeigten positionen nicht: DONE, 3.9.2002
+
+(1) bei palindromischen matches wird die index sequenz vorw"arts und
+die query sequenz palindromisch dargestellt. hier m"usste auch
+r"uckw"arts gez"ahlt werden...
+
+remove vol every where in the src/bin scripts DONE
+
+madvise does not work for OSX. Exclude it. DONE 3.1.2004
+
+check for type problems with Optiontype. DONE
+
+"light"-Version der libkurtz vorschlagen w"urde, siehe E-mail vom
+4 Dez 2003. DONE.
+
+In order to match 2 Draft genomes using vmatch, I need to get info
+about the query file in the smae format as that generated by vseqinfo over the
+index (query.seq.number its_length its_description). Is there is an option to
+report this infos without constructing the index of the query. In the vmatch
+verbose mode, I have found a concise description (e.g., total query length is xx
+with y seperators).
+
+Aenderungsw"unsche von Gordon, siehe E-mail vom 9.10.2003.
+
+Write a paper on programs for questions like minimal unwords, minimal
+unique subwords.
+
+given an maximal error rate, how do we compute matches according
+to this error rate. Problem, we do not know the length of the match
+an can therefore not determine the number of errors allows.
+
+problem: for a given number r, and a multiple sequence, find a match which 
+occurs at least r times in one sequence, and not in all the other
+sequences. Problem stated by Pevzner.
+
+Die Werte fuer skptab sind um 1 hoeher als sie lt. manual
+sein
+sollten.  Hab nachgeschaut: im src-Code addierst Du 1
+(warum?)
+
+* virtman.pdf
+Du definierst/erklaerst die bcktab nicht, erwaehnst sie
+aber auf p61.
+
+Nicht alle Optionen fuer vstree2tex sind aufgefuehrt.
+
+Es muss heissen n >= 2^32 anstelle von <= auf p61, 6.
+Satz.
+
+ich fände folgende Änderung an den vstree-Makefiles sinnvoll:
+das target clean sollte vielleicht auch die .pr-Dateien löschen.
+
+always try to recognize the the shortest unique prefix of an option.
+
+die Introduction von mkvtreeman.pdf (so wie es unter /vol/vstree/share/doc
+liegt) passt nicht, da sie sich auf Vmatch bezieht.
+
+install -d does not work for SUN, because the directory
+is not available.
+
+map skipttab only if if matching regular expression is to be matched.
+
+with option -v report the calls to the selection functions,
+except for selectmatch.
+
+specify function headers in select.h. The compiler will
+reject declaration of functions if they do not match the
+the type.
+
+allow additional arguments after the first option of -selfun. These
+are available in the argument vector and hence can be used in the 
+selection function. Explain this by the low complexity selection where
+the threshold is given as an extra argument.
+
+argv[0] in selection function not well-defined.
+
+add comments to FASTA files.
+
+implement cluster strategies (according to their position) as well
+as according to their string content.
+
+check possible space leaks when return code of function is negative.
+This could lead to problems when using the program in a GUI.
+
+mga manual does not explain mga32.seqs und mga.128.seqs
+
+read mohameds manual
+
+allow option keepleft and keepright also in combination with 
+dbmaskmatch.
+
+allow the selection function to  submit a set of matches
+at once and to process these as before. This would allow 
+a much more flexible post processing of the matches.
+
+if regular expression matches a description twice, then
+this sequence is output twice.
+
+implement option to select sequences which match the prefix of
+description
+
+Get mpneu and mgen as Genbank entries.
+Get Ecoli as Embl entry.
+
+make a list of error messages.
+
+compute mum-candidates
+
+introduce an option to deliver MUMmer3 output.
+
+k"undige den Vertrag mit GLS.
+
+evtl von stdin lesen
+
+evtl gr"o"sere Platten anschaffen
+
+modify output such that it resembles reputer
+
+thanks for describing the problems you encountered. The segfaults should
+not occur, and the error message are not very helpful.  I will
+work on it to prevent users from combination of options
+that are not allowed and to give them better feedback about what
+options they should use. SEE E-mail of Pontus larsson.
+
+with -help only show the basic options
+add -helpextended for all options.
+
+improve the HPUX functions in dlopen.h
+improve their documentation
+use quotes for our own header files, not < and >
+remove clock.h from the automata files->Robert
+
+add script to test vmigrate and vendian by applying it to 
+an index twice it has to produce the same sequences.
+
+clean up E-value computation. DONE
+
+add option to vseqinfo to get the minimum length 
+and the average length of the sequences.
+
+vseqselect: If no option is used, then an error should be thrown.
+If -minlength and -maxlength are chosen, then a message which sequence
+was seelcted should be shown on stderr.
+
+Improve error message by checking the external variable error number
+
+\section{Bugs reported by Kirstin Weber}
+
+\begin{enumerate}
+\item
+Es gibt nur bei vsubseqselect eine Fehlermeldung, wenn minlength
+grösser ist als maxlength. Bei vseqselect gibt es sie nicht.
+DONE.
+\item
+minimaler E-value 1.0e-300
+Es wird keine Fehlermeldung ausgegeben, wenn dieser unterschritten wird.
+DONE.
+\item
+vsubseqselect
+\texttt{-minlength} und \texttt{-maxlength} gehen bis 256. 
+Dies steht nicht auf Seite 7. 
+DONE. This inconsistency in the program
+has been removed. See Recent changes.
+\item
+vmigrate: keine Fehlermeldung, falls der Indexname falsch ist oder ganz fehlt
+DONE.
+\item
+manchmal wird bei mkvtree 0 zur"uckgegeben, obwohl kein Fehler
+aufgetreten ist. 
+Ich brauch ein Beispiel, um den Fehler nachvollziehen zu k"onnen.
+\item
+Gibt es bei vmatchselect \texttt{-h} und \texttt{-hxdrop}? Die Optionen sind 
+auf Seite 19 nicht aufgeführt, werden aber von einer anderen Option verlangt.
+Ich brauch ein Beispiel, um den Fehler nachvollziehen zu k"onnen.
+\item
+Bldschirmphoto 2 zeigt eine für mich zuerst verwirrende
+Fehlermeldung. Inzwischen glaube ich, dass nur meine
+Festplatte voll war. Falls der Benutzer diese Fehlermeldung
+bekommt, kann er vielleicht nichts damit anfangen.
+Eventuell sollte man ihm die Meldung geben, dass nicht genug
+Speicherplatz vorhanden ist. DONE
+\end{enumerate}
+
+\section{Correcting Errors and Inconsistencies}
+\begin{enumerate}
+\item
+compile versions for the different platforms: e.g. clustalw,
+mum.x est.x etc. make extra directory. 
+\item
+Generalize the script to generate goals in the makefiles.
+\item
+Make several versions of Multimat depending on the alphabet size.
+\item
+Add functionality for exact pattern matching using a suffix tree.
+\item
+What is the shortest substring over the DNA alphabet that does
+not occur in the human genome?
+\item
+Add facility to compute at most a certain number of multimems, but not
+more.
+\item
+minuniqueBFS.x seqfaults with hschr1
+\item
+update docu about multimatch -selfun
+\item
+mark an index if it is for 64-bit platforms. DONE
+\item
+in case the input string is read as plain text, sort
+the alphabet according to the ascii order, as written in the
+manual.
+\item
+Add readme to mga to explain what the files are for.
+\item
+implement program to map tables which works outside the debug environment.
+\item
+the maximal value for prefixlength should be larger. Currently it is at a 
+maximum of 12.
+\item
+Implement algorithm of Dumas and Ninio.
+\item
+Computation of longest is still dependent on word size
+\item
+tandem does not trigger the postprocessing options.
+for supermax it is probably the same: RepairTandemDBmask
+\item
+Allow to use vmatch -sort without -best.
+\item
+announce MGA to all reputer users (or a subset of these).
+\item
+E-values f"ur regul"are Ausdr"ucke.
+\item
+Sven Rahmann suggests:
+In its current form, bcktab seems to waste a lot of space.
+In fact, compare the end of the bucket for word w: bcktab[k(w)].q
+Then the start of bucket for word w+1, bcktab[k(w)+1].p is 'almost'
+at the same position, except when there are some special words
+between the bucket boundaries, such as words with wildcards, with
+text separators, etc. But bcktab[k(w)].q could be encoded with only
+1 byte when interpreted as offset to the left of bcktab[k(w)+1].p
+\item
+Make the test independent from the index format, i.e. generate the
+indexes in the current directory.
+\item
+Check why Iterqonl.sh does not always work.
+\item
+Why does the program find different matches as shown by Michael 
+H\"ohl Examples?
+\item
+Some modules can be transferred from Vmatch to libsrc or into a library
+virtuallib.a: fmumself.c, fsuper.c, markmat.c, opensel.c, xdropext.c
+\item
+allow multiple genbank/embl format DONE.
+\end{enumerate}
+
+\section{More Speed}
+\begin{enumerate}
+\item
+add table to precompute power values for the E-value computation.
+\item
+the self comparison algorithm can be improved by
+special consideration of the case where a branching node only
+has two outgoing edges. These must be leaf edges. This can be deteced,
+if in step ind, firstsucc = True, lcp[ind+1] < lcp[ind]. This holds e.g. for
+42\% of the nodes in E.coli. Idea: First perform benchmarking to see where
+the time goes. Use a first pass to mark \(i\) iff \(\SUF[i]<h\), 
+\(\SUF[i+1]=h\), and \(\SUF[i+2]<h\) for some \(h\). That is those
+\(h\)-intervals that are of width 2. Then \((h,\SUF[i],\SUF[i+1])\) is
+a match.
+\item
+run the \(O(n\log n)\) time algorithm to generate an index 
+if we expect long average lcp values. To decide this, apply a sampling 
+approach to find that there are long consecutive suffixes.
+\item
+Choose the \texttt{queryspeedup} level according to the size of the data.
+If both query and database are of similar size, then \(queryspeedup=2\).
+If query is much smaller than database choose \(queryspeed=1\). If space
+is at the premium, then choose \(queryspeed=0\). Other strategies may
+be valid too.
+\item
+Add algorithm of Baeza-Yates as implemented by Jens Reeder.
+\item
+Add algorithm by Itoh as implemented by Janina Scholz.
+\item
+For exact matches, the conjecture is that contained matches are 
+not produced if we skip isomorphic subtrees. 
+\item
+make the skip table relative to the current index: first tests 
+to check this have been performed.
+\item
+Implement more efficient data structures to handle marked matches.
+\item
+only use intervals of the suffix array to compute the repeats:
+For each of the intervals with suffixes of length at least \(d\) one
+can perform independent processing.
+\item
+How can we incorporate more than one seed?
+\item
+pattern matching suffers from incorrect output.
+\item
+use halfmums as done in MUMmer2. The uniqueness is only guaranteed with
+respect to one genome.
+\end{enumerate}
+
+\section{More Convenience}
+\begin{enumerate}
+\item
+Add 64-bit version. DONE
+\item
+add breadth first algorithm for the masscmp problem.
+\item
+Add facility to select from an index those sequences that match a certain
+expression in their description. This should be combined with selection for
+the sequence content. This is a good project for Robert Homann. Everything
+should be indexed based. DONE
+\item
+unify the file fcomplete: all function have the same type
+\item
+Delete the macros for copying structures.
+\item
+allow matching of two virtual trees against each other,
+using some score function.
+\item
+manual needs some update, in particular the clustering part. DONE
+\item
+Produce an online-version of the manual. 
+\item
+make the search functions used in Vmatch into a library:
+define an API (Application Programmer Interface)
+\item
+more infos with verbose option
+\item
+update the manual vstree.pdf
+\item
+vmatch
+\begin{enumerate}
+\item
+give verbose output mimicing BLAST, maybe in a extra program.
+\item
+Selection of redundant sequences: the best in some sense should be shown.
+\item
+Add functions to translate DNA into proteins and then match against
+Protein-DB. Volker would really like to see it. DONE
+\item
+implement subsequence option of the form \((i,j)\) also for complete matching.
+\item
+implement index search for complete approximate matching
+\item
+implement an online algorithm where possible: 
+e.g. add edit matching for larger patterns
+\item
+add option postmerge: merge all repeats after computing them
+\item
+add option countwords
+\item
+return the result in XML format
+\item
+implement smaller evalues
+\end{enumerate}
+\item
+mkvtree
+\begin{enumerate}
+\item
+Define different global tasks and group the options accordingly. For example,
+task repeats: options -l -exdrop etc
+task querymatch: ...
+task output:
+\item
+Implement readvirt in a more structured way: use the same code for the
+different purposes.
+\item
+add function to compute derived tables on demand: recovering the index.
+\end{enumerate}
+\item
+multimatch
+\begin{enumerate}
+\item
+implement multimatch to find matches of \(k'\) sequences, where 
+\(2\leq k'\leq k-1\).
+\item
+Instead of reporting all \((k+1)\) tuples, report the string that occurs
+in all subsequences and for each sequence report the set of positions
+where it occurs.
+\item
+determineMatchinfo liest sequenz von multimatch aus einer Datei.
+Dann muss multimat.x auch eine args Zeile wegschreiben.
+\item
+Add specification of the syntax of regular expressions.
+\item
+make a small skip table by storing relative values.
+\end{enumerate}
+\end{enumerate}
+
+\section{Conceptual Ideas}
+\begin{enumerate}
+\item
+Can we use the $O(n\log n)$ algorithm to cluster local matches 
+into chains. This would deliver long local alignments.
+\item
+When searching for maximal repeats, we do not have to consider subtrees
+which are isomoprhic and not the maximal in their equivalence class.
+This is due to the fact that they are not left maximal, since every
+suffix begins with the same left character. Maybe use something like
+the isotab to mark at which level the suffixes are isomorphic.
+\item
+How can we decide of a sequence of suffixes in an interval is
+isomorphic and not maximal. Is there a way to see this from the
+bwttab and the lcptab.
+\item
+when comparing genomes, find a substring \(s\) both of \(u\) and of \(v\)
+such that \(s\) occurs exactly \(q\geq 1\) times in \(u\) and \(q\geq 1\) times
+in \(v\). Only choosing the longest of these, should seperate the 
+genomes such that a divide and conquer approach works.
+\item
+Add a section on Troubleshooting. Maybe call it Frequently Asked Questions.
+Start with the message by Volker.
+\begin{verbatim}
+have you check the xdrop options to vmatch?  I misunderstand
+something, or it is not working.  I match a pair of DNA sequences
+with -l 10, say.  I find a couple of matches (identical >= 10-mers).
+Then I add the option -exdrop 2, say.  All the previous matches
+DISAPPEAR!
+
+Can you check this (use any two DNA sequences)?
+This came up in using XMKNR on DNA sequences - I have not been able
+to generate sequence pairs allowing for many errors using any the
+xdrop parameters.
+\end{verbatim}
+\end{enumerate}
+
+\section{Papers to Read}
+\begin{enumerate}
+\item
+Obtain the paper by Huson from WABI2001: Comparing Assemblies Using Fragments
+and Mate-Pairs.
+\item
+Obtain the paper by Navarro and Raffinot from WAE2001: 
+Compact DFA Representation for Fast Regular Expression Search
+\item
+Obtain the paper by Lancia from ESA2001: SNPs Problems, Complexity and 
+Algorithms
+\end{enumerate}
+\end{document}

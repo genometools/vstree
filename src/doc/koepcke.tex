@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{xspace}
+\usepackage{a4wide}
+\newcommand{\Vmatch}{\emph{vmatch}\xspace}
+\newcommand{\VmatchDB}{\emph{vmatchDB}\xspace}
+\title{\textbf{VmatchDB: A Database Interface for Large-Scale Comparisons in
+       Biological Sequence Analysis}}
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+
+\begin{document}
+\maketitle
+\section{Background}
+The database interface described here will be developed and documented
+by Michael Koepcke as his ``Studienarbeit'' in the ``Diplomstudiengang
+Informatik'' at the University of Hamburg.
+\section{Motivation}
+Fueled by techniques developed during the human genome project,
+the amount of sequence information in today's data bases
+is growing rapidly. This is especially true for the domain of genomics:
+The current and future projects to sequence large genomes
+(e.g.\ human, mouse, rice) produces gigabytes and will soon produce
+terabytes of sequence data, mainly DNA sequences and Protein sequences 
+derived from the former. To make wealth out of these sequences,
+larger and larger instances of string comparison problems have to be solved.
+While the sequence databases are growing rapidly, the
+sequence data they already contain does not chance much over time. As a
+consequence, this domain is very suitable for applying indexing methods.
+These methods preprocess the sequences in order to answer queries much faster
+than methods working sequentially. Using the technique of enhanced suffix
+arrays as described in \cite{ABO:KUR:OHL:2002,ABO:OHL:KUR:2002} and
+implemented in the software tool \Vmatch \cite{CHA:KUR:OHL:SLE:2003},
+it is now possible to efficiently solve the basic string comparison problem 
+which asks for all pairs of similar substrings (called matches)
+of two given sequences.
+However, due to the diversity of biological sequence analysis, there
+are several variations of the basic problem, like for instance:
+\begin{itemize}
+\item
+deliver all substrings of one sequence \emph{not} similar to any
+substring of the other sequence
+\item
+cluster a pair of sequences, if they share a similar substring
+\end{itemize}
+These variations require non-trivial post-processing of the set of matches,
+which requires database support to obtain a maximum of flexibility
+to answer future questions.
+\section{Goal}
+The goal is to develop \VmatchDB, an interface of the \Vmatch-program with a 
+relational database. The latter stores the matches and all other related 
+information necessary to solve a specific sequence comparison problems. 
+Here is a non-exhaustive list of features to be implemented:
+\begin{itemize}
+\item
+\Vmatch and \VmatchDB communicate via shared library calls. 
+\item
+As an option \VmatchDB also parses match files storing matches in a 
+structured format.
+\item
+\VmatchDB accesses information in the database but also from the 
+index generated for \Vmatch.
+\item
+\VmatchDB supports standard mechanisms to manipulate the stored data (e.g.\
+SQL).
+\item
+\VmatchDB implements a domain specific predefined access mechanisms
+to manipulate the data.
+\item
+\VmatchDB does not assume a particular relational database management
+system.
+\end{itemize}
+\bibliography{kurtz}
+\bibliographystyle{plain}
+\end{document}

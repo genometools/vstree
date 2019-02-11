@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint showmaskedseq(BOOL transform,
+                   FILE *outfp,
+                   Uint linewidth,
+                   Uchar *characters,
+                   Multiseq *multiseq,
+                   Uint *markmatchtable,
+                   Uchar maskchar);
+
+#ifdef __cplusplus
+}
+#endif

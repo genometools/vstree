@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint edistprocessstartpos(Uint startpos,Uint maxlength,void *info);
+
+Sint hammingprocessstartpos(Uint startpos,Uint mmcount,void *info);
+
+Sint findapproxcompletematchesindex(BOOL doedist,
+                                    void *info,
+                                    Uint seqnum2,
+                                    Uchar *pattern,
+                                    Uint plen);
+
+#ifdef __cplusplus
+}
+#endif

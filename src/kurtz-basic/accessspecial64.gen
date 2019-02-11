@@ -1,0 +1,32 @@
+static BOOL ADDTYPE(checkspecial64)(const Encodedsequence *encseq,Uint64 pos)
+{
+  Uint pagenumber = (Uint) DIVMAXSPECIALTYPE(pos);
+
+  if(pagenumber == 0)
+  {
+    if(ACCESSENCSEQ(encseq,endspecialsubs)[0] >= 
+       ACCESSENCSEQ(encseq,specialpositions))
+    {
+      if(ADDTYPE(binarysearchpage)(ACCESSENCSEQ(encseq,specialpositions),
+                                   ACCESSENCSEQ(encseq,endspecialsubs)[0],
+                                   (SPECIALTYPE) pos))
+      {
+        return True;
+      }
+    }
+  } else
+  {
+    if(ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber-1] < 
+       ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber])
+    {
+      if(ADDTYPE(binarysearchpage)(
+               ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber-1]+1,
+               ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber],
+               (SPECIALTYPE) pos))
+      {
+        return True;
+      }
+    }
+  }
+  return False;
+}

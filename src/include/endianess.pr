@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL islittleendian(void);
+
+#ifdef __cplusplus
+}
+#endif

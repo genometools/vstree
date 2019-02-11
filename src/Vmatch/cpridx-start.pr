@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint cpridxpatsearchstart(Cpridxpatsearchdata *cpridxpatsearchdata,
+                          Matchcallinfo *matchcallinfo,
+                          Virtualtree *virtualtree);
+
+#ifdef __cplusplus
+}
+#endif

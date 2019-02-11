@@ -1,0 +1,63 @@
+static Sint RECOMPUTELCPTAB(Virtualtree *virtualtree)
+{
+  Uchar *sptr, *tptr, *tstart, 
+        *sentinel = virtualtree->multiseq.sequence + 
+                    virtualtree->multiseq.totallength,
+        *lcptabptr; 
+  Uint i, prefixlen;
+  PairUint *pptr;
+  EXTRAVARS;
+
+  ALLOCASSIGNSPACE(virtualtree->lcptab,NULL,Uchar,
+                   virtualtree->multiseq.totallength+1);
+  if(virtualtree->largelcpvalues.nextfreePairUint > 0)
+  { 
+    ALLOCASSIGNSPACE(virtualtree->largelcpvalues.spacePairUint,
+                     NULL,PairUint,
+                     virtualtree->largelcpvalues.nextfreePairUint); 
+  } else
+  {
+    virtualtree->largelcpvalues.spacePairUint = NULL;
+  }
+  lcptabptr = virtualtree->lcptab + 1;
+  sptr = virtualtree->multiseq.sequence + virtualtree->suftab[0];
+  NOTSUPPOSEDTOBENULL(virtualtree->largelcpvalues.spacePairUint);
+  pptr = virtualtree->largelcpvalues.spacePairUint; 
+  for(i=UintConst(1); i<=virtualtree->multiseq.totallength; i++)
+  {
+    tptr = tstart = virtualtree->multiseq.sequence + virtualtree->suftab[i];
+    while(STRINGCOMPARE(sptr,tptr))
+    {
+      sptr++;
+      tptr++;
+    }
+    sptr = tstart;
+    prefixlen = (Uint) (tptr - tstart);
+    if(prefixlen < UCHAR_MAX)
+    {
+      *lcptabptr++ = (Uchar) prefixlen;
+    } else
+    {
+      pptr->uint0 = (Uint) (lcptabptr - virtualtree->lcptab);
+      pptr->uint1 = prefixlen;
+      pptr++;
+      *lcptabptr++ = UCHAR_MAX;
+    }
+  }
+  if(lcptabptr != virtualtree->lcptab + virtualtree->multiseq.totallength + 1)
+  {
+    ERROR2("lcptabptr = %lu != %lu = lcptab+multiseq.totallength+1",
+            (Showuint) (lcptabptr-virtualtree->lcptab),
+            (Showuint) (virtualtree->multiseq.totallength+1));
+    return (Sint) -1;
+  }
+  if(pptr != virtualtree->largelcpvalues.spacePairUint + 
+             virtualtree->largelcpvalues.nextfreePairUint)
+  {
+    ERROR2("pptr = %lu != %lu = pairUint + nextfree",
+            (Showuint) (pptr-virtualtree->largelcpvalues.spacePairUint),
+            (Showuint) (virtualtree->largelcpvalues.nextfreePairUint));
+    return (Sint) -2;
+  }
+  return 0;
+}

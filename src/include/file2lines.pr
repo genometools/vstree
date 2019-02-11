@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint file2lines(ArrayStrings *as,char *filename);
+
+#ifdef __cplusplus
+}
+#endif

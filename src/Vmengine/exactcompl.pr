@@ -1,0 +1,30 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint computeofflineexactmatches(Virtualtree *virtualtree,
+                                Uchar *pattern,
+                                Uint plen,
+                                Processmatchinterval processmatchinterval,
+                                void *info);
+
+Sint findexactcompletematchesindex(void *info,
+                                   Uint seqnum2,
+                                   Uchar *pattern,
+                                   Uint plen);
+
+Sint checkexactcompletematchesindex(Virtualtree *virtualtree,
+                                    Uchar *pattern,
+                                    Uint plen);
+
+Sint findexactcompletematchesonline(void *info,
+                                    Uint seqnum2,
+                                    Uchar *pattern,
+                                    Uint plen);
+
+BOOL checkexactcompletematchesonline(Multiseq *multiseq,
+                                     Uchar *pattern,
+                                     Uint plen);
+
+#ifdef __cplusplus
+}
+#endif

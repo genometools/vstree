@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void assignvirtualdigits(Digits *digits,Multiseq *multiseq);
+
+void assignquerydigits(Digits *digits,Multiseq *querymultiseq);
+
+#ifdef __cplusplus
+}
+#endif

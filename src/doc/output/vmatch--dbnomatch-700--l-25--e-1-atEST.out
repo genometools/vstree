@@ -1,0 +1,7 @@
+$ vmatch -dbnomatch 700 -l 25 -e 1 atEST
+# args=-dbnomatch 700 -l 25 -e 1 atEST
+>10 0 815
+>26 0 1019
+>32 0 1039
+>77 191 742
+>304 0 725

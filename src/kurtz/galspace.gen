@@ -1,0 +1,77 @@
+INITGREEDYALIGNRESERVOIR(Greedyalignreservoir *gar)
+{
+  gar->frontspecreservoir.spaceFrontspec = gar->fspecspace;
+  gar->frontspecreservoir.allocatedFrontspec = (Uint) STATICFRONTCELLS;
+  gar->frontspecreservoir.nextfreeFrontspec = 0;
+  gar->frontvaluereservoir.spaceFrontvalue = gar->frontspace;
+  gar->frontvaluereservoir.allocatedFrontvalue
+    = (Uint) (STATICFRONTCELLS * STATICFRONTCELLS);
+  gar->frontvaluereservoir.nextfreeFrontvalue = 0;
+#ifdef WITHALIGNMENT
+  INITARRAY(&gar->alignment,Editoperation);
+#endif
+}
+
+RESIZEGREEDYALIGNFRONTSPACE(Greedyalignreservoir *gar,
+                            Uint generation)
+{
+  if(generation >= gar->frontspecreservoir.allocatedFrontspec)
+  {
+    Uint extraspace = generation + 1 - 
+                      gar->frontspecreservoir.allocatedFrontspec;
+    
+    if(extraspace < (Uint) INCFRONTCELLS)
+    {
+      extraspace = (Uint) INCFRONTCELLS;
+    }
+    if(gar->frontspecreservoir.allocatedFrontspec == 
+       (Uint) STATICFRONTCELLS)
+    {
+      gar->frontspecreservoir.allocatedFrontspec += extraspace;
+      ALLOCASSIGNSPACE(gar->frontspecreservoir.spaceFrontspec,
+                       NULL,
+                       Frontspec,
+                       gar->frontspecreservoir.allocatedFrontspec);
+      memcpy(gar->frontspecreservoir.spaceFrontspec,
+             gar->fspecspace,
+             (size_t) (sizeof(Frontspec) * STATICFRONTCELLS));
+      gar->frontvaluereservoir.allocatedFrontvalue
+        = gar->frontspecreservoir.allocatedFrontspec *
+          gar->frontspecreservoir.allocatedFrontspec;
+      ALLOCASSIGNSPACE(gar->frontvaluereservoir.spaceFrontvalue,
+                       NULL,
+                       Frontvalue,
+                       gar->frontvaluereservoir.allocatedFrontvalue);
+      memcpy(gar->frontvaluereservoir.spaceFrontvalue,
+             gar->frontspace,
+             (size_t) (sizeof(Frontvalue) * STATICFRONTCELLS *
+                                            STATICFRONTCELLS));
+    } else
+    {
+      gar->frontspecreservoir.allocatedFrontspec += extraspace;
+      ALLOCASSIGNSPACE(gar->frontspecreservoir.spaceFrontspec,
+                       gar->frontspecreservoir.spaceFrontspec,
+                       Frontspec,
+                       gar->frontspecreservoir.allocatedFrontspec);
+      gar->frontvaluereservoir.allocatedFrontvalue
+        = gar->frontspecreservoir.allocatedFrontspec *
+          gar->frontspecreservoir.allocatedFrontspec;
+      ALLOCASSIGNSPACE(gar->frontvaluereservoir.spaceFrontvalue,
+                       gar->frontvaluereservoir.spaceFrontvalue,
+                       Frontvalue,
+                       gar->frontvaluereservoir.allocatedFrontvalue);
+    }
+  }
+}
+
+WRAPTGREEDYALIGNRESERVOIR(Greedyalignreservoir *gar)
+{
+  if(gar->frontspecreservoir.allocatedFrontspec > (Uint) STATICFRONTCELLS)
+  {
+    FREEARRAY(&gar->frontspecreservoir,Frontspec);
+    FREEARRAY(&gar->frontvaluereservoir,Frontvalue);
+  }
+#ifdef WITHALIGNMENT
+  FREEARRAY(&gar->alignment,Editoperation);
+#endif
+}

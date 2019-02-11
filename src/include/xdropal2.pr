@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint onexdropalignment2(BOOL forward,ArrayEditoperation *alignment,
+                        Uchar *useq,Sint ulen,Uchar *vseq,Sint vlen,
+                        Xdropscore xdropbelowscore);
+
+#ifdef __cplusplus
+}
+#endif

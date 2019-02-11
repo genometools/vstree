@@ -1,0 +1,23 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint initoutinfostruct(Outinfo *outinfo,
+                       Procmultiseq *procmultiseq,
+                       Uint numberofqueryfiles,
+                       const char *indexormatchfile,
+                       BOOL storedesc,
+                       BOOL sixframequerymatch,
+                       Vpluginbundle *vmotifbundle,
+                       Vmotifdata *vmotifdata,
+                       const char *dnasymbolmapdnavsprot,
+                       const char * const*queryfiles,
+                       BOOL maporig,
+                       Virtualtree *virtualtree,
+                       Virtualtree *dnavirtualtree,
+                       Virtualtree *queryvirtualtree,
+                       BOOL *didreadqueryfromindex,
+                       Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

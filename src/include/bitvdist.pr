@@ -1,0 +1,25 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initDPbitvectorreservoir(DPbitvectorreservoir *dpbvres,
+                              Uint mapsize,Uint maxlength);
+
+void freeDPbitvectorreservoir(DPbitvectorreservoir *dpbvres);
+
+Uint evaluatedistanceoflongstrings(DPbitvectorreservoir *dpvres,
+                                   Uint mapsize,
+                                   Uchar *useq,
+                                   Uint ulen,
+                                   Uchar *vseq,
+                                   Uint vlen);
+
+Uint distanceofstrings(DPbitvectorreservoir *dpvres,
+                       Uint mapsize,
+                       Uchar *useq,
+                       Uint ulen,
+                       Uchar *vseq,
+                       Uint vlen);
+
+#ifdef __cplusplus
+}
+#endif

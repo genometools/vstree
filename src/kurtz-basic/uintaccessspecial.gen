@@ -1,0 +1,62 @@
+static Sint ADDTYPE(fillspecialtables)(Encodedsequence *encseq,
+                                       UcharBufferedfile *inputstream)
+{
+  SPECIALTYPE *specialtypeposptr, i;
+  Uchar cc = 0;
+  Sint retval;
+
+  ALLOCASSIGNSPACE(ACCESSENCSEQ(encseq,specialpositions),NULL,SPECIALTYPE,
+                   encseq->specialcharinfo.specialcharacters);
+  specialtypeposptr = ACCESSENCSEQ(encseq,specialpositions);
+  for(i=0; /* Nothing */; i++)
+  {
+    retval = readnextUchar(&cc,inputstream);
+    if(retval < 0)
+    {
+      return (Sint) -1;
+    }
+    if(retval == 0)
+    {
+      break;
+    }
+    if(ISSPECIAL(cc))
+    {
+      *specialtypeposptr++ = i;
+    }
+  }
+  return 0;
+}
+
+static BOOL ADDTYPE(binarysearchpage)(SPECIALTYPE *leftptr,
+                                      SPECIALTYPE *rightptr,
+                                      SPECIALTYPE pos)
+{
+  SPECIALTYPE *midptr;
+
+  while (leftptr <= rightptr)
+  {
+    midptr = leftptr + DIV2((SPECIALTYPE) (rightptr-leftptr));
+    if(*midptr < pos)
+    {
+      leftptr = midptr + 1;
+    } else
+    {
+      if(*midptr > pos)
+      {
+        rightptr = midptr-1;
+      } else
+      {
+        return True;
+      }
+    }
+  }
+  return False;
+}
+
+static BOOL ADDTYPE(checkspecial64)(const Encodedsequence *encseq,Uint64 pos)
+{
+  return ADDTYPE(binarysearchpage)(ACCESSENCSEQ(encseq,specialpositions),
+                                   ACCESSENCSEQ(encseq,specialpositions) +
+                                   encseq->specialcharinfo.specialcharacters-1,
+                                   pos);
+}

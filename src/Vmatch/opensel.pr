@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint openSelectmatch(const char *filename,SelectBundle *selectbundle);
+
+Sint closeSelectmatch(SelectBundle *selectbundle);
+
+#ifdef __cplusplus
+}
+#endif

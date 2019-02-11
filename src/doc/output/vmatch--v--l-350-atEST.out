@@ -1,0 +1,33 @@
+$ vmatch -v -l 350 atEST
+# args=-v -l 350 atEST
+# matches are reported in the following way
+# l(S) n(S) r(S) t l(S) n(S) r(S) d e s i
+# where:
+# l = length
+# n = sequence number
+# r = relative position
+# t = type (D=direct, P=palindromic)
+# d = distance value (negative=hamming distance, 0=exact, positive=edit distance)
+# e = E-value
+# s = score value (negative=hamming score, positive=edit score)
+# i = percent identity
+# (S) = in Subject
+# file=atEST 999815 772376
+# databaselength=772375 (including 1951 separators)
+# sequence lengths: minimal=56, maximal=1102, average=394.68
+# alphabet of size 5: acgtn
+# atEST.tis read
+# atEST.bwt read
+# atEST.suf read
+# atEST.lcp read
+# atEST.llv read
+# atEST.ssp read
+# find direct substring matches (repeats)
+  388      79    236   D   388    1495    180   0   4.22e-223    776   100.00
+  517      64      0   D   517      65      0   0    0.00e+00   1034   100.00
+  392     229      0   D   392     270      0   0   1.65e-225    784   100.00
+  369     736    141   D   369    1151     85   0   1.16e-211    738   100.00
+  402      78    363   D   402    1488    146   0   1.57e-231    804   100.00
+  369     902     54   D   369    1151     87   0   1.16e-211    738   100.00
+  367     736    143   D   367     902     54   0   1.86e-210    734   100.00
+# overall space peak: main=0.07 MB (0.09 bytes/symbol), secondary=5.18 MB (7.03 bytes/symbol)

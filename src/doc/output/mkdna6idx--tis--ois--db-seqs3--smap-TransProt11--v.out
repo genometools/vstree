@@ -1,0 +1,28 @@
+$ mkdna6idx -tis -ois -db seqs3 -smap TransProt11 -v
+reading file "seqs3"
+total length of sequences: 10000 (including 2 separators)
+create file "seqs3.tis"
+create file "seqs3.ois"
+create file "seqs3.des"
+create file "seqs3.sds"
+create file "seqs3.prj"
+create file "seqs3.al1"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 3,
+the recommended prefixlength is 3
+total length of sequences: 20001 (including 17 separators)
+alphabet "LVIFKREDAGSTNQYWPHMCXUBZ*-" (size 26) mapped to "i+-sonaphmcx" (size 12)
+create file "seqs3.6fr.tis"
+create file "seqs3.6fr.ois"
+create file "seqs3.6fr.des"
+create file "seqs3.6fr.sds"
+create file "seqs3.6fr.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 3
+sorting all buckets
+create file "seqs3.6fr.llv"
+create file "seqs3.6fr.suf"
+create file "seqs3.6fr.bwt"
+create file "seqs3.6fr.prj"
+create file "seqs3.6fr.al1"
+# overall space peak: main=0.24 MB,  secondary=0.01 MB

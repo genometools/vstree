@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void srand48(long int seedval);
+
+double drand48(void);
+
+#ifdef __cplusplus
+}
+#endif

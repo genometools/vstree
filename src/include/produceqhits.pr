@@ -1,0 +1,29 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint produceqhitsimple(Uchar *dbseq,
+                       Uint dblen,
+                       Uint *suftab,
+                       Uchar *queryseq,
+                       Uint querylen,
+                       Uint fixedmatchlength,
+                       Outputfunction processqhit,
+                       void *processinfo);
+
+Sint produceqhits(Uchar *dbseq,
+                  Uint dblen,
+                  Uint *bcktab,
+                  Uint *suftab,
+                  Uchar *queryseq,
+                  Uint querylen,
+                  Uint numofchars,
+                  Uint prefixlength,
+		  BOOL onlyqhits,
+		  Uint fixedmatchlength,
+                  Outputfunction1 processposition,
+                  Outputfunction processqhit,
+                  void *processinfo);
+
+#ifdef __cplusplus
+}
+#endif

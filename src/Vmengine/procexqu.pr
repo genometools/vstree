@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint processexactquerymatch(void *info,
+                            Uint l,
+                            Uint i,
+                            Uint queryseq,
+                            Uint querystart);
+
+#ifdef __cplusplus
+}
+#endif

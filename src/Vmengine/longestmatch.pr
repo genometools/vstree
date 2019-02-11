@@ -1,0 +1,25 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void longpatternlongestmatch (PairUint *longest,
+                              Uint *ecol,
+                              Uchar *u,
+                              Uint ulen,
+                              Uchar *v,
+                              Uint vlen);
+
+void shortpatternlongestmatch(PairUint *longest,
+                              DPbitvector4 *Eqs,
+                              Uint ulen,
+                              Uchar *v,
+                              Uint vlen);
+
+void mediumpatternlongestmatch(PairUint *longest,
+                               DPbitvector8 *Eqs,
+                               Uint ulen,
+                               Uchar *v,
+                               Uint vlen);
+
+#ifdef __cplusplus
+}
+#endif

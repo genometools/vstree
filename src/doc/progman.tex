@@ -1,0 +1,381 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide}
+\title{The Vstree Programmers Manual}
+\author{Stefan Kurtz}
+
+\begin{document}
+\maketitle
+This manusscript describes some  basic rules and hints
+for programmers developing software based on the 
+\emph{vstree}-sources.
+
+If you are comparing characters, then take care about the semantics
+of the wildcard symbols and seperator symbols.
+
+\section{Some general rules for a unified and secure programming style}
+\begin{enumerate}
+\item
+Global variables are not allowed. The only exceptions are global counters
+that are used in the testing phase of the programs. 
+Possible exceptions of this rule should be discussed with Stefan.
+\item
+Identifiers introduced by a \texttt{\#define} statement are completely
+written in upper case letters. This also holds for the arguments of
+macros.
+\item
+Function names begin with a lower case letter. This is also true for
+variables.
+\item
+Static variables inside functions are not allowed.
+\item
+Functions that may fail should return a negative error code or \texttt{NULL}.
+The code for successful execution should be 0 or a pointer different from
+\texttt{NULL}. Positive return values may be used as results.
+\item
+If a function may return an error code or \texttt{NULL}, always check for
+this and handle the case accordingly.
+\item
+Use static functions whenever possible.
+\end{enumerate}
+
+\section{Use of Predefined Types and Functions}
+To simplify programming and to provide a common look and feel of
+the program interfaces, make use of the types and functions
+provided in the different libraries of the \emph{vstree}-package. The 
+main resource is the collection of library functions in \texttt{lib/libkurtz.a}
+which is based on types and constants in the directory
+\texttt{include}.
+\begin{enumerate}
+\item
+The documentation for a lot of functions provided in 
+\begin{small}
+\begin{verbatim}
+lib/libkurtz.a
+lib/libmkvtree.a
+lib/libvmatch.a
+\end{verbatim}
+\end{small}
+can be found in \texttt{share/doc/vstree.pdf}.
+\item
+The prototypes of all function from \texttt{likurtz.a} can be found in 
+\texttt{include/protodef.h}
+\item
+Use the predefined types for signed and unsigned integers in
+include \texttt{types.h}. See also section \ref{SixtyfourBits}.
+\item
+Use the predefined macros in \texttt{divmodmul.h} for division,
+multiplication and modulo operations by \(2^{i}\), \(i\in[1,6]\).
+\item
+If you access characters from an indexed sequence use the constants
+in \texttt{chardef.h}.
+\item
+If you want to work with integer scores, then have a look
+at \texttt{scoredef.h}.
+\item
+For reading and writing files via a file descriptor or a 
+filepointer, use the macros in \texttt{fdrewr.h} and \texttt{fopen.h}.
+\item
+If you need safe artithmetic operations warning for overflow, then
+you may want to use the module \texttt{safearith.h}.
+\item
+Use the macros in \texttt{arraydef.h} for arrays growing dynamically
+while beeing filled.
+\item
+Use the types defined in \texttt{alphadef.h} for handling
+alphabets.
+\item
+Use the macro in \texttt{compl.h} to compute complement characters.
+\item
+Use the type \texttt{Multiseq} in \texttt{multidef.h} for storing
+sets of sequences.
+\item
+Use the functions in \texttt{readmulti.c} for mapping virtual suffix
+trees into main memory.
+\item
+Some basic types for handling E-values can be found in 
+\texttt{evaluedef.h}.
+\item
+Use \texttt{logbase.h} for computing logarithmic values.
+\item
+Space allocation and memory mapping is only allowed using the macros
+defined in \texttt{spacedef.h}. At the end of the program,
+\texttt{checkspaceleak} and \texttt{mmcheckspaceleak} must be called to check
+if all allocated blocks and mapped files have been explicitely freed.
+Do not use the functions \texttt{wrapspace}, but release memory as
+early as possible using corresponding macros in \texttt{include/spacedef.h}.
+\item
+Use the \texttt{DEBUG}-macros for producing debugging messages. See
+\texttt{debugdef.h} for further information.
+\item
+Use the \texttt{ERROR}-macros for producing error messages written
+to some temporary buffer. See \texttt{errordef.h} for further information. 
+\item
+Use the type \texttt{OptionDescription} to write functions parsing arguments.
+See \texttt{optdesc.h} and \texttt{procopt.h} for further information.
+\item
+Use the types and flags in \texttt{match.h} to store found matches.
+\item
+Use the types and flags in \texttt{alignment.h} to store edit operations
+and alignments.
+\item
+Use the macros in \texttt{intbits.h} if you want to perform maninpulation
+of bits for values of type \texttt{Uint}.
+\item
+Use the types and functions in \texttt{queue.c} for Queues.
+\item
+Use the functions in \texttt{distri.c} to compute distributions.
+\item
+Use the functions in \texttt{getdirname.c} and \texttt{getbasename.c}
+to compute the directory and the base of a path.
+\item
+Use \texttt{checkonoff} to check environmentvariables for whether they 
+are set to the value \texttt{on} or to the value \texttt{off} or whether
+they are undefined.
+\item
+Use the functions in \texttt{clock.c} to measure the running
+time of your program.
+\end{enumerate}
+
+\section{Layout and Documentation}
+\begin{enumerate}
+\item
+Lines are not longer than 75 characters. This allows proper formatting of
+the code.
+\item
+A Function header begins in the first column. It ends with
+a bracket \verb")" immediatly before a newline. This allows extraction
+of prototypes.
+\item
+Use the program \texttt{indent} to format your code.
+The file \texttt{\symbol{62}/.indent.pro} defines a style to format the code.
+It contains the following lines:
+\begin{verbatim}
+-bbo
+-bfda
+-npsl
+-bl
+-bli0
+-c40
+-l75
+-lp
+-nut
+-cli2
+-bad
+\end{verbatim}
+Each line gives an option of \texttt{indent}. Moreover, the file
+contains additional lines of the form \texttt{-T }\emph{t} for each
+user defined type \emph{t}.
+\item
+All functions should be documented, as soon their implementation is stable. 
+Use the comment characters in the first column and indent the comment 
+by two positions. Here is an example.
+
+\begin{footnotesize}
+\begin{verbatim}
+/*
+  This is comment. The use of \LaTeX commands is encoraged.
+*/
+\end{verbatim}
+\end{footnotesize}
+\item
+Comments for functions that are not static, shall start with the comment 
+symbol \verb"/*EE" where the \texttt{EE} stand for exporting. This also
+holds for general comments on the structure of the file.
+\begin{footnotesize}
+\begin{verbatim}
+/*EE
+  The following function allocates \texttt{number} cells of \texttt{size}
+  for a given pointer \texttt{ptr}. If this is \texttt{NULL}, then the next 
+  free block is used. Otherwise, we look for the block number corresponding 
+  to \texttt{ptr}. If there is none, then the program exits with exit code 1. 
+*/
+
+void *allocandusespaceviaptr(char *file,int line,void *ptr,
+                             Uint size,Uint number)
+  ....
+\end{verbatim}
+\end{footnotesize}
+\item
+Sometimes \texttt{C++}-style comments are usefull too, for example
+when documenting structure types. Here is an example.
+\begin{footnotesize}
+\begin{verbatim}
+typedef struct
+{
+  Uchar characters[UCHAR_MAX+1];  // list of characters in the alphabet
+  Uint nextfreeint,               // nextfree entry in the alphabet
+       alphasize,                 // size of domain of symbolmap = \#characters
+       mapsize,                   // size of image of map, i.e. 
+                                  // mapping to [0..mapsize-1]
+       undefsymbol,               // undefined symbol
+       symbolmap[UCHAR_MAX+1];    // mapping of the symbols
+} Alphabet;                       
+\end{verbatim}
+\end{footnotesize}
+\item
+Proper indentation is very important to make program code readable: each block 
+should be indented by two columns w.r.t.\ the enclosing block. 
+Here is an example:
+\begin{footnotesize}
+\begin{verbatim}
+void wrapspace(void)
+{
+  Uint i;
+
+  for(i=0; i<MAXCALLOC; i++)
+  {
+    if(spaceptr[i] != NULL)
+    {
+      free(spaceptr[i]);
+      spaceptr[i] = NULL;
+    }
+    subtractspace(sizeofcells[i] * numberofcells[i]);
+    sizeofcells[i] = 0;
+    numberofcells[i] = 0;
+    fileallocated[i] = NULL;
+    lineallocated[i] = 0;
+  }
+}
+\end{verbatim}
+\end{footnotesize}
+\end{enumerate}
+
+\section{Types}
+\begin{enumerate}
+\item
+User defined type names begin with an upper case letter.
+\item
+Use \texttt{typedef struct ...}, 
+\texttt{typedef enum ...}, etc.\ to introduce
+new type names.
+\item
+The \verb"\\Typedef" command should appear as a comment following every 
+typedef, see above. This allows automatic generation of hyperlinks
+in the documentation.
+\item
+Use \texttt{typedef enum} if you want to define a collection of identifiers
+mapping to consecutive numbers. The last element of the enum-type should
+be an extra constant which can be used to systematically iterate over
+all constants of the enum-type. Here is an example: (take example
+from Gordon).
+
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SHOWSometype(X) #X
+
+typedef enum
+{
+  Enum1,
+  Enum2,
+  SizeofSometype
+} Sometype;
+
+static char *Sometypenames[] = 
+{
+  SHOWSometype(Enum1),
+  SHOWSometype(Enum2),
+  SHOWSometype(SizeofSometype)
+};
+
+char *showSometype(Sometype v)
+{
+  if(v >= SizeofSometype)
+  {
+    fprintf(stderr,"error: showSometype(%d) is undefined\n",(int) d);
+    exit(EXIT_FAILURE);
+  }
+  return Sometypenames[v];
+}
+\end{verbatim}
+
+\item
+Use unsigned types whereever possible. We need to process large amount
+of data, we may need every bit to process it.
+\end{enumerate}
+
+\section{Programming Tools}
+\begin{enumerate}
+\item
+The code must be compiled with the \texttt{gcc} compiler
+using the options \texttt{-Wall -Werror -O3}. With these options the
+compiler gives very helpful messages about unclean code.
+\item
+The use of these options require that every function called has been 
+introduced with its code, or with a prototype. Prototypes of your 
+own functions are to be defined may be defined in header files. More
+precisely, if a function is defined in file \emph{cfunc}\texttt{.c},
+then the prototypes are to be defined in \emph{cfunc}\texttt{.pr}.
+The prototypes are extracted from the code using the program 
+\texttt{skproto}. The current code for this program is 
+available as part of the \texttt{SKtools} in
+in the CVS-tree at \texttt{roma.zbh.uni-hamburg.de:/projects/gicvs/SKtools}.
+\end{enumerate}
+
+\section{Portability for 64-Bit Architecture}\label{SixtyfourBits}
+The current version of the vstree-kernel in 
+\texttt{/projects/vstree/src/vstree/src} can be compiled in 32-bit or in 
+64-bit mode. If you follow the following rules, then this should also
+be possible for your code:
+the type \texttt{int} and \texttt{long} but type synonyms 
+\texttt{Uint} (for unsigned integer) and \texttt{Sint}
+(for sigened integer).
+\begin{enumerate}
+\item
+Do not directly use the types \texttt{int}, \texttt{long} in signed or
+unsigned form.
+\item
+Use \texttt{Sint} and \texttt{Uint}, as defined in 
+\texttt{types.h}. The size of \texttt{Sint} and \texttt{Uint} is identical.
+They can be of size 32 or 64 bits. Do not assume anything else about the 
+size of these types. 
+\item
+Doing so, so will recognize that on a 64-bit machine,
+the compile will complain about
+the format characters \texttt{u} and \texttt{d} in the calls to 
+\texttt{fprintf} or \texttt{fscanf}. You get rid of this problem
+by substituting each \texttt{\%u} by \texttt{\%lu} and each 
+\texttt{\%d} by \texttt{\%ld}.
+\item
+Do not use \texttt{unsigned char} and \texttt{unsigned short}. Use the
+types \texttt{Uchar} and \texttt{Ushort}. Use short only when appropriate, 
+e.g.\ for saving space.
+\item
+use \texttt{size\_t} in \texttt{fwrite}, \texttt{fread}, \texttt{qsort},
+\texttt{memcmp}, \texttt{memcmp}, \texttt{strncpy}, \texttt{strncmp}.
+\item
+Be careful when using type casts between values of different sizes:
+casting from a larger to a smaller type may loose some bits.
+Casting from smaller to larger types should work appropriately.
+\item
+If you need to access or manipulate particular bits of a value of type
+\texttt{Uint}, or obtain the number of bits in such an
+integer, then use the constants and macros
+in file \texttt{intbits.h}.
+\item
+The script \texttt{Checkforbidden.sh} finds lines in your 
+C-program, which violate the the standards described in this section.
+It looks for the following regular expressions:
+\begin{verbatim}
+%[-+'#0 ]?[0-9*]*[diouxX]
+UINT_MAX
+INT_MAX
+UINT_MIN
+INT_MIN
+\end{verbatim}
+\end{enumerate}
+\end{document}
+
+\section{Progamming tools, e.g. splint}
+
+\section{Scripts in vstree/src/bin}
+
+\section{writing makefiles}
+
+\section{malloc check}
+
+\section{Use of CVS}
+To be written by Thomas.
+
+\end{document}

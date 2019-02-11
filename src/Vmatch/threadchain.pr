@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint threadchainedfragments(void *info,Chain *chain);
+
+#ifdef __cplusplus
+}
+#endif

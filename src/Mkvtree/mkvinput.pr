@@ -1,0 +1,17 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint mkvtreeinput(BOOL specialsymbols,
+                  BOOL readorig,
+                  BOOL rev,
+                  BOOL cpl,
+                  BOOL autoprefixlength,
+                  BOOL prefixlengthisnotnull,
+                  Multiseq *multiseq,
+                  BOOL storedesc,
+                  Alphabet *alpha,
+                  Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

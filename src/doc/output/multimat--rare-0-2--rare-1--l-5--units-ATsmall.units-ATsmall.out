@@ -1,0 +1,4 @@
+$ multimat -rare 0 2 -rare 1 -l 5 -units ATsmall.units ATsmall
+5 486 593 220 694 104 154
+5 221 593 220 694 104 154
+6 126 1153 1140 434 545 744

@@ -1,0 +1,31 @@
+To: vstree
+Cc:
+Bcc:
+Subject: /vol/vstree
+Reply-To:
+
+The current up-to-date version of mkvtree, vmatch, and related programs are
+available at /vol/vstree/bin
+
+If you want to use these you should add /vol/vstree/bin to your
+path. A manual is available at /vol/vstree/share/doc/virtman.pdf
+
+Those of you who develop software based on
+libagrep.a          libkurtz.a          libmultimat.a
+libautomata.a       libmkvtree.a        libvmatch.a
+find the current version of these libs and the
+corresponding include files in /vol/vstree/lib and /vol/vtree/include
+
+See also /vol/vstree/share/doc/vstree.pdf for the documentation and
+/vol/vstree/share/Example/ for examples and a makefile-template.
+
+/vol/vstree/src/vstree contains the source code for the program and
+the libs shown above. Please do not distribute the code.
+
+I will occasionally update /vol/vstree and inform you accordingly.
+
+If there are any problems or bugs, please report them to me.
+
+Bye,
+
+Stefan

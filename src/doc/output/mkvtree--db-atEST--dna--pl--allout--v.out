@@ -1,0 +1,22 @@
+$ mkvtree -db atEST -dna -pl -allout -v
+reading file "atEST"
+maximal value for argument of option -pl is 9, recommended value is 8
+total length of sequences: 772376 (including 1951 separators)
+alphabet of size 5: acgtn
+creating file "atEST.tis"
+creating file "atEST.ois"
+creating file "atEST.des"
+creating file "atEST.sds"
+creating file "atEST.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "atEST.llv"
+creating file "atEST.bck"
+creating file "atEST.suf"
+creating file "atEST.sti1"
+creating file "atEST.bwt"
+creating file "atEST.prj"
+creating file "atEST.al1"
+creating file "atEST.skp"
+overall space peak: main=5.34 MB (7.25 bytes/symbol), secondary=1.69 MB

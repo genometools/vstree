@@ -1,0 +1,22 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void bytecode2string(Uchar *seqbuf, const Uchar *bytecode,const Uint len);
+
+void showbytecode(FILE *outfp,const Uchar *bytecode,const Uint len);
+
+void string2bytecode(Uchar *bytecode,Uchar *seq,const Uint len);
+
+void shiftbytecode(Uchar *dest,const Uchar *source,
+                   const Uint startindex,const Uint len);
+
+Sint string2bytecodewithspecial(Uchar *bytecode,
+                                FILE *fptistabstream);
+
+Uint extractprefixbytecode(const Uint merbytes,
+                           const Uint prefixlength,
+                           const Uchar *bytecode);
+
+#ifdef __cplusplus
+}
+#endif

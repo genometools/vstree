@@ -1,0 +1,28 @@
+$ mkvtree -dna -pl -tis -suf -lcp -v -db read1.fna -indexname read1
+reading file "read1.fna"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 8,
+the recommended prefixlength is 7
+total length of sequences: 388446 (including 966 separators)
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+remove file "read1.tis"
+remove file "read1.des"
+remove file "read1.ssp"
+remove file "read1.suf"
+remove file "read1.lcp"
+remove file "read1.sds"
+remove file "read1.llv"
+remove file "read1.al1"
+remove file "read1.prj"
+create file "read1.tis"
+create file "read1.des"
+create file "read1.sds"
+create file "read1.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 7
+sorting all buckets
+create file "read1.llv"
+create file "read1.suf"
+create file "read1.prj"
+create file "read1.al1"
+overall space peak: main=1.82 MB (4.91 bytes/symbol), secondary=0.48 MB

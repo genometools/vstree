@@ -1,0 +1,94 @@
+INCLUDEDIR=../../include
+
+HEADERFILES=\
+    types.h\
+    alphadef.h\
+    multidef.h\
+    arraydef.h\
+    match.h\
+    maxfiles.h\
+    evaluedef.h\
+    absdef.h\
+    errordef.h\
+    failures.h\
+    spacedef.h\
+    redblackdef.h\
+    minmax.h\
+    chardef.h\
+    scoredef.h\
+    visible.h\
+    vmrelease.h\
+    codondef.h\
+    xmlindent.h\
+    select.h
+
+all:${HEADERFILES} Shareddef xmlfunc.c
+
+.PHONY:Shareddef
+Shareddef:../../Makedef
+	grep '^SHARED' ../../Makedef > $@
+
+.PHONY:xmlfunc.c
+xmlfunc.c:../xmlfunc.c
+	cat $< | deletegeneric.pl '/' xmlshowdesc | egrep -v 'multiseq-adv.pr|genfile.h' > $@
+
+types.h:${INCLUDEDIR}/types.h
+	cp ${INCLUDEDIR}/types.h .
+
+alphadef.h:${INCLUDEDIR}/alphadef.h
+	cp ${INCLUDEDIR}/alphadef.h .
+
+multidef.h:${INCLUDEDIR}/multidef.h
+	cp ${INCLUDEDIR}/multidef.h .
+
+arraydef.h:${INCLUDEDIR}/arraydef.h
+	cp ${INCLUDEDIR}/arraydef.h .
+
+match.h:${INCLUDEDIR}/match.h
+	cp ${INCLUDEDIR}/match.h .
+
+maxfiles.h:${INCLUDEDIR}/maxfiles.h
+	cp ${INCLUDEDIR}/maxfiles.h .
+
+evaluedef.h:${INCLUDEDIR}/evaluedef.h
+	cp ${INCLUDEDIR}/evaluedef.h .
+
+absdef.h:${INCLUDEDIR}/absdef.h
+	cp ${INCLUDEDIR}/absdef.h .
+
+errordef.h:${INCLUDEDIR}/errordef.h
+	cp ${INCLUDEDIR}/errordef.h .
+
+failures.h:${INCLUDEDIR}/failures.h
+	cp ${INCLUDEDIR}/failures.h .
+
+spacedef.h:${INCLUDEDIR}/spacedef.h
+	cp ${INCLUDEDIR}/spacedef.h .
+
+redblackdef.h:${INCLUDEDIR}/redblackdef.h
+	cp ${INCLUDEDIR}/redblackdef.h .
+
+minmax.h:${INCLUDEDIR}/minmax.h
+	cp ${INCLUDEDIR}/minmax.h .
+
+chardef.h:${INCLUDEDIR}/chardef.h
+	cp ${INCLUDEDIR}/chardef.h .
+
+scoredef.h:${INCLUDEDIR}/scoredef.h
+	cp ${INCLUDEDIR}/scoredef.h .
+
+visible.h:${INCLUDEDIR}/visible.h
+	cp ${INCLUDEDIR}/visible.h .
+
+vmrelease.h:${INCLUDEDIR}/vmrelease.h
+	cp ${INCLUDEDIR}/vmrelease.h .
+
+codondef.h:${INCLUDEDIR}/codondef.h
+	cp ${INCLUDEDIR}/codondef.h .
+
+xmlindent.h:${INCLUDEDIR}/xmlindent.h
+	cp ${INCLUDEDIR}/xmlindent.h .
+
+select.h:${INCLUDEDIR}/select.h
+	cp ${INCLUDEDIR}/select.h .
+

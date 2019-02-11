@@ -1,0 +1,10 @@
+$ uniquesub -output subjectpos querypos sequence indexname queryfile.fna
+# reading file "queryfile.fna"
+unit 0 (sequence 1): minimum unique length is 3
+0 +64 9 agc
+0 +6 13 tac
+0 +34 31 gac
+0 +54 82 aaa
+unit 1 (sequence 2): minimum unique length is 3
+0 +54 12 aaa
+# overall space peak: main=0.06 MB, secondary=0.00 MB

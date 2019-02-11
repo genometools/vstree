@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+\usepackage{a4wide,ifpdf,ifthen,comment,alltt,xspace,times,makeidx}
+\usepackage{skaff}
+\usepackage{optionman}
+
+
+\ifpdf
+\usepackage[colorlinks=true,linkcolor=red,hyperindex]{hyperref}
+\fi
+
+\newcommand{\ShowSort}[3]{\index{sort mode!\texttt{\small #1}}\texttt{\small #1}:&sort in #2scending order of #3}
+\newcommand{\TTindex}[1]{\index{#1@\texttt{#1}}}
+\newcommand{\Seqformkeyword}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Seqfilename}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Programname}[1]{\texttt{#1}}
+\newcommand{\Filenamesuffix}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Environmentvariable}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Datatype}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Selectionfunction}[1]{\texttt{\small #1}\index{#1@\texttt{#1}}}
+\newcommand{\Function}[3]{#1:#2\to#3}
+\newcommand{\Size}[1]{|#1|}
+\newcommand{\Iff}{if and only if\xspace}
+\newcommand{\SY}[1]{\symbol{#1}}
+\newcommand{\Nats}{\textrm{I}\!\textrm{N}}
+\newcommand{\LCP}[0]{\mathit{lcptab}}
+\newcommand{\SUF}[0]{\mathit{suftab}}
+\newcommand{\STI}[0]{\mathit{stitab}}
+\newcommand{\STIone}[0]{\mathit{stitab1}}
+\newcommand{\BCK}[0]{\mathit{bcktab}}
+\newcommand{\PRJ}[0]{\mathit{prjtab}}
+\newcommand{\TIS}[0]{\mathit{tistab}}
+\newcommand{\OIS}[0]{\mathit{oistab}}
+\newcommand{\BWT}[0]{\mathit{bwttab}}
+\newcommand{\LLV}[0]{\mathit{llvtab}}
+\newcommand{\SKP}[0]{\mathit{skptab}}
+\newcommand{\ISO}[0]{\mathit{isotab}}
+\newcommand{\SSP}[0]{\mathit{ssptab}}
+\newcommand{\DES}[0]{\mathit{destab}}
+\newcommand{\SDS}[0]{\mathit{sdstab}}
+\newcommand{\CLD}[0]{\mathit{cldtab}}
+\newcommand{\Xdrop}[0]{\mathit{Xdrop}}
+\newcommand{\GenPerLen}[2]{#1_{\mathit{#2}}}
+\newcommand{\PerSmall}[0]{\GenPerLen{p}{small}}
+\newcommand{\PerLarge}[0]{\GenPerLen{p}{large}}
+\newcommand{\LenSmall}[0]{\GenPerLen{\ell}{small}}
+\newcommand{\LenLarge}[0]{\GenPerLen{\ell}{large}}
+\newcommand{\VSI}{\Programname{vseqinfo}\xspace}
+\newcommand{\VSS}{\Programname{vseqselect}\xspace}
+\newcommand{\VSSS}{\Programname{vsubseqselect}\xspace}
+\newcommand{\VMI}{\Programname{vmigrate.sh}\xspace}
+\newcommand{\VM}{\Programname{vmatch}\xspace}
+\newcommand{\VMS}{\Programname{vmatchselect}\xspace}
+\newcommand{\VMOT}{\Programname{vmotif}\xspace}
+\newcommand{\VtoTex}{\Programname{vstree2tex}\xspace}
+\newcommand{\WILDCARD}{\texttt{WILDCARD}\xspace}
+\newcommand{\SEPARATOR}{\texttt{SEPARATOR}\xspace}
+\newcommand{\VMSopt}[1]{\Showoption{#1}}
+\newcommand{\Showformattype}[1]{\textsc{#1}\xspace}
+\newcommand{\Fasta}{\Showformattype{Fasta}}
+\newcommand{\EMBL}{\Showformattype{Embl}}
+\newcommand{\SWISSPROT}{\Showformattype{Swissprot}}
+\newcommand{\GENBANK}{\Showformattype{Genbank}}
+\newcommand{\Prefixlength}[0]{\mathit{prefixlength}}
+\newcommand{\Fastastart}[0]{\texttt{\SY{62}}\xspace}
+\newcommand{\LDlibpath}[0]{\texttt{LD\SY{95}LIBRARY\SY{95}PATH}}
+\newcommand{\Minclsize}[0]{\Showoptionarg{minclsize}}
+\newcommand{\Maxclsize}[0]{\Showoptionarg{maxclsize}}
+\newcommand{\Indexfile}[1]{\mathit{indexname}.\texttt{#1}}
+\newcommand{\EcoliKtwelve}[0]{\emph{Ecoli~K12}\xspace\index{Ecoli~K12}}
+\newcommand{\EcoliH}[0]{\emph{Ecoli~O157:H7}\xspace\index{\texttt{Ecoli~O157:H7}}}
+
+\newcommand{\Program}[2]{\index{#2@#1}}
+
+\newcommand{\ArabicLabels}{
+  \renewcommand{\labelenumi}{$(\arabic{enumi})$}
+  \renewcommand{\theenumi}{(\arabic{enumi})}
+}
+
+\newcommand{\RomanLabels}{
+  \renewcommand{\labelenumi}{$(\roman{enumi})$}
+  \renewcommand{\theenumi}{(\roman{enumi})}
+}
+
+\newenvironment{Output}%
+{%\par%
+ %\addvspace{\medskipamount}%
+ \begin{sloppy}
+ \begin{scriptsize}
+ \begin{alltt}}
+{\end{alltt}%
+ \end{scriptsize}%
+ \end{sloppy}
+ \addvspace{-\medskipamount}
+}
+
+\newenvironment{LargeOutput}%
+{\par%
+ %\addvspace{\medskipamount}%
+ \begin{sloppy}
+ \begin{footnotesize}
+ \begin{alltt}}
+{\end{alltt}%
+ \end{footnotesize}%
+ \end{sloppy}
+ \addvspace{-\medskipamount}
+}
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+\title{\begin{tabular}{c}
+\textbf{A Software Tool to efficiently detect}\\
+\textbf{Motifs in Large Sequence Sets}\\
+\textbf{Manual}
+\end{tabular}}
+\makeindex
+\begin{document}
+\maketitle
+
+\begin{Showprogramwithoptions}{\VMOT}{}
+
+\input{vmotif.opt}
+
+\end{Showprogramwithoptions}
+\end{document}

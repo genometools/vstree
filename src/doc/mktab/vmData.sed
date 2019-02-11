@@ -1,0 +1,23 @@
+s/\"//g
+s/\/vol\/biodata\/genomes\/bacteria\///g
+s/\/vol\/biodata\/genomes\///g
+s/\/vol\/biodata\/est\///g
+s/\/vol\/biodata\/swissprot\///g
+s/vmatch -v -l \([0-9]*\) -best 1 all /vmatch\1 /g
+s/dbfile=//g
+s/main=//g
+s/secondary=//g
+s/\/[0-9A-Za-z\.]*\.fna//g
+s/A_thaliana.*CHR_IV/Athaliana/g
+/A_thaliana.*CHR_II/d
+s/C_elegans\/sanger\/C_elegans_concat.fna/Celegans/g
+/D_melanogaster.*arm[23][LR]_noN\.fna/d
+/D_melanogaster.*arm4_noN\.fna/d
+/D_melanogaster.*armU_noN\.fna/d
+s/D_melanogaster.*armX_noN\.fna/Drosophila/g
+s/H_sapiens.*hs_chr22\.fna/Human/g
+/H_sapiens.*chr21_all\.fna/d
+s/S_cerevisiae.*MT\.fna/Scerevisiae/g
+/S_cerevisiae\/Chr[0-9][0-9]/d
+s/\/ChrMT//g
+s/_//g

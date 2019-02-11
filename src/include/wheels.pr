@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint turnwheels(Uint *asizes,Uint numofalphabets,Uint *wheelspace,
+                Sint(*outwheel)(void *,Uint *),void *wheelinfo);
+
+#ifdef __cplusplus
+}
+#endif

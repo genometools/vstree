@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint safestringcopy(char *dest,const char *source,Sint maxlen);
+
+#ifdef __cplusplus
+}
+#endif

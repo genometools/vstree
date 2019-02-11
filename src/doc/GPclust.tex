@@ -1,0 +1,275 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide,alltt,xspace,times}
+\usepackage{skaff}
+\usepackage{optionman}
+\newcommand{\Size}[1]{|#1|}
+\newcommand{\GPC}{\texttt{gpcluster}\xspace}
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+\title{\textbf{Finding Clusters of Close Genepairs}\\[2mm]
+       \textbf{Manual}}
+\begin{document}
+\maketitle
+The program \GPC reads files specifying gene locations and pairs of 
+duplicated genes. It clusters two duplicated genes, if the gene locations
+are close together.
+
+\section{Program Options}
+The program is called as follows:
+\par
+\noindent\GPC [\emph{options}]
+\par
+The options of \GPC are as follows:
+
+\begin{Justshowoptions}
+
+\Option{genefile}{$\Showoptionarg{genefile}$}{
+Specify the file containing gene specifications of the following form:
+\begin{alltt}
+geneid loc frompos topos str
+\end{alltt}
+\texttt{geneid} is the unique identifier of the gene, 
+\texttt{frompos} and \texttt{topos} are the coordinates 
+(start an end position) of the gene, while \texttt{loc} is a 
+location identifier (i.e.\ a string without white spaces).
+\texttt{str} is \texttt{f} (for forward) or \texttt{r} (for reverse)
+denoting the direction. The coordinates are relative to the location specified.
+The columns in the given $\Showoptionarg{genefile}$ are separated by 
+white spaces. The file may contain comment lines
+starting with the symbol \texttt{\symbol{35}} in the first column.
+This option is mandatory.
+}
+
+\Option{genepairfile}{$\Showoptionarg{genepairfile}$}{
+Specify the file containing lines with pairs of duplicated genes. Each 
+line is of the following form:
+\begin{footnotesize}
+\begin{alltt}
+genespec$_{1}$ genespec$_{2}$ Evalue
+\end{alltt}
+\end{footnotesize}
+where \texttt{genespec}$_{1}$ and \texttt{genespec}$_{2}$
+both specify a pair of duplicated genes (each in five columns) called
+genepair in the following. 
+%(geneid$_{1}$ < geneid$_{2}$)
+%There are 46 overlaps between consecutive genes.
+An assessment of their 
+similarity is given by an E-value in column 10. The positions and 
+locations given for two genes must be consistent with the information 
+in the corresponding gene specification file.
+\Showoptionarg{genepairfile} may contain comment lines
+starting with the symbol \texttt{\symbol{35}} in the first column.
+This option is mandatory.
+}
+
+\Option{maxevalue}{$\Showoptionarg{maxevalue}$}{
+Specify a maximum E-value threshold $\Showoptionarg{maxevalue}$
+to discard all genepairs with E-value larger than the threshold.
+}
+
+\Option{gapsize}{$\Showoptionarg{gapsize}$}{
+Specify the main clustering-parameter $\Showoptionarg{gapsize}$. We 
+perform single linkage clustering. Two genepairs
+\((\mathit{g1},\mathit{g2})\) and 
+\((\mathit{g3},\mathit{g4})\) are put into one cluster,
+if and only if the following is true:
+\begin{itemize}
+\item
+\(\emph{g1}.\mathit{loc}=\emph{g3}.\mathit{loc}\)
+\item
+\(\emph{g2}.\mathit{loc}=\emph{g4}.\mathit{loc}\)
+\item
+If \(\emph{g1}.\mathit{frompos}\leq 
+     \emph{g3}.\mathit{frompos}\) then
+\(\emph{g1}.\mathit{topos}+gapsize\geq
+  \emph{g3}.\mathit{frompos}\).
+\item
+If \(\emph{g3}.\mathit{frompos}\leq
+     \emph{g1}.\mathit{frompos}\) then
+\(\emph{g3}.\mathit{topos}+gapsize\geq
+  \emph{g1}.\mathit{frompos}\).
+\item
+If \(\emph{g2}.\mathit{frompos}\leq 
+     \emph{g4}.\mathit{frompos}\) then
+\(\emph{g2}.\mathit{topos}+gapsize\geq
+  \emph{g4}.\mathit{frompos}\).
+\item
+If \(\emph{g4}.\mathit{frompos}\leq 
+     \emph{g2}.\mathit{frompos}\) then
+\(\emph{g4}.\mathit{topos}+gapsize\geq
+  \emph{g2}.\mathit{frompos}\).
+\end{itemize}
+
+If this option is not specified, then the default gap size is 0.
+}
+
+\Option{loose}{$\Showoptionarg{gapsize}$}{
+The standard clustering strategy links a new gene pair to an existing
+cluster if there is one gene pair in the existing cluster within the
+prescribed gap size of the new gene pair.  This is tight clustering.  
+If this option is used, then tight clustering is followed by
+loose clustering according to the given \Showoptionarg{gapsize}.
+Loose clustering iterates the same clustering procedure 
+with new units being the current clusters with their collective start and 
+end positions (replacing the original gene pairs as units). The iteration
+continues until no further links can be made. The output will be in the
+same format as when this option is not used.
+}
+
+\Option{outfile}{$\Showoptionarg{filename}$}{
+Specify a filename prefix for the output file. 
+If the appropriate option is chosen, then the singleton genepairs are output
+in file \emph{filename}\texttt{.}\texttt{single}.
+If the option \Showoption{multioutfile}
+is specified, then the clusters are output in files named
+\emph{filename}\texttt{.}\emph{clsize}\texttt{.}\emph{clnum}, where 
+\emph{clsize} is the size of cluster number \emph{clnum}.  
+If the option \Showoption{multioutfile}
+is not specified, then the clusters are output in a single file
+\emph{filename}\texttt{.}\texttt{all}.
+}
+
+\Option{separator}{$c$}{
+Specify a character to seperate columns in the output. The default is a blank.
+To, for example, use a tabulator as separator, specify
+\Showoption{separator}~\texttt{\symbol{39}\symbol{92}t\symbol{39}}.
+}
+
+\Option{mincls}{$\Showoptionarg{mincls}$}{
+Specify the minimal size of the clusters to be output. If this option is not
+used, then the default value for \Showoptionarg{mincls} is 2.
+If $\Showoptionarg{mincls}=1$, then also singleton genepairs are output. 
+This option requires the use of the option \Showoption{outfile}.
+}
+
+\Option{maxcls}{$\Showoptionarg{maxcls}$}{
+Specify the maximum size of the clusters to be reported.
+If this option is not used, then the default value for \Showoptionarg{maxcls} 
+is \(\infty\), i.e., there is no upper bound on the size of clusters to be
+reported. The value of $\Showoptionarg{maxcls}$ must be larger or equal to 
+$\Showoptionarg{mincls}$. This option requires the use of the option 
+\Showoption{outfile}.
+}
+
+\Option{multioutfile}{}{
+Output each cluster in an extra file. If this option is not used,
+then all clusters are output in a single file. 
+This option requires the use of the option \Showoption{outfile}.
+}
+
+\Option{help}{}{
+Show a summary of all options and terminate.
+}
+
+\end{Justshowoptions}
+
+\noindent
+Each of the options can be specified only once.
+
+\section{Output Format}
+Each cluster of close genepairs is output as follows:
+\begin{small}
+\begin{alltt}
+# cluster 1312 of 9 genepairs
+At3g58360 3 21470537 21471898 r At3g58400 3 21479699 21481095 r 1e-86
+At3g58360 3 21470537 21471898 r At3g58380 3 21474997 21476227 r 1e-65
+At3g58360 3 21470537 21471898 r At3g58410 3 21481903 21483261 r 4e-77
+At3g58350 3 21468650 21470261 r At3g58410 3 21481903 21483261 r 1e-62
+At3g58350 3 21468650 21470261 r At3g58400 3 21479699 21481095 r 4e-85
+At3g58350 3 21468650 21470261 r At3g58360 3 21470537 21471898 r 3e-94
+At3g58340 3 21466103 21467433 r At3g58350 3 21468650 21470261 r 1e-66
+At3g58340 3 21466103 21467433 r At3g58360 3 21470537 21471898 r 6e-73
+At3g58340 3 21466103 21467433 r At3g58410 3 21481903 21483261 r 1e-83
+# matching ranges: (3,21466103,21471898) vs (3,21468650,21483261) with overlap
+\end{alltt}
+\end{small}
+The first line shows the cluster number and the number of genepairs in the
+cluster. The genepairs in clusters are shown in the same format
+as the input. Columns are tab-separated.
+The last line shows a minimal region containing all genepairs. The 
+attribute \texttt{with overlap} appears if for the matching ranges
+$(l_{1},p_{1},q_{1})$ and $(l_{2},p_{2},q_{2})$ we either have
+\(p_{1}\leq p_{2}\leq q_{2}\) or 
+\(q_{1}\leq p_{2}\leq q_{2}\).
+
+\section{Example}
+The file \texttt{ATpep.in} contains 25,545 lines with gene specfications. 
+Here are the first five
+lines:
+\begin{alltt}
+At1g01010 1 3760   5630  f
+At1g01020 1 7729   8666  r
+At1g01030 1 11864  12940 r
+At1g01040 1 23519  31079 f
+At1g01050 1 31382  32670 r
+\end{alltt}
+The file \texttt{ATpairs.in} contains 
+71,846 lines with genepairs. The first five lines are as follows:
+\begin{alltt}
+At1g01010 1 3760 5630 f At1g02230 1 433031 436775 r 1e-41
+At1g01010 1 3760 5630 f At4g01550 4 673025 675225 r 7e-49
+At1g01020 1 7729 8666 r At4g01510 4 641683 643190 f 2e-34
+At1g01030 1 11864 12940 r At1g13260 1 4542386 4543420 f 8e-40
+At1g01030 1 11864 12940 r At1g25560 1 8981886 8982971 r 1e-36
+\end{alltt}
+
+The program call 
+\begin{alltt}
+\GPC.x -genefile ATpep.in -genepairfile ATpairs.in
+            -gapsize 10000 -maxevalue 1e-60 
+            -outfile Cluster/cl -mincls 1
+\end{alltt}
+gives to the following output:
+\begin{small}
+\begin{alltt}
+# read gene specifications in file "ATpep.in"
+# sort 25545 gene specifications
+# read genepairs with E-value <= 1e-60 in "ATpairs.in"
+# sorting 16664 genepairs:
+# tight clustering of 16664 genepairs: gapsize is 10000
+# output clusters of size >= 1
+# output singlets
+# cluster statistics:
+# 1772 clusters
+# 4912 elements out of 16664 (29.48%) are in clusters
+# 11752 elements out of 16664 (70.52%) are singlets
+# 1213 clusters of size 2
+# 295 clusters of size 3
+# 122 clusters of size 4
+# 48 clusters of size 5
+# 37 clusters of size 6
+# 11 clusters of size 7
+# 6 clusters of size 8
+# 9 clusters of size 9
+# 8 clusters of size 10
+# 6 clusters of size 11
+# 3 clusters of size 12
+# 2 clusters of size 13
+# 2 clusters of size 14
+# 1 cluster of size 15
+# 3 clusters of size 16
+# 1 cluster of size 18
+# 1 cluster of size 20
+# 1 cluster of size 22
+# 1 cluster of size 28
+# 2 clusters of size 29
+\end{alltt}
+\end{small}
+It shows the steps of the computation and the distribution of the 
+cluster sizes. Additionally, files 
+\texttt{Cluster/cl.all} and 
+\texttt{Cluster/cl.single} are
+produced containing the selected clusters and all singleton genepairs.
+
+\section{Things to be done}
+\begin{enumerate}
+\item
+The direction of the genes is not considered in the clustering. This should be
+removed. Ask Volker how to incorporate this into the clustering.
+\item
+Volker, is the clustering criteria as you had it in mind?
+\item
+Define other clustering criteria, like overlap. This may be specified by
+a negative gap size.
+\end{enumerate}
+\end{document}

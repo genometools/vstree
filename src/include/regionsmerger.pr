@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint verifyregiontree(void *regiontreeroot,Uint width,
+                      ArrayPairUint *originalregions);
+
+Sint insertnewregion(void **regiontreeroot,
+                     BOOL makedatacopy,
+                     BOOL *nodecreated,
+                     PairUint *region);
+
+#ifdef __cplusplus
+}
+#endif

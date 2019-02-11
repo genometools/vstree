@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsekeepflags(Markfields *markfields,const char *arg,const char *opt);
+
+Sint fillkeepflagshelp(char *space,char *msg,char *verb);
+
+#ifdef __cplusplus
+}
+#endif

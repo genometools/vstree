@@ -1,0 +1,23 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint readencodedseq(Encodedsequence *encseq,
+                    Positionaccesstype sat,
+                    UcharBufferedfile *inputstream,
+                    Uint64 totallength,
+                    const Specialcharinfo *specialcharinfo,
+                    const Alphabet *alphabet,
+                    const char *indexname);
+
+Sint initencodedseq(Encodedsequence *encseq,
+                    UcharBufferedfile *inputstream,
+                    Uint64 totallength,
+                    const Specialcharinfo *specialcharinfo,
+                    const Alphabet *alphabet,
+                    const char *indexname);
+
+void freeEncodedsequence(Encodedsequence *encseq);
+
+#ifdef __cplusplus
+}
+#endif

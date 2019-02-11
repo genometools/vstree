@@ -1,0 +1,386 @@
+Thu Nov 23 19:33:46 MET 2000
+-------------aero.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Aero/aero.fna"
+total length of sequences: 1669695, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.68 MB (4.20 bytes/symbol), secondary=1.62 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Aero/aero.fna 1.27
+-------------aful.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Aful/aful.fna"
+total length of sequences: 2178400, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=8.62 MB (4.15 bytes/symbol), secondary=2.11 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Aful/aful.fna 1.92
+-------------aquae.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Aquae/aquae.fna"
+total length of sequences: 1551335, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.23 MB (4.21 bytes/symbol), secondary=1.50 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Aquae/aquae.fna 1.20
+-------------bbur.plasmids.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Bbur/bbur.plasmids.fna"
+total length of sequences: 318744 (including 10 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=1.53 MB (5.03 bytes/symbol), secondary=0.31 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Bbur/bbur.plasmids.fna 0.24
+-------------bhal.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Bhal/bhal.fna"
+total length of sequences: 4202353, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=16.34 MB (4.08 bytes/symbol), secondary=4.06 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Bhal/bhal.fna 7.85
+-------------bsub.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Bsub/bsub.fna"
+total length of sequences: 4214814, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=16.39 MB (4.08 bytes/symbol), secondary=4.08 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Bsub/bsub.fna 5.16
+-------------buch.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Buch/buch.fna"
+total length of sequences: 640681, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=2.76 MB (4.51 bytes/symbol), secondary=0.62 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Buch/buch.fna 0.44
+-------------cjej.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Cjej/cjej.fna"
+total length of sequences: 1641481, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.57 MB (4.20 bytes/symbol), secondary=1.59 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Cjej/cjej.fna 2.52
+-------------cpneu.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Cpneu/cpneu.fna"
+total length of sequences: 1230230, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=5.01 MB (4.27 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Cpneu/cpneu.fna 0.91
+-------------cpneuA.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/CpneuA/cpneuA.fna"
+total length of sequences: 1229853, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=5.00 MB (4.27 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/CpneuA/cpneuA.fna 0.94
+-------------cpneuJ.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/CpneuJ/cpneuJ.fna"
+total length of sequences: 1228267, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=5.00 MB (4.27 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/CpneuJ/cpneuJ.fna 0.89
+-------------ctra.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Ctra/ctra.fna"
+total length of sequences: 1042519, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=4.29 MB (4.31 bytes/symbol), secondary=1.01 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Ctra/ctra.fna 0.99
+-------------ctraM.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/CtraM/ctraM.fna"
+total length of sequences: 1069412, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=4.39 MB (4.31 bytes/symbol), secondary=1.03 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/CtraM/ctraM.fna 0.76
+-------------dra1.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Drad/dra1.fna"
+total length of sequences: 2648638, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=10.42 MB (4.12 bytes/symbol), secondary=2.56 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Drad/dra1.fna 2.73
+-------------ecoli.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Ecoli/ecoli.fna"
+total length of sequences: 4639221, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=18.01 MB (4.07 bytes/symbol), secondary=4.49 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Ecoli/ecoli.fna 5.36
+-------------hbsp.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Hbsp/hbsp.fna"
+total length of sequences: 2014239, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=8.00 MB (4.16 bytes/symbol), secondary=1.95 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Hbsp/hbsp.fna 1.78
+-------------hinf.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Hinf/hinf.fna"
+total length of sequences: 1830138, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=7.29 MB (4.18 bytes/symbol), secondary=1.77 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Hinf/hinf.fna 2.72
+-------------hpyl.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Hpyl/hpyl.fna"
+total length of sequences: 1667867, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.67 MB (4.20 bytes/symbol), secondary=1.61 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Hpyl/hpyl.fna 1.56
+-------------hpyl99.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Hpyl99/hpyl99.fna"
+total length of sequences: 1643831, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.58 MB (4.20 bytes/symbol), secondary=1.59 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Hpyl99/hpyl99.fna 1.60
+-------------mgen.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Mgen/mgen.fna"
+total length of sequences: 580074, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=2.53 MB (4.56 bytes/symbol), secondary=0.56 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Mgen/mgen.fna 0.39
+-------------mjan.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Mjan/mjan.fna"
+total length of sequences: 1664970, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.66 MB (4.20 bytes/symbol), secondary=1.61 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Mjan/mjan.fna 1.40
+-------------mpneu.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Mpneu/mpneu.fna"
+total length of sequences: 816394, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=3.43 MB (4.40 bytes/symbol), secondary=0.79 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Mpneu/mpneu.fna 0.59
+-------------mthe.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Mthe/mthe.fna"
+total length of sequences: 1751377, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.99 MB (4.19 bytes/symbol), secondary=1.69 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Mthe/mthe.fna 1.46
+-------------mtub.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Mtub/mtub.fna"
+total length of sequences: 4411529, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=17.14 MB (4.07 bytes/symbol), secondary=4.27 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Mtub/mtub.fna 5.16
+-------------nmen.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Nmen/nmen.fna"
+total length of sequences: 2272351, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=8.98 MB (4.14 bytes/symbol), secondary=2.20 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Nmen/nmen.fna 15.24
+-------------nmenA.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/NmenA/nmenA.fna"
+total length of sequences: 2184406, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=8.65 MB (4.15 bytes/symbol), secondary=2.11 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/NmenA/nmenA.fna 3.08
+-------------pabyssi.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Pabyssi/pabyssi.fna"
+total length of sequences: 1765118, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=7.05 MB (4.19 bytes/symbol), secondary=1.71 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Pabyssi/pabyssi.fna 1.34
+-------------paer.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Paer/paer.fna"
+total length of sequences: 6264403, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=24.21 MB (4.05 bytes/symbol), secondary=6.06 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Paer/paer.fna 8.12
+-------------pyro.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Pyro/pyro.fna"
+total length of sequences: 1738505, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.94 MB (4.19 bytes/symbol), secondary=1.68 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Pyro/pyro.fna 1.35
+-------------pNGR234.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/R_pNGR/pNGR234.fna"
+total length of sequences: 536165, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=2.36 MB (4.61 bytes/symbol), secondary=0.52 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/R_pNGR/pNGR234.fna 1.05
+-------------rpxx.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Rpxx/rpxx.fna"
+total length of sequences: 1111523, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=4.55 MB (4.29 bytes/symbol), secondary=1.08 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Rpxx/rpxx.fna 0.83
+-------------synecho.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Synecho/synecho.fna"
+total length of sequences: 3573470, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=13.95 MB (4.09 bytes/symbol), secondary=3.46 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Synecho/synecho.fna 3.71
+-------------tacid.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Tacid/tacid.fna"
+total length of sequences: 1564906, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=6.28 MB (4.21 bytes/symbol), secondary=1.51 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Tacid/tacid.fna 1.16
+-------------tmar.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Tmar/tmar.fna"
+total length of sequences: 1860725, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=7.41 MB (4.18 bytes/symbol), secondary=1.80 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Tmar/tmar.fna 1.48
+-------------tpal.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Tpal/tpal.fna"
+total length of sequences: 1138011, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=4.65 MB (4.29 bytes/symbol), secondary=1.10 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Tpal/tpal.fna 1.00
+-------------uure.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Uure/uure.fna"
+total length of sequences: 751719, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=3.18 MB (4.44 bytes/symbol), secondary=0.73 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Uure/uure.fna 0.62
+-------------vcho1.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Vcho/vcho1.fna"
+total length of sequences: 2961149, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=11.61 MB (4.11 bytes/symbol), secondary=2.86 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Vcho/vcho1.fna 3.41
+-------------xfas.fna----------
+reading databasefile "/vol/biodata/genomes/bacteria/Xfas/xfas.fna"
+total length of sequences: 2679306, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+overall space peak: main=10.53 MB (4.12 bytes/symbol), secondary=2.59 MB
+TIME mkvtree -v -dna -pl 8 -db /vol/biodata/genomes/bacteria/Xfas/xfas.fna 6.00
+-------------athaliana.list----------
+reading databasefile "/vol/biodata/genomes/A_thaliana/CHR_II/ath2.fna"
+reading databasefile "/vol/biodata/genomes/A_thaliana/CHR_IV/ath4.fna"
+total length of sequences: 37197174 (including 1 separator), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=179.03 MB (5.05 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/genomes/A_thaliana/CHR_II/ath2.fna /vol/biodata/genomes/A_thaliana/CHR_IV/ath4.fna 80.21
+-------------celegans.list----------
+reading databasefile "/vol/biodata/genomes/C_elegans/sanger/C_elegans_concat.fna"
+total length of sequences: 96893008, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=370.97 MB (4.01 bytes/symbol), secondary=94.30 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/genomes/C_elegans/sanger/C_elegans_concat.fna 260.68
+-------------drosophila.list----------
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/arm2L_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/arm2R_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/arm3L_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/arm3R_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/arm4_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/armU_noN.fna"
+reading databasefile "/vol/biodata/genomes/D_melanogaster/celera/armX_noN.fna"
+total length of sequences: 119996196 (including 6 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=573.55 MB (5.01 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/genomes/D_melanogaster/celera/arm2L_noN.fna /vol/biodata/genomes/D_melanogaster/celera/arm2R_noN.fna /vol/biodata/genomes/D_melanogaster/celera/arm3L_noN.fna /vol/biodata/genomes/D_melanogaster/celera/arm3R_noN.fna /vol/biodata/genomes/D_melanogaster/celera/arm4_noN.fna /vol/biodata/genomes/D_melanogaster/celera/armU_noN.fna /vol/biodata/genomes/D_melanogaster/celera/armX_noN.fna 294.97
+-------------human.list----------
+reading databasefile "/vol/biodata/genomes/H_sapiens/CHR_21/chr21_all.fna"
+reading databasefile "/vol/biodata/genomes/H_sapiens/CHR_22/hs_chr22.fna"
+total length of sequences: 66595703 (including 16 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=320.13 MB (5.04 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/genomes/H_sapiens/CHR_21/chr21_all.fna /vol/biodata/genomes/H_sapiens/CHR_22/hs_chr22.fna 127.69
+-------------scerevisae.list----------
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr01/I.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr02/II.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr03/III.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr04/IV.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr05/V.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr06/VI.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr07/VII.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr08/VIII.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr09/IX.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr10/X.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr11/XI.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr12/XII.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr13/XIII.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr14/XIV.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr15/XV.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/Chr16/XVI.fna"
+reading databasefile "/vol/biodata/genomes/S_cerevisiae/ChrMT/MT.fna"
+total length of sequences: 12155042 (including 16 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=59.21 MB (5.11 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/genomes/S_cerevisiae/Chr01/I.fna /vol/biodata/genomes/S_cerevisiae/Chr02/II.fna /vol/biodata/genomes/S_cerevisiae/Chr03/III.fna /vol/biodata/genomes/S_cerevisiae/Chr04/IV.fna /vol/biodata/genomes/S_cerevisiae/Chr05/V.fna /vol/biodata/genomes/S_cerevisiae/Chr06/VI.fna /vol/biodata/genomes/S_cerevisiae/Chr07/VII.fna /vol/biodata/genomes/S_cerevisiae/Chr08/VIII.fna /vol/biodata/genomes/S_cerevisiae/Chr09/IX.fna /vol/biodata/genomes/S_cerevisiae/Chr10/X.fna /vol/biodata/genomes/S_cerevisiae/Chr11/XI.fna /vol/biodata/genomes/S_cerevisiae/Chr12/XII.fna /vol/biodata/genomes/S_cerevisiae/Chr13/XIII.fna /vol/biodata/genomes/S_cerevisiae/Chr14/XIV.fna /vol/biodata/genomes/S_cerevisiae/Chr15/XV.fna /vol/biodata/genomes/S_cerevisiae/Chr16/XVI.fna /vol/biodata/genomes/S_cerevisiae/ChrMT/MT.fna 25.94
+-------------Mouse----------
+reading databasefile "/vol/biodata/est/est_mouse"
+total length of sequences: 375453505 (including 1051686 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+overall space peak: main=1450.47 MB (4.05 bytes/symbol), secondary=507.58 MB
+TIME mkvtree -v -dna -pl 9 -db /vol/biodata/est/est_mouse 2162.32
+-------------/vol/biodata/swissprot/sprot.fas----------
+reading databasefile "/vol/biodata/swissprot/sprot.fas"
+total length of sequences: 31791220 (including 87251 separators), alphabet size 20
+initializing data structures
+sorting suffixes according to prefix of length 4
+sorting all buckets
+overall space peak: main=125.03 MB (4.12 bytes/symbol), secondary=35.45 MB
+TIME mkvtree -v -protein -pl 4 -db /vol/biodata/swissprot/sprot.fas 56.83
+Thu Nov 23 20:27:29 MET 2000

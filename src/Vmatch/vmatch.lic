@@ -1,0 +1,11 @@
+{
+  "vendor": "LScSA-Software GmbH",
+  "license": {
+    "product": "Vmatch",
+    "version": "1.0",
+    "expiry": "2014-05-30",
+    "hostid": "any",
+    "customer": "Research Group for Genome Informatics, Center for Bioinformatics, University of Hamburg, Germany",
+    "signature": "3041021e5f6c0210e5c900b4047717c32c348fce17b13bedd95b138da1b5ee8cd8a6021f009e1e4bf846595eaf497b789ada6fcf7173971d7c8afc9b62178d36f25762"
+  }
+}

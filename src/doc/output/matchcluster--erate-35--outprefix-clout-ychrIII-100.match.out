@@ -1,0 +1,13 @@
+$ matchcluster -erate 35 -outprefix clout ychrIII-100.match
+# file=/vol/biodata/DNA-mix/Grumbach.fna/ychrIII.fna 320531 315339
+# databaselength=315338
+# alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+# ychrIII.fna.tis read
+# ychrIII.fna.ois read
+# ychrIII.fna.des read
+# ychrIII.fna.sds read
+# read self matches
+# cluster 16 matches
+# create cluster 0 of size 2
+# create cluster 1 of size 3
+# create cluster 2 of size 2

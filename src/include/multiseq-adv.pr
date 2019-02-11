@@ -1,0 +1,139 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint getfilenum(Multiseq *multiseq,Uint position);
+
+void initmultiseqfileinfo(Multiseq *multiseq);
+
+Sint overalloriginalsequences(Multiseq *multiseq,void *applyinfo,
+                              Sint(*apply)(void *,Uint,Uchar *,Uint));
+
+Sint overallpairsofsequences(Multiseq *multiseq,void *applyinfo,
+                             Sint(*apply)(void *,Uint,Uint,Uint,
+                                                Uint,Uint,Uint));
+
+void addmultiseq(Multiseq *multiseq,Uchar *seq,Uint seqlen);
+
+Sint getunitinfo(Seqinfo *seqinfo,
+                 Uint *unitseps,
+                 Uint numofunits,
+                 Uint totalwidth,
+                 Uint position);
+
+Sint getseqinfo(Multiseq *multiseq,Seqinfo *seqinfo,Uint position);
+
+Sint findunitboundaries(Uint *unitseppositions,
+                        Uint numofunits,
+                        Uint totallength,
+                        Uint unitnum,
+                        PairUint *range);
+
+Sint findunitfirstpos(Uint *unitseppositions,
+                      Uint numofunits,
+                      Uint unitnum,
+                      Uint *firstpos);
+
+Sint findboundaries(Multiseq *multiseq,Uint snum,PairUint *range);
+
+Sint findfirstpos(Multiseq *multiseq,Uint snum,Uint *firstpos);
+
+Sint seqnum2filenum(Multiseq *multiseq,Uint seqnum);
+
+Sint findabspos(Multiseq *multiseq,Uint snum,Uint base,Uint len);
+
+Sint formatseq(FILE *formatout,
+               Uint mapsize,
+               Uchar *characters,
+               Uint undefsymbol,
+               Uint linewidth,
+               const Uchar *seq,
+               Uint len);
+
+void echoexactmatch(BOOL forward,
+                    FILE *outfp,
+                    Uchar *characters,
+                    Uint linewidth,
+                    Uchar *s,
+                    Uint slen);
+
+Sint processsequence(Multiseq *multiseq,
+                     BOOL minlengthdefined,
+                     Uint minlength,
+                     BOOL maxlengthdefined,
+                     Uint maxlength,
+                     Uint snum);
+
+Sint showmultiplefasta(FILE *formatout,BOOL rcmode,Uint linewidth,
+                       Alphabet *alpha,Multiseq *multiseq,BOOL showseqnum);
+
+Sint readmultiplefastafile(Alphabet *alpha,BOOL storedesc,
+                           Multiseq *multiseq,Uchar *input,Uint inputlen);
+
+Sint mapandparsesequencefile(Alphabet *alpha,
+                             Multiseq *multiseq,
+                             const char *filename);
+
+Sint mapandparsepossiblygzippedfastafile(Alphabet *alpha,
+                                         Multiseq *multiseq,
+                                         char *filename);
+
+Uint getqueryseppos(Multiseq *multiseq);
+
+Sint readmultiplefastafilesep(Alphabet *alpha,
+                              /*@unused@*/ BOOL checkmagic,
+                              BOOL storedesc,
+                              Multiseq *multiseq,
+                              Uchar *input,
+                              Uint inputlen);
+
+void readmultiplefastafileagain(Uchar *newseq,Uchar *input,Uint inputlen);
+
+/*@null@*/ Uchar *concatmanyfiles(Showverbose showverbose,
+                                  Uint totalnumoffiles,
+                                  Fileinfo *allfiles,
+                                  Uint *filesep,
+                                  Uint *totalbytes);
+
+void echothedescription(FILE *outfp,Showdescinfo *showdesc,Multiseq *multiseq,
+                        Uint seqnum);
+
+Sint lengthdistribution(FILE *formatout,Multiseq *multiseq);
+
+Sint calculateseqparm(Multiseq *multiseq,
+                      ExtremeAverageSequences *extreme);
+
+Sint calculatetwolongestseqlength(Multiseq *multiseq,Uint *maxlength1,
+                                  Uint *maxlength2);
+
+Sint showdescandlength(Multiseq *multiseq);
+
+void copyMultiseq(Multiseq *multiseq1,Multiseq *multiseq2);
+
+void copyfilenamesofMultiseq(Multiseq *multiseqdest,Multiseq *multiseqsrc);
+
+Sint parseprojectfile(Multiseq *multiseq,
+                      DefinedUint *longestptr,
+                      Uint *prefixlengthptr,
+                      ArrayPairUint *largelcpvalues,
+                      Uint *maxbranchdepthptr,
+                      BOOL *rcmindex,
+                      Uint *sixframeindex,
+                      const char *indexname);
+
+/*@null@*/ Uchar *createtistabmap(Uint totallength,const char *indexname);
+
+Sint mapmultiseqifyoucan(Uint *indexsize,
+                         Multiseq *multiseq,
+                         const char *indexname,
+                         BOOL demandTISTAB,
+                         BOOL demandOISTAB,
+                         BOOL demandDESTAB,
+                         BOOL demandSSPTAB);
+
+void compareFileinfo(char *tag,Fileinfo *tab1,Fileinfo *tab2,Uint len);
+
+void compareMultiseq(Multiseq *multiseq1,Multiseq *multiseq2);
+
+#ifdef __cplusplus
+}
+#endif

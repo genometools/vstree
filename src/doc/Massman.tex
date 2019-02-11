@@ -1,0 +1,737 @@
+\documentclass[12pt]{article}
+\usepackage{xspace,times,a4wide,command,environment}
+\usepackage{skaff}
+\usepackage{optionman}
+\usepackage{comment}
+
+\newcommand{\Linsearch}[0]{{\small \textsf{linsearch}}\xspace}
+\newcommand{\Binsearch}[0]{{\small \textsf{binsearch}}\xspace}
+\newcommand{\Vmbucket}[0]{{\small \textsf{vmbucket}}\xspace}
+\newcommand{\Vmctlook}[0]{{\small \textsf{vmctlook}}\xspace}
+\newcommand{\Mkvtree}[0]{{\small \texttt{mkvtree}}\xspace}
+\newcommand{\Showfile}[1]{{\small \texttt{#1}}}
+\newcommand{\Weight}[0]{w}
+\newcommand{\Sol}[1]{\mathit{Sol}(\Weight)}
+\newcommand{\Minmass}{600 \cdot 10^{p}}
+\newcommand{\Maxmass}{4000 \cdot 10^{p}}
+\newcommand{\Defaultrange}{\lbrack\Minmass,\Maxmass\rbrack}
+\newcommand{\WSMP}{weighted substring matching problem\xspace}
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+\title{\textbf{Implementing Algorithms for}\\
+       \textbf{the Weighted String Matching Problem}}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Let \(\Sigma\) be a finite alphabet. Strings are indexed from \(0\), 
+i.e.\ any \(w\in\Sigma^{l}\) is written as \(w=w_{0}\ldots w_{l-1}\).
+Let \(\sigma:\Sigma\to\Reals_{+}\) be a function.
+For any \(l\in\Reals_{+}\) and any
+string \(w\in\Sigma^{l}\) we define \(\sigma(w)=\sum_{i=0}^{l-1}\sigma(w_{i})\).
+Let \(S\in\Sigma^{n}\). For any \((j,l)\in[0,n-1]\times[1,n-j]\)
+we define \(\Weight_{j,l}=\sigma(S_{j}\ldots S_{j+l-1})\), i.e.\
+\(\Weight_{j,l}\) is the weight of the substring of \(S\) of length \(l\) 
+starting at position \(j\). Let \(\alpha,\beta\in\Reals_{+}\), 
+\(\alpha\leq\beta\) and \(\Weight\in[\alpha,\beta]\). The 
+\emph{\WSMP for} \(\Weight\) is to enumerate the 
+following set:
+\[\Sol{\Weight}=\Set{(j,l)\mid j\in[0,n-1], l\in[1,n-j],\Weight_{j,l}=\Weight}\]
+
+\section{Algorithms}
+Cieliebak et.\ al \cite{CIE:ERL:LIP:STO:WEL:2001} describe several algorithms
+for solving the \WSMP. The simplest of these
+are the Algorithms \Linsearch and \Binsearch. This manuscript reports
+on the implementation of these Algorithms or variations thereof.
+
+\subsection{An $O(n)$ Time Algorithm}
+Algorithm \Linsearch performs a linear search over the input string \(S\).
+It manipulates three integers \(l\), \(r\), and \(z\) such that 
+\(0\leq l\leq r\leq n\)  and \(z=\Weight_{l,r-l}\). That is, \(z\) is the
+weight of the substring \(S_{l}\ldots S_{r-1}\). In the initialization step
+we set \(l=r=z=0\). The main loop of the algorithm iterates
+the following case distinction, until \(r=n\):
+
+\begin{itemize}
+\item
+If \(z<\Weight\), then \(z\) is incremented
+by \(\sigma(S_{r})\) and \(r\) is incremented by \(1\). 
+\item
+If \(z=\Weight\), then \((l,r-l)\in\Sol{\Weight}\). Hence \((l,r-l)\) is output.
+Moreover, \(z\) is decremented by \(\sigma(S_{l})\) and \(l\) is incremented 
+by \(1\). 
+\item
+If \(z>\Weight\), then \(z\) is decremented by \(\sigma(S_{l})\) and \(l\) is 
+incremented by \(1\). 
+\end{itemize}
+The correctness of the algorithm is easily established.
+In each step either \(l\) or \(r\) is incremented. Thus the main loop has at
+most \(2(n+1)\) iterations. Each loop iteration takes constant time. Thus 
+the running time of \Linsearch is \(O(n)\).
+
+\subsection{An $O(\log n^{2})$ Time Algorithm}
+Algorithm \Binsearch, as suggested in \cite{CIE:ERL:LIP:STO:WEL:2001},
+first preprocesses \(S\). It enumerates all \(\Weight_{j,l}\),
+\(j\in[0,n-1]\), \(l\in[1,n-j]\), and stores all triples 
+\((\Weight_{j,l},j,l)\) in an array \(wtab\) which is sorted w.r.t.\ the first 
+component, i.e.\ the weight. Now \(wtab\) can be searched for a given weight
+\(\Weight\), using two binary searches: One binary search
+determines the smallest \(i\), say \(i_{l}\), satisfying
+\begin{equation}
+wtab(i)=(\Weight,j,l)\mbox{ for some }j\mbox{ and some }l,\label{Miexists}
+\end{equation}
+if it exists. Similarly, the other binary search determines the 
+largest \(i\), say \(i_{r}\), satisfying (\ref{Miexists}), if it exists.
+The triples in \(wtab\) between the two boundaries \(i_{l}\) and \(i_{r}\)
+give the solutions to the \WSMP for \(\Weight\). The size of \(wtab\) is
+on the order of \(O(n^{2})\) in the worst case. Hence the running time
+of \Binsearch is \(O(\log n^{2})\).
+
+\subsection{An $O(1)$ Time Algorithm for Integer Weights}\label{OptimalAlgorithm}
+We have developed a new method similar to Algorithm \Binsearch.
+Our method makes the following assumptions:
+\begin{itemize}
+\item
+The weights delivered by the weight function \(\sigma\) are non-negative 
+integers.
+\item
+The weights to be searched are in the range \(\lbrack\alpha,\beta\rbrack\)
+for some fixed constants \(\alpha\) and \(\beta\). These are known in advance.
+\end{itemize}
+Note that \Binsearch does not makes these assumptions.
+
+Our method naturally splits into two phases, a preprocessing phase and a 
+lookup phase. Hence we describe the two algorithms
+\Vmbucket and \Vmctlook.\footnote{Cieliebak et.\ al 
+\cite{CIE:ERL:LIP:STO:WEL:2001} describe
+an algorithm \emph{LOOKUP} which has nothing to do with \Vmctlook}
+We exploit the fact, that the upper and lower boundaries \(\alpha\) and 
+
+Algorithm \Vmbucket performs the preprocessing step by 
+traversing the suffix tree for \(S\)
+in a depth first strategy to efficiently collect all substring positions with 
+weight between \(\alpha\) and 
+\(\beta\). Whenever visiting a branching node \(\overline{v}\),
+\Vmbucket maintains a stack holding the weights for all non-empty prefixes
+of \(v\). The weight stack is used to determine the weight for all prefixes 
+of \(v\) (including \(v\)) whose length is larger than the depth of the 
+father of \(\overline{v}\). Call these prefixes the \emph{edge prefixes}
+of \(v\). Leaves in the subtree below \(\overline{v}\) tell the position where 
+the prefix of \(v\) starts. For all weights \(\Weight\in[\alpha,\beta]\) 
+of the edge prefixes of \(v\), algorithm \Vmbucket stores the rank of the 
+leftmost leaf in the subtree below \(\overline{v}\). The rank refers to an
+enumeration of all leaves in a depth first traversal of the suffix tree. That
+is, the leftmost leaf gets rank 0, the next leaf reached in the depth
+first traversal gets rank 1, etc. If \(i\) is the rank of the leftmost leaf,
+then we say that \(i\) \emph{goes into bucket} \(B_{\Weight}\).
+
+Whenever Algorithm \Vmbucket visits a leaf edge, say outgoing from 
+\(\overline{v}\), it takes the characters labeling the leaf edge and
+incrementally adds up corresponding weights, until the end of
+the label is reached or the weight becomes larger than \(\beta\). 
+Each leaf represents a suffix of \(S\$\) and hence for each weight 
+\(\Weight\in[\alpha,\beta]\) obtained in this way, Algorithm \Vmbucket stores 
+the start position, say \(j\), of this suffix in \(S\$\). We say that \(j\)
+\emph{goes into bucket} \(B_{\Weight}\).
+
+To efficiently obtain and retrieve the ranks and the start positions,
+the suffix tree is traversed twice. In a first traversal Algorithm
+\Vmbucket determines the size of each bucket \(B_{\Weight}\), i.e.\ the number 
+of ranks and suffix positions that go into bucket \(B_{\Weight}\). Then an array
+\(B\) is allocated large enough to store all ranks and suffix positions. 
+From the size of the buckets, boundaries in \(B\) are determined where 
+the elements of each bucket are stored. For each \(\Weight\in[\alpha,\beta]\), 
+the elements of \(B_{\Weight}\) are stored beginning at position 
+\(b_{\Weight}=\sum_{i=\alpha}^{\Weight-1}\Size{B_{i}}\) in \(B\). That is, all 
+elements of \(B_{\Weight}\) will be stored in consecutive positions of \(B\),
+and the buckets will be placed in consecutive order of their weights, where
+\(\Weight\) is the weight of \(B_{\Weight}\). Finally, Algorithm \Vmbucket 
+again traverses the suffix tree and stores all elements into array \(B\) 
+between the corresponding bucket boundaries. 
+Algorithm \Vmbucket can be implemented such 
+that it runs in \(O(\beta-\alpha+\Size{B})\) time.
+
+The bucket boundaries \(b_{\alpha},b_{\alpha+1},\ldots,b_{\beta-1},b_{\beta}\)
+and array \(B\) are stored on a file. This is mapped into main memory, so 
+that all necessary information is readily available when searching for a 
+weight. Suppose we have to compute \(\Sol{\Weight}\) for 
+some \(\Weight\in[\alpha,\beta]\). Algorithm \Vmctlook determines
+the bucket boundaries \(b_{\Weight}\) and \(b_{\Weight+1}\).
+If \(\Weight=\beta\), then \(b_{\Weight+1}=b_{\Weight}+\Size{B_{\Weight}}\).
+Then all \(B[l]\) for \(l\in[B_{\Weight},B_{\Weight+1}-1]\) are processed. If 
+\(B[l]\) stores a suffix position, say \(j\), then we know that a 
+substring of \(S\) with weight \(\Weight\) starts at position \(j\). 
+To determine the length of this substring we add up weights starting at 
+position \(j\) until we reach weight \(\Weight\).
+If \(B[l]\) is a rank, say \(i\), then we know that the \(i\)th
+leaf in the suffix tree represents a suffix which has a prefix with
+weight \(\Weight\). This prefix, say \(u\), can easily be determined.
+Suppose \(v\) is the shortest prefix of that suffix such that \(\overline{v}\)
+is a branching node and \(v\) is a prefix of \(u\). By construction, the
+leaf with rank \(i\) is the left most leaf in the subtree below 
+\(\overline{v}\). We only have to enumerate the other leaves in the subtree 
+below \(\overline{v}\) to obtain the positions where \(v\) occurs. This can be 
+done in time proportional to the number of these leaves. For each leaf 
+obtained in this way we determine the start position of the corresponding 
+suffix. This gives us the start positions of \(v\) and \(\sigma(v)=\Weight\).
+The length of \(v\) is determined once for the suffix corresponding to the 
+left most leaf. For all other start positions of \(v\), the length is the same.
+
+Algorithm \Vmctlook takes constant time to find the boundaries. Each of 
+the \(b_{\Weight+1}-b_{\Weight}\) integers (ranks or suffix positions)
+between the boundaries are processed one after the other.
+Note that any string with weight at most \(\beta\) is at most of length 
+\(\Rounddown{\beta/\sigma_{\min}}\)
+where \(\sigma_{\min}=\min\Set{\sigma(a)\mid a\in\Sigma}\). Hence
+each suffix position is processed in \(O(\Rounddown{\beta/\sigma_{\min}})\) 
+steps. This is independent of \(n\) and can thus be considered a constant. Each 
+integer representing a rank requires to find all, say \(q\), leaves in the
+corresponding subtree. These can be found in \(O(q)\) time. Each leaf is 
+processed in constant time. Altogether \(\Sol{\Weight}\) is
+determined in \(O(\Size{\Sol{\Weight}})\) time. This is optimal.
+An important disadvantage of algorithm \Vmctlook is the fact that the size of 
+the precomputed bucket information is in \(O(n^{2})\). However, preliminary
+experiments suggest that for the domain of protein identification the 
+size of the index grows linearly with \(n\). 
+\begin{comment}
+For more details see
+Section \ref{Experiments}.
+\end{comment}
+
+\section{Weights and Masses and their Representation}
+The \WSMP is motivated by applications in protein identification. In this
+application \(\Sigma\) is the alphabet of aminoacids and the weights are the
+\emph{masses} of the aminoacids. Table \ref{Masstab} shows these masses.
+Moreover, the assumption that only weights in some range 
+\([\alpha,\beta]\) are sought holds true. We currently assume that
+\(\alpha=600\) and \(\beta=4000\). If you think this range is too
+restricitve, please contact us.
+
+\begin{table}
+\begin{center}
+\begin{small}
+\begin{tabular}{llll}
+\begin{tabular}{|l|r|}\hline
+\texttt{G} & 57.02146\\\hline
+\texttt{A} & 71.03711\\\hline
+\texttt{S} & 87.03203\\\hline
+\texttt{P} & 97.05276\\\hline
+\texttt{V} & 99.06841\\\hline
+\texttt{T} &101.04768\\\hline
+\end{tabular}&
+\begin{tabular}{|l|r|}\hline
+\texttt{C} &103.00919\\\hline
+\texttt{L} &113.08406\\\hline
+\texttt{I} &113.08406\\\hline
+\texttt{X} &113.08406\\\hline
+\texttt{N} &114.04293\\\hline
+\texttt{O} &114.07931\\\hline
+\end{tabular}&
+\begin{tabular}{|l|r|}\hline
+\texttt{B} &114.53494\\\hline
+\texttt{D} &115.02694\\\hline
+\texttt{Q} &128.05858\\\hline
+\texttt{K} &128.09496\\\hline
+\texttt{Z} &128.55059\\\hline
+\texttt{E} &129.04259\\\hline
+\end{tabular}&
+\begin{tabular}{|l|r|}\hline
+\texttt{M} &131.04049\\\hline
+\texttt{H} &137.05891\\\hline
+\texttt{F} &147.06841\\\hline
+\texttt{R} &156.10111\\\hline
+\texttt{Y} &163.06333\\\hline
+\texttt{W} &186.07931\\\hline
+\end{tabular}
+\end{tabular}
+\label{Masstab}
+\caption{The Masses of the Aminoacids}
+\end{small}
+\end{center}
+\end{table}
+For a given \emph{precision value} \(p\in[0,5]\), 
+we multiply the masses given in Table \ref{Masstab} by 
+\(10^{p}\) and round to the next integer. Then the maximal mass is
+$18607931\leq 2^{25}$ and we represent it by a 32-bit integer. For 
+efficiency reasons, \(p\) is determined at compile time. Several other 
+constants depend on the choice of \(p\). 
+\begin{comment}
+Hence we have implemented a 
+program \Showfile{mkmasstab.x} which outputs appropriate C-definitions,
+see Appendix \ref{Mkmasout} for an example. 
+Besides the table storing the rounded masses, \Showfile{mkmasstab.x}
+outputs constant definitions for the maximal and minimal masses
+\(600\cdot 10^{p}\) and \(4000\cdot 10^{p}\). The output of 
+\Showfile{mkmasstab.x} is stored in a header file 
+\Showfile{masstab.h}, which is used by all programs described below.
+\end{comment}
+
+%\begin{comment}
+
+\section{Programs}
+We have implemented the algorithms described above. These and some
+other useful programs related to the \WSMP are described in the following. 
+The distributions contains for all programs depending on \(p\),
+all versions of the program for \(p\in[0-5]\). For example,
+there are programs 
+\(\texttt{findmass0.x}\),
+\(\texttt{findmass1.x}\),
+\(\texttt{findmass2.x}\),
+\(\texttt{findmass3.x}\),
+\(\texttt{findmass4.x}\),
+\(\texttt{findmass5.x}\). To always work with a consistent 
+collection of programs (for the same value of \(p\)), we recommend
+to call the shell-script \texttt{Linkmassprogs.sh} with the appropriate
+value for \(p\) as first argument. This creates softlinks 
+for all programs, so that you can use them as described below.
+The examples given below are for \(p=2\).
+
+\subsection{The Program \texttt{evalmass.x}}
+This program takes a sequence of aminoacids and outputs the total mass
+of this sequence.  For example:
+
+\begin{verbatim}
+$ evalmass.x GASPVTCLNOBDQKZEMHFRYW
+262018
+\end{verbatim}
+
+\subsection{The Program \texttt{callmkvtree.sh}}
+To solve the \WSMP, we first perform
+an indexing step of the protein sequences to be searched. In 
+particular, we generate an enhanced suffix array of the protein sequences
+(see \cite{ABO:KUR:OHL:2002}) using the program \Mkvtree.
+We use the shell script \Showfile{callmkvtree.sh} to call \Mkvtree with the
+proper arguments. The arguments to \Showfile{callmkvtree.sh} specify the
+names of the files to be indexed (following the option \Showoption{db}). If 
+more than one file is to be indexed, then the additional 
+option \Showoption{indexname} followed by the name of the index must be 
+specified.
+
+\paragraph{Example}
+As a running example we suppose a file \Showfile{swiss1MB} containing a 
+subsection of the Swissprot protein sequence database.
+Then we call the shell script \Showfile{callmkvtree.sh} as follows:
+
+\begin{footnotesize}
+\begin{verbatim}
+reading file "swiss1MB"
+total length of sequences: 1000120 (including 2549 separators)
+alphabet of size 23: GASPVTCLNOBDQKZEMHFRYW*
+creating file "swiss1MB.ssp"
+creating file "swiss1MB.tis"
+creating file "swiss1MB.ois"
+creating file "swiss1MB.des"
+creating file "swiss1MB.sds"
+creating file "swiss1MB.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 4
+sorting all buckets
+creating file "swiss1MB.llv"
+creating file "swiss1MB.suf"
+creating file "swiss1MB.prj"
+creating file "swiss1MB.al1"
+overall space peak: main=6.11 MB (6.40 bytes/symbol), secondary=1.08 MB
+\end{verbatim}
+\end{footnotesize}
+
+Now we have the enhanced suffix array stored in different files
+with the prefix \Showfile{swiss1MB}.
+
+\begin{small}
+\begin{verbatim}
+$ ls -l swiss1MB.*
+-rw-r-----    1 kurtz    users         171 Mar  7 22:08 swiss1MB.al1
+-rw-r-----    1 kurtz    users      118867 Mar  7 22:08 swiss1MB.des
+-rw-r-----    1 kurtz    users     1000121 Mar  7 22:08 swiss1MB.lcp
+-rw-r-----    1 kurtz    users       85576 Mar  7 22:08 swiss1MB.llv
+-rw-r-----    1 kurtz    users     1000120 Mar  7 22:08 swiss1MB.ois
+-rw-r-----    1 kurtz    users         187 Mar  7 22:08 swiss1MB.prj
+-rw-r-----    1 kurtz    users       10204 Mar  7 22:08 swiss1MB.sds
+-rw-r-----    1 kurtz    users       10196 Mar  7 22:08 swiss1MB.ssp
+-rw-r-----    1 kurtz    users     4000484 Mar  7 22:08 swiss1MB.suf
+-rw-r-----    1 kurtz    users     1000120 Mar  7 22:08 swiss1MB.tis
+\end{verbatim}
+\end{small}
+See \cite{KUR:2002A} for more details on the information contained in the 
+different files comprising the index.
+
+\subsection{The Program \texttt{vmbucket.x}}
+This program implements algorithm \Vmbucket, as described above.
+However, while \Vmbucket is based on suffix trees, 
+\Showfile{vmbucket.x} it is based on enhanced suffix arrays as constructed by
+\Mkvtree. In \cite{ABO:KUR:OHL:2002} it is shown how to simulate the depth
+first traversal of the suffix tree on an enhanced suffix array.
+\Showfile{vmbucket.x} computes the bucket information for a given index.
+
+\begin{Showprogramwithoptions}{\Showfile{vmbucket.x}}{
+\emph{indexname} is the name of the index produced by the
+\Showfile{callmkvtree.sh}. Unless called with the option \Showoption{size},
+\Showfile{vmbucket.x} generates an additional mass-index file 
+\Showfile{indexname.mas} storing the bucket information.}
+
+\Option{minmass}{$\alpha$}{
+Specify the minimal mass value $\alpha$. This must be in the range
+$\Defaultrange$. If this option is not specified, then the default value 
+for $\alpha$ is $\Minmass$.
+}
+
+\Option{maxmass}{$\beta$}{
+Specify the maximal mass value $\beta$. This must be in the range
+$\Defaultrange$. If this option is not specified, then the default value 
+for $\beta$ is $\Maxmass$.
+}
+
+\Option{size}{}{
+Only report the size of the bucket information, but do not generate it.}
+
+\Option{help}{}{
+Show a summary of all options and terminate.}
+
+\end{Showprogramwithoptions}
+
+\paragraph{Example (continued)}
+Applying \Showfile{vmbucket.x} to the index \Showfile{swiss1MB}, we obtain the 
+following:
+
+\begin{small}
+\begin{verbatim}
+number of bucket boundaries = 340002 (0.34 integers per input char)
+suffix positions = 19054185 (19.05 integers per input char)
+ranks = 2762138 (2.76 integers per input char)
+total size of buckets = 22156325 (22.15 integers per input char)
+size of index: 84.52 megabytes
+create index file "swiss1MB.mas" of 84.52 megabytes
+# space peak in megabytes: 83.22
+# mmap space peak in megabytes: 5.81
+\end{verbatim}
+\end{small}
+
+Now we have the mass-index file \Showfile{swiss1MB.mas} available.
+
+\begin{small}
+\begin{verbatim}
+$ ls -l swiss1MB.mas
+-rw-r-----    1 kurtz    users    107633732 Dec  4 01:10 swiss1MB.mas
+\end{verbatim}
+\end{small}
+
+\subsection{The Program \texttt{findmass.x}}
+This program implements the different algorithms to solve the
+\WSMP, namely algorithm \Linsearch and
+\Vmctlook. For each algorithm it provides different output formats.
+
+\begin{Showprogramwithoptions}{\Showfile{findmass.x}}{}
+
+\Option{search}{$alg$}{
+specify the search algorithm. 
+If $alg$ is \texttt{lin}, then \Linsearch is used.
+If $alg$ is \texttt{ctl}, then \Vmctlook is used. If this option 
+is not specified, then the default search algorithm is \Vmctlook.
+}
+
+\Option{trials}{$t$}{
+run $t$ trials. In each trial, the \WSMP is solved for a randomly chosen 
+mass in the range $\lbrack \alpha,\beta\rbrack$.
+This option is mainly used for testing purposes.
+}
+
+\Option{massfile}{$\emph{filename}$}{
+read the masses from the file named \emph{filename}. This file
+contains one mass per line and nothing else. For each mass value
+found in the file, the \WSMP is solved.
+}
+
+\Option{output}{$outmode$}{
+specify the form of the output. 
+\begin{itemize}
+\item
+If $outmode$ is \texttt{no}, then no
+output is shown, but the search is still performed. This output mode is 
+mainly integrated to measure the running time of the program
+without disturbing it by the generation of the output. 
+\item
+If $outmode$ is \texttt{plain}, then all solutions to the 
+\WSMP are output, one per line.
+\item
+If $outmode$ is \texttt{group}, then all matches are grouped according
+to the sequence in which they match. The groups are output ordered by their
+size. For each group, its consecutive number, the corresponding sequence
+number and its size is reported, as well as all matches ordered by their 
+relative position in the sequence.
+\end{itemize}
+If $outmode$ is \texttt{plain} or \texttt{group}, then an additional
+optional argument \texttt{seq} triggers the additional output of the 
+matching sequence.
+}
+
+\Option{help}{}{
+Show a summary of all options and terminate.}
+
+\end{Showprogramwithoptions}
+
+Exactly one of the two options \Showoption{trials} and 
+\Showoption{massfile} is mandatory.
+
+\paragraph{Example (continued)}
+Here is the partial output for several calls of \Showfile{findmass.x}. 
+The arguments of the program was called with are shown in the first line 
+of the output.
+
+\begin{footnotesize}
+\begin{verbatim}
+# findmass.x -search ctl -output plain seq -trials 100 swiss1MB
+# indexfile "swiss1MB.mas" (88625308 bytes) read
+# each line reporting a match is in the following format:
+# mass sequence_header relative_position match_length matching_sequence
+# run 100 trials of masses in the range [60000,400000]
+314415 sp|AEGP_RAT|APICAL  27   30 HCRSPTEATCNFVCDCGDCSDEAQCGFHGA
+314415 sp|A2AB_DIDMA|ALPHA-2B 259   28 SVGPEDGSQKQEEEEEEEEEEEEECGPP
+314415 sp|ADH1_KLUMA|ALCOHOL  95   30 GSCMSCEECELSNEPNCPKADLSGYTHDGS
+383933 sp|41BB_MOUSE|4-1BB 182   34 SLQVLTLFLALTSALLLALIFITLLFSVLKWIRK
+ 97434 sp|ACH4_HUMAN|NEURONAL 222    8 YECCAEIY
+ 97434 sp|ACH4_RAT|NEURONAL 228    8 YECCAEIY
+...
+\end{verbatim}
+\end{footnotesize}
+
+If we use a different search mode, then the results are reported in a 
+order of the position of the matched in the indexed file.
+
+\begin{footnotesize}
+\begin{verbatim}
+# findmass.x -search lin -output plain seq -trials 100 swiss1MB
+# each line reporting a match is in the following format:
+# mass sequence_header relative_position match_length matching_sequence
+# run 100 trials of masses in the range [60000,400000]
+314415 sp|A2AB_DIDMA|ALPHA-2B 259   28 SVGPEDGSQKQEEEEEEEEEEEEECGPP
+314415 sp|ADH1_KLUMA|ALCOHOL  95   30 GSCMSCEECELSNEPNCPKADLSGYTHDGS
+314415 sp|AEGP_RAT|APICAL  27   30 HCRSPTEATCNFVCDCGDCSDEAQCGFHGA
+383933 sp|41BB_MOUSE|4-1BB 182   34 SLQVLTLFLALTSALLLALIFITLLFSVLKWIRK
+ 97434 sp|A2HS_BOVIN|ALPHA-2-HS-GLYCOPROTEIN  30    9 ACDDPDTEQ
+ 97434 sp|A2HS_BOVIN|ALPHA-2-HS-GLYCOPROTEIN  31    9 CDDPDTEQA
+...
+\end{verbatim}
+\end{footnotesize}
+
+If we choose to group the output, then the output is independent of
+the chosen search mode.
+
+\begin{footnotesize}
+\begin{verbatim}
+# findmass.x -search lin -output group -trials 100 swiss1MB
+# each line reporting a match is in the following format:
+# mass sequence_header relative_position match_length
+# run 100 trials of masses in the range [60000,400000]
+# output 2159 groups in order of their size
+# group 0 for sequence 1671 has 38 elements
+  288629 sp|ACVS_CEPAC|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 116   29
+  126958 sp|ACVS_CEPAC|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 133   13
+  124665 sp|ACVS_CEPAC|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 312   11
+...
+# group 1 for sequence 1673 has 36 elements
+  232817 sp|ACVS_NOCLA|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 130   20
+  124360 sp|ACVS_NOCLA|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 278   10
+  355276 sp|ACVS_NOCLA|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 380   34
+...
+# group 2 for sequence 1672 has 33 elements
+  149685 sp|ACVS_EMENI|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 268   14
+  213109 sp|ACVS_EMENI|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 476   20
+  213109 sp|ACVS_EMENI|DELTA-(L-ALPHA-AMINOADIPYL)-L-CYSTEINYL 477   20
+...
+\end{verbatim}
+\end{footnotesize}
+
+\section{Release Notes}
+\subsection{Changes made on March 7, 2003}
+\begin{enumerate}
+\item
+change minimum mass from 800 to 600
+\item
+compile programs for different values of \(p\) and add 
+helpful script \texttt{Linkmassprogs.sh}
+\item
+output original protein sequence instead of transformed sequence
+\item
+output sequence headers (up to the first blank) instead of 
+sequence numbers
+\item
+update manual accordingly
+\end{enumerate}
+
+\section{Preliminary Experimental Results}\label{Experiments}
+In our experiments we have applied the programs from above to six protein
+files: \Showfile{swiss.$i$MB.fna}, for \(i\in[1,5]\) and \Showfile{sprot38}.
+The latter is the complete swissprot database release 38. 
+Each file \Showfile{swiss.$i$MB.fna} is a collection of randomly selected
+protein sequences from \Showfile{sprot38} such that the total length of
+the sequences is about \(i\) megabytes.
+Table \ref{PPresults} shows the results when generating the index
+for the different input files. In particular, 
+file sizes, number of suffix positions, number of ranks, and index sizes 
+are shown.
+In all cases, the number of bucket boundaries is 
+\(10^{p}(\beta-\alpha)+1+1=10^{2}(4000-600)+2=340002\). Note that the 
+index size does not include the size of the 
+files produced by \Mkvtree. These are however small compared to the 
+mass-index file. Similarly, the construction time for the suffix array is
+small compared to the construction of the mass index.
+Table \ref{Findresults} shows the running time of the different searching
+algorithms for the different indexes.
+
+\begin{table}
+\begin{center}
+\begin{small}
+\begin{tabular}{|*{6}{r|}}\hline
+\emph{file}&$n$&\emph{suffix positions}$/n$&\emph{ranks}$/n$&\emph{size of index} (MB)&\emph{time}\\\hline
+\Showfile{swiss1MB} & 1002835 & 26.17 & 0.35 & 102.65&10.18\\\hline
+\Showfile{swiss2MB} & 2006050 & 25.68 & 0.53 & 201.80&21.61\\\hline
+\Showfile{swiss3MB} & 3008338 & 25.36 & 0.66 & 299.93&33.43\\\hline
+\Showfile{swiss4MB} & 4011052 & 25.03 & 0.80 & 396.37&38.02\\\hline
+\Showfile{swiss5MB} & 5013972 & 24.64 & 0.93 & 490.36&54.73\\\hline
+\Showfile{sprot38}  &31791220 & 20.59 & 2.19 &2764.05&??
+\\\hline
+\end{tabular}
+\end{small}
+\end{center}
+\caption{Results when computing the mass-index. The first column shows
+the file, the second its size. The next columns show the number of
+stored suffix positions as well as the number of ranks, relative to the
+size of the file. The last two column show the total size of the mass-index
+as well as the time to construct it. The reported time include the 
+output to a file. All time results are in seconds and refer to a computer
+with a 1123~Mhz Pentium III processor and 614 MB RAM running Linux.}
+\label{PPresults}
+
+\begin{center}
+\begin{small}
+\begin{tabular}{|*{5}{c|}}\hline
+           &\multicolumn{2}{c|}{\Linsearch}
+           &\multicolumn{2}{|c|}{\Vmctlook}\\\hline
+\emph{file}&\emph{time}&\emph{space}&\emph{time}&\emph{space}\\\hline
+\Showfile{swiss1MB}&182.44 &0.97 &0.52&108.40\\\hline
+\Showfile{swiss2MB}&374.83 &1.93 &1.11&213.30\\\hline
+\Showfile{swiss3MB}&556.20 &2.90 &1.29&317.18\\\hline
+\Showfile{swiss4MB}&746.24 &3.87 &2.10&419.39\\\hline
+\Showfile{swiss5MB}&935.78 &4.83 &2.18&519.13\\\hline
+\end{tabular}
+\end{small}
+\end{center}
+\caption{Results when searching 10000 masses that are randomly sampled from
+the interval $[60000,400000]$. The first column shows the file.
+The second and third column show the running time (in seconds) and space 
+requirement (in MB) for the \Linsearch algorithm.
+The fourth and fifth column show the running time (in seconds) and space 
+requirement (in MB) for the \Vmctlook algorithm.}
+\label{Findresults}
+\end{table}
+%\end{comment}
+
+\bibliographystyle{plain}
+\bibliography{defines,strings,kurtz}
+
+\begin{comment}
+\newpage
+\appendix
+\section{The output of \texttt{mkmasstab.x 2}}\label{Mkmasout}
+\begin{footnotesize}
+\begin{verbatim}
+#ifndef MASSTAB_H
+#define MASSTAB_H
+
+        /* This file is generated by mkmas.x 2, do not edit */
+
+        /* the precision value */
+#define PRECISIONVALUE 2
+        /* number of aminoacids */
+#define NUMOFAMINOACIDS 22
+        /* minimal mass */
+#define MINMASS 60000
+        /* maximal mass */
+#define MAXMASS 400000
+        /* size of table countmasstab */
+#define SIZECOUNTMASSTAB (MAXMASS-MINMASS+1+1)
+        /* number of digits to output mass */
+#define DIGITSFORMAXMASS 6
+        /* aminoacids ordered by mass */
+#define AMINOCHARACTERS "GASPVTCLNOBDQKZEMHFRYW"
+
+#define MASSFORMAT "%*u"
+        /* type for masses */
+typedef unsigned int Masstype;
+
+        /* defining this means to ignore masstab */
+#ifndef IGNOREMASSTAB
+
+        /* The masses of the amino acids */
+static Masstype masstab[] = 
+{
+  5702,  /* G -> 0 */
+  7104,  /* A -> 1 */
+  8703,  /* S -> 2 */
+  9705,  /* P -> 3 */
+  9907,  /* V -> 4 */
+  10105,  /* T -> 5 */
+  10301,  /* C -> 6 */
+  11308,  /* L -> 7 */
+  11404,  /* N -> 8 */
+  11408,  /* O -> 9 */
+  11453,  /* B -> 10 */
+  11503,  /* D -> 11 */
+  12806,  /* Q -> 12 */
+  12809,  /* K -> 13 */
+  12855,  /* Z -> 14 */
+  12904,  /* E -> 15 */
+  13104,  /* M -> 16 */
+  13706,  /* H -> 17 */
+  14707,  /* F -> 18 */
+  15610,  /* R -> 19 */
+  16306,  /* Y -> 20 */
+  18608  /* W -> 21 */
+};
+
+#endif
+#endif
+\end{verbatim}
+\end{footnotesize}
+\end{comment}
+
+\end{document}
+\newpage
+
+\section{Ideas and Future Work}
+\begin{enumerate}
+\item
+Divide \(S\) into non-overlapping sections of length \(n/2^{16}\). Instead of
+storing a suffix position only store the section in which the suffix position
+starts. The section numbers can be stored in 16 bits. This would reduce the
+space requirement for the suffix positions by 50\%. Searching would require
+to search a complete section using \Linsearch. However, applying
+\Linsearch on a small section will not cost too much. Note that
+in each bucket a position can only be stored once.
+\item
+Compute the smallest common multiple of all pairs of weights to determine
+if the partitions of the weights is unique.
+If the scm of two weights is smaller, then the partition is is not unique.
+\item
+The index becomes so large due to the large number of suffix positions
+to be stored. The basic problem is for each mass to find the sets 
+of leaf-weights it is contained in. Each set of leaf weights can be
+stores in constant space. But this does not allow fast retrieval.
+\item
+If there are two isomorphic subtrees below \(\overline{aw}\) and
+\(\overline{w}\), then the masses in the subtree are identical up to 
+the addition with \(\sigma(a)\).
+\item
+Encode the precision value in the index. Check if the programs
+fits to the index.
+\end{enumerate}
+
+
+kurtz@mahagoni[57] time massbck -size sprot38.fas
+countleaf = 654521611 (20.59 per input char)
+countfirstbranch = 69737236 (2.19 per input char)
+total number of integers = 724258847 (22.78 integers per input char)
+size of index: 2764.05 megabytes
+# space peak in megabytes: 0.00
+# mmap space peak in megabytes: 184.01
+160.79u 1.14s 2:41.96 99.9%

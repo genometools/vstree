@@ -1,0 +1,23 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsesubstringpos(Multiseq *multiseq,ArrayPairUint *substringpos,
+                       Multiseq *virtualmultiseq);
+
+Sint runforeachquerysubstpos(Virtualtree *queryvirtualtree,
+                             Matchcallinfo *matchcallinfo,
+                             ArrayPairUint *substringpos,
+                             Queryinfo *queryinfo,
+                             Procmultiseq *procmultiseq,
+                             Evalues *evalues,
+                             Sint (*applytoeachquery)(Virtualtree *,
+                                                      Uint,
+                                                      Matchcallinfo *,
+                                                      ArrayPairUint *,
+                                                      Queryinfo *,
+                                                      Procmultiseq *,
+                                                      Evalues *));
+
+#ifdef __cplusplus
+}
+#endif

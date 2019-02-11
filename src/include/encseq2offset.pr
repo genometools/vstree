@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ Uint64 *encseqtable2seqoffsets(BOOL check32bit,
+                                          Uint64 *totallength,
+                                          Specialcharinfo *specialcharinfo,
+                                          const Encodedsequence *encseqtable,
+                                          Uint numofindexes);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,22 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint gapclustermatches(Multiseq *virtualmultiseq,
+                       Alphabet *virtualalpha,
+                       Multiseq *querymultiseq,
+                       ArrayStoreMatch *matchtab,
+                       char *outprefix,
+                       char *mfargs,
+                       Uint maxgapsize);
+
+Sint overlapclustermatches(Multiseq *virtualmultiseq,
+                           Alphabet *virtualalpha,
+                           Multiseq *querymultiseq,
+                           ArrayStoreMatch *matchtab,
+                           char *outprefix,
+                           char *mfargs,
+                           Uint minpercentoverlap);
+
+#ifdef __cplusplus
+}
+#endif

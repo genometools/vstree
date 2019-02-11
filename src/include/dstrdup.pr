@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@notnull@*/ char *vm_dynamicstrdup(char *file,Uint linenum,
+                                     const char *source);
+
+#ifdef __cplusplus
+}
+#endif

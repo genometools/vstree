@@ -1,0 +1,17 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void getleftseq(Showseqinfo *showseqinfo,
+                StoreMatch *storematch,
+                Multiseq *virtualmultiseq,
+                /*@unused@*/ Alphabet *virtualalpha);
+
+Sint getrightseq(Showseqinfo *showseqinfo,
+                 StoreMatch *storematch,
+                 Multiseq *virtualmultiseq,
+                 Multiseq *querymultiseq,
+                 Alphabet *virtualalpha);
+
+#ifdef __cplusplus
+}
+#endif

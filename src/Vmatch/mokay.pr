@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL matchokay(Uint length1,
+               Uint startpos1,
+               Uint length2,
+               Uint startpos2,
+               Sint distance,
+               Evaluetype evalue,
+               Matchflag flag,
+               Matchparam *mp);
+
+#ifdef __cplusplus
+}
+#endif

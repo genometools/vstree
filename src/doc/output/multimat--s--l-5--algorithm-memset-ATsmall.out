@@ -1,0 +1,4 @@
+$ multimat -s -l 5 -algorithm memset ATsmall
+5 140 833 397 325 {203,417} {363,666} 326 353 {46,497} 37 97
+caatc
+

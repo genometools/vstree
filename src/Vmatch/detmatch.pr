@@ -1,0 +1,18 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint determineMatchinfo(FILE *outfp,
+                        Matchinfo *matchinfo,
+                        Argctype argc,
+                        const char **argv,
+                        const char *matchfile,
+                        Matchparam *selectmatchparam,
+                        /*@unused@*/ void *dbparminfo,
+                        BOOL withinputsequences,
+                        Showverbose showverbose);
+
+Sint freeMatchinfo(Matchinfo *matchinfo);
+
+#ifdef __cplusplus
+}
+#endif

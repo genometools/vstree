@@ -1,0 +1,36 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void searchpatterngeneric(
+       BOOL(*reallyoccurs)(void *,Uchar *,Uint,Uchar *,Uchar *),
+       BOOL(*occurs)(void *,Uchar *,Uint,Uchar *,Uchar *),
+       /*@unused@*/ char *argv[],
+       /*@unused@*/ Argctype argc,
+       void *occursinfo,
+       Uchar *text,Uint textlen,float trialpercentage,
+       Uint minpatternlen,
+       Uint maxpatternlen,
+       void (*showpattern)(void *,Uchar *,Uint),
+       void *showpatterninfo);
+
+void searchpattern(BOOL(*occurs)(void *,Uchar *,Uint,Uchar *,Uchar *),
+                   char *argv[],Argctype argc,
+                   void *occursinfo,Uchar *text,Uint textlen,
+                   float trialpercentage,
+                   Uint minpatternlen,
+                   Uint maxpatternlen,
+                   void (*showpattern)(void *,Uchar *,Uint),
+                   void *showpatterninfo);
+
+void searchpatternapprox(void(*apm)(void *,Uint,Uchar *,Uint,Uchar *,Uint),
+                         /*@unused@*/ char *argv[],
+                         /*@unused@*/ Argctype argc,
+                         void *occursinfo,
+                         float errorrate,
+                         Uchar *text,Uint textlen,float trialpercentage,
+                         Uint minpatternlen,
+                         Uint maxpatternlen);
+
+#ifdef __cplusplus
+}
+#endif

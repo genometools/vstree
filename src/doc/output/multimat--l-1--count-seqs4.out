@@ -1,0 +1,5 @@
+$ multimat -l 1 -count seqs4
+# number of events: 446
+1: 398 (prob=0.8924,cumulative=0.8924)
+2: 44 (prob=0.0987,cumulative=0.9910)
+3: 4 (prob=0.0090,cumulative=1.0000)

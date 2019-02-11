@@ -1,0 +1,165 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage{LocalDefs,disstrees}
+\newcommand{\RT}{\mathit{root}}
+\newcommand{\ST}[1][]{\mathit{ST}_{\!#1}}
+\newcommand{\HD}[1]{\mathit{head}_{\!#1}}
+\newcommand{\Headpos}{\mathit{headposition}}
+\newcommand{\Suffixlink}{\mathit{suffixlink}}
+\newcommand{\FirstChild}{\mathit{firstchild}}
+\newcommand{\BranchBrother}{\mathit{branchbrother}}
+\newcommand{\RightBrother}{\mathit{rightbrother}}
+\newcommand{\TBranch}[1][]{T^{#1}_{\!\mathit{branch}}}
+\newcommand{\TLeaf}{T_{\!\mathit{leaf}}}
+\newcommand{\Depth}{\mathit{depth}}
+\newcommand{\Datestring}{March 2003}
+\newcommand{\Numofcalls}{1000}
+\newcommand{\ABSNTtree}{\SmallBinTree{}{ab\$}{\Leaf{}}{\$}{\Leaf{}}}
+\newcommand{\SKandTIGR}{Stefan Kurtz and the Institute for Genomic Research}
+
+\newcommand{\Showheadermmsub}[1]{\FILEINFO{#1.h}{\copyright~\SKandTIGR}{\Datestring}%
+                              \subsubsection{The Header File \texttt{#1.h}}%
+                              \input{#1.h.inc}%
+                              }
+
+\newcommand{\Showheadermm}[1]{\FILEINFO{#1.h}{\copyright~\SKandTIGR}{\Datestring}%
+                              \subsection{The Header File \texttt{#1.h}}%
+                              \input{#1.h.inc}%
+                              }
+
+\newcommand{\Showcodemmsub}[1]{\FILEINFO{#1.c}{\copyright~\SKandTIGR}{\Datestring}%
+                            \subsubsection{The Code File \texttt{#1.c}}%
+                            \input{#1.c.inc}%
+                            }
+
+\newcommand{\Showcodemm}[1]{\FILEINFO{#1.c}{\copyright~\SKandTIGR}{\Datestring}%
+                            \subsection{The Code File \texttt{#1.c}}%
+                            \input{#1.c.inc}%
+                            }
+
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+
+\title{\textbf{The Source Code Documentation of Maxmat3}}
+\date{\today\\[1mm]
+\begin{minipage}[t]{0.75\linewidth}
+This is the documentation of the Program Maxmat3. This program is 
+based on a suffix tree library and a collection of general library
+functions. As a consequence, the source code is distributed over
+three directories. This is reflected in this documentation.
+The first section describes some general types and library
+functions as declared in the directory \texttt{libbasedir}.
+The include file \texttt{protodef.h} is of particular importance here,
+since it contains the prototypes for all non-static functions of
+\texttt{libbasedir}. Since \texttt{protodef.h} is generated from the
+C-source files, we do not provide any documentation for it. 
+Note that many files contain a superset of the definitions
+and functions actually required for \texttt{maxmat3}. This is because 
+the files have been taken verbatim from a larger collection of library 
+functions.
+The second section describes the suffix tree library providing 
+a convenient collection of types and functions to handle
+(i.e.\ construct and access) suffix trees. There are several functions
+of the library not required for \texttt{maxmat3}. They were implemented
+for other applications not discussed here.
+The third section of this document gives the implementation of 
+\texttt{maxmat3} based on the functions described in the previous
+sections.
+In the appendix section \ref{Preliminaries} we define some necessary
+notation to understand the concept of suffix trees and their
+implementaion.
+Finally, in the appendix section B we provide an index of
+types and function names.
+The PDF-version of this document comes with hyperlinks,
+linking type names, function names, and macro names to their definition. 
+If you encounter broken or missing links, please contact the
+author at \texttt{kurtz@zbh.uni-hamburg.de}. Other comments
+are also welcome.
+\end{minipage}
+}
+
+\makeindex
+\begin{document}
+
+\maketitle
+\newpage
+\pagestyle{headings}
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{The Basic Library in libbasedir}%%%
+\subsection{Basic Header Files}%%%
+\Showheadermmsub{types}
+\Showheadermmsub{chardef}
+\Showheadermmsub{visible}
+\Showheadermmsub{minmax}
+\Showheadermmsub{megabytes}
+\Showheadermmsub{fopen}
+\Showheadermmsub{intbits}
+
+\subsection{Debugging Messages}%%%
+\Showheadermmsub{debugdef}
+\Showcodemmsub{debug}
+
+\subsection{Error Messages}%%%
+\Showheadermmsub{errordef}
+\Showcodemmsub{seterror}
+
+\subsection{Argument and Option Processing}%%%
+\Showheadermmsub{args}
+\Showheadermmsub{optdesc}
+\Showcodemmsub{procopt}
+
+\subsection{Space Management}%%%
+\Showheadermmsub{spacedef}
+\Showcodemmsub{space}
+\Showcodemmsub{mapfile}
+\Showheadermmsub{arraydef}
+\Showcodemmsub{safescpy}
+
+\subsection{Multiple Sequences}%%%
+\Showheadermmsub{multidef}
+\Showcodemmsub{multiseq}
+
+\subsection{MUM Candidates}
+\Showheadermmsub{mumcand}
+\Showcodemmsub{cleanMUMcand}
+
+\subsection{Measuring Time}%%%
+\Showcodemmsub{clock}
+
+\newpage
+\section{The Suffix Tree Library in streesrc}%%%
+\Showheadermm{streetyp}
+\Showcodemm{streefiledoc}
+
+\newpage
+\section{The Implementation of Maxmat3 in MM3}%%
+\Showheadermm{maxmatdef}
+\Showcodemm{maxmatopt}
+\Showcodemm{maxmatinp}
+\Showcodemm{findmaxmat}
+\Showcodemm{findmumcand}
+\Showcodemm{procmaxmat}
+\Showcodemm{maxmat3}
+
+\newpage
+\FILEINFO{Preliminaries}{}{\Datestring}
+
+\appendix
+\input{/home/kurtz/Ccode/streelib/doc/streeprelim}
+
+\newpage
+\FILEINFO{\Indexheader}{}{\Datestring}
+
+\input{maxmat3.ind}
+
+\newpage
+\FILEINFO{References}{}{\Datestring}
+
+\bibliography{defines,strings,kurtz}
+\bibliographystyle{alpha}
+
+\end{document}

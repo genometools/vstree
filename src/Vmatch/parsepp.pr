@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsegenericpostprocessing(Chaincallinfo *chaincallinfo,
+                                Matchclustercallinfo *matchclustercallinfo,
+                                const char *progname,
+                                const char * const*argv,
+                                Uint argnum,
+				Argctype argc,
+				const char *optname);
+
+#ifdef __cplusplus
+}
+#endif

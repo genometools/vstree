@@ -1,0 +1,282 @@
+   14    1714    221   D    16    0  0   3    4.99e+01     21    81.25
+Sbjct: CAGTACT-CC-TCTCA                                                     235
+            ! !  !     
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   16    1544    209   D    16    0  0   3    4.99e+01     23    81.25
+Sbjct: CAGTAATATCATCTGG                                                     225
+               !     !!
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   15    1354    222   D    16    0  0   3    4.99e+01     22    81.25
+Sbjct: CGGTTA-ACCATCTCA                                                     237
+        !  ! !         
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   17    1322    219   D    16    0  0   3    4.99e+01     24    82.35
+Sbjct: CAGATAAAACCATCTCT                                                    236
+          !   !        !
+Query: CAG-TAATACCATCTCA                                                     16
+
+
+   16    1224    596   D    16    0  0   3    4.99e+01     23    81.25
+Sbjct: CAGTAATGACCAT-TAA                                                    612
+              !     ! ! 
+Query: CAGTAAT-ACCATCTCA                                                     16
+
+
+   14    1090    225   D    16    0  0   3    4.99e+01     21    81.25
+Sbjct: -AGTAA-ATCATCTCA                                                     239
+       !     ! !       
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   14     915    310   D    16    0  0   3    4.99e+01     21    81.25
+Sbjct: CAGTAATA--ATCTCG                                                     324
+               !!     !
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   17     633    108   D    16    0  0   3    4.99e+01     24    82.35
+Sbjct: CAGCAATTCCATCNTCA                                                    125
+          !   !     !   
+Query: CAGTAATACCATC-TCA                                                     16
+
+
+   15     505     86   D    16    0  0   3    4.99e+01     22    81.25
+Sbjct: CAGCAATT-CATCTCA                                                     101
+          !   !!       
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   16     497    291   D    16    0  0   3    4.99e+01     23    81.25
+Sbjct: CAGTAATATCATCTGG                                                     307
+               !     !!
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   15      82    200   D    16    0  0   3    4.99e+01     22    81.25
+Sbjct: CAGTAAAACCACCT-A                                                     215
+             !    !  ! 
+Query: CAGTAATACCATCTCA                                                      16
+
+
+   15    1923    112   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TG-GATGGCAATACTG                                                     127
+         !     ! !     
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   16    1864     32   P    16    0  0   3    4.99e+01     23    81.25
+Sbjct: TCAGATGGTGTTCCTG                                                      48
+        !       !  !   
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15    1545    182   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAGAT-ATGTTACTG                                                     197
+             !! !      
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15    1481    459   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGA-ATGATATTAGTG                                                     474
+          !   !     !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15    1280    220   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAGATGAGATTA-TG                                                     235
+              !!    !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   16    1279    264   P    16    0  0   3    4.99e+01     23    81.25
+Sbjct: TGA-ATGGAATTGACTG                                                    280
+          !    !   !    
+Query: TGAGATGGTATT-ACTG                                                     16
+
+
+   13    1271    174   P    16    0  0   3    4.99e+01     20    81.25
+Sbjct: TGA-AT-GTATTA-TG                                                     187
+          !  !      !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   14    1258    319   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TAAGATGG-ATTAC-G                                                     333
+        !      !     ! 
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15    1254    400   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: -GAGAT-GTAATTACTG                                                    415
+       !     !  !       
+Query: TGAGATGGT-ATTACTG                                                     16
+
+
+   15    1158    353   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAAGATGGTATT--TG                                                    368
+         !          !!  
+Query: TG-AGATGGTATTACTG                                                     16
+
+
+   16    1102    418   P    16    0  0   3    4.99e+01     23    81.25
+Sbjct: TGAGATAATATTAATG                                                     434
+             !!     !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15    1036    221   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: -GAGATGGCATCACTG                                                     236
+       !       !  !    
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   14     900    243   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TGAGAT-GAA-TACTG                                                     257
+             ! ! !     
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   13     806    287   P    16    0  0   3    4.99e+01     20    81.25
+Sbjct: T-AG-T-GTATTACTG                                                     300
+        !  ! !         
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   14     805    164   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TG-GA-GGCATTACTG                                                     178
+         !  !  !       
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   13     802     92   P    16    0  0   3    4.99e+01     20    81.25
+Sbjct: TG-GATGGTATT--TG                                                     105
+         !         !!  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15     757    165   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TCAGATGATATTA-TG                                                     180
+        !     !     !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15     752    309   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAGATGGT-TTAAGG                                                     324
+                !   !! 
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15     714    342   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TAAGTTGGTATTA-TG                                                     357
+        !  !        !  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   17     688    192   P    16    0  0   3    4.99e+01     24    82.35
+Sbjct: TCAGATGGTAATATCTG                                                    209
+        !        !  !   
+Query: TGAGATGGTATTA-CTG                                                     16
+
+
+   15     625    420   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGA-AGGGTATTGCTG                                                     435
+          ! !      !   
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15     558    274   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: -GAGAT-GTAATTACTG                                                    289
+       !     !  !       
+Query: TGAGATGGT-ATTACTG                                                     16
+
+
+   14     494    369   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TG-GATGGT-TTACTT                                                     383
+         !      !     !
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15     388     33   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAGAA-GTATTACTC                                                      48
+            !!        !
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   16     347    293   P    16    0  0   3    4.99e+01     23    81.25
+Sbjct: TGAGATGGTGTTTCTA                                                     309
+                !  !  !
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   14      53    369   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TGAGAT-GTA-TACGG                                                     383
+             !   !   ! 
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   14      23    404   P    16    0  0   3    4.99e+01     21    81.25
+Sbjct: TG-GATCGTA-TACTG                                                     418
+         !   !   !     
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   15       8    399   P    16    0  0   3    4.99e+01     22    81.25
+Sbjct: TGAGATGGGATT-GTG                                                     414
+               !   !!  
+Query: TGAGATGGTATTACTG                                                      16
+
+
+   18    1386    186   P    20    1  0   3    3.96e-01     29    85.00
+Sbjct: ATC-A-ATTGATGATGATGA                                                 204
+          ! !       !      
+Query: ATCTACATTGATGTTGATGA                                                  20
+
+
+   20     299    256   P    20    1  0   3    3.96e-01     31    85.00
+Sbjct: -TCTTCATCTGATGTTGATGA                                                276
+       !   !   !            
+Query: ATCTACAT-TGATGTTGATGA                                                 20
+
+
+   20     191    276   P    20    1  0   3    3.96e-01     31    85.00
+Sbjct: ATCTAC-TTGATGTTGCCTGA                                                296
+             !         !!   
+Query: ATCTACATTGATGTTG-ATGA                                                 20
+
+
+   19     165    272   P    20    1  0   3    3.96e-01     30    85.00
+Sbjct: AT-TTCACTGATGTTGATGA                                                 291
+         ! !  !            
+Query: ATCTACATTGATGTTGATGA                                                  20
+
+
+   16    1544    209   D    16    0  0  -3    1.53e+00    -23    81.25
+CAGTAATA[TC]CATCT[GC][GA]
+
+   16     497    291   D    16    0  0  -3    1.53e+00    -23    81.25
+CAGTAATA[TC]CATCT[GC][GA]
+
+   16    1864     32   P    16    0  0  -3    1.53e+00    -23    81.25
+T[CG]AGATGGT[GA]TT[CA]CTG
+
+   16    1254    399   P    16    0  0  -3    1.53e+00    -23    81.25
+[AT]GAGATG[TG][AT]ATTACTG
+
+   16    1102    418   P    16    0  0  -3    1.53e+00    -23    81.25
+TGAGAT[AG][AG]TATTA[AC]TG
+
+   16    1036    220   P    16    0  0  -3    1.53e+00    -23    81.25
+[AT]GAGATGG[CT]AT[CT]ACTG
+
+   16     558    273   P    16    0  0  -3    1.53e+00    -23    81.25
+[AT]GAGATG[TG][AT]ATTACTG
+
+   16     347    293   P    16    0  0  -3    1.53e+00    -23    81.25
+TGAGATGGT[GA]TT[TA]CT[AG]
+

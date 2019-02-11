@@ -1,0 +1,21 @@
+$ mkrcidx -db seqs4 -v
+reading file "seqs4"
+total length of sequences: 42 (including 3 separators)
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 2,
+the recommended prefixlength is 1
+total length of sequences: 85 (including 7 separators)
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "seqs4.rcm.tis"
+create file "seqs4.rcm.des"
+create file "seqs4.rcm.sds"
+create file "seqs4.rcm.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 1
+sorting all buckets
+create file "seqs4.rcm.llv"
+create file "seqs4.rcm.suf"
+create file "seqs4.rcm.bwt"
+create file "seqs4.rcm.prj"
+create file "seqs4.rcm.al1"
+# overall space peak: main=0.08 MB,  secondary=0.00 MB

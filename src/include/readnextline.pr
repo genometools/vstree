@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint readnextline(FILE *fpin,ArrayUchar *line);
+
+Uint maximumlinelength(FILE *fpin);
+
+#ifdef __cplusplus
+}
+#endif

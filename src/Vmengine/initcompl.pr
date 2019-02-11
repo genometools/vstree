@@ -1,0 +1,19 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initcompletematchstruct(Match *match,
+                             Uint seqnum2,
+                             Uint plen,
+                             BOOL ispalindromic);
+
+Sint initpminfo(PMinfo *pminfo,
+                Uint (*evalsmallestscore)(PMinfo *,Uint),
+                Uint approxdemand,
+                Matchstate *matchstate,
+                Uchar *pattern,
+                Uint seqnum2,
+                Uint plen);
+
+#ifdef __cplusplus
+}
+#endif

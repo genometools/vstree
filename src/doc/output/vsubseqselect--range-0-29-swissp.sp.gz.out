@@ -1,0 +1,3 @@
+$ vsubseqselect -range 0 29 swissp.sp.gz
+>110K_PLAKN 110 KD ANTIGEN (PK110) (FRAGMENT). swissp.sp.gz [0,29]
+FNSNMLRGSVCEEDVSLMTSIDNMIEEIDF

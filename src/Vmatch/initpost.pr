@@ -1,0 +1,41 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint initdatastructuresvmatchgeneric(BOOL selfmatch,
+                                     BOOL *processfunctionwasundefined,
+                                     BOOL *ownpostprocessing,
+                                     Clusterparms *clusterparms,
+                                     Sequenceclusterinfo *seqclinfo,
+                                     Outinfo *outinfo,
+                                     BOOL iscompletematch,
+                                     BOOL ispreinfomatch,
+                                     Markinfo *markinfo,
+                                     Nomatch *nomatch,
+                                     Maskmatch *maskmatch,
+                                     char *mfargs,
+                                     Uint numofqueryfiles,
+                                     BOOL domatchbuffering,
+                                     Procmultiseq *procmultiseq);
+
+Sint postprocessvmatchgeneric(BOOL selfmatch,
+                              BOOL processfunctionwasundefined,
+                              Clusterparms *clusterparms,
+                              Chaincallinfo *chaincallinfo,
+                              Matchclustercallinfo *matchclustercallinfo,
+                              Sequenceclusterinfo *seqclinfo,
+                              Outinfo *outinfo,
+                              char *mfargs,
+                              BOOL domatchbuffering,
+                              BOOL iscompletematch,
+                              BOOL ispreinfomatch,
+                              Markinfo *markinfo,
+                              Nomatch *nomatch,
+                              Maskmatch *maskmatch,
+                              Matchparam *matchparam,
+                              Alphabet *alpha,
+                              Procmultiseq *procmultiseq,
+                              Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

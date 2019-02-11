@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint bucketsortsuffixes(MKVaux *mkvaux,Virtualtree *virtualtree,
+                        Uint numofchars);
+
+#ifdef __cplusplus
+}
+#endif

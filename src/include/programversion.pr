@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void showprogramversion(FILE *fp,char *program);
+
+#ifdef __cplusplus
+}
+#endif

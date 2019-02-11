@@ -1,0 +1,86 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initoptions(OptionDescription *options,Uint numofoptions);
+
+Sint addoption(OptionDescription *options,Uint numofoptions,
+               Uint optnum,char *optname,char *optdesc);
+
+Optionnumbertype procoption(OptionDescription *opt,
+                            Uint numofopt,
+                            const char *optstring);
+
+void showoptions(FILE *outfp,const char *program,OptionDescription *opt,
+                 Uint numofopt);
+
+void showoptionswithoutdevoptions(FILE *outfp,const char *program,
+                                  OptionDescription *opt,
+                                  Optionnumbertype *devoptiontab,
+                                  Uint numofopt);
+
+void showoptionsinlatex(FILE *outfp,const char *program,
+                        OptionDescription *opt,
+                        OptionGroup *optiongroups,Uint numofopt);
+
+void showoptionsinlatexwithoutdevoptions(FILE *outfp,const char *program,
+                                         OptionDescription *opt,
+                                         OptionGroup *optiongroups,
+                                         Optionnumbertype *devoptiontab,
+                                         Uint numofopt);
+
+void showoptionswithoutexcludeandwithoutdevoptions(FILE *outfp,
+                                                   const char *program,
+                                                   OptionDescription *opt,
+                                                   Optionnumbertype
+                                                   *excludetab,
+                                                   Optionnumbertype
+                                                   *devoptiontab,
+                                                   Uint numofopt);
+
+void showoptionswithoutexclude(FILE *outfp,
+                               const char *program,
+                               OptionDescription *opt,
+                               Optionnumbertype *excludetab,
+                               Uint numofopt);
+
+void showdevoptions(FILE *outfp,
+                    const char *program,
+                    OptionDescription *opt,
+                    Optionnumbertype *devoptiontab,
+                    Uint numofopt);
+
+Sint checkdoubleexclude(Uint numofopts,
+                        OptionDescription *opt,
+                        Optionnumbertype *excludetab,
+                        Uint len);
+
+Sint checkexclude(OptionDescription *opt,
+                  Optionnumbertype *excludetab,
+                  Uint len);
+
+Sint checkforsingleexcludeoption(OptionDescription *options,
+                                 Optionnumbertype *excludetab);
+
+void showexclude(OptionDescription *opt,
+                 Optionnumbertype *excludetab,
+                 Uint len);
+
+Sint extractoption(const char *optname,const char **argv,Argctype argc);
+
+Sint extractoptionwithpossibleargument(BOOL withlast,
+                                       BOOL *hasargument,
+                                       const char *optstring,
+                                       const char **argv,
+                                       Argctype argc);
+
+Sint extractindexname(char **indexname,const char **argv,Argctype argc);
+
+Sint optionaddbitmask(Optionargmodedesc *modedesc,
+                      Uint numberofentries,
+                      Uint *mode,
+                      const char *optname,
+                      const char *optionargument);
+
+#ifdef __cplusplus
+}
+#endif

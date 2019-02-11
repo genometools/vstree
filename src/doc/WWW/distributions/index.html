@@ -1,0 +1,1977 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>The Vmatch large scale sequence analysis software</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- xhtml,charset=utf-8,html --> 
+<meta name="src" content="vmweb.tex" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta name="description" content="The Vmatch large scale sequence analysis
+software is a versatile software tool for efficiently solving large scale sequence matching tasks."/>
+<meta name="keywords" content="sequence analysis, sequence mapping, BLAST, bioinformatics, computational biology"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta name="date" content="2016-01-11 23:43:00" /> 
+<link rel="stylesheet" type="text/css" href="vmweb.css" /> 
+</head><body 
+>
+<div class="maketitle">
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+
+<h1 align="center" class="titleHead">The Vmatch large scale sequence analysis
+software</h1>
+ <div align="center" class="author" ><span 
+class="ptmr7t-x-x-144">Stefan Kurtz</span></div>
+<br />
+<div align="center" class="date" ><span 
+class="ptmr7t-x-x-144">January 11, 2016</span></div>
+</div>
+<!--l. 62--> <br/> <center> <img src="matchgraph.gif" alt="show matches of
+  different sizes in a matchgraph"/> </center> <div id="downloadbox"> <ul> <li><a
+                                                    href="download.html">Download your <i>Vmatch</i> copy!</a></li> </ul> </div> 
+<!--l. 64--><p class="noindent" >This is the web-site for <span 
+class="ptmri7t-x-x-120">Vmatch</span>, a versatile software tool for eﬃciently solving large
+scale sequence matching tasks. <span 
+class="ptmri7t-x-x-120">Vmatch </span>subsumes the software tool <a 
+href="http://bibiserv.techfak.uni-bielefeld.de/reputer" >REPuter</a>, but is
+much more general, with a very ﬂexible user interface, and improved space and time
+requirements.  <a href="vmweb.pdf">Here</a> is a printable version of this HTML-page in PDF. 
+</p>
+<h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Features of <span 
+class="ptmri7t-x-x-120">Vmatch</span></h3>
+<!--l. 77--><p class="noindent" >The <a 
+href="virtman.pdf" ><span 
+class="ptmri7t-x-x-120">Vmatch</span>-manual</a> gives many examples on how to use <span 
+class="ptmri7t-x-x-120">Vmatch</span>. Here are the
+program&#x2019;s most important features.
+</p><!--l. 3--><p class="noindent" >
+</p>
+                                                                          
+
+                                                                          
+<h4 class="likesubsectionHead"><a 
+ id="x1-2000"></a>Persistent index</h4>
+<!--l. 4--><p class="noindent" >Usually, in a large scale matching problem, extensive portions of the sequences under
+consideration are static, i.e. they do not change much over time. Therefore it makes
+sense to preprocess this static data to extract information from it and to store this in a
+structured manner, allowing eﬃcient searches. <span 
+class="ptmri7t-x-x-120">Vmatch </span>does exactly this: it
+preprocesses a set of sequences into an index structure. This is stored as a collection of
+several ﬁles constituting the persistent index. The index eﬃciently represents all
+substrings of the preprocessed sequences and, unlike many other sequence
+comparison tools, allows matching tasks to be solved in time, <span 
+class="ptmri7t-x-x-120">independent </span>of
+the size of the index. Diﬀerent matching tasks require diﬀerent parts of the
+index, but only the required parts of the index are accessed during the matching
+process.
+</p><!--l. 21--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-3000"></a>Alphabet independency</h4>
+<!--l. 22--><p class="noindent" >Most software tools for sequence analysis are restricted to DNA and/or protein
+sequences. In contrast, <span 
+class="ptmri7t-x-x-120">Vmatch </span>can process sequences over any user deﬁned alphabet
+not larger than 250 symbols. <span 
+class="ptmri7t-x-x-120">Vmatch </span>fully implements the concept of <span 
+class="ptmri7t-x-x-120">symbol</span>
+<span 
+class="ptmri7t-x-x-120">mappings</span>, denoting alphabet transformations. These allow the user to specify that
+diﬀerent characters in the input sequences should be considered identical in
+the matching process. This feature is used to group similar amino acids, for
+example.
+</p><!--l. 31--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-4000"></a>Versatility</h4>
+<!--l. 32--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>allows a multitude of diﬀerent matching tasks to be solved using the
+persistent index. Every matching task is basically characterized by (1) the <span 
+class="ptmri7t-x-x-120">kind</span>
+<span 
+class="ptmri7t-x-x-120">of sequences </span>to be matched, (2) the <span 
+class="ptmri7t-x-x-120">kind of matches </span>sought, (3) additional
+<span 
+class="ptmri7t-x-x-120">constraints </span>on the matches, and (4) the <span 
+class="ptmri7t-x-x-120">kind of postprocessing </span>to be done with the
+matches.
+                                                                          
+
+                                                                          
+</p><!--l. 39--><p class="noindent" >In the standard case, <span 
+class="ptmri7t-x-x-120">Vmatch </span>matches sequences over the same alphabet. Additionally,
+DNA sequences can be matched against a protein sequence index in all six reading
+frames. Finally, DNA sequences can be transformed in all six reading frames and
+compared against itself.
+</p><!--l. 44--><p class="noindent" >Where appropriate, <span 
+class="ptmri7t-x-x-120">Vmatch </span>can compute the following kinds of matches, using
+state-of-the-art algorithms:
+</p>
+      <ul class="itemize1">
+      <li class="itemize">maximal   and   supermaximal   repeats   using   the   algorithms   of   <a 
+ id="XABO:KUR:OHL:2004"></a>M.I.
+      Abouelhoda,  S. Kurtz,  and  E. Ohlebusch.    Replacing  suﬃx  trees  with
+      enhanced suﬃx arrays. <span 
+class="ptmri7t-x-x-120">Journal of Discrete Algorithms</span>, 2:53–86, 2004
+      </li>
+      <li class="itemize">branching   tandem   repeats   using   the   algorithm   of   <a 
+ id="XABO:KUR:OHL:2002"></a>M.I.   Abouelhoda,
+      S. Kurtz, and E. Ohlebusch. The enhanced suﬃx array and its applications
+      to genome analysis. In <span 
+class="ptmri7t-x-x-120">Proceedings of the Second Workshop on Algorithms</span>
+      <span 
+class="ptmri7t-x-x-120">in  Bioinformatics</span>,  pages  449–463.  Lecture  Notes  in  Computer  Science
+      2452, Springer-Verlag, 2002
+      </li>
+      <li class="itemize">maximal (unique) substring matches using the algorithms of <a 
+ id="XKUR:2002B"></a>S. Kurtz.  A
+      Time and Space Eﬃcient Algorithm for the Substring Matching Problem,
+      2002
+      </li>
+      <li class="itemize">complete  matches  using  the  algorithms  of  <a 
+ id="XMAN:MYE:1993"></a>U. Manber  and  E.W.  Myers.
+      Suﬃx Arrays: A New Method for On-Line String Searches.  <span 
+class="ptmri7t-x-x-120">SIAM Journal</span>
+      <span 
+class="ptmri7t-x-x-120">on Computing</span>, 22(5):935–948, 1993 and [<a 
+href="#XMYE:1999">86</a>]
+      </li></ul>
+<!--l. 69--><p class="noindent" >To compute degenerate substring matches or degenerate repeats, each kind
+of match (with the exception of tandem repeats and complete matches) can
+be taken as an exact seed and extended by either of two diﬀerent strategies:
+</p>
+      <ul class="itemize1">
+      <li class="itemize">the <span 
+class="ptmri7t-x-x-120">maximum error </span>extension strategy, as described in
+                                                                          
+
+                                                                          
+      <!--l. 77--><p class="noindent" ><a 
+ id="XKUR:CHO:OHL:SCHLE:STO:GIE:2001"></a>S. Kurtz, J.V. Choudhuri, E. Ohlebusch, C. Schleiermacher, J. Stoye, and
+      R. Giegerich.   REPuter: The manifold applications of repeat analysis on
+      a genomic scale.   <span 
+class="ptmri7t-x-x-120">Nucleic Acids Res.</span>, 29(22):4633–4642, 2001 for repeat
+      detection,
+      </p></li>
+      <li class="itemize">the  <span 
+class="ptmri7t-x-x-120">greedy  </span>extension  strategy  of  <a 
+ id="XZHA:SCHWA:WAG:MIL:2000"></a>Z. Zhang,  S. Schwartz,  L. Wagner,
+      and  W. Miller.     A  Greedy  Algorithm  for  Aligning  DNA  Sequences.
+      <span 
+class="ptmri7t-x-x-120">J.</span><span 
+class="ptmri7t-x-x-120"> Comp.</span><span 
+class="ptmri7t-x-x-120"> Biol.</span>, 7(1/2):203–214, 2000
+      </li></ul>
+<!--l. 84--><p class="noindent" >Matches can be selected according to their length, their E-value, their identity value, or
+match score.
+</p><!--l. 87--><p class="noindent" >In the standard case, a match is displayed as an alignment including positional
+information. Alternatively, a match can directly be postprocessed in diﬀerent
+ways:
+</p>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">inverse output</span>, i.e. reporting of substrings <span 
+class="ptmri7t-x-x-120">not </span>covered by a match.
+      </li>
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">masking </span>of substrings covered by a match.
+      </li>
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">clustering </span>of sequences according to the matches found.
+      </li>
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">chaining </span>of matches, i.e. ﬁnding optimal subsets of matches which do not
+      cross, using the algorithms described in
+      <!--l. 104--><p class="noindent" ><a 
+ id="XABO:OHL:2003"></a>M.I.  Abouelhoda  and  E. Ohlebusch.      A  Local  Chaining  Algorithm
+      and  its  Applications  in  Comparative  Genomics.    In  <span 
+class="ptmri7t-x-x-120">Proc.  3rd  Worksh.</span>
+      <span 
+class="ptmri7t-x-x-120">Algorithms in Bioinformatics (WABI 2003)</span>, number 2812 in Lecture Notes
+      in Bioinformatics, pages 1–16. Springer-Verlag, 2003
+      </p></li>
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">clustering </span>of matches according to pairwise sequence similarities computed
+                                                                          
+
+                                                                          
+      by the dynamic programming algorithm of <a 
+ id="XUKK:1985A"></a>E. Ukkonen.   Algorithms for
+      Approximate String Matching. <span 
+class="ptmri7t-x-x-120">Information and Control</span>, 64:100–118, 1985
+      </li>
+      <li class="itemize"><span 
+class="ptmri7t-x-x-120">clustering </span>of matches according to the positions where they occur, following
+      the approach of
+      <!--l. 115--><p class="noindent" ><a 
+ id="XVOL:HAA:SAL:2001"></a>N. Volfovsky,
+      B.J. Haas, and S.L. Salzberg.  A Clustering Method for Repeat Analysis in
+      DNA Sequences. <span 
+class="ptmri7t-x-x-120">Genome Biology</span>, 2(8):research0027.1–0027.11, 2001
+</p>
+      </li></ul>
+<!--l. 119--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-5000"></a>Eﬃcient algorithms and data structures</h4>
+<!--l. 120--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>is based on enhanced suﬃx arrays described Abouelhoda, Kurtz &#x0026; Ohlebusch,
+2004. This data structure has been shown to be as powerful as suﬃx trees, with the
+advantage of a reduced space requirement and reduced processing time. Careful
+implementation of the algorithms and data structures incorporated in <span 
+class="ptmri7t-x-x-120">Vmatch</span>
+have led to exceedingly fast and robust software, allowing very large sequence
+sets to be processed quickly. The 32-bit version of <span 
+class="ptmri7t-x-x-120">Vmatch </span>can process up to
+400 million symbols, if enough memory is available. For large server class
+machines (e.g. SUN-Sparc/Solaris, Intel Xeon/Linux, Compaq-Alpha/Tru64)
+<span 
+class="ptmri7t-x-x-120">Vmatch </span>is available as a 64 bit version, enabling gigabytes of sequences to be
+processed.
+</p><!--l. 138--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-6000"></a>Flexible input format</h4>
+<!--l. 139--><p class="noindent" >The most common formats for input sequences (Fasta, Genbank, EMBL, and
+SWISSPROT) are accepted. The user does not have to specify the input format. It is
+                                                                          
+
+                                                                          
+automatically recognized. All input ﬁles can contain an arbitrary number of sequences.
+Gzipped compressed inputs are accepted.
+</p><!--l. 145--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-7000"></a>Customized output and match selection</h4>
+<!--l. 146--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch</span>&#x2019;s output can be parsed by other programs easily. Furthermore, several options
+allow for its customization. XML output is available and new output formats can easily
+be incorporated without changing <span 
+class="ptmri7t-x-x-120">Vmatch</span>&#x2019;s program code. Certain matches can easily
+be selected by user deﬁned criteria, without intermediate output and subsequent
+parsing.
+</p><!--l. 154--><p class="noindent" >
+</p>
+<h3 class="likesectionHead"><a 
+ id="x1-8000"></a>The parts of Vmatch</h3>
+<!--l. 155--><p class="noindent" >Up until now we have referred to <span 
+class="ptmri7t-x-x-120">Vmatch </span>as a collection of programs. In the following
+we use the same name, <span 
+class="cmtt-12">vmatch </span>(in typewriter font), for the most important
+program in this collection. Besides <span 
+class="cmtt-12">vmatch</span>, there are the following programs
+available:
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-8002x1"><span 
+class="cmtt-12">mkvtree </span>constructs the persistent index and stores it on ﬁles.
+      </li>
+      <li 
+  class="enumerate" id="x1-8004x2"><span 
+class="cmtt-12">mkdna6idx </span>constructs an index for a DNA sequence after translating this in
+      all six reading frames.
+      </li>
+      <li 
+  class="enumerate" id="x1-8006x3"><span 
+class="cmtt-12">vseqinfo </span>delivers information about indexed database sequences.
+      </li>
+      <li 
+  class="enumerate" id="x1-8008x4"><span 
+class="cmtt-12">vstree2tex </span>outputs a representation of the index in <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>-format. It can
+      be used, for example, for educational or debugging purposes.
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x1-8010x5"><span 
+class="cmtt-12">vseqselect </span>selects indexed sequences satisfying speciﬁc criteria.
+      </li>
+      <li 
+  class="enumerate" id="x1-8012x6"><span 
+class="cmtt-12">vsubseqselect </span>selects  substrings  of  a  speciﬁed  length  range  from  an
+      index.
+      </li>
+      <li 
+  class="enumerate" id="x1-8014x7"><span 
+class="cmtt-12">vmigrate.sh </span>converts   an   index   from   big   endian   to   little   endian
+      architectures, or vice versa.
+      </li>
+      <li 
+  class="enumerate" id="x1-8016x8"><span 
+class="cmtt-12">vmatchselect </span>sort and selects matches delivered by <span 
+class="cmtt-12">vmatch</span>.
+      </li>
+      <li 
+  class="enumerate" id="x1-8018x9"><span 
+class="cmtt-12">chain2dim  </span>computes    optimal    chains    of    matches    from    ﬁles    in
+      <span 
+class="ptmri7t-x-x-120">Vmatch</span>-format.
+      </li>
+      <li 
+  class="enumerate" id="x1-8020x10"><span 
+class="cmtt-12">matchcluster </span>computes clusters of matches from ﬁles in <span 
+class="ptmri7t-x-x-120">Vmatch</span>-format.</li></ol>
+<!--l. 86--><p class="noindent" > <a href="Dataflowfig.pdf">Here</a> is an overview of the dataflow in <i>Vmatch</i>. 
+</p><!--l. 88--><p class="noindent" >
+</p>
+<h3 class="likesectionHead"><a 
+ id="x1-9000"></a>Related tools</h3>
+<!--l. 89--><p class="noindent" >There are several tools which are based on the persistent index of <span 
+class="ptmri7t-x-x-120">Vmatch</span>:
+</p><!--l. 92--><p class="noindent" >
+      </p><dl class="description"><dt class="description">
+<span 
+class="ptmb7t-x-x-120">Genalyzer</span> </dt><dd 
+class="description">is a graphical user interface to visualize the output of <span 
+class="ptmri7t-x-x-120">Vmatch </span>in form
+      of a match graph. For details see
+      <!--l. 98--><p class="noindent" ><a 
+ id="XCHO:SCHLE:KUR:GIE:2004"></a>J.V.    Choudhuri,    C. Schleiermacher,    S. Kurtz,    and    R. Giegerich.
+      Genalyzer: Interactive visualization of sequence similarities between entire
+      genomes. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 20:1964–1965, 2004
+      </p><!--l. 100--><p class="noindent" >Genalyzer is not available any more.
+                                                                          
+
+                                                                          
+      </p></dd><dt class="description">
+<a 
+href="http://bibiserv.techfak.uni-bielefeld.de/mga/" ><span 
+class="ptmb7t-x-x-120">MGA</span></a> </dt><dd 
+class="description">is a program to compute multiple alignments of complete genomes. For
+      details see
+      <!--l. 105--><p class="noindent" ><a 
+ id="XHOEH:KUR:OHL:2002"></a>M. Höhl,   S. Kurtz,   and   E. Ohlebusch.       Eﬃcient   multiple   genome
+      alignment. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 18(Suppl. 1):S312–S320, 2002
+      </p></dd><dt class="description">
+<span 
+class="ptmb7t-x-x-120">Multimat</span> </dt><dd 
+class="description">is a program to compute multiple exact matches between three or more
+      genome size sequences. For details see
+      <!--l. 109--><p class="noindent" ><a 
+ id="XOHL:KUR:2008"></a>E. Ohlebusch   and   S. Kurtz.       Space   eﬃcient   computation   of   rare
+      maximal  exact  matches  between  multiple  sequences.     <span 
+class="ptmri7t-x-x-120">J.</span><span 
+class="ptmri7t-x-x-120"> Comp.</span><span 
+class="ptmri7t-x-x-120"> Biol.</span>,
+      15(4):357–377, 2008
+      </p><!--l. 111--><p class="noindent" >Please contact <a 
+href="http://www.zbh.uni-hamburg.de/kurtz" >Stefan Kurtz</a> if you are interested in using Multimat.
+      </p></dd><dt class="description">
+<a 
+href="http://bibiserv.techfak.uni-bielefeld.de/possumsearch/" ><span 
+class="ptmb7t-x-x-120">PossumSearch</span></a> </dt><dd 
+class="description">Is a program to search for position speciﬁc scoring matrices. For
+      details, see
+      <!--l. 127--><p class="noindent" ><a 
+ id="XBEC:HOM:GIE:KUR:2006"></a>M. Beckstette, R. Homann, R. Giegerich, and S. Kurtz. Fast index based
+      algorithms and software for matching position speciﬁc scoring matrices. <span 
+class="ptmri7t-x-x-120">BMC</span>
+      <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 7:389, 2006
+      </p></dd><dt class="description">
+ </dt><dd 
+class="description">
+      </dd><dt class="description">
+<a 
+href="http://www.genomethreader.org/" ><span 
+class="ptmb7t-x-x-120">GenomeThreader</span></a> </dt><dd 
+class="description">is a software tool to compute gene structure predictions. The gene
+      structure predictions are calculated using a similarity-based approach where
+      additional cDNA/EST and/or protein sequences are used to predict gene
+      structures via spliced alignments. <span 
+class="ptmri7t-x-x-120">GenomeThreader </span>uses the matching capabilities
+      of <span 
+class="ptmri7t-x-x-120">Vmatch </span>to eﬃciently map the reference sequence to a genomic sequence. For
+      details, see
+      <!--l. 137--><p class="noindent" ><a 
+ id="XGRE:BRE:SPA:KUR:2005"></a>G. Gremme, V. Brendel, M.E. Sparks, and S. Kurtz. Engineering a software tool
+      for gene prediction in higher organisms. <span 
+class="ptmri7t-x-x-120">Information and Software Technology</span>,
+      47(15):965–978, 2005
+      </p></dd><dt class="description">
+ </dt><dd 
+class="description">
+                                                                          
+
+                                                                          
+      </dd><dt class="description">
+<a 
+href="http://www.biopieces.org/" ><span 
+class="ptmb7t-x-x-120">Biopieces</span></a> </dt><dd 
+class="description">is a collection of bioinformatics tools that can be pieced together in a very
+      easy and ﬂexible manner to perform both simple and complex tasks. Some
+      Biopieces depend on <span 
+class="ptmri7t-x-x-120">Vmatch</span>. For details see <a 
+href="http://www.biopieces.org/" class="url" ><span 
+class="cmtt-12">http://www.biopieces.org/</span></a>.</dd></dl>
+<!--l. 148--><p class="noindent" > <a name="CurrentUsage"/> 
+</p>
+<h3 class="likesectionHead"><a 
+ id="x1-10000"></a>Previous and Current Usages</h3>
+<!--l. 151--><p class="noindent" >We provide an annotated bibliography listing papers which applied <span 
+class="ptmri7t-x-x-120">Vmatch </span>and shortly
+describe the tasks for which <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used. We omit our own papers. The references
+were collected by a <a 
+href="https://scholar.google.de/scholar?q=Vmatch+AND+Kurtz+OR+www.vmatch.de" >search in Google scholar</a> (which, as of Jan 2, 2016 retrieved 397
+results.)
+</p><!--l. 158--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-11000"></a>Usages in Plant Genome Research</h4>
+<!--l. 159--><p class="noindent" >
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-11002x1"><a 
+ id="XBRE:KUR:WAL:2002"></a>V. Brendel,   S. Kurtz,   and   V. Walbot.        Comparative   genomics   of
+      Arabidopsis  and  Maize:  Prospects  and  limitations.     <span 
+class="ptmri7t-x-x-120">Genome  Biology</span>,
+      3(3):reviews1005.1–1005.6, 2002
+      <!--l. 162--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used   to a compute a non-redundant set from a
+      large collection of protein sequences from Zea-Maize.
+      </p><!--l. 164--><p class="noindent" >Similar applications are described in
+      </p><!--l. 166--><p class="noindent" ><a 
+ id="XDON:ROY:FRE:WAL:BRE:2003"></a>Q. Dong,  L. Roy,  M. Freeling,  V. Walbot,  and  V. Brendel.   ZmDB,  an
+      integrated  Database  for  Maize  Genome  Research.    <span 
+class="ptmri7t-x-x-120">Nucleic  Acids  Res.</span>,
+      31:244–247, 2003.
+      </p></li>
+                                                                          
+
+                                                                          
+      <li 
+  class="enumerate" id="x1-11004x2">PLEXdb is a database for gene expression resources for plants and plant
+      pathogens, see
+      <!--l. 175--><p class="noindent" ><a 
+ id="XDAS:VAN:HON:WIS:DIC:2012"></a>S. Dash,  J. Van  Hemert,  L. Hong,  R. P.  Wise,  and  J. A.  Dickerson.
+      PLEXdb: gene expression resources for plants and plant pathogens. <span 
+class="ptmri7t-x-x-120">Nucleic</span>
+      <span 
+class="ptmri7t-x-x-120">Acids Res.</span>, 40(Database issue):D1194–1201, Jan 2012
+      </p><!--l. 177--><p class="noindent" >PLEXdb provides a <span 
+class="ptmri7t-x-x-120">Vmatch</span>-based <a 
+href="http://www.plantgdb.org/cgi-bin/prj/PLEXdb/ProbeMatch.pl" >web-service</a> to match PLEXdb probes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11006x3">The  assembly  of  the  Arabidopsis  thaliana  genome  from  2004  (GenBank
+      entries of 2/19/04) contained vector sequence contaminations. For example,
+      region 3 617 880 to 3 625 027 of chromosome II contained a cloning vector.
+      <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used to detect the vector contamination, see <a 
+href="http://www.plantgdb.org/AtGDB/Annotation/vector.php" >here</a>
+      </li>
+      <li 
+  class="enumerate" id="x1-11008x4"><a 
+ id="XDON:LAW:SCHLUE:WIL:KUR:LUS:BRE:2005"></a>Q. Dong,  C.J.  Lawrence,  S.D.  Schlueter,  M.D.  Wilkerson,  S. Kurtz,
+      C. Lushbough, and V. Brendel. Comparative Plant Genomics Resources at
+      PlantGDB. <span 
+class="ptmri7t-x-x-120">Plant Physiology, Plant Database Focus Issue</span>, 2005
+      <!--l. 192--><p class="noindent" >This   work   describes   PlantGDB,   which   provides   a   service   called
+      <a 
+href="http://www.plantgdb.org/PlantGDB-cgi/vmatch/patternsearch.pl" >PatternSearch@PlantGDB</a>  for  genome  wide  pattern  searches  in  plant
+      sequences. The service is based on <span 
+class="ptmri7t-x-x-120">Vmatch</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11010x5"><a 
+ id="XLIN:KRO:2005"></a>M. Lindow  and  A. Krogh.     Computational  evidence  for  hundreds  of
+      non-conserved plant micrornas. <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 6(1):119, 2005
+      <!--l. 211--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for three diﬀerent tasks: </p>
+           <ul class="itemize1">
+           <li class="itemize">Searching   spliced   mRNA   in   the   Arabidopsis   genome   to   detect
+           micromatches of length at least 20 with maximum 2 mismatches.
+           </li>
+           <li class="itemize">Finding matches of length at least 15 long with at most one mismatch
+           between predicted mature miRNA-sequences and a set of ESTs as well
+           as sequences from the Arabidopsis Small RNA Project (ASRP).
+           </li>
+           <li class="itemize">Aligning  and  performing  single  linkage  clustering  of  the  predicted
+           mature miRNA sequences. Candidate pairs aligning over at least 17
+           bases, allowing an edit distance of 1 were grouped in the same family.</li></ul>
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x1-11012x6"><a 
+ id="XPOM:LEM:TUR:2006"></a>J.-F. Pombert, C. Lemieux, and M. Turmel. The complete chloroplast DNA
+      sequence of the green alga Oltmannsiellopsis viridis reveals a distinctive
+      quadripartite architecture in the chloroplast genome of early diverging ulvophytes.
+      <span 
+class="ptmri7t-x-x-120">BMC Biology</span>, 4:3, 2006
+      <!--l. 216--><p class="noindent" ><a 
+ id="XTUR:OTI:LEM:2006"></a>M. Turmel, C. Otis, and C. Lemieux. The Chloroplast Genome Sequence of
+      Chara vulgaris Sheds New Light into the Closest Green Algal Relatives of Land
+      Plants. <span 
+class="ptmri7t-x-x-120">Molecular Biology and Evolution</span>, 23:1324–1338, 2006
+      </p><!--l. 218--><p class="noindent" >In these papers <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used to search and compare repeated elements in
+      diﬀerent chloroplast DNA.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11014x7"><a 
+ id="XSPA:NOU:HAA:YAN:GUN:HIN:KLE:HAB:SCHOO:MAY:2007"></a>M. Spannagl, O. Noubibou, D. Haase, L. Yang, H. Gundlach, T. Hindemitt,
+      K. Klee, G. Haberer, H. Schoof, and K.F.X. Mayer. MIPSPlantsDB–plant
+      database resource for integrative and comparative plant genome research. <span 
+class="ptmri7t-x-x-120">Nucleic</span>
+      <span 
+class="ptmri7t-x-x-120">Acids Res</span>, 35(Database issue):D834–40, 2007 In this work about the
+      <span 
+class="ptmri7t-x-x-120">MIPSPlantsDB </span>database <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used to cluster large sequence
+      sets.
+      </li>
+      <li 
+  class="enumerate" id="x1-11016x8"><a 
+ id="XSCHIJ:VOS:MAR:JON:ROS:MOL:TIK:ANG:TUN:BOV:2007"></a>E.G.W.M. Schijlen, C.H. Ric de Vos, S. Martens, H.H. Jonker, F.M. Rosin, J.W.
+      Molthoﬀ, Y.M. Tikunov, G.C. Angenent, A.J. van Tunen, and A.G. Bovy. RNA
+      interference silencing of chalcone synthase, the ﬁrst step in the ﬂavonoid
+      biosynthesis pathway, leads to parthenocarpic tomato fruits. <span 
+class="ptmri7t-x-x-120">Plant Physiol</span>,
+      144(3):1520–30, 2007
+      <!--l. 227--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to compare target genes of the tomato Chs RNAi
+      to a tomato gene index.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11018x9"><a 
+ id="XLIN:JAC:NYG:MAN:KRO:2007"></a>M. Lindow, A. Jacobsen, S. Nygaard, Y. Mang, and A. Krogh. Intragenomic
+      matching reveals a huge potential for mirna-mediated regulation in plants. <span 
+class="ptmri7t-x-x-120">PLOS</span>
+      <span 
+class="ptmri7t-x-x-120">Comput. Biol</span>, 3(11):e238, 2007
+      <!--l. 232--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to search diﬀerent plant genomes for matches of
+      length at least 20 with maximum of 2 mismatches. Here the fact that <span 
+class="ptmri7t-x-x-120">Vmatch </span>is an
+      exhaustive search tool is important.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11020x10"><a 
+ id="XDEC:OTI:THU:LEM:2007"></a>J.-C. de Cambiaire, C. Otis, M. Turmel, and C. Lemieux. The chloroplast
+                                                                          
+
+                                                                          
+      genome sequence of the green alga leptosira terrestris: multiple losses of
+      the inverted repeat and extensive genome rearrangements within the
+      trebouxiophyceae. <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 8(1):213, 2007
+      <!--l. 237--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to determine the presence of shared repeated
+      elements of minimum length 30, with up to 10% mismatches using in diﬀerent
+      sequence sets from the green alga <span 
+class="ptmri7t-x-x-120">Leptosira terrestris</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11022x11"><a 
+ id="XOSS:SCHNE:CLA:LAN:WAR:WEI:2008"></a>S. Ossowski, K. Schneeberger, R.M. Clark, C. Lanz, N. Warthmann, and
+      D. Weigel. Sequencing of natural strains of Arabidopsis thaliana with short
+      reads. <span 
+class="ptmri7t-x-x-120">Genome Res.</span>, 18:2024–2033, 2008
+      <!--l. 244--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map millions of short sequence reads to the
+      <span 
+class="ptmri7t-x-x-120">A.</span><span 
+class="ptmri7t-x-x-120"> Thaliana </span>genome. Up to four mismatches and up to three indels were allowed
+      in the matching process. The seed size was chosen to be 0. The reads were aligned
+      using the best match strategy by iteratively increasing the the allowed number of
+      mismatches and gaps at each round.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11024x12"><a 
+ id="XDIBO:OSS:SCHNE:RAT:2008"></a>F. De Bona, S. Ossowski, K. Schneeberger, and G. Ratsch. Optimal spliced
+      alignments of short sequence reads.  <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 24(16):i174–180,
+      2008
+      <!--l. 251--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map millions of short sequence reads to the
+      <span 
+class="ptmri7t-x-x-120">A.</span><span 
+class="ptmri7t-x-x-120"> Thaliana </span>genome. <span 
+class="ptmri7t-x-x-120">Vmatch </span>was part of a multi-step pipeline, combining a fast
+      matching algorithm (<span 
+class="ptmri7t-x-x-120">Vmatch</span>) for initial read mapping and an optimal alignment
+      algorithm based on dynamic programming (QPALMA) for high quality detection
+      of splice sites.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11026x13"><a 
+ id="XASS:HER:LIN:HUE:TAL:SMA:IMM:ELD:FIE:SCHAT:2010"></a>A. G. L. Assunção, E. Herrero, Y-F. Lin, B. Huettel, S. Talukdar,
+      C. Smaczniak, R. GH Immink, M. Van Eldik, M. Fiers, H. Schat, et al.
+      Arabidopsis thaliana transcription factors bzip19 and bzip23 regulate the
+      adaptation to zinc deﬁciency. <span 
+class="ptmri7t-x-x-120">Proceedings of the National Academy of Sciences</span>,
+      107(22):10296–10301, 2010
+      <!--l. 254--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for motif searching in diﬀerent plant
+      genomes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11028x14"><a 
+ id="XEVE:SAT:GOL:MEY:BET:SAK:WAR:JAC:2010"></a>Andrea L Eveland, Namiko Satoh-Nagasawa, Alexander Goldshmidt, Sandra
+                                                                          
+
+                                                                          
+      Meyer, Mary Beatty, Hajime Sakai, Doreen Ware, and David Jackson. Digital
+      gene expression signatures for maize development.  <span 
+class="ptmri7t-x-x-120">Plant physiology</span>,
+      154(3):1024–1039, 2010
+      <!--l. 257--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map unique consensus sequence tags to the
+      maize reference genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11030x15"><a 
+ id="XBRO:OTI:LEM:TUR:2010"></a>Jean-Simon Brouard, Christian Otis, Claude Lemieux, and Monique Turmel. The
+      exceptionally large chloroplast genome of the green alga ﬂoydiella terrestris
+      illuminates the evolutionary history of the chlorophyceae. <span 
+class="ptmri7t-x-x-120">Genome biology and</span>
+      <span 
+class="ptmri7t-x-x-120">evolution</span>, 2:240, 2010
+      <!--l. 261--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify and cluster repeated sequences in
+      <span 
+class="ptmri7t-x-x-120">Floydiella </span>chloroplast genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11032x16"><a 
+ id="XREH:AQU:GRU:HEN:HIL:LAU:NAO:PAT:ROM:SHU:2010"></a>Hubert Rehrauer, Catharine Aquino, Wilhelm Gruissem, Stefan R Henz, Pierre
+      Hilson, Sascha Laubinger, Naira Naouar, Andrea Patrignani, Stephane Rombauts,
+      Huan Shu, et al. Agronomics1: a new resource for arabidopsis transcriptome
+      proﬁling. <span 
+class="ptmri7t-x-x-120">Plant Physiology</span>, 152(2):487–499, 2010
+      <!--l. 266--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to calculate direct and reverse complementary
+      matches of length 17 bp or greater with edit distance 1 or less between
+      ﬁve nuclear chromosomes and mitochondrial and chloroplast genome
+      sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11034x17"><a 
+ id="XSEK:LIN:CHI:HAN:BUE:LEO:KAE:2011"></a>R. S. Sekhon, H. Lin, K. L. Childs, C. N. Hansey, C. R. Buell, N. de Leon,
+      and S. M. Kaeppler.  Genome-wide atlas of transcription during maize
+      development. <span 
+class="ptmri7t-x-x-120">Plant J.</span>, 66(4):553–563, May 2011
+      <!--l. 270--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to search probe sequences against the maize
+      genome the cDNA sequences of the oﬃcial maize gene models.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11036x18"><a 
+ id="XDAS:OH:HAA:HER:HON:ALI:YUN:BRE:ZHU:BOH:2011"></a>M. Dassanayake, D. H. Oh, J. S. Haas, A. Hernandez, H. Hong, S. Ali, D. J.
+      Yun, R. A. Bressan, J. K. Zhu, H. J. Bohnert, and J. M. Cheeseman. The
+      genome of the extremophile crucifer Thellungiella parvula.  <span 
+class="ptmri7t-x-x-120">Nat. Genet.</span>,
+      43(9):913–918, Sep 2011
+      <!--l. 275--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for clustering sequences assembled from 454-reads
+                                                                          
+
+                                                                          
+      of <span 
+class="ptmri7t-x-x-120">Thellungiella parvula</span>, a model for the evolution of plant adaptation to extreme
+      environments.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11038x19"><a 
+ id="XWIL:HOF:KLE:WEI:2011"></a>E. M. Willing, M. Hoﬀmann, J. D. Klein, D. Weigel, and C. Dreyer.
+      Paired-end RAD-seq for de novo assembly and marker design without available
+      reference. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 27(16):2187–2193, Aug 2011
+      <!--l. 279--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for grouping short reads into pools representing
+      the same RAD tag.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11040x20"><a 
+ id="XGAO:ZHO:WAN:SU:WAN:2011"></a>L. Gao, Y. Zhou, Z.-W. Wang, Y.-J. Su, and T. Wang.  Evolution of the
+      <span 
+class="ptmri7t-x-x-120">rpoB-psbZ </span>region in fern plastid genomes: notable structural rearrangements
+      and highly variable intergenic spacers.  <span 
+class="ptmri7t-x-x-120">BMC Plant Biology</span>, 11(1):64,
+      2011
+      <!--l. 283--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for detecting and clustering repetitive sequences in
+      diverse fern plastid genomes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11042x21"><a 
+ id="XSLO:ALV:CHU:WU:MCC:PAL:TAY:2012"></a>D. B. Sloan, A. J. Alverson, J. P. Chuckalovcak, M. Wu, D. E. McCauley,
+      J. D. Palmer, and D. R. Taylor. Rapid evolution of enormous, multichromosomal
+      genomes in ﬂowering plant mitochondria with exceptionally high mutation rates.
+      <span 
+class="ptmri7t-x-x-120">PLoS Biol.</span>, 10(1):e1001241, Jan 2012
+      <!--l. 287--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to precisely deﬁne the boundaries of all repeats
+      with 100% sequence identity.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11044x22"><a 
+ id="XDUB:FAR:SCHLU:CAN:ABE:TUT:WOO:SHA:MUL:KUD:2011"></a>Anuja Dubey, Andrew Farmer, Jessica Schlueter, Steven B Cannon, Brian
+      Abernathy, Reetu Tuteja, Jimmy Woodward, Trushar Shah, Benjamin
+      Mulasmanovic, Himabindu Kudapa, et al.  Deﬁning the transcriptome
+      assembly and its use for genome dynamics and transcriptome proﬁling
+      studies in pigeonpea (<span 
+class="ptmri7t-x-x-120">Cajanus cajan </span>l.).  <span 
+class="ptmri7t-x-x-120">DNA research</span>, 18(3):153–164,
+      2011
+      <!--l. 290--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  cluster sequences based on their six-frame
+      translation.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11046x23"><a 
+ id="XSAX:PEN:UPA:KUM:CAR:SCHLU:FAR:WHA:SAR:MAY:2012"></a>Rachit K Saxena, R Varma Penmetsa, Hari D Upadhyaya, Ashish Kumar,
+                                                                          
+
+                                                                          
+      Noelia Carrasquilla-Garcia, Jessica A Schlueter, Andrew Farmer, Adam M
+      Whaley, Birinchi K Sarma, Gregory D May, et al. Large-scale development of
+      cost-eﬀective single-nucleotide polymorphism marker assays for genetic
+      mapping in pigeonpea and comparative mapping in legumes. <span 
+class="ptmri7t-x-x-120">DNA research</span>,
+      19(6):449–461, 2012
+      <!--l. 294--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify reciprocal best matches between the
+      pigeonpea sequences and other legume sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11048x24"><a 
+ id="XHAZ:REE:RIS:PEC:2012"></a>B. Z. Haznedaroglu, D. Reeves, H. Rismani-Yazdi, and J. Peccia. Optimization
+      of de novo transcriptome assembly from high-throughput short read sequencing
+      data improves functional annotation for non-model organisms.  <span 
+class="ptmri7t-x-x-120">BMC</span>
+      <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 13:170, 2012
+      <!--l. 299--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for assembly clustering and optimization
+      of contigs for <span 
+class="ptmri7t-x-x-120">Neochloris oleoabundans </span>(a Chlorophyceae class green
+      microalgae).
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11050x25"><a 
+ id="XMAR:KLE:BAN:BLA:MAC:SCHMU:SCHOL:GUN:WIC:SIM:2012"></a>M. M. Martis, S. Klemme, A. M. Banaei-Moghaddam, F. R. Blattner,
+      J. Macas, T. Schmutzer, U. Scholz, H. Gundlach, T. Wicker, H. Šimková,
+      P. Novak, P. Neumann, M. Kubalakova, E. Bauer, G. Haseneyer, J. Fuchs,
+      J. Dolezel, N. Stein, K. F. Mayer, and A. Houben. Selﬁsh supernumerary
+      chromosome reveals its origin as a mosaic of host genome and organellar
+      sequences.  <span 
+class="ptmri7t-x-x-120">Proc. Natl. Acad. Sci. U.S.A.</span>, 109(33):13343–13346, Aug
+      2012
+      <!--l. 303--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to match reads against a repeat library to identity
+      the content of the repetitive DNA per sequence read.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11052x26"><a 
+ id="XCHI:DAV:BUE:2011"></a>K. L. Childs, R. M. Davidson, and C. R. Buell. Gene coexpression network
+      analysis as a source of functional annotation for rice genes.  <span 
+class="ptmri7t-x-x-120">PloS one</span>,
+      6(7):e22196, 2011
+      <!--l. 306--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to align individual probes to representative gene
+      models.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11054x27"><a 
+ id="XSEV:DIJ:HAM:2011"></a>E. I. Severing, A. D. J. van Dijk, and R. C. H. J. van Ham. Assessing the
+      contribution of alternative splicing to proteome diversity in arabidopsis thaliana
+                                                                          
+
+                                                                          
+      using proteomics data. <span 
+class="ptmri7t-x-x-120">BMC Plant Biology</span>, 11(1):82, 2011
+      <!--l. 310--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for performing exact searches with peptides
+      against the ﬁltered proteome of <span 
+class="ptmri7t-x-x-120">A. thaliana</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11056x28"><a 
+ id="XWOL:WEI:SEG:ROS:BEI:DON:SPI:NOR:REH:KOE:2011"></a>P. Wolﬀ, I. Weinhofer, J. Seguin, P. Roszak, C. Beisel, M.T. Donoghue,
+      C. Spillane, M. Nordborg, M. Rehmsmeier, and C. Köhler. High-resolution
+      analysis of parent-of-origin allelic expression in the arabidopsis endosperm. <span 
+class="ptmri7t-x-x-120">PLoS</span>
+      <span 
+class="ptmri7t-x-x-120">Genet</span>, 7(6):e1002126–e1002126, 2011
+      <!--l. 316--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map RNAseq reads, allowing up to two
+      mismatches (option <span 
+class="cmtt-12">-h 2</span>) and generating maximal substring matches that are
+      unique in some reference dataset (option <span 
+class="cmtt-12">-mum cand</span>).
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11058x29"><a 
+ id="XFLE:KHA:JOH:YOU:MIT:WRE:HES:FOS:SCHAR:SCO:2011"></a>D. J. Fleetwood, A. K. Khan, R. D. Johnson, C. A. Young, S. Mittal, R. E.
+      Wrenn, U. Hesse, S. J. Foster, C. L. Schardl, and B. Scott.  Abundant
+      degenerate miniature inverted-repeat transposable elements in genomes of
+      epichloid fungal endophytes of grasses. <span 
+class="ptmri7t-x-x-120">Genome Biol Evol</span>, 3:1253–1264,
+      2011
+      <!--l. 321--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify terminal inverted repeats of length
+      range 10-65 bp, <span 
+class="zptmcm7y-x-x-120">≥ </span><span 
+class="zptmcm7t-x-x-120">80% </span>identity, maximum inter-TIR distance 650 bp in in
+      genomes of epichloid fungal endophytes of grasses.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11060x30"><a 
+ id="XCHI:KON:BUE:2012"></a>K. L. Childs, K. Konganti, and C. R. Buell. The Biofuel Feedstock Genomics
+      Resource: a web-based portal and database to enable functional genomics
+      of plant biofuel feedstock species.  <span 
+class="ptmri7t-x-x-120">Database (Oxford)</span>, 2012:bar061,
+      2012
+      <!--l. 324--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to match putative unique transcript sequence
+      assemblies.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11062x31"><a 
+ id="XCHE:CAS:BAI:RED:MIC:2012"></a>Y. Chen, B. J. Cassone, X. Bai, M. G. Redinbaugh, and A. P. Michel.
+      Transcriptome of the plant virus vector Graminella nigrifrons, and the molecular
+      interactions of maize ﬁne streak rhabdovirus transmission.  <span 
+class="ptmri7t-x-x-120">PLoS ONE</span>,
+      7(7):e40613, 2012
+      <!--l. 328--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for reﬁning assemblies of Illumina reads in
+                                                                          
+
+                                                                          
+      the context of a transcriptome project for plant virus vector <span 
+class="ptmri7t-x-x-120">Graminella</span>
+      <span 
+class="ptmri7t-x-x-120">nigrifrons</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11064x32"><a 
+ id="XKRI:PAT:JAI:GAU:CHOU:VAI:DEE:HAR:KRI:NAI:2012"></a>N. M. Krishnan, S. Pattnaik, P. Jain, P. Gaur, R. Choudhary, S. Vaidyanathan,
+      S. Deepak, A. K. Hariharan, P. B. Krishna, J. Nair, L. Varghese, N. K.
+      Valivarthi, K. Dhas, K. Ramaswamy, and B. Panda. A draft of the genome and
+      four transcriptomes of a medicinal and pesticidal angiosperm Azadirachta indica.
+      <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 13:464, 2012
+      <!--l. 333--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for clustering repeats and for building a consensus
+      repeat library in the context of genome and transcriptome projects for <span 
+class="ptmri7t-x-x-120">Azadirachta</span>
+      <span 
+class="ptmri7t-x-x-120">indica</span>, a medicinal and pesticidal angiosperm.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11066x33"><a 
+ id="XLIU:KUM:ZHA:ZHE:WAR:2012"></a>Z. Liu, S. Kumari, L. Zhang, Y. Zheng, and D. Ware. Characterization of
+      mirnas in response to short-term waterlogging in three inbred lines of zea mays.
+      <span 
+class="ptmri7t-x-x-120">PLoS One</span>, 7(6):e39786, 2012
+      <!--l. 337--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map unique consensus sequences tags to the
+      maize reference genome and to predict targets of novel miRNAs.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11068x34"><a 
+ id="XBOU:KOU:PAV:MIN:TSA:DAR:2012"></a>A. Bousios, Y. A. I. Kourmpetis, P. Pavlidis, E. Minga, A. Tsaftaris, and
+      N. Darzentas. The turbulent life of sirevirus retrotransposons and the evolution of
+      the maize genome: more than ten thousand elements tell the story. <span 
+class="ptmri7t-x-x-120">The Plant</span>
+      <span 
+class="ptmri7t-x-x-120">Journal</span>, 69(3):475–488, 2012
+      <!--l. 340--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for masking Long Terminal Repeats in the Maize
+      Genome Sequence.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11070x35">In the papers
+      <!--l. 344--><p class="noindent" ><a 
+ id="XHER:MAR:DOR:PFE:GAL:SCHAA:JOU:SIM:VAL:DOL:2012"></a>P. Hernandez, M. Martis, G. Dorado, M. Pfeifer, S. Galvez, S. Schaaf, N. Jouve,
+      H. Šimková, M. Valarik, J. Dolezel, and K. F. Mayer.  Next-generation
+      sequencing and syntenic integration of ﬂow-sorted arms of wheat chromosome
+      4A exposes the chromosome structure and gene content. <span 
+class="ptmri7t-x-x-120">Plant J.</span>, 69(3):377–386,
+      Feb 2012
+      </p><!--l. 346--><p class="noindent" ><a 
+ id="XPHI:PAU:BER:SOU:CHO:LAU:SIM:SAF:BEL:VAU:2013"></a>R. Philippe, E. Paux, I. Bertin, P. Sourdille, F. Choulet, C. Laugier,
+      H. Šimková, J. Šafář, A. Bellec, S. Vautrin, et al. A high density physical map
+                                                                          
+
+                                                                          
+      of chromosome 1bl supports evolutionary studies, map-based cloning and
+      sequencing in wheat. <span 
+class="ptmri7t-x-x-120">Genome Biol</span>, 14(6):R64, 2013
+      </p><!--l. 348--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>was used to mask repetitive DNA.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11072x36"><a 
+ id="XHOW:YU:KNA:CRO:KOL:DOL:LOR:DEA:2013"></a>G. T. Howe, J. Yu, B. Knaus, R. Cronn, S. Kolpak, P. Dolan, W. W. Lorenz,
+      and J. F. Dean.  A SNP resource for Douglas-ﬁr: de novo transcriptome
+      assembly and SNP detection and validation.  <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 14:137,
+      2013
+      <!--l. 351--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to cluster 40 010 assembled isotigs.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11074x37"><a 
+ id="XKAR:HAA:MAL:GEE:BOV:LAM:ANG:MAA:2013"></a>R. Karlova, J. C. van Haarst, C. Maliepaard, H. van de Geest, A. G. Bovy,
+      M. Lammers, G. C. Angenent, and R. A. de Maagd.  Identiﬁcation of
+      microRNA targets in tomato fruit development using high-throughput
+      sequencing and degradome analysis.  <span 
+class="ptmri7t-x-x-120">J. Exp. Bot.</span>, 64(7):1863–1878, Apr
+      2013
+      <!--l. 355--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to preprocess short reads in the context of
+      identifying mircoRNA targets in tomato fruit development.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11076x38"><a 
+ id="XGRO:MAR:SIM:ABR:WAN:VIS:2013"></a>S. M. Gross, J. A. Martin, J. Simpson, M. J. Abraham-Juarez, Z. Wang, and
+      A. Visel.  De novo transcriptome assembly of drought tolerant CAM
+      plants, Agave deserti and Agave tequilana.  <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 14:563,
+      2013
+      <!--l. 360--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  in an all-vs-all comparison to bin contigs into loci
+      based on a minimum of 200 bp sequence overlap in the context of transcriptome
+      assembly for two Agave-species.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11078x39"><a 
+ id="XKAN:HEL:DUR:WIN:ENG:BEH:HOL:BRA:HAU:FER:2013"></a>U. Kanter, W. Heller, J. Durner, J. B. Winkler, M. Engel, H. Behrendt,
+      A. Holzinger, P. Braun, M. Hauser, F. Ferreira, K. Mayer, M. Pfeifer, and
+      D. Ernst. Molecular and immunological characterization of ragweed (Ambrosia
+      artemisiifolia L.) pollen after exposure of the plants to elevated ozone over a
+      whole growing season. <span 
+class="ptmri7t-x-x-120">PLoS ONE</span>, 8(4):e61518, 2013
+      <!--l. 363--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to align 454-reads to assembled isotigs for
+      Ragweed pollen.
+                                                                          
+
+                                                                          
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11080x40"><a 
+ id="XKUG:SIE:NUS:AME:SPAN:STEI:LEM:MAY:BUE:SCHWE:2013"></a>K. G. Kugler, G. Siegwart, T. Nussbaumer, C. Ametz, M. Spannagl,
+      B. Steiner, M. Lemmens, K. F. X. Mayer, H. Buerstmayr, and W. Schweiger.
+      Quantitative trait loci-dependent analysis of a gene co-expression network
+      associated with fusarium head blight resistance in bread wheat (triticum aestivum
+      l.). <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 14(1):728, 2013
+      <!--l. 366--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for comparing gene sets.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11082x41"><a 
+ id="XMAR:ZHO:HAS:SCHMU:VRA:KUB:KOEN:KUG:SCHOL:HAC:2013"></a>Mihaela M Martis, Ruonan Zhou, Grit Haseneyer, Thomas Schmutzer, Jan
+      Vrána, Marie Kubaláková, Susanne König, Karl G Kugler, Uwe Scholz, Bernd
+      Hackauf, et al.  Reticulate evolution of the rye genome.  <span 
+class="ptmri7t-x-x-120">The Plant Cell</span>,
+      25(10):3685–3698, 2013
+      <!--l. 370--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to detect repetitive DNA content of chromosomal
+      survey sequences from the Rye genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11084x42">In the papers
+      <!--l. 375--><p class="noindent" ><a 
+ id="XKOP:MAR:VHA:HRV:VRA:BAR:KOP:CAT:STO:NOV:2013"></a>D. Kopeckỳ, M. Martis, J. Číhalíková, E. Hřibová, J. Vrána, J. Bartoš,
+      J. Kopecká, F. Cattonaro, Š. Stočes, Petr Novák, et al. Flow sorting and
+      sequencing meadow fescue chromosome 4f. <span 
+class="ptmri7t-x-x-120">Plant Physiology</span>, 163(3):1323–1337,
+      2013
+      </p><!--l. 377--><p class="noindent" ><a 
+ id="XKOP:MAR:CHA:HRI:VRA:BAR:2013"></a>D. Kopeckỳ, M Martis, J Číhalíková, E Hřibová, J Vrána, J Bartoš, et al.
+      Genomics of meadow fescue chromosome 4f. <span 
+class="ptmri7t-x-x-120">Plant Physiol</span>, 163:1323–1337,
+      2013
+      </p><!--l. 379--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>was used for identifying repetitive DNA content in contigs of meadow
+      fescue chromosome 4F assembled from Illumina short reads.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11086x43">In the papers
+      <!--l. 386--><p class="noindent" ><a 
+ id="XJAY:WAN:YU:TAC:PEL:COL:REN:VOI:2011"></a>F. Jay, Y. Wang, A. Yu, L. Taconnat, S. Pelletier, V. Colot, J.-P. Renou, and
+      O. Voinnet. Misregulation of <span 
+class="ptmri7t-x-x-120">AUXIN RESPONSE FACTOR 8 </span>underlies the
+      developmental abnormalities caused by three distinct viral silencing
+      suppressors in <span 
+class="ptmri7t-x-x-120">Arabidopsis</span>.  <span 
+class="ptmri7t-x-x-120">PLoS Pathog</span>, 7(5):e1002035–e1002035,
+      2011
+      </p><!--l. 388--><p class="noindent" ><a 
+ id="XWAN:WEI:SMI:2013"></a>X. Wang, D. Weigel, and L. M. Smith.  Transposon variants and their
+                                                                          
+
+                                                                          
+      eﬀects on gene expression in arabidopsis.  <span 
+class="ptmri7t-x-x-120">PLoS Genet</span>, 9(2):e1003255,
+      2013
+      </p><!--l. 390--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>was used for mapping siRNA sequences to the <span 
+class="ptmri7t-x-x-120">Arabidopsis thaliana</span>
+      genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11088x44"><a 
+ id="XHEN:VIV:DES:CHAU:PAY:GUT:CAS:2014"></a>E. Henaﬀ, C. Vives, B. Desvoyes, A. Chaurasia, J. Payet, C. Gutierrez, and
+      J. M. Casacuberta. Extensive ampliﬁcation of the E2F transcription factor
+      binding sites by transposons during evolution of Brassica species. <span 
+class="ptmri7t-x-x-120">Plant J.</span>,
+      77(6):852–862, Mar 2014
+      <!--l. 394--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for the identiﬁcation of binding motifs.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11090x45"><a 
+ id="XWAN:HAB:GUN:GLAE:NUS:LUO:LOM:BOR:KER:SHA:2014"></a>W Wang, G Haberer, H Gundlach, C Gläßer, TCLM Nussbaumer,
+      MC Luo, A Lomsadze, M Borodovsky, RA Kerstetter, J Shanklin,
+      et al.  The <span 
+class="ptmri7t-x-x-120">Spirodela polyrhiza </span>genome reveals insights into its neotenous
+      reduction fast growth and aquatic lifestyle.  <span 
+class="ptmri7t-x-x-120">Nature Communications</span>, 5,
+      2014
+      <!--l. 399--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for masking one sequence set with another and for
+      mapping miRNA sequences of all plant species present in a reference database to
+      whole-genome assembly of <span 
+class="ptmri7t-x-x-120">Spirodela polyrhiza</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11092x46"><a 
+ id="XLOG:SCHEL:NUR:SAM:PEN:2014"></a>M. D. Logacheva, M. I. Schelkunov, M. S. Nuraliev, T. H. Samigullin, and
+      A. A. Penin. The plastid genome of mycoheterotrophic monocot petrosavia
+      stellaris exhibits both gene losses and multiple rearrangements. <span 
+class="ptmri7t-x-x-120">Genome biology</span>
+      <span 
+class="ptmri7t-x-x-120">and evolution</span>, 6(1):238–246, 2014
+      <!--l. 402--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for repeat detection.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11094x47"><a 
+ id="XWAN:SHI:RIN:2015"></a>X. Wang, W. Shi, and T. Rinehart. Transcriptomes That Confer to Plant Defense
+      against Powdery Mildew Disease in Lagerstroemia indica. <span 
+class="ptmri7t-x-x-120">Int J Genomics</span>,
+      2015:528395, 2015
+      <!--l. 406--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to eliminate redundancies in assemblies of
+      Illumina reads in the context of studying plant defense mechanisms.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11096x48"><a 
+ id="XASH:HUL:WAN:YAN:GUA:JON:MAT:MOC:CHE:STE:2015"></a>H. Ashraﬁ, A. M. Hulse-Kemp, F. Wang, S. S. Yang, X. Guan, D. C. Jones,
+                                                                          
+
+                                                                          
+      M. Matvienko, K. Mockaitis, Z. J. Chen, D. M. Stelly, et al. A long-read
+      transcriptome assembly of cotton (l.) and intraspeciﬁc single nucleotide
+      polymorphism discovery. <span 
+class="ptmri7t-x-x-120">The Plant Genome</span>, 2015
+      <!--l. 409--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for clustering to determine a non-redundant set of
+      assembled contigs.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11098x49"><a 
+ id="XUST:NOV:BLI:SMY:2015"></a>K. Ustyantsev, O. Novikova, A. Blinov, and G. Smyshlyaev. Convergent
+      evolution of ribonuclease h in ltr retrotransposons and retroviruses. <span 
+class="ptmri7t-x-x-120">Molecular</span>
+      <span 
+class="ptmri7t-x-x-120">biology and evolution</span>, 32(5):1197–1207, 2015
+      <!--l. 412--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for clustering sequences based on their RT and
+      aRNH domain.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11100x50"><a 
+ id="XHLE:RIV:CLA:MAR:VAN:GON:GAR:LER:SIM:VAL:2015"></a>M. Helguera, M. Rivarola, B. Clavijo, M. M. Martis, L. S. Vanzetti,
+      S. González, I. Garbus, P. Leroy, H. Šimková, M. Valárik, et al. New insights
+      into the wheat chromosome 4d structure and virtual gene order, revealed by
+      survey pyrosequencing. <span 
+class="ptmri7t-x-x-120">Plant Science</span>, 233:200–212, 2015
+      <!--l. 415--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for identifying repeats in contigs assembled from
+      454-reads.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11102x51"><a 
+ id="XSHE:YAN:LU:WAN:SON:2015"></a>Qi Shen, Jun Yang, Chaolong Lu, Bo Wang, and Chi Song. The complete
+      chloroplast genome sequence of perilla frutescens (l.). <span 
+class="ptmri7t-x-x-120">Mitochondrial DNA</span>,
+      preprint:1–2, 2015
+      <!--l. 418--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for identifying inverted repeats in chloroplast
+      genomes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11104x52"><a 
+ id="XPAN:MOH:KHA:MEH:EBR:2015"></a>Bahman Panahi, Seyed Abolghasem Mohammadi, Reyhaneh Ebrahimi
+      Khakseﬁdi, Jalil Fallah Mehrabadi, and Esmaeil Ebrahimie. Genome-wide
+      analysis of alternative splicing events in <span 
+class="ptmri7t-x-x-120">Hordeum vulgare</span>: Highlighting retention
+      of intron-based splicing and its possible function through network analysis. <span 
+class="ptmri7t-x-x-120">FEBS</span>
+      <span 
+class="ptmri7t-x-x-120">letters</span>, 589(23):3564–3575, 2015
+      <!--l. 422--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify contaminations and repetitive
+      elements by comparison of mRNA sequences to vector, bacterial and repeat
+      databases.
+                                                                          
+
+                                                                          
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11106x53"><a 
+ id="XWOL:TWO:GAD:KNA:GRU:GEN:2015"></a>SN Wolfenbarger, MC Twomey, DM Gadoury, BJ Knaus, NJ Grünwald, and
+      DH Gent.  Identiﬁcation and distribution of mating-type idiomorphs in
+      populations of podosphaera macularis and development of chasmothecia of the
+      fungus. <span 
+class="ptmri7t-x-x-120">Plant Pathology</span>, 2015
+      <!--l. 425--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to cluster contigs of diﬀerent assemblies into
+      groups of homologous sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-11108x54"><a 
+ id="XYAN:LU:SHE:YAN:XU:SON:2015"></a>Jun Yang, Chaolong Lu, Qi Shen, Yuying Yan, Changjiang Xu, and Chi Song.
+      The complete chloroplast genome sequence of Fagopyrum cymosum.
+      <span 
+class="ptmri7t-x-x-120">Mitochondrial DNA</span>, pages 1–2, 2015
+      <!--l. 428--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify inverted repeats in chloroplast
+      genomes.
+</p>
+      </li></ol>
+<!--l. 433--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-12000"></a>Usages in the Microbial Genome Research</h4>
+<!--l. 434--><p class="noindent" >
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-12002x1">The  <a 
+href="http://www.llnl.gov/str/April04/Slezak.html" >KPATH  system</a>,  developed  at  the  Lawrence  Livermore  National
+      Laboratories, and described in
+      <!--l. 441--><p class="noindent" ><a 
+ id="XFIT:GAR:KUC:KUR:MYE:OTT:SLE:VIT:ZEM:MCC:2002"></a>J.P.  Fitch,  S.N.  Gardner,  T.A.  Kuczmarski,  S. Kurtz,  R. Myers,  L.L.
+      Ott,  T.R.  Slezak,  E.A.  Vitalis,  A.T.  Zemla,  and  P.M.  McCready.    Rapid
+      development  of  nucleic  acid  diagnostics.      <span 
+class="ptmri7t-x-x-120">Proceedings  of  the  IEEE</span>,
+      90(11):1708–1721, 2002
+      </p><!--l. 443--><p class="noindent" ><a 
+ id="XSLE:KUC:OTT:TOR:MED:SMI:TRU:MUL:LAM:VIT:ZEM:ZHO:GAR:2003"></a>T. Slezak,   T. Kuczmarski,   L. Ott,   C. Torres,   D. Medeiros,   J. Smith,
+      B. Truitt, N. Mulakken, M. Lam, E. Vitalis, A. Zemla, C.E. Zhou, and
+      S. Gardner.      Comparative   Genomics   Tools   Applied   to   Bioterrorism
+      Defense. <span 
+class="ptmri7t-x-x-120">Brieﬁngs in Bioinformatics</span>, 4(2):133–149, 2003
+                                                                          
+
+                                                                          
+      </p><!--l. 445--><p class="noindent" >used  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>to  detect  unique  substrings  in  large  collection  of  DNA
+      sequences. These unique substrings serve as signatures allowing for rapid
+      and  accurate  diagnostics  to  identify  pathogen  bacteria  and  viruses.  A
+      similar  application  is  reported  in  <a 
+ id="XGAR:KUC:VIT:SLE:2003"></a>S.N.  Gardner,  T.A.  Kuczmarski,  E.A.
+      Vitalis, and T.R. Slezak.  Limitations of TaqMan PCR for Detecting Viral
+      Pathogens  I  llustrated  by  Hepatitis  A,  B,  C,  and  E  Viruses  and  Human
+      Immunodeﬁciency Virus.   <span 
+class="ptmri7t-x-x-120">J.</span><span 
+class="ptmri7t-x-x-120"> of Clinical Microbiology</span>, 41(6):2417–2427,
+      2003.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12004x2"><a 
+ id="XPOB:WET:SZY:SCHIL:KUR:MEY:NAT:BECK:2006"></a>N. Pobigaylo, D. Wetter, S. Szymczak, U. Schiller, S. Kurtz, F. Meyer,
+      T.W. Nattkemper, and Becker A.  Construction of a large signature-tagged
+      mini-Tn5   transposon   library   and   its   application   to   mutagenesis   of
+      <span 
+class="ptmri7t-x-x-120">Sinorhizobium meliloti</span>. <span 
+class="ptmri7t-x-x-120">Appl Environ Microbiol.</span>, 72(6):4329–4337, 2006
+      <!--l. 453--><p class="noindent" >In  this  work  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used   to  map  signature  tags  to  the  genome  of
+      <span 
+class="ptmri7t-x-x-120">S.</span><span 
+class="ptmri7t-x-x-120"> meliloti</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12006x3">The <a 
+href="http://crispr.u-psud.fr/Server/CRISPRfinder.php" >CRISPRFinder</a>-program and the <a 
+href="http://crispr.u-psud.fr/crispr/CRISPRdatabase.php" >CRISPRdatabase</a>, described in
+      <!--l. 461--><p class="noindent" ><a 
+ id="XGRI:VER:POU:2007A"></a>I. Grissa,  G. Vergnaud,  and  C. Pourcel.   CRISPRFinder:  a  web  tool  to
+      identify clustered regularly interspaced short palindromic repeats.  <span 
+class="ptmri7t-x-x-120">Nucleic</span>
+      <span 
+class="ptmri7t-x-x-120">Acids Res</span>, 35(Web Server issue):W52–7, 2007
+      </p><!--l. 463--><p class="noindent" ><a 
+ id="XGRI:VER:POU:2007B"></a>I. Grissa, G. Vergnaud, and C. Pourcel. The CRISPRdb database and tools
+      to  display  CRISPRs  and  to  generate  dictionaries  of  spacers  and  repeats.
+      <span 
+class="ptmri7t-x-x-120">BMC Bioinformatics</span>, 8:172, 2007
+      </p><!--l. 465--><p class="noindent" >used <span 
+class="ptmri7t-x-x-120">Vmatch </span>to eﬃciently ﬁnd maximal repeats, as a ﬁrst step in localizing
+      Clustered regularly interspaced short palindromic repeats (CRISPRs).
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12008x4"><a 
+ id="XVOSS:GEO:SCHOE:UDE:HES:2009"></a>B. Voss, J. Georg, V. Schöon, S. Ude, and W. R. Hess. Biocomputational
+      prediction of non-coding RNAs in model cyanobacteria.  <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>,
+      10:123, 2009
+      <!--l. 471--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map predicted sequences to information
+      about Rho-independent terminators provided by a speciﬁc database.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12010x5"><a 
+ id="XSCHMU:CAN:SCHLU:MA:MIT:NEL:HYT:SON:THE:CHE:2010"></a>Jeremy Schmutz, Steven B Cannon, Jessica Schlueter, Jianxin Ma, Therese
+                                                                          
+
+                                                                          
+      Mitros, William Nelson, David L Hyten, Qijian Song, Jay J Thelen, Jianlin
+      Cheng, et al.  Genome sequence of the palaeopolyploid soybean.  <span 
+class="ptmri7t-x-x-120">Nature</span>,
+      463(7278):178–183, 2010
+      <!--l. 475--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to cluster DNA-sequences into families based
+      on their six-frame translation.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12012x6"><a 
+ id="XZIM:GES:CHE:LOR:SCHRO:2010"></a>Bob  Zimmermann,  Tanja  Gesell,  Doris  Chen,  Christina  Lorenz,  Renée
+      Schroeder, and J Valcarcel.   Monitoring genomic sequences during selex
+      using high-throughput sequencing: neutral selex.   <span 
+class="ptmri7t-x-x-120">PLoS One</span>, 5(2):e9169,
+      2010
+      <!--l. 478--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to align 454-sequences to the Ecoli-genome
+      and to cluster the sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12014x7"><a 
+ id="XTOU:DEN:MED:BAR:ELK:PET:2010"></a>Fabrice   Touzain,   Erick   Denamur,   Claudine   Médigue,   Valérie   Barbe,
+      Meriem  El Karoui,  Marie-Agnès  Petit,  et al.    Small  variable  segments
+      constitute a major type of diversity of bacterial genomes at the species level.
+      <span 
+class="ptmri7t-x-x-120">Genome Biol</span>, 11(4):R45, 2010
+      <!--l. 481--><p class="noindent" >In  this  work  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used    for  detecting  repeats  in  three  bacterial
+      species.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12016x8"><a 
+ id="XMAY:MAR:HED:SIM:LIU:MOR:STEU:TAU:ROE:GUN:2011"></a>Klaus FX Mayer, Mihaela Martis, Pete E Hedley, Hana Šimková, Hui Liu,
+      Jenny A Morris, Burkhard Steuernagel, Stefan Taudien, Stephan Roessner,
+      Heidrun Gundlach, et al.  Unlocking the barley genome by chromosomal
+      and comparative genomics. <span 
+class="ptmri7t-x-x-120">The Plant Cell</span>, 23(4):1249–1263, 2011
+      <!--l. 484--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for masking repeats in 454-reads.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12018x9"><a 
+ id="XPUS:MAN:JI:LI:EVA:CRA:MOR:MEA:SIN:SAX:2011"></a>Smruti Pushalkar, Shrinivasrao P Mane, Xiaojie Ji, Yihong Li, Clive Evans,
+      Oswald R  Crasta,  Douglas  Morse,  Robert  Meagher,  Anup  Singh,  and
+      Deepak  Saxena.     Microbial  diversity  in  saliva  of  oral  squamous  cell
+      carcinoma.  <span 
+class="ptmri7t-x-x-120">FEMS Immunology &#x0026; Medical Microbiology</span>, 61(3):269–277,
+      2011
+      <!--l. 487--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify distal primers.
+                                                                          
+
+                                                                          
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12020x10"><a 
+ id="XBRE:SHE:POP:2011"></a>J. E. Breitenbach, K. S. Shelby, and H. JR Popham.  Baculovirus induced
+      transcripts  in  hemocytes  from  the  larvae  of  heliothis  virescens.   <span 
+class="ptmri7t-x-x-120">Viruses</span>,
+      3(11):2047–2064, 2011
+      <!--l. 492--><p class="noindent" >In  this  work  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used     for  removing  redundant  transcripts
+      assembled  in  an  RNA-seq  study  based  on  Illumina  reads  for  <span 
+class="ptmri7t-x-x-120">Heliothis</span>
+      <span 
+class="ptmri7t-x-x-120">virescens </span>(tobacco budworm), infected with a virus.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12022x11"><a 
+ id="XTRI:HAM:BUE:TIS:VER:ZIN:LEA:2011"></a>LR Triplett,  JP Hamilton,  CR Buell,  NA Tisserat,  V. Verdier,  F Zink,
+      and  JE Leach.    Genomic  analysis  of  xanthomonas  oryzae  isolates  from
+      rice   grown   in   the   united   states   reveals   substantial   divergence   from
+      known  x.  oryzae  pathovars.    <span 
+class="ptmri7t-x-x-120">Applied  and  environmental  microbiology</span>,
+      77(12):3930–3937, 2011
+      <!--l. 497--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to search unassembled Illumina reads of US
+      and African strains of <span 
+class="ptmri7t-x-x-120">Xanthomonas oryzae </span>for evidence of transcriptional
+      activator-like eﬀector sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12024x12"><span 
+class="ptmri7t-x-x-120">Vmatch  </span>is  used  as  an  integral  part  of  the  PriMUX  software  package
+      described in
+      <!--l. 502--><p class="noindent" ><a 
+ id="XHYS:NAR:ELS:CAR:WIL:GAR:2012"></a>D. A.   Hysom,   P. Naraghi-Arani,   M. Elsheikh,   A. C.   Carrillo,   P. L.
+      Williams, and S. N. Gardner.   Skip the alignment: degenerate, multiplex
+      primer and probe design using K-mer matching instead of alignments. <span 
+class="ptmri7t-x-x-120">PLoS</span>
+      <span 
+class="ptmri7t-x-x-120">ONE</span>, 7(4):e34560, 2012
+      </p><!--l. 504--><p class="noindent" >In this context <span 
+class="ptmri7t-x-x-120">Vmatch </span>used for selecting multiplex compatible, degenerate
+      primers and probes to detect diverse targets such as viruses.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12026x13"><a 
+ id="XSHE:POP:2012"></a>K. S.   Shelby   and   H. JR   Popham.       Rna-seq   study   of   microbially
+      induced hemocyte transcripts from larval heliothis virescens (lepidoptera:
+      Noctuidae). <span 
+class="ptmri7t-x-x-120">Insects</span>, 3(3):743–762, 2012
+      <!--l. 508--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to identify redundant contigs from de novo
+      exome assemblies.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12028x14"><a 
+ id="XHUR:SUL:2013"></a>B. L.  Hurwitz  and  M. B.  Sullivan.    The  Paciﬁc  Ocean  virome  (POV):
+                                                                          
+
+                                                                          
+      a  marine  viral  metagenomic  dataset  and  associated  protein  clusters  for
+      quantitative viral ecology. <span 
+class="ptmri7t-x-x-120">PLoS ONE</span>, 8(2):e57355, 2013
+      <!--l. 512--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used   to identify reads which have no common
+      20-mers with other reads in a context of a marine viral metagenome project.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12030x15"><a 
+ id="XZHU:RHO:FESCH:2013"></a>X. Zhuo,  M. Rho,  and  C. Feschotte.   Genome-wide  characterization  of
+      endogenous  retroviruses  in  the  bat  Myotis  lucifugus  reveals  recent  and
+      diverse infections. <span 
+class="ptmri7t-x-x-120">J. Virol.</span>, 87(15):8493–8501, Aug 2013
+      <!--l. 516--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for clustering potential complete Endogenous
+      retroviruses of the bat <span 
+class="ptmri7t-x-x-120">Myotis lucifugus </span>into subfamilies.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12032x16">In the three papers
+      <!--l. 520--><p class="noindent" ><a 
+ id="XHUR:WES:BRU:SUL:2014"></a>B. L.   Hurwitz,   A. H.   Westveld,   J. R.   Brum,   and   M. B.   Sullivan.
+      Modeling ecological drivers in marine viral communities using comparative
+      metagenomics  and  network  analyses.     <span 
+class="ptmri7t-x-x-120">Proc.  Natl.  Acad.  Sci.  U.S.A.</span>,
+      111(29):10714–10719, Jul 2014
+      </p><!--l. 522--><p class="noindent" ><a 
+ id="XHUR:DEN:POU:SUL:2013"></a>B. L.  Hurwitz,  L. Deng,  B. T.  Poulos,  and  M. B.  Sullivan.   Evaluation
+      of    methods    to    concentrate    and    purify    ocean    virus    communities
+      through  comparative,  replicated  metagenomics.      <span 
+class="ptmri7t-x-x-120">Environ.  Microbiol.</span>,
+      15(5):1428–1440, May 2013
+      </p><!--l. 524--><p class="noindent" ><a 
+ id="XBRU:HUR:SCHOF:DUC:SUL:2015"></a>J. R.  Brum,  B. L.  Hurwitz,  O. Schoﬁeld,  H. W.  Ducklow,  and  M. B.
+      Sullivan. Seasonal time bombs: dominant temperate viruses aﬀect southern
+      ocean microbial dynamics. <span 
+class="ptmri7t-x-x-120">The ISME journal</span>, 2015
+      </p><!--l. 526--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used  for  <span 
+class="zptmcm7m-x-x-120">k</span>-mer  analysis  in  the  context  of  diﬀerent  marine
+      metagenome projects.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12034x17"><a 
+ id="XDEC:PAR:2014"></a>C. J.  Decker  and  R. Parker.      Analysis  of  double-stranded  rna  from
+      microbial communities identiﬁes double-stranded rna virus-like elements.
+      <span 
+class="ptmri7t-x-x-120">Cell reports</span>, 7(3):898–906, 2014
+      <!--l. 530--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for <span 
+class="zptmcm7m-x-x-120">k</span>-mer analysis in the context of microbial
+      communities.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12036x18"><a 
+ id="XBEN:BOU:FIC:KRI:LAR:2014"></a>J. Bengtsson-Palme,  F. Boulund,  J. Fick,  E. Kristiansson,  and  D. G.
+                                                                          
+
+                                                                          
+      Larsson.      Shotgun  metagenomics  reveals  a  wide  array  of  antibiotic
+      resistance  genes  and  mobile  elements  in  a  polluted  lake  in  India.   <span 
+class="ptmri7t-x-x-120">Front</span>
+      <span 
+class="ptmri7t-x-x-120">Microbiol</span>, 5:648, 2014
+      <!--l. 534--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  in an iterative scheme to construct contigs
+      from  reads  associated  with  resistance  genes  in  the  context  of  a  shotgun
+      metagenome project.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12038x19"><a 
+ id="XNIC:THI:GAR:MCL:FOF:KOS:ELL:BRE:JAC:JAI:2013"></a>A Be Nicholas, James B Thissen, Shea N Gardner, Kevin S McLoughlin,
+      Viacheslav Y Fofanov, Heather Koshinsky, Sally R Ellingson, Thomas S
+      Brettin,  Paul J  Jackson,  and  Crystal J  Jaing.      Detection  of  <span 
+class="ptmri7t-x-x-120">Bacillus</span>
+      <span 
+class="ptmri7t-x-x-120">anthracis  </span>DNA  in  complex  soil  and  air  samples  using  next-generation
+      sequencing. <span 
+class="ptmri7t-x-x-120">PloS one</span>, 8(9), 2013
+      <!--l. 538--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to match probe candidate sequences against
+      viral sequences and the human genmome sequence.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-12040x20"><a 
+ id="XHEN:RUM:SCZ:VEL:DIE:GER:GOM:RAH:STO:BOR:2014"></a>Birgit Henrich, Madis Rumming, Alexander Sczyrba, Eunike Velleuer, Ralf
+      Dietrich, Wolfgang Gerlach, Michael Gombert, Sebastian Rahn, Jens Stoye,
+      Arndt Borkhardt, et al. <span 
+class="ptmri7t-x-x-120">Mycoplasma salivarium </span>as a dominant coloniser of
+      <span 
+class="ptmri7t-x-x-120">Fanconi anaemia </span>associated oral carcinoma. <span 
+class="ptmri7t-x-x-120">PloS one</span>, 9(3), 2014
+      <!--l. 542--><p class="noindent" >In   this   work   <span 
+class="ptmri7t-x-x-120">Vmatch   </span>was   used      to   identify   the   species   of   the
+      Streptococcaceae  by  comparing  with  Silva  115  release  16S  reference
+      sequence database.</p></li></ol>
+<!--l. 546--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-13000"></a>Usages in General Web-Servers or Sequence Analysis Software</h4>
+<!--l. 547--><p class="noindent" >
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-13002x1">Since 2000, the <a 
+href="http://rsat.ulb.ac.be/rsat/" >RSA-tools</a>, described in
+      <!--l. 552--><p class="noindent" ><a 
+ id="XHEL:RIO:COL:2000"></a>J. van Helden, A.F. Rios, and J. Collado-Vides.   Discovering Regulatory
+      Elements in Non-Coding Sequences by Analysis of Spaced Dyads. <span 
+class="ptmri7t-x-x-120">Nucleic</span>
+                                                                          
+
+                                                                          
+      <span 
+class="ptmri7t-x-x-120">Acids Res.</span>, 28(8):1808–1818, 2000
+      </p><!--l. 554--><p class="noindent" >and  developed  by  Jacques  van  Helden  use  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>to  <a 
+href="http://rsat.ulb.ac.be/rsat/purge-sequence_form.cgi" >purge</a>  sequences
+      before computing sequence statistics. Similar applications are reported in
+      the following papers:
+      </p><!--l. 559--><p class="noindent" ><a 
+ id="XHUL:WEE:CRO:GER:HEP:HEL:2003"></a>R.J.M.  Hulzink,  H. Weerdesteyn,  A.F.  Croes,  M.M.A.  Gerats,  T. van
+      Herpen, and J. van Helden.  In Silico Identiﬁcation of Putative Regulatory
+      Sequence  Elements  in  the  5&#x2019;-Untranslated  Region  of  Genes  That  Are
+      Expressed during Male Gametogenesis Gene Co-regulation. <span 
+class="ptmri7t-x-x-120">Plant Physiol.</span>,
+      132:75–83, 2003
+      </p><!--l. 561--><p class="noindent" ><a 
+ id="XSIM:WOD:COH:HEL:2004"></a>N. Simonis,           S.J.           Wodak,           G.N.           Cohen,           and
+      J van Helden.  Combining Pattern Discovery and Discriminant Analysis to
+      Predict Gene Co-regulation. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 20:2370–2379, 2004
+      </p><!--l. 563--><p class="noindent" ><a 
+ id="XSIM:HEL:COH:WOD:2004"></a>N. Simonis, J. van Helden, G.N. Cohen, and S.J. Wodak.  Transcriptional
+      regulation of protein complexes in yeast. <span 
+class="ptmri7t-x-x-120">Genome Biology</span>, 5:R33, 2004.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13004x2">The program <a 
+href="http://splicenest.molgen.mpg.de/" >SpliceNest</a>, described in
+      <!--l. 568--><p class="noindent" ><a 
+ id="XCOW:HAA:VIN:2002"></a>E. Coward, S.A. Haas, and M. Vingron. SpliceNest: Visualization of Gene
+      Structure and Alternative Splicing Based on EST Clusters.  <span 
+class="ptmri7t-x-x-120">Trends Genet.</span>,
+      18(1):53–55, 2002
+      </p><!--l. 570--><p class="noindent" >computes gene indices and uses <span 
+class="ptmri7t-x-x-120">Vmatch </span>to <a 
+href="http://splicenest.molgen.mpg.de/doc/help.html#mapping" >map</a> clustered sequences to large
+      genomes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13006x3"><a 
+href="http://bibiserv.techfak.uni-bielefeld.de/e2g/" >e2g</a> is a web-based server which eﬃciently maps large EST and cDNA data
+      sets to genomic DNA. The use of <span 
+class="ptmri7t-x-x-120">Vmatch </span>allows to signiﬁcantly extend the
+      size of data that can be mapped in reasonable time. e2g is available as a
+      web service and hosts large collections of EST sequences (e.g. 4.1 million
+      mouse ESTs of 1.87 Gbp) in a precomputed persistent index. For details see
+      <!--l. 588--><p class="noindent" ><a 
+ id="XKRUE:SCZ:KUR:GIE:2004"></a>J. Krüger, A. Sczyrba, S. Kurtz, and R. Giegerich.   e2g: An interactive
+      web-based  server  for  eﬃciently  mapping  large  EST  and  cDNA  sets  to
+      genomic sequences. <span 
+class="ptmri7t-x-x-120">Nucleic Acids Res.</span>, 32:W301–W304, 2004.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13008x4">The <a 
+href="http://bibiserv.techfak.uni-bielefeld.de/" >Bielefeld Bioinformatics Server</a> provides the <a 
+href="http://bibiserv.techfak.uni-bielefeld.de/reputer/" >REPuter</a> web-service to
+      compute repeats in complete genomes. The service is based on <span 
+class="ptmri7t-x-x-120">Vmatch</span>.
+                                                                          
+
+                                                                          
+      </li>
+      <li 
+  class="enumerate" id="x1-13010x5"><a 
+ id="XFER:DON:SCHNE:MOR:NAN:BRE:WAL:2004"></a>J. Fernandes,          Q. Dong,          B. Schneider,          D.J.          Morrow,
+      G.-L. Nan, V. Brendel, and V. Walbot.  Genome-wide mutagenesis of Zea
+      mays L. using RescueMu transposons. <span 
+class="ptmri7t-x-x-120">Genome Biology</span>, 5(10):R82, 2004
+      <!--l. 598--><p class="noindent" >In  this  work  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used    to  (1)  match  130 861  vector-trimmed
+      sequences   against   the   maize   repeat   database,   and   (2)   to   cluster
+      near-identical sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13012x6"><a 
+href="http://www-ab.informatik.uni-tuebingen.de/software/crosslink/welcome.html" >CrossLink</a>, described in
+      <!--l. 604--><p class="noindent" ><a 
+ id="XDEZ:SCHAEF:WIE:WEI:HUS:2006"></a>T. Dezulian,   M. Schaefer,   R. Wiese,   D. Weigel,   and   D.H.   Huson.
+      CrossLink: visualization and exploration of sequence relationships between
+      (micro)  RNAs.   <span 
+class="ptmri7t-x-x-120">Nucleic  Acids  Res.</span>,  34(Web  Server  Issue):W400–W404,
+      200
+      </p><!--l. 606--><p class="noindent" >is  a  versatile  computational  tool  which  aids  in  visualizing  relationships
+      between RNA sequences (particularly between ncRNAs and their putative
+      target  transcripts)  in  an  intuitive  and  accessible  way.  Besides  BLAST,
+      CrossLink uses <span 
+class="ptmri7t-x-x-120">Vmatch </span>to reveal the sequence relationships to be visualized.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13014x7">The early version of the web-service <a 
+href="http://mips.gsf.de/simap/" >Similarity matrix of Proteins (SIMAP)</a>,
+      see
+      <!--l. 616--><p class="noindent" ><a 
+ id="XARN:RAT:TIS:TRU:STU:MEW:2005"></a>R. Arnold, T. Rattei, P. Tischler, M.-D. Truong, V. Stümpﬂen, and H.W.
+      Mewes.    SIMAP  -  The  similarity  matrix  of  proteins.    <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>,
+      21(Suppl. 2):ii42–ii46, 2005
+      </p><!--l. 618--><p class="noindent" >used <span 
+class="ptmri7t-x-x-120">Vmatch </span>to locate the sequences in SIMAP which are similar to a given
+      query. This is much faster than running BLAST.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13016x8"><a 
+ id="XFIE:VAN:PEE:VAN:NAP:2005"></a>Fiers,  M.W.E.J.  and  Van  de  Wetering,  H.  and  Peeters,  T.H.J.M.  and  van
+      Wijk, J.J. and Nap, J-P.  DNAVis: interactive visualization of comparative
+      genome annotations. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 22(3):354–355, 2005
+      <!--l. 624--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used   to compute similarities between genomes,
+      which are then visualized by the program <a 
+href="http://www.win.tue.nl/dnavis/" >DNAVis</a>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13018x9">In the paper
+                                                                          
+
+                                                                          
+      <!--l. 628--><p class="noindent" ><a 
+ id="XSEI:KRUE:HAR:SCHWA:LOEW:MER:DAN:GIE:2006"></a>P.N.   Seibel,   J. Krüger,   S. Hartmeier,   K. Schwarzer,   K. Löwenthal,
+      H. Mersch, T. Dandekar, and R. Giegerich.   XML schemas for common
+      bioinformatic data types and their application in workﬂow systems.  <span 
+class="ptmri7t-x-x-120">BMC</span>
+      <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 7:490, 2006
+      </p><!--l. 630--><p class="noindent" >Seidel   et. al. describe   methods   for   creating   web-services   and   give
+      examples which, among other tools, also integrate <span 
+class="ptmri7t-x-x-120">Vmatch</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13020x10">The program <span 
+class="ptmri7t-x-x-120">Gepard</span>
+      <!--l. 637--><p class="noindent" ><a 
+ id="XKRU:ARN:RAT:2007"></a>J. Krumsiek, R. Arnold, and T. Rattei.  Gepard: a rapid and sensitive tool
+      for creating dotplots on genome scale. <span 
+class="ptmri7t-x-x-120">Bioinformatics</span>, 23(8):1026–8, 2007
+      </p><!--l. 639--><p class="noindent" >uses <span 
+class="ptmri7t-x-x-120">mkvtree </span>to compute enhanced suﬃx arrays.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13022x11"><span 
+class="ptmri7t-x-x-120">Vmatch </span>is used a part of the transcriptome assembler software Rnnotator,
+      described in
+      <!--l. 645--><p class="noindent" ><a 
+ id="XMAR:BRU:FAN:MEN:BLO:ZHA:SHE:SNY:WAN:2010"></a>J. Martin,   V. M.   Bruno,   Z. Fang,   X. Meng,   M. Blow,   T. Zhang,
+      G. Sherlock, M. Snyder, and Z. Wang.  Rnnotator: an automated de novo
+      transcriptome  assembly  pipeline  from  stranded  RNA-Seq  reads.    <span 
+class="ptmri7t-x-x-120">BMC</span>
+      <span 
+class="ptmri7t-x-x-120">Genomics</span>, 11:663, 2010
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13024x12">The BioExtract-Server described in
+      <!--l. 649--><p class="noindent" ><a 
+ id="XLUS:JEN:BRE:2011"></a>C. M.  Lushbough,  D. M.  Jennewein,  and  V. Brendel.    The  bioextract
+      server:  a  web-based  bioinformatic  workﬂow  platform.     <span 
+class="ptmri7t-x-x-120">Nucleic  acids</span>
+      <span 
+class="ptmri7t-x-x-120">research</span>, 39(suppl 2):W528–W532, 2011
+      </p><!--l. 651--><p class="noindent" >uses <span 
+class="ptmri7t-x-x-120">Vmatch </span>to remove duplicated sequences.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13026x13"><a 
+ id="XLUS:GNI:DOO:2015"></a>C. M.  Lushbough,  E. Z.  Gnimpieba,  and  R. Dooley.   Life  science  data
+      analysis workﬂow development using the bioextract server leveraging the
+      iplant  collaborative  cyberinfrastructure.   <span 
+class="ptmri7t-x-x-120">Concurrency  and  Computation:</span>
+      <span 
+class="ptmri7t-x-x-120">Practice and Experience</span>, 27(2):408–419, 2015
+      <!--l. 657--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used   for removing duplicates in BlastP results.
+      This use is part of a workﬂow in <a 
+href="http://www.myexperiment.org/workflows/3131.html" >myexperiment</a>.
+                                                                          
+
+                                                                          
+      </p></li>
+      <li 
+  class="enumerate" id="x1-13028x14"><a 
+ id="XGRE:LOY:HOR:RAT:2015"></a>Daniel   Greuter,   Alexander   Loy,   Matthias   Horn,   and   Thomas   Rattei.
+      ProbeBase-an  online  resource  for  rRNA-targeted  oligonucleotide  probes
+      and primers: new features 2016.   <span 
+class="ptmri7t-x-x-120">Nucleic acids research</span>, page gkv1232,
+      2015
+      <!--l. 660--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for probe/primer search functionality in the
+      probeBase database.</p></li></ol>
+<!--l. 664--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-14000"></a>Current Usages in Human Genome Research</h4>
+<!--l. 665--><p class="noindent" >
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-14002x1"><a 
+ id="XBUC:JAR:MEN:MAT:SCO:GRE:LAN:DUM:2005"></a>P.G. Buckley, C. Jarbo, U. Menzel, T. Mathiesen, C. Scott, S.G. Gregory,
+      C.F.  Langford,  and  J.P.  Dumanski.   Comprehensive  DNA  Copy  Number
+      Proﬁling of Meningioma Using a Chromosome 1 Tiling Path Microarray
+      identiﬁes   Novel   Candidate   Tumor   Surpressor   Loci.       <span 
+class="ptmri7t-x-x-120">Cancer   Res.</span>,
+      65(7):2653–2661, 2005
+      <!--l. 668--><p class="noindent" >In  this  work  <span 
+class="ptmri7t-x-x-120">Vmatch  </span>was  used    to  reveal  long  repeats  inside  human
+      chromosome 1 and long similar regions between human chromosome 1 and
+      all other human chromosomes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14004x2"><a 
+ id="XLIA:WAN:LIU:JI:LIU:CHE:WEB:REE:DEA:2007"></a>Liang, C. and Wang, G. and Liu, L. and Ji, G. and Liu, Y. and Chen, J. and
+      Webb, J.S. and Reese, G. and Dean, J.F.D.  WebTraceMiner: a web service
+      for processing and mining EST sequence trace ﬁles.   <span 
+class="ptmri7t-x-x-120">Nucleic Acids Res</span>,
+      35(Web Server issue):W137–42, 2007
+      <!--l. 671--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for Vector screening.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14006x3"><a 
+ id="XNYG:JAC:LIN:ERI:BAL:FLY:TOL:MOE:SOE:KRO:LIT:2009"></a>Sanne  Nygaard,  Anders  Jacobsen,  Morten  Lindow,  Jens  Eriksen,  Eva
+      Balslev, Henrik Flyger, Niels Tolstrup, Søren Møller, Anders Krogh, and
+      Thomas  Litman.    Identiﬁcation  and  analysis  of  mirnas  in  human  breast
+                                                                          
+
+                                                                          
+      cancer  and  teratoma  samples  using  deep  sequencing.     <span 
+class="ptmri7t-x-x-120">BMC  medical</span>
+      <span 
+class="ptmri7t-x-x-120">genomics</span>, 2(1):35, 2009
+      <!--l. 674--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for mapping short reads.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14008x4"><a 
+ id="XCOL:SOB:LU:THA:BOW:BRO:GRE:BAR:HUT:2009"></a>Christian  Cole,  Andrew  Sobala,  Cheng  Lu,  Shawn R  Thatcher,  Andrew
+      Bowman,  John WS  Brown,  Pamela J  Green,  Geoﬀrey J  Barton,  and
+      Gyorgy   Hutvagner.       Filtering   of   deep   sequencing   data   reveals   the
+      existence of abundant dicer-dependent small rnas derived from trnas.  <span 
+class="ptmri7t-x-x-120">Rna</span>,
+      15(12):2147–2160, 2009
+      <!--l. 677--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for matching reads to sets of RNA sequences
+      and the Human genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14010x5"><a 
+ id="XCLO:WAN:XU:GU:LEA:HEA:BAR:STE:MAR:NOU:2011"></a>N. Cloonan, S. Wani, Q. Xu, J. Gu, K. Lea, S. Heater, C. Barbacioru,
+      A. L. Steptoe, H. C. Martin, E. Nourbakhsh, et al.   Micrornas and their
+      isomirs  function  cooperatively  to  target  common  biological  pathways.
+      <span 
+class="ptmri7t-x-x-120">Genome Biol</span>, 12(12):R126, 2011
+      <!--l. 680--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to uniquely map miRNAs against the human
+      genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14012x6"><a 
+ id="XTAK:TSU:KAT:OKA:HOR:IKE:URA:KAW:HAS:IKE:2011"></a>K Takayama,   S Tsutsumi,   S Katayama,   T Okayama,   K Horie-Inoue,
+      K Ikeda, T Urano, C Kawazu, A Hasegawa, K Ikeo, et al.   Integration
+      of  cap  analysis  of  gene  expression  and  chromatin  immunoprecipitation
+      analysis  on  array  reveals  genome-wide  androgen  receptor  signaling  in
+      prostate cancer cells. <span 
+class="ptmri7t-x-x-120">Oncogene</span>, 30(5):619–630, 2011
+      <!--l. 683--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to determine the positions of CAGE tags on
+      the human genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14014x7"><a 
+ id="XKEV:LAL:LI:CAV:NAR:KAM:MIT:HAK:KOZ:GEN:2011"></a>Kevin CH Ha, Emilie Lalonde, Lili Li, Luca Cavallone, Rachael Natrajan,
+      Maryou B Lambros, Costas Mitsopoulos, Jarle Hakas, Iwanka Kozarewa,
+      Kerry   Fenwick,   et al.      Identiﬁcation   of   gene   fusion   transcripts   by
+      transcriptome sequencing in BRCA1-mutated breast cancers and cell lines.
+      <span 
+class="ptmri7t-x-x-120">BMC medical genomics</span>, 4(1):75, 2011
+      <!--l. 686--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used   to align sections of reads against RefSeq
+      mRNA exon sequences.
+                                                                          
+
+                                                                          
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14016x8"><a 
+ id="XKID:CHE:WAN:JAC:ZHA:BOY:FIR:TAN:GAE:COL:2012"></a>Marie J  Kidd,  Zhiliang  Chen,  Yan  Wang,  Katherine J  Jackson,  Lyndon
+      Zhang, Scott D Boyd, Andrew Z Fire, Mark M Tanaka, Bruno A Gaëta,
+      and  Andrew M  Collins.     The  inference  of  phased  haplotypes  for  the
+      immunoglobulin  h  chain  v  region  gene  loci  by  analysis  of  vdj  gene
+      rearrangements. <span 
+class="ptmri7t-x-x-120">The Journal of Immunology</span>, 188(3):1333–1340, 2012
+      <!--l. 689--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to align sets of genes.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-14018x9"><a 
+ id="XYAM:IKE:BOE:HOR:TAK:URA:KAI:CAR:KAW:HAY:2014"></a>Ryonosuke  Yamaga,  Kazuhiro  Ikeda,  Joost  Boele,  Kuniko  Horie-Inoue,
+      Ken-ichi   Takayama,   Tomohiko   Urano,   Kaoru   Kaida,   Piero   Carninci,
+      Jun  Kawai,  Yoshihide  Hayashizaki,  et al.     Systemic  identiﬁcation  of
+      estrogen-regulated   genes   in   breast   cancer   cells   through   cap   analysis
+      of  gene  expression  mapping.      <span 
+class="ptmri7t-x-x-120">Biochemical  and  biophysical  research</span>
+      <span 
+class="ptmri7t-x-x-120">communications</span>, 447(3):531–536, 2014
+      <!--l. 692--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to determine the positions of CAGE tags on
+      the human genome.
+</p>
+      </li></ol>
+<!--l. 697--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-15000"></a>Current Usages for diﬀerent Model Organisms</h4>
+<!--l. 698--><p class="noindent" >
+      </p><ol  class="enumerate1" >
+      <li 
+  class="enumerate" id="x1-15002x1"><a 
+ id="XSCZ:BECK:BRI:GIE:ALT:2005"></a>A. Sczyrba,   M. Beckstette,   A.H.   Brivanlou,   R. Giegerich,   and   C.R.
+      Altmann.  Xendb: Full length cDNA prediction and cross species mapping
+      in <span 
+class="ptmri7t-x-x-120">xenopus laevis</span>. <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 2005
+      <!--l. 715--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to cluster 317 242 EST and cDNA sequences
+      from <span 
+class="ptmri7t-x-x-120">Xenopus laevis</span>. <span 
+class="ptmri7t-x-x-120">Vmatch </span>was chosen for the following reasons:
+      </p>
+                                                                          
+
+                                                                          
+           <ul class="itemize1">
+           <li class="itemize">At ﬁrst, there was no clustering tool available which could handle large
+           data sets eﬃciently, and which was documented well enough to allow
+           a detailed b replication and evaluation of existing clusters.
+           </li>
+           <li class="itemize">Second, <span 
+class="ptmri7t-x-x-120">Vmatch </span>identiﬁes similarities between sequences rapidly, and
+           it provides additional options to cluster a set of sequences based on
+           these matches. Furthermore, the <span 
+class="ptmri7t-x-x-120">Vmatch </span>output provides information
+           about how the clusters were derived. Due to the eﬃciency of <span 
+class="ptmri7t-x-x-120">Vmatch</span>, it
+           was possible to perform the clustering for a wide variety of parameters
+           on the complete sequence set. This allows to study the eﬀect of the
+           parameter choice on the clustering.</li></ul>
+      </li>
+      <li 
+  class="enumerate" id="x1-15004x2"><a 
+ id="XSPIT:LOR:CUL:SCZ:FUEL:2006"></a>M. Spitzer, S. Lorkowski, P. Cullen, A. Sczyrba, and G. Fuellen. Distinguishing
+      isoforms and paralogs on the protein level.  <span 
+class="ptmri7t-x-x-120">BMC Bioinformatics</span>, 7:110,
+      2006
+      <!--l. 718--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to cluster EST-sequences of <span 
+class="ptmri7t-x-x-120">Xenopus</span>
+      <span 
+class="ptmri7t-x-x-120">laevis</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15006x3"><a 
+ id="XEIS:COY:WU:WU:THI:WOR:BAD:REN:AME:JON:2006"></a>J.A. Eisen, R.S. Coyne, M. Wu, D. Wu, M. Thiagarajan, J.R. Wortman, J.H.
+      Badger, Q. Ren, P. Amedeo, and K.M. Jones et al. Macronuclear Genome
+      Sequence of the Ciliate Tetrahymena thermophila, a Model Eukaryote. <span 
+class="ptmri7t-x-x-120">PLoS</span>
+      <span 
+class="ptmri7t-x-x-120">Biology</span>, 4(9):e286, 2006
+      <!--l. 722--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to search exact repeats in the Macronuclear
+      Genome Sequence of the Ciliate <span 
+class="ptmri7t-x-x-120">Tetrahymena thermophila</span>.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15008x4"><a 
+ id="XFAU:FOR:CHA:SCHRO:HAY:CAR:HUM:GRI:2008"></a>G. J. Faulkner, A. R. Forrest, A. M. Chalk, K. Schroder, Y. Hayashizaki,
+      P. Carninci, D. A. Hume, and S. M. Grimmond.  A rescue strategy for
+      multimapping short sequence tags reﬁnes surveys of transcriptional activity by
+      CAGE. <span 
+class="ptmri7t-x-x-120">Genomics</span>, 91(3):281–288, Mar 2008
+      <!--l. 745--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for mapping </p>
+           <ul class="itemize1">
+           <li class="itemize">11 567 973 FANTOM3 mouse CAGE tags to the mouse genome with
+           minimum match length of 18 bp, a single internal mismatch allowed,
+                                                                          
+
+                                                                          
+           and multiple mismatches allowed at tag ends.
+           </li>
+           <li class="itemize">Aﬀymetrix GNF probe sequences to transcripts without allowing for
+           mismatches.</li></ul>
+      </li>
+      <li 
+  class="enumerate" id="x1-15010x5"><a 
+ id="XPRI:JOR:2008"></a>Jittima Piriyapongsa and I King Jordan. Dual coding of sirnas and mirnas by
+      plant transposable elements. <span 
+class="ptmri7t-x-x-120">RNA</span>, 14(5):814–821, 2008
+      <!--l. 750--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to search small RNA signatures in entire miRNA
+      gene sequences for Arabidopsis and rice.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15012x6"><a 
+ id="XTAF:GLA:LASS:HAY:CAR:MAT:2009"></a>R. J. Taft, E. A. Glazov, T. Lassmann, Y. Hayashizaki, P. Carninci, and J. S.
+      Mattick. Small RNAs derived from snoRNAs. <span 
+class="ptmri7t-x-x-120">RNA</span>, 15(7):1233–1240, Jul
+      2009
+      <!--l. 754--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to map small RNA data sets onto the
+      corresponding reference genomes for diﬀerent model organisms.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15014x7"><a 
+ id="XPLE:PAS:BER:AKA:CAR:VAS:LAZ:SEV:VLA:SIM:2012"></a>C. Plessy, G. Pascarella, N. Bertin, A. Akalin, C. Carrieri, A. Vassalli,
+      D. Lazarevic, J. Severin, C. Vlachouli, R. Simone, et al. Promoter architecture
+      of mouse olfactory receptor genes.  <span 
+class="ptmri7t-x-x-120">Genome research</span>, 22(3):486–497,
+      2012
+      <!--l. 757--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for mapping Illumina reads to the mouse
+      genome.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15016x8"><a 
+ id="XKEN:SHI:2012"></a>Nathan J Kenny and Sebastian M Shimeld.  Additive multiple k-mer
+      transcriptome of the keelworm <span 
+class="ptmri7t-x-x-120">Pomatoceros lamarckii </span>(annelida; serpulidae)
+      reveals annelid trochophore transcription factor cassette. <span 
+class="ptmri7t-x-x-120">Development genes and</span>
+      <span 
+class="ptmri7t-x-x-120">evolution</span>, 222(6):325–339, 2012
+      <!--l. 761--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for redundancy removal in the context of
+      transcriptome assembly of a keelworm species.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15018x9"><a 
+ id="XGOS:OHM:KOG:SON:TUR:ZAJ:ZAL:GRU:SUN:HAN:2014"></a>Cene Gostin, Robin A Ohm, Tina Kogej, Silva Sonjak, Martina Turk, Janja Zajc,
+      Polona Zalar, Martin Grube, Hui Sun, James Han, et al. Genome sequencing of
+      four aureobasidium pullulans varieties: biotechnological potential, stress
+                                                                          
+
+                                                                          
+      tolerance, and description of new species.  <span 
+class="ptmri7t-x-x-120">BMC Genomics</span>, 15(1):549,
+      2014
+      <!--l. 765--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to remove redundant contigs in a genome project
+      of four <span 
+class="ptmri7t-x-x-120">Aureobasidium pullulans </span>varieties.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15020x10"><a 
+ id="XMCM:GAR:BAI:KEM:WAR:CEV:ROB:SCHUL:BAL:HOL:2015"></a>M. McMullan, A. Gardiner, K. Bailey, E. Kemen, B. J. Ward, V. Cevik,
+      A. Robert-Seilaniantz, T. Schultz-Larsen, A. Balmuth, E. Holub, et al.
+      Evidence for suppression of immunity as a driver for genomic introgressions and
+      host range expansion in races of albugo candida, a generalist parasite. <span 
+class="ptmri7t-x-x-120">eLife</span>,
+      4:e04550, 2015
+      <!--l. 768--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  for merging assemblies of Illumina sequenced
+      cDNA.
+      </p></li>
+      <li 
+  class="enumerate" id="x1-15022x11"><a 
+ id="XMOR:DHA:PAV:TRO:WHE:HEL:2015"></a>C Morandin, K Dhaygude, J Paviala, K Trontti, C Wheat, and H Helanterä.
+      Caste-biases in gene expression are speciﬁc to developmental stage in the ant
+      formica exsecta.  <span 
+class="ptmri7t-x-x-120">Journal of evolutionary biology</span>, 28(9):1705–1718,
+      2015
+      <!--l. 782--><p class="noindent" >In this work <span 
+class="ptmri7t-x-x-120">Vmatch </span>was used  to combine and scaﬀold contigs.
+</p>
+      </li></ol>
+<!--l. 787--><p class="noindent" >Total number of usages: 108
+</p><!--l. 799--><p class="noindent" >
+</p>
+<h3 class="likesectionHead"><a 
+ id="x1-16000"></a>Availability</h3>
+<!--l. 800--><p class="noindent" ><span 
+                class="ptmri7t-x-x-120">Vmatch </span>is available for <a href="download.html">download</a> in executable format for the following platforms: </p>
+      <ul class="itemize1">
+      <li class="itemize">Linux
+      </li>
+      <li class="itemize">Mac OS
+      </li>
+      <li class="itemize">Windows
+      </li>
+      </ul>
+<h3 class="likesectionHead"><a 
+ id="x1-17000"></a>Developer</h3>
+<!--l. 821--><p class="noindent" ><span 
+class="ptmri7t-x-x-120">Vmatch </span>was developed since May 2000 by <a 
+href="http://www.zbh.uni-hamburg.de/kurtz" >Stefan Kurtz</a>, a professor of Computer
+Science at the Center for Bioinformatics, University of Hamburg, Germany.
+</p><!--l. 844--> <b>Important Documents</b> <ul> <li> The <a href="virtman.pdf"><i>Vmatch</i>-manual</a> </li> <li> The <a href="Vmatchlic.pdf">Vmatch-license agreement form</a> </li> </ul>
+<!--l. 853--> <div id="footer"> Copyright &copy; 2000-2017 <a href="mailto:kurtz@zbh.uni-hamburg.de"> LScSA-Software GmbH</a>. Last update: 2017-06-12 (<a href="http://lscsa.de/imprint.html">Imprint</a>) </div> 
+<!--l. 875--> <!-- Piwik --> <div id="piwik"> <script type="text/javascript"> var pkBaseURL = "https://zenlicensemanager.com/piwik/"; document.write(unescape("</script><script type="text/javascript"> try { var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3); piwikTracker.trackPageView(); piwikTracker.enableLinkTracking(); } catch( err ) {} </script> <br/> <noscript> <img src="https://zenlicensemanager.com/piwik/piwik.php?idsite=3" style="border:0" alt=""/> </noscript> <!-- End Piwik Tracking Tag --> </div>  
+ 
+</body></html> 
+
+                                                                          
+
+

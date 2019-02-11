@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint splitargstring(char *argstring,Uint len,
+                    Uint maxargc,Argctype *argc,char ** argv);
+
+#ifdef __cplusplus
+}
+#endif

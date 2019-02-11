@@ -1,0 +1,87 @@
+SPLINTALL=\
+  allmclust.splint\
+  apmcontain.splint\
+  assigndig.splint\
+  chain2dim.mn.splint\
+  chainof.splint\
+  chainvm.splint\
+  chncallparse.splint\
+  clpos.splint\
+  cluedist.splint\
+  cpridx-start.splint\
+  cpridxps-demo.splint\
+  detmatch.splint\
+  echomatch.splint\
+  explain.splint\
+  initpost.splint\
+  keepflags.splint\
+  lrseq.splint\
+  mapdemand.splint\
+  markmat.splint\
+  matchcl.mn.splint\
+  matchclust.splint\
+  matchlenparm.splint\
+  mlendistrib.splint\
+  mokay.splint\
+  nomatch.splint\
+  opensel.splint\
+  optstring.splint\
+  parsedbcl.splint\
+  parsedbms.splint\
+  parsemcl.splint\
+  parsepp.splint\
+  parsequery.splint\
+  parsevm.splint\
+  procargs.splint\
+  procfinal.splint\
+  procmatch.splint\
+  profiler.splint\
+  queryindex.splint\
+  readm.mn.splint\
+  runquery.splint\
+  runself.splint\
+  showmasked.splint\
+  substpos.splint\
+  threadchain.splint\
+  verifysub.splint\
+  vmatch.splint\
+  vmatch.mn.splint\
+  vmatsel.mn.splint\
+  vmcluster.splint\
+  vmdbfunc.splint\
+  vmotif-demo.splint\
+  vmotif-start.splint\
+  vplugin-open.splint\
+  xmlfunc.splint
+
+cleanbuild:
+	rm -f ${COMPILEDIR}*.[ox]
+
+${COMPILEDIR}%.o:%.c
+	${CC} ${CFLAGS} -c $< -o $@ -MT $@ -MMD -MP -MF $(@:.o=.d)
+
+${COMPILEDIR}%.dbg.o:%.c
+	${CC} ${CFLAGS} -DDEBUG -c $< -o $@
+
+%.so:%.c
+	${CC} ${CFLAGS} ${SHARED} $< -o $@
+
+%.prepro:%.c
+	${CC} -E -g3 ${CFLAGS} -DDEBUG -c $< -o $@
+	indent $@
+
+%.pr:%.c
+	skproto $< > $@
+
+%.splint:%.c
+	splint ${SPLINTFLAGS} $<
+	touch $*.splint
+
+splintall:${SPLINTALL}
+
+splintclean:
+	rm -f *.splint
+
+.PHONY:mkdircompiledir
+mkdircompiledir:
+	mkdir -p ${COMPILEDIR}

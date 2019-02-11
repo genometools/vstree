@@ -1,0 +1,8 @@
+$ multimat -l 15 -d -s seqs3.6fr
+# file=seqs3 10037 10000
+# databaselength=9999 (including 2 separators)
+# sequence lengths: minimal=376, maximal=9171, average=3332.67
+# alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+# seqs3.tis read
+# seqs3.des read
+# seqs3.sds read

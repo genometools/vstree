@@ -1,0 +1,89 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint recommendedmaxlevel(double p, Uint maxsize);
+
+Sint skiplistinit(Skiplist **newskiplist, Uint maxsize,
+		  double p, BOOL doalloc);
+
+Sint skiplistinitwithkey(Skiplist **newskiplist, Uint maxsize,
+			 double p, BOOL doalloc, Skipkey key);
+
+Sint skiplistmerge(Skiplist **destlist, Skiplist* list1, Skiplist* list2,
+		       Skipcomparefunction cmpfun, void* cmpinfo, BOOL doalloc);
+
+/*@null@*/ Skipkey skiplistinsert(Skiplist *skiplist, Skipkey key,
+                       Skipcomparefunction cmpfun, void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistdelete(Skiplist *skiplist, Skipkey key,
+                       Skipcomparefunction cmpfun, void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistfind(Skiplist *skiplist, Skipkey key,
+                     Skipcomparefunction cmpfun, void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistminimumkey(Skiplist* skiplist);
+
+/*@null@*/ Skipkey skiplistnextkey(Skiplist* skiplist, Skipkey key,
+                        Skipcomparefunction cmpfun, void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistnextequalkey(Skiplist* skiplist, Skipkey key,
+                             Skipcomparefunction cmpfun, void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistcurrentnext(Skiplist* skiplist);
+
+/*@null@*/ Skipkey skiplistfingernextkey(Skiplist* skiplist,
+					 Skipkey key,
+					 Skipcomparefunction cmpfun,
+					 void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistfingernextequalkey(Skiplist* skiplist,
+                                              Skipkey key,
+                                              Skipcomparefunction cmpfun,
+                                              void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistexternalfingernextkey(Skiplist* skiplist,
+					 Skipfinger finger,
+					 Skipkey key,
+					 Skipcomparefunction cmpfun,
+					 void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistexternalfingernextequalkey(Skiplist* skiplist,
+                                              Skipfinger finger,
+                                              Skipkey key,
+                                              Skipcomparefunction cmpfun,
+                                              void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistexternalfingernextequalkeywithmacro(
+			Skiplist* skiplist,
+                        Skipfinger finger,
+                        Skipkey key,
+                        /*@unused@*/ Skipcomparefunction cmpfun,
+                        /*@unused@*/ void* cmpinfo);
+
+/*@null@*/ Skipkey skiplistexternalfingernextequalkeywithmacro2(
+		Skiplist* skiplist,
+                Skipfinger finger,
+                Skipkey key,
+                /*@unused@*/ Skipcomparefunction cmpfun,
+                /*@unused@*/ void* cmpinfo);
+
+/*@null@*/ Skipfinger skiplistinitexternalfinger(Skiplist *skiplist);
+
+Sint skiplistinitfinger(Skiplist *skiplist);
+
+void skiplistfreeexternalfinger(Skipfinger finger);
+
+void skiplistwalk(Skiplist *skiplist, Skipaction action, void* actinfo);
+
+void skiplistprint(Skiplist* skiplist, Skipshowelem showfun, void* showinfo);
+
+void skiplistprintvalues(Skiplist* skiplist,
+                         Skipshowelem showfun, void* showinfo);
+
+void skipliststatistics(Skiplist* skiplist);
+
+void skiplistdestroy(Skiplist *skiplist, BOOL dofreeskiplist, BOOL dofreekeys);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsequalifiedinteger(Qualifiedinteger *qualint,
+                           const char *option,
+                           const char *lparam);
+
+#ifdef __cplusplus
+}
+#endif

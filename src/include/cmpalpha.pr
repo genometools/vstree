@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint compareAlphabet(Alphabet *alpha1,Alphabet *alpha2);
+
+#ifdef __cplusplus
+}
+#endif

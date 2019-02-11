@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint bruteforchainingwithcounts(Chainmode *chainmode,
+                                Chain *chain,
+                                Fragmentinfo *fragmentinfo,
+                                Uint numofmatches,
+                                Uint presortdim,
+                                Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,22 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void alignequalstrings(ArrayEditoperation *alignment,
+                       Uint lengthequalstring);
+
+Uint hammingalignment(ArrayEditoperation *alignment,
+                      Uchar *useq,
+                      Uint ulen,
+                      Uchar *vseq);
+
+Sint greedyedistalign(Greedyalignreservoir *gar,
+                      BOOL withmaxdist,
+                      Sint maxdist,
+                      Uchar *useq,
+                      Sint ulen,
+                      Uchar *vseq,
+                      Sint vlen);
+
+#ifdef __cplusplus
+}
+#endif

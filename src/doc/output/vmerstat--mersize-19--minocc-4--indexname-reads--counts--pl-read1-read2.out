@@ -1,0 +1,14 @@
+$ vmerstat -mersize 19 -minocc 4 -indexname reads -counts -pl read1 read2
+# running vmerstat, version compiled on Nov 27 2006
+# write 0 mercounts > 255 to file "reads.mct"
+# construct mer buckets for prefixlength 4
+# prefixlength = 4
+# numofcodes = 256
+# average bucket size = 12.37
+# indexfilename = reads.mer
+# alphasize = 4
+# mersize = 19
+# numofmers = 3166
+# merbytes = 5
+# number of extractions: 2890 (0.91)
+# overall space peak: main=0.25 MB, secondary=0.74 MB

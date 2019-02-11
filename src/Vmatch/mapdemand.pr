@@ -1,0 +1,40 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint addqueryspeedupdemand(Uint queryspeedup);
+
+BOOL decide2maporiginalsequence(Maskmatch *maskmatch,
+                                char *dbclusterfilenameprefix,
+                                char *nonredundantfile,
+                                Uint showstring);
+
+BOOL decidesimpleselfsearch(Uint matchtask,
+                            BOOL dbclusterdefined,
+                            BOOL lowergapdefined,
+                            BOOL matchclusterdefined,
+                            Distancevalue *maxdist,
+                            Xdropscore xdropbelowscore,
+                            Maskmatch *maskmatch,
+                            Nomatch *nomatch,
+                            Uint showmode);
+
+Sint getdemand(Uint matchtask,
+               BOOL verbose,
+               BOOL lowergapdefined,
+               BOOL matchclusterdefined,
+               Uint showmode,
+               Showdescinfo *showdesc,
+               Uint showstring,
+               Uint numberofqueryfiles,
+               Distancevalue *maxdist,
+               Xdropscore xdropbelowscore,
+               BOOL dbclusterdefined,
+               char *dbclusterfilenameprefix,
+               char *nonredundantfile,
+               Maskmatch *maskmatch,
+               Nomatch *nomatch,
+               Uint queryspeedup);
+
+#ifdef __cplusplus
+}
+#endif

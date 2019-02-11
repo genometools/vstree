@@ -1,0 +1,28 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint applymatchfun(Processmatch *processmatch,
+                   Multiseq *constvms,
+                   Multiseq *constqms,
+                   StoreMatch *storematch);
+
+Sint processfinal(void *info,Match *match);
+
+Sint iterapplymatchfun(Processmatch *processmatch,
+                       Multiseq *constvms,
+                       Multiseq *constqms,
+                       ArrayStoreMatch *matchtab);
+
+Sint showbestmatchlist(Multiseq *constvms,
+                       Multiseq *constqms,
+                       BestMatchlist *bestmatchlist,
+                       Uint outinfosortmode,
+                       Processmatch *processmatch,
+                       Showverbose showverbose);
+
+void storebestmatchlist(ArrayStoreMatch *matchbuffer,
+                        BestMatchlist *bestmatchlist);
+
+#ifdef __cplusplus
+}
+#endif

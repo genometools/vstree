@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint safecasttoSint(char *filename, Uint line, Uint value);
+
+Uint safecasttoUint(char *filename, Uint line, Sint value);
+
+#ifdef __cplusplus
+}
+#endif

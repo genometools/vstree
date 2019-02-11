@@ -1,0 +1,76 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint getredblacktreespacepeak(void);
+
+/*@null@*/ Keytype redblacktreesearch (const Keytype key,
+                                       BOOL *nodecreated,
+                                       void **vrootp,
+                                       Dictcomparefunction cmpfun,
+                                       void *cmpinfo);
+
+/*@null@*/ Keytype redblacktreefind (const Keytype key,
+                                     void **vrootp,
+                                     Dictcomparefunction cmpfun,
+                                     void *cmpinfo);
+
+Sint redblacktreedelete (const Keytype key,
+                         void **vrootp,
+                         Dictcomparefunction cmpfun,
+                         void *cmpinfo);
+
+Sint redblacktreewalk (void *vroot,
+                       Dictaction action,
+                       void *actinfo);
+
+Sint redblacktreewalkwithstop (void *vroot,
+                               Dictaction action,
+                               void *actinfo);
+
+Sint redblacktreewalkreverseorder (void *vroot,
+                                   Dictaction action,
+                                   void *actinfo);
+
+/*@null@*/ Keytype redblacktreeminimumkey (void *vroot);
+
+/*@null@*/ Keytype redblacktreemaximumkey (void *vroot);
+
+void treeshape (void *root,Uint level);
+
+/*@null@*/ Keytype redblacktreepreviouskey (const Keytype key,
+                                            void *vroot,
+                                            Dictcomparefunction cmpfun,
+                                            void *cmpinfo);
+
+/*@null@*/ Keytype redblacktreepreviousequalkey (const Keytype key,
+                                                 void *vroot,
+                                                 Dictcomparefunction cmpfun,
+                                                 void *cmpinfo);
+
+/*@null@*/ Keytype redblacktreenextkey (const Keytype key,
+                                        void *vroot,
+                                        Dictcomparefunction cmpfun,
+                                        void *cmpinfo);
+
+/*@null@*/ Keytype redblacktreenextequalkey (const Keytype key,
+                                             void *vroot,
+                                             Dictcomparefunction cmpfun,
+                                             void *cmpinfo);
+
+void redblacktreedestroy (BOOL dofreekey,
+                          Freekeyfunction freekey,
+                          void *freeinfo,
+                          void *vroot);
+
+/*@null@*/ Keytype extractrootkey (void *vroot);
+
+Sint redblacktreewalkrange (void *vroot,
+                            Dictaction action,
+                            void *actinfo,
+                            Comparewithkey greaterequalleft,
+                            Comparewithkey lowerequalright,
+                            void *cmpinfo);
+
+#ifdef __cplusplus
+}
+#endif

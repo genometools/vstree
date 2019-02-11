@@ -1,0 +1,17 @@
+mkvtree.x -pl -suf -bwt -lcp -tis -dna -db seqs4
+multimat.x -l 3 seqs4
+multimat.x -l 3 -s seqs4
+multimat.x -l 3 -s -showevalue seqs4
+multimat.x -l 1 -count seqs4
+multimat.x -l 3 -range 0 1 5 seqs4
+mkvtree.x -pl -suf -bwt -lcp -tis -dna -v -db ATsmall
+multimat.x -l 5 ATsmall
+multimat.x -s -l 5 -algorithm memset ATsmall
+multimat.x -s -l 7 -units Testdir/ATsmall.units ATsmall
+multimat.x -count -l 5 -units Testdir/ATsmall.units ATsmall
+multimat.x -unitol 0 -s -l 5 -units Testdir/ATsmall.units ATsmall
+mkrcidx.x -db seqs4 -v
+multimat.x -l 2 -p -s seqs4.rcm
+mkdna6idx.x -tis -ois -db seqs3 -smap TransProt11 -v
+multimat.x -l 15 -d -p -s seqs3.6fr
+multimat.x -l 5 ATsmall

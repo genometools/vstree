@@ -1,0 +1,171 @@
+From Sven.Rahmann@molgen.mpg.de Thu Mar  7 20:55:26 2002
+Return-Path: <Sven.Rahmann@molgen.mpg.de>
+Received: from harry.molgen.mpg.de (harry.molgen.mpg.de [141.14.16.6]) 	by gemma.TechFak.Uni-Bielefeld.DE (8.9.1/8.9.1/TechFak/pk+ro20010720) with ESMTP id VAA12403 	for <kurtz@TechFak.Uni-Bielefeld.DE>; Thu, 7 Mar 2002 21:55:25 +0100 (MET)
+Received: from localhost (rahmann@localhost) 	by harry.molgen.mpg.de (8.11.0/8.11.0) with ESMTP id g27KtLg21868 	for <kurtz@TechFak.Uni-Bielefeld.DE>; Thu, 7 Mar 2002 21:55:21 +0100 (MET)
+X-Authentication-Warning: harry.molgen.mpg.de: rahmann owned process doing -bs
+Date: Thu, 7 Mar 2002 21:55:21 +0100 (MET)
+From: Sven Rahmann <Sven.Rahmann@molgen.mpg.de>
+X-X-Sender:  <rahmann@harry.molgen.mpg.de>
+To: Stefan Kurtz <kurtz@TechFak.Uni-Bielefeld.DE>
+Subject: Comments Re: vdist.compaq.tar.gz
+In-Reply-To: <20020307013036.X24728@teak.TechFak.Uni-Bielefeld.DE>
+Message-ID: <Pine.OSF.4.31.0203072154480.18895-100000@harry.molgen.mpg.de>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Status: RO
+X-Status: A
+Content-Length: 5500
+Lines: 149
+
+
+Hallo Stefan,
+
+vielen Dank fuer Deine Mail.
+Zuerst muss ich nochmal sagen, dass ich das ganze Konzept der
+virtual suffix trees genial finde, insbesondere die Aufteilung des
+Index in mehrere Komponenten, die man je nach Bedarf benutzen kann.
+
+Ich arbeite noch an meinem Programm ;-). Das Problem ist auch nicht
+so sehr die Matches zu finden, sondern diese dann zu verarbeiten.
+Es geht im Endeffekt auch um mehr als die matching statistics.
+Dazu spaeter noch mehr.
+
+
+Ich habe das Manual gelesen und ein paar Kommentare:
+
+1
+Section 4 not mentioned
+we explaining -> We explain
+
+
+
+2.1
+option -smap: a :-separated list -> a list of ..., separated by colons (':')
+
+option -prefix: I find the name confusing, especially since there is
+also an option -pl (prefixlength) that has nothing to do with -prefix.
+So I think that -indexname is better.
+
+-cld, -iso: They are mentioned here, but not explained later
+
+The sentence "On the other hand, any of these input formats..." is
+redundant to me.
+
+4
+(plus some linear amount): linear in what?
+What do you mean by, the size of the output is 10 times the number of
+options?
+
+7.1
+option -qspeedup: Algorithm 0: three algorithm -> algorithms
+"Algorithm 2 requires n bytes more space than Algorithm 0." Does that
+mean, as much as Algorithm 1? What is the worst running time of Algorithm
+2 when that of Alg. 1 is O(m log n)?
+
+7.3
+symbol62 is probably a '>'
+
+8
+cluster -> clustered
+
+9
+I'm curious how, e.g. in the example run of atEST, the .lcp file
+can be created BEFORE the .suf file.
+
+9.5
+corresponingmatches -> two words
+
+Appendix B
+
+the symbol on the first line are -> symbols
+pairwise equivalent -> equivalent (pairwise is redundant)
+
+Appendix C
+
+- As a practical question: When you use stitab1 and encounter a value
+of 255, you don't know if you have an overflow, according to the
+description on p.36. Assume you have loaded only stitab1 into memory.
+Then I assume you need to look up stitab on disk if stitab[i]==255.
+Is this correct?
+
+- The definition of skptab seems wrong to me, but maybe I'm thinking
+of a different interpretation than you are. This is my version:
+If lcp(i)=d, then a d+1-interval (or more, a d+k-interval for k>=1, but in
+any case, that's also a d+1-interval) starts at i. Now I want to skip
+over that interval. So I'm looking for the next j where lcp(j)<=d, or
+maybe even <d if I want to skip the whole d-interval I was in at i.
+So the definition of skptab should read lcp(i)>lcp(j), not <.
+Otherwise, maybe you can explain to me what you intended with skptab.
+
+- isotab is not explained.
+I assume:
+  isotab[i] = [min {skptab[i]} u {j| i<j<=skptab[i] and lcp(j)=lcp(i)}] - i,
+i.e. the offset from i to the right where the lcp value is the same as at
+i before becoming ever smaller.
+But maybe I have the wrong intuition here?
+
+- What is cldtab?
+
+- In its current form, bcktab seems to waste a lot of space.
+In fact, compare the end of the bucket for word w: bcktab[k(w)].q
+Then the start of bucket for word w+1, bcktab[k(w)+1].p is 'almost'
+at the same position, except when there are some special words
+between the bucket boundaries, such as words with wildcards, with
+text separators, etc. But bcktab[k(w)].q could be encoded with only
+1 byte when interpreted as offset to the left of bcktab[k(w)+1].p
+
+
+
+A possible Extension (suffix links)
+-----------------------------------
+suffix link table (sultab): Suffix links for suffix arrays (SARs)
+are a map between intervals in the suffix array.
+
+An internal node of a suffix tree, corresponding to a string ax (a is
+a character, x a string), is represented in the suffix array as
+(l,r,d), where [l,r] is an interval in the SAR and d is the depth,
+i.e., the length of xa. Note that lcp(l)<d and lcp(r+1)<d [but
+lcp(l+1),...,lcp(r) all >= d].
+
+The suffix x of ax is likewise represented as (l',r',d-1).
+Now sultab must map [l,r] to [l',r'].
+
+Ideally we would like to have
+sultab[l]=l', but several intervals [l,R] with different R's
+of different depths may start at l.
+But we know that we can store l' either as suftab[l] or as suftab[r],
+according to what I leared in Bielefeld.
+
+Whenever we want to follow a link (l,r,d)->(l',r',d-1), we
+first try l'=suftab[l] and check if lcp(l')<d-1. If no, goto FAIL.
+Now we obtain r' via one of the other auxiliary tables, but I don't
+know their exact meaning from the manual. I suppose isotab of skptab
+or something like that will work. Then we check if lcp(r'+1)<d-1.
+If yes, then [l',r'] is correct, else goto FAIL.
+FAIL: At this point we know that l'=suftab[r].
+
+For matching statistcs, the use of sultab means that stitab(1) is
+no longer required.
+
+
+Another issue
+-------------
+
+The purpose of the WILDCARD characters is to eliminate insecure or
+false matches. However, for oligo selection, I have to consider
+a wildcard as a potential match to anything. In other words,
+the oligo ACCA does (potentially) match ANCA for its full length
+and is therefore a bad oligo.
+An option allowing WILDCARDs to match anything would be useful,
+although if there is a long string of wildcards, this will
+match anything and let the number of matches explode...
+
+
+--------------------------------------------------------------------
+Sven Rahmann
+MPI for Molecular Genetics, Computational Molecular Biology (Rm 332)
+Ihnestrasse 63-73,  D-14195 Berlin,  Germany
+Email:  Sven.Rahmann@molgen.mpg.de          Tel: ++49 (30) 8413-1173
+WWW:    http://www.molgen.mpg.de/~rahmann   Fax: ++49 (30) 8413-1152
+--------------------------------------------------------------------
+

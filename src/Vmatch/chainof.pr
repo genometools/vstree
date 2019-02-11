@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint openformatchaining(Chaincallinfo *chaincallinfo);
+
+#ifdef __cplusplus
+}
+#endif

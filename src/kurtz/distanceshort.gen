@@ -1,0 +1,55 @@
+
+static Uint EVALUATEDISTANCEOFSHORTSTRINGS(DPBITVECTOR *eqsspace,
+                                           Uint mapsize,
+                                           Uchar *useq,
+                                           Uint ulen,
+                                           Uchar *vseq,
+                                           Uint vlen)
+{
+  DPBITVECTOR Pv = (DPBITVECTOR) ~0, 
+              Mv = (DPBITVECTOR) 0, 
+              Eq, 
+              Xv, 
+              Xh,
+              Ph, 
+              Mh, 
+              Ebit = (DPBITVECTOR) (ONEDPBITVECTOR << (ulen-1));
+  Uint score = ulen;
+  Uchar *vptr;
+
+  if(ISLARGEPATTERN(ulen))
+  {
+    fprintf(stderr,"programming error: evaluatedistanceofshortstrings cannot "
+                   "handle ulen = %lu\n",(Showuint) ulen);
+    exit(EXIT_FAILURE);
+  }
+  GETEQS(eqsspace,mapsize,useq,ulen);
+  for(vptr = vseq; vptr < vseq + vlen; vptr++)
+  {
+    if(*vptr == SEPARATOR)
+    {
+      fprintf(stderr,"programming error: cannot align sequence "
+                     "containing separators\n");
+      exit(EXIT_FAILURE);
+    }
+    Eq = eqsspace[(Uint) *vptr];
+    Xv = Eq | Mv;
+    Xh = (((Eq & Pv) + Pv) ^ Pv) | Eq;
+
+    Ph = Mv | ~ (Xh | Pv);
+    Mh = Pv & Xh;
+
+    UPDATECOLUMNSCORE(score);
+
+    /* 
+       the original version of Myers included the statement
+       Ph <<= 1. As an effect, the first element of each column 
+       was 0. We add a 1 to the shifted Ph vector. As a consequence,
+       we obtain an increment by 1 in the first column.
+    */
+    Ph = (Ph << 1) | ONEDPBITVECTOR;
+    Pv = (Mh << 1) | ~ (Xv | Ph);
+    Mv = Ph & Xv;
+  }
+  return score;
+}

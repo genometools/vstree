@@ -1,0 +1,26 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void showtrie(Sint debuglevel,
+              const Trierep *trierep,
+              const Uchar *characters);
+
+void checktrie(Trierep *trierep,Uint numberofleaves);
+
+void showallnoderelations(const Trienode *node);
+
+void insertsuffixintotrie(Trierep *trierep,
+                          Trienode *node,
+                          Suffixinfo *suffixinfo);
+
+Trienode *findsmallestnodeintrie(const Trierep *trierep);
+
+void deletesmallestpath(Trienode *smallest,Trierep *trierep);
+
+void inittrienodetable(Trierep *trierep,Uint numofsuffixes,Uint numofindexes);
+
+void freetrierep(Trierep *trierep);
+
+#ifdef __cplusplus
+}
+#endif

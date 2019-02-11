@@ -1,0 +1,11 @@
+$ cat clout.3.1.match
+# args=-l 100 ychrIII.fna
+# id 7
+  280      0  83954   D   280      0  84469   0   7.41e-159    560   100.00
+# id 8
+  239      0  83954   D   239      0  90099   0   3.58e-134    478   100.00
+# id 12
+  286      0  84422   D   286      0  90052   0   1.81e-162    572   100.00
+# linked 8 and 12 with edit distance 47 (error rate 19.67%)
+# linked 7 and 12 with edit distance 88 (error rate 31.43%)
+# linked 7 and 8 with edit distance 41 (error rate 17.15%)

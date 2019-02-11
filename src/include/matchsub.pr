@@ -1,0 +1,66 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint matchquerysubstring0(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          /*@unused@*/ BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+Sint matchquerysubstring1(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          /*@unused@*/ BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+Sint matchquerysubstring2(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+Sint matchquerysubstring3(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          /*@unused@*/ BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+Sint matchquerysubstring4(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          /*@unused@*/ BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+Sint matchquerysubstring5(Virtualtree *virtualtree,
+                          Uint *mappower,
+                          Uint searchlength,
+                          Querymatchextendfunction extendleftright,
+                          /*@unused@*/ BOOL onlyleftmaximal,
+                          Uint qseqnum,
+                          Uchar *qsubstring,
+                          Uint qseqlen,
+                          void *substringinfo);
+
+#ifdef __cplusplus
+}
+#endif

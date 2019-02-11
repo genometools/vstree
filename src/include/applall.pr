@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint applyall(char *alpha,Uint textlen,void *info,
+              Sint (*apply)(Uchar *,Uint,void *));
+
+Sint applyallasize(Uint asize,Uint textlen,void *info,
+                   Sint (*apply)(Uchar *,Uint,void *));
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,20 @@
+$ mkvtree -pl -suf -bwt -lcp -tis -dna -db seqs4 -v
+reading file "seqs4"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 2,
+the recommended prefixlength is 1
+total length of sequences: 42 (including 3 separators)
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "seqs4.tis"
+create file "seqs4.des"
+create file "seqs4.sds"
+create file "seqs4.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 1
+sorting all buckets
+create file "seqs4.llv"
+create file "seqs4.suf"
+create file "seqs4.bwt"
+create file "seqs4.prj"
+create file "seqs4.al1"
+overall space peak: main=0.08 MB (1986.81 bytes/symbol), secondary=0.00 MB

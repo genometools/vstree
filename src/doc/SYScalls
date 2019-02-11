@@ -1,0 +1,15 @@
+malloc
+calloc
+realloc
+fopen
+fclose
+open
+creat
+close
+fstat
+mmap
+munmap
+fcntl
+shutdown
+unlink
+fsync

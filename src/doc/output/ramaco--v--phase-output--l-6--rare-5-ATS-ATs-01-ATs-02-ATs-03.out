@@ -1,0 +1,28 @@
+$ ramaco -v -phase output -l 6 -rare 5 ATS ATs-01 ATs-02 ATs-03
+# file=ATs-00 350 275
+# databaselength=274
+# alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+# ATS.tis read
+# ATS.suf read
+# ATS.lcp read
+# searchlength = 6
+# width0 = 5
+# width1 = 5
+# width2 = 5
+# width3 = 5
+# queryfile=ATs-01 of length 852
+# input match file for query ATs-01 and index ATS
+# queryfile=ATs-02 of length 719
+# input match file for query ATs-02 and index ATS
+# merge matches for queries ATs-01 and ATs-02
+# common intervals=15
+# queryfile=ATs-03 of length 746
+# input match file for query ATs-03 and index ATS
+# merge matches for query ATs-03 with previous matches
+# common intervals=2
+# output the matches
+6 250 338 583 292
+6 62 453 74 461
+6 62 453 74 2
+# number of rare MEMs is 3
+# overall space peak: main: 0.06 MB, secondary: 0.00 MB

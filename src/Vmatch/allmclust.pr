@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint genericmatchclustering(Matchclustercallinfo *matchclustercallinfo,
+                            Multiseq *outvms,
+                            Alphabet *outvmsalpha,
+                            Multiseq *outqms,
+                            ArrayStoreMatch *matchtab,
+                            char *mfargs);
+
+#ifdef __cplusplus
+}
+#endif

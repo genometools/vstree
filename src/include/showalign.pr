@@ -1,0 +1,123 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Eoptype determine_eop_type(Editoperation eop, BOOL proteineop);
+
+Uint determine_eop_length(Editoperation eop, BOOL proteineop);
+
+void showoneeditop(FILE *fp, Editoperation eop);
+
+void showonednaorproteineditop(FILE *fp, Editoperation eop, BOOL proteineop);
+
+void showeditopsgeneric(Editoperation *al, Uint lenalg, BOOL proteineops,
+                        BOOL xmlout, Uint indentlevel, GENFILE *outfp);
+
+void showeditops(Editoperation *al, Uint lenalg, FILE *outfp);
+
+void verifyxdropalignment(char *file,
+                          Uint line,
+                          Editoperation *al,
+                          Uint lenalg,
+                          Uint ulen,
+                          Uint vlen,
+                          Xdropscore mustscore);
+
+void verifyedistalignment(char *file,
+                          Uint line,
+                          Editoperation *al,
+                          Uint lenalg,
+                          Uint ulen,
+                          Uint vlen,
+                          Xdropscore mustscore);
+
+void reverseAlignment(Editoperation *alignment,Uint numofeditops);
+
+Uint fillthethreealignmentlines(Uchar **firstline,
+                                Uchar **secondline,
+                                Uchar **thirdline,
+                                Uint linewidth,
+                                Editoperation *alignment,
+                                Uint lenalg,
+                                ArrayShortintroninfo *shortintroninfo,
+                                Uint indelcount,
+                                Uchar *genseqorig,
+                                Uint genseqlen,
+                                Uchar *refseqorig,
+                                Uint refseqlen,
+                                Uint showintronmaxlen,
+                                Uint translationschemenumber);
+
+void showalignmentprotein(Uint flag,
+                          GENFILE *outfp,
+                          Uint linewidth,
+                          Editoperation *alignment,
+                          Uint lenalg,
+                          Uint indelcount,
+                          /*@unused@*/ Uchar *genseqcompare,
+                          Uchar *genseqorig,
+                          Uint genseqlen,
+                          /*@unused@*/ Uchar *refseqcompare,
+                          Uchar *refseqorig,
+                          Uint refseqlen,
+                          Uint startfirst,
+                          Uint startsecond,
+                          Uint totalulen,
+                          Uint showintronmaxlen,
+                          Alphabet *alpha,
+                          Uint translationschemenumber,
+                          Scorematrix *scorematrix,
+                          Alphabet *scorematrixalphabet);
+
+Uint fillthetwoalignmentlines(BOOL forward,
+                              Uchar **firstline,
+                              Uchar **secondline,
+                              Uchar *useq,
+                              Uint ulen,
+                              Uchar *vseq,
+                              Uint vlen,
+                              Editoperation *alignment,
+                              Uint lenalg,
+                              Uint linewidth,
+                              Uint showintronmaxlen,
+                              ArrayShortintroninfo *shortintroninfo,
+                              Uint indelcount);
+
+void showalignmentgeneric(Uint flag,
+                          GENFILE *outfp,
+                          Uint linewidth,
+                          Editoperation *alignment,
+                          Uint lenalg,
+                          Uint indelcount,
+                          Uchar *useqcompare,
+                          Uchar *useqorig,
+                          Uint ulen,
+                          Uchar *vseqcompare,
+                          Uchar *vseqorig,
+                          Uint vlen,
+                          Uint startfirst,
+                          Uint startsecond,
+                          Uint totalulen,
+                          Uint totalvlen,
+                          Uint showintronmaxlen,
+                          Alphabet *alpha);
+
+void showalignment(Uint flag,
+                   FILE *outfp,
+                   Uint linewidth,
+                   Editoperation *alignment,
+                   Uint lenalg,
+                   Uint indelcount,
+                   Uchar *useqcompare,
+                   Uchar *useqorig,
+                   Uint ulen,
+                   Uchar *vseqcompare,
+                   Uchar *vseqorig,
+                   Uint vlen,
+                   Uint startfirst,
+                   Uint startsecond);
+
+void fancyformatting(Fancydisplay *fancydisplay,Uchar *alignment,Uint len);
+
+#ifdef __cplusplus
+}
+#endif

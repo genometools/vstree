@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint vmatchchaining(char *argumentline,
+                    Outinfo *outinfo,
+                    StoreMatch *allstorematchtab,
+                    Uint allnumofmatches,
+                    Uint numofsequences1,
+                    Chaincallinfo *chaincallinfo,
+                    Processmatch *finalprocessthread);
+
+#ifdef __cplusplus
+}
+#endif

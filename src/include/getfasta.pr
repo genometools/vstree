@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint getfasta(Uchar *seq, Uint seqlen, Uchar *newseq, Uint *newseqlen);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,22 @@
+$ vmatch -complete -d -p -q ORFs -s -showdesc 10 atEST
+# args=-complete -d -p -q ORFs -s -showdesc 10 atEST
+   10   gi|2764223    272   D    10   orf1  0   0    4.14e-01     20   100.00
+Sbjct: CTCTTCCAGT                                                           282
+Query: CTCTTCCAGT                                                            10
+
+
+   10   gi|4714046     26   D    10   orf1  0   0    4.14e-01     20   100.00
+Sbjct: GTCTAGGTTT                                                            36
+Query: GTCTAGGTTT                                                            10
+
+
+   10   gi|4714003     10   D    10   orf1  0   0    4.14e-01     20   100.00
+Sbjct: GTCTAGGTTT                                                            20
+Query: GTCTAGGTTT                                                            10
+
+
+   10   gi|3449668    225   P    10   orf1  0   0    4.14e-01     20   100.00
+Sbjct: AAACCTAGAC                                                           235
+Query: AAACCTAGAC                                                            10
+
+

@@ -1,0 +1,22 @@
+$ mkvtree -db EcoliO157H7 -v -pl -sti1 -bwt -dna -bck -suf -lcp -tis -ois -skp
+reading file "EcoliO157H7"
+maximal value for argument of option -pl is 10, recommended value is 9
+total length of sequences: 5471376
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "EcoliO157H7.tis"
+create file "EcoliO157H7.ois"
+create file "EcoliO157H7.des"
+create file "EcoliO157H7.sds"
+create file "EcoliO157H7.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+create file "EcoliO157H7.llv"
+create file "EcoliO157H7.bck"
+create file "EcoliO157H7.suf"
+create file "EcoliO157H7.sti1"
+create file "EcoliO157H7.bwt"
+create file "EcoliO157H7.prj"
+create file "EcoliO157H7.al1"
+create file "EcoliO157H7.skp"
+overall space peak: main=32.46 MB (6.22 bytes/symbol), secondary=10.50 MB

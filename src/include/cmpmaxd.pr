@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint cmpmaxdistgeneric(DPbitvector4 *Eqs4,Uint ulen,
+                       Uchar *vseq,Uint vlen,Uint maxdist);
+
+Uint distboundarycases(BOOL *isboundcase,
+                       Uchar *useq,Uint ulen,Uchar *vseq,Uint vlen);
+
+Uint cmpmaxdist(Uint mapsize,Uchar *useq,Uint ulen,
+                Uchar *vseq,Uint vlen,Uint maxdist);
+
+#ifdef __cplusplus
+}
+#endif

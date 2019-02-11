@@ -1,0 +1,22 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint initMatchstate(Matchstate *matchstate,
+                    Virtualtree *virtualtree,
+                    void *voidqueryinfo,
+                    Matchparam *matchparam,
+                    Bestflag bestflag,
+                    Uint shownoevalue,
+                    Uint showselfpalindromic,
+                    SelectBundle *selectbundle,
+                    Uint onlinequerynumoffset,
+                    void *procmultiseq,
+                    Currentdirection currentdirection,
+                    BOOL revmposorder,
+                    Processfinalfunction processfinalparam,
+                    Evalues *evalues,
+                    BOOL domatchbuffering);
+
+#ifdef __cplusplus
+}
+#endif

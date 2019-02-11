@@ -1,0 +1,253 @@
+\documentclass[12pt]{article}
+\usepackage{url,a4wide,xspace}
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+
+\usepackage{verbatim}
+\usepackage{skaff}
+\usepackage{prognames}
+\usepackage{optionman}
+\newcommand{\Size}[1]{|#1|}
+\newcommand{\Ignore}[1]{}
+\newcommand{\EXECUTE}[1]{}
+
+\author{Stefan Kurtz\thanks{\SKaffiliation}}
+
+\title{\textbf{Chaining pairwise matches}\\
+       \textbf{using the program chain2dim}\\[2mm]
+       \textbf{Manual}}
+\begin{document}
+\maketitle
+\section{Introduction}
+The following paper gives an in-depth introduction to the
+problem of chaining matches between two or more sequences.  It
+also reports on different applications motivating the algorithms.
+The global and local chaining algorithms implemented in our program
+\CH are also described there.
+
+\begin{quote}
+Chaining Algorithms and Applications to Comparative Genomics.
+\emph{Enno Ohlebusch} \& \emph{Mohamed I.\ Abouelhoda}. Accepted for
+publication.
+\end{quote}
+
+\section{The program \CH and its options}
+
+\CH finds different kinds of chains in a given set of matches,
+namely:
+\begin{itemize}
+\item
+global chains without gap costs
+\item
+global chains with gap costs
+\item
+local chains 
+\end{itemize}
+
+The program is called as follows:
+\par
+\noindent\CH [\emph{options}] \emph{matchfile}
+\par
+And here is a description of the options:
+\par
+\begin{list}{}{}
+
+\Option{global}{$\lbrack$\Showoptionkey{gc}$\mid$\Showoptionkey{ov}$\rbrack$}{
+Compute global chains. 
+If the additional argument \Showoptionkey{gc} is
+used, then global chains with gap costs according to the
+$L_{1}$-model are computed. 
+If the additional argument \Showoptionkey{ov} is
+used, then global chains with overlaps are computed.
+}
+
+\Option{local}{$\lbrack$\Showoptionarg{lspec}$\rbrack$}{
+Compute local chains with gaps costs according to the
+$L_{1}$-model. If there is no optional argument, then
+compute all local chains with a maximum score among all
+local chains. If there is an optional argument \Showoptionarg{lspec}, 
+this is allowed to have three different forms:
+\begin{itemize}
+\item
+If \Showoptionarg{lspec} is a positive integer, then this 
+is a minimum score. All local chains whose score is larger than or
+equal to the minimum score are reported.
+\item
+If \Showoptionarg{lspec} is a positive integer, say \(k\), directly followed
+by the character \texttt{b}, then \(k\) specifies the number
+of best (i.e.\ largest) scores for which local chains are reported. 
+Suppose that \(S\) is the set of all different scores of local chains. If 
+\(\Size{S}\leq k\), then let \(S_{k}=S\). If 
+\(\Size{S}>k\), then let \(S_{k}\) be the subset of \(S\) consisting of
+the \(k\) largest scores in \(S\). Then all local chains which have a score
+\(s\in S_{k}\) are reported.
+\item
+If \Showoptionarg{lspec} is a positive integer smaller or equal to 100, say 
+\(q\), directly followed by the character \texttt{p}, then \(q\) 
+specifies the percentage below the 
+maximum score. Let \(m\) be the maximum score. Then all local chains
+with score larger than or equal to 
+\(m\cdot (1-\left\lfloor\frac{q}{100}\right\rfloor)\) are reported.
+\end{itemize}
+}
+
+\Option{wf}{\Showoptionarg{weightfactor}}{
+Specify a positive floating point value \Showoptionarg{weightfactor}
+by which the weight of each match is multiplied when computing the score of
+a chain. This option requires either option \Showoption{local} or option
+\Showoption{global}~\Showoptionkey{gc}. The default 
+\Showoptionarg{weightfactor} is 1.0.
+The weight factor is important to influence
+the weight of matches relative to the gap costs in local chains. 
+The smaller the weight factor, the smaller the gaps between 
+neighboring matches in a local chain. That is, if you only want to
+see chains where the gaps between the matches are small, then
+specify a small \Showoptionarg{weightfactor} smaller than 1.0. 
+If you also want to see chains where the gaps between the matches are 
+long, then specify a large \Showoptionarg{weightfactor}.
+}
+
+\Option{maxgap}{\Showoptionarg{mg}}{
+Specify the maximal width \Showoptionarg{mg} of a gap between two 
+consecutive fragments of a chain. For example, if the first fragment
+ends at position $q_{1}$ and the second starts at position $q_{2}>q_{1}$, 
+then the gap size $q_{2}-q_{1}-1$ must be at least \Showoptionarg{mg}. 
+This constraint must hold in both dimensions.}
+
+\Option{outprefix}{\Showoptionarg{prefix}}{
+Specify that each chain is output into a seperate file whose name starts
+with \Showoptionarg{prefix}. In particular, the $i$th chain 
+(counting from 0) is output into a file
+\Showoptionarg{filename}-$i$\texttt{.chain}
+}
+
+\Option{silent}{~}{
+Only report the length and the score of chains, but not the chains
+themselves.
+}
+
+\Option{v}{~}{
+Be verbose, that is, report about the different steps of the 
+computation as well as the resource requirements of the computation.
+}
+
+\Option{version}{}{
+Show the version of the Vmatch version, the program is part of. 
+Also report the compilation date and the compilation options.
+}
+
+\Option{help}{}{
+Show a summary of all options and terminate.
+}
+
+\end{list}
+
+Either option \Showoption{global} or \Showoption{local}
+must be used.
+
+\section{Input and output format}
+The matchfile specifies matches line by line.
+Two formats are allowed to specify matches, namely \textit{Vmatch}-format
+and \emph{simple} format. Both formats allow comment lines beginning with
+the character \texttt{\symbol{35}}. All lines which are not comment
+lines are match lines.
+\begin{itemize}
+\item
+The \textit{Vmatch}-format is produced by the program \VM.
+The first comment line is mandatory.  Each match line
+reports a match by its length and the start position in the first 
+and the second sequence. Among other values,
+the weight of the match is given. For a detailed description of
+the \textit{Vmatch}-format, see the corresponding manual pages.
+\item
+Each match line in the simple format reports a match by four or 
+five integers. The integers are separated by white spaces. 
+The first two integers give the start position and the end
+position of the match in the first sequence. 
+The third and the fourth integers give the start and the end
+position of the match in the second sequence. The optional fifth
+integer in the line specifies the weight. Let \(l_{1}\) be the 
+length of the match in the first sequence and \(l_{2}\) be the
+length of the match in the second sequence. If the fifth integer in the
+line is missing, then the weight is 
+\(2\cdot\min\{l_{1},l_{2}\}-\Size{l_{1}-l_{2}}\).
+This is the largest score which can be achieved when aligning two
+sequences of length \(l_{1}\) and \(l_{2}\), where each pair of
+matching characters in the alignment is scoring 2, each mismatch is scoring
+-2, and each indel is scoring $-1$.
+\end{itemize}
+All match line in a matchfile must be in the same format.
+The matches a chain consists of, are reported in the same format as the
+format used in the matchfile.
+\section{Examples}
+
+Consider a matchfile \texttt{ecolicmp.vm} in \textit{Vmatch}-format, reporting
+14 matches between the \emph{E.coli} K12 genome and the 
+\emph{Ecoli~O157:H7} genome.
+
+\EXECUTE{cat ecolicmp.vm}
+
+The first program call (following the prompt \texttt{\symbol{36}})
+delivers the highest scoring global chain of length 12 with score 3514.
+
+\EXECUTE{chain2dim -global ecolicmp.vm}
+
+Note that only two matches (where the second instances of the match
+are at large positions) are missing in the global chain. The matches 
+making up the chain are reported in order of their start positions. 
+Because it is a chain, this is consistent in both sequences. Note that 
+the original comment line
+from the matchfile is echoed in the output. This allows to use the 
+output file for the program \textit{Genalyzer} or other programs
+from the \textit{Vmatch}-software suite.
+
+Now suppose we have the original input in simple format file 
+\texttt{ecolicmp.of}:
+
+\EXECUTE{cat ecolicmp.of}
+
+The following program call
+delivers the same chain as above, but with a different score, due to
+the additional gap penalties (switched on by the argument \Showoptionkey{gc}
+for option \Showoption{global}. Because, we use option 
+\Showoption{silent}, the chain is not reported:
+
+\EXECUTE{chain2dim -silent -global gc ecolicmp.of}
+
+Now lets turn to local chains. The simplest call reports the optimal
+local chain:
+
+\EXECUTE{chain2dim -local ecolicmp.of}
+
+Using a weight factor 1.8, the optimal local chain extends 
+to the left by three matches:
+
+\EXECUTE{chain2dim -wf 1.8 -local ecolicmp.of}
+
+Using a weight factor 0.5, the last match is separated from
+the optimal local chain which was computed with the default weight factor 1.0:
+
+\EXECUTE{chain2dim -wf 0.5 -local ecolicmp.of}
+
+Alternatively, we can specify a maximum gap value to cut chains. For example
+the following only outputs a chain with maximum gap 20. As a consequence
+the last fragment \texttt{4201 4334 4218 4351 268} which has distance
+100 to the previous fragment.
+
+\EXECUTE{chain2dim -local -maxgap 20 ecolicmp.of}
+
+To obtain different local chains with some minimum score we add an
+extra argument to the option \Showoption{local}. For example, to obtain
+the chains with the two largest scores, we use the argument \texttt{2b}.
+In addition we use option \Showoption{v}, which reports the 
+different steps of the computation.
+
+\EXECUTE{chain2dim -local 2b -v ecolicmp.of}
+
+The same chains are computed if we use the arguments \texttt{440} or 
+\texttt{55p} to the option \Showoption{local}.
+
+\EXECUTE{chain2dim -local 55p -silent ecolicmp.of}
+
+\end{document}

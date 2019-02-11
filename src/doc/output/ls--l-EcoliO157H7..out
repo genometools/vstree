@@ -1,0 +1,13 @@
+$ ls -l EcoliO157H7.*
+-rw-r-----  1 kurtz gistaff       37 2005-02-01 23:18 EcoliO157H7.al1
+-rw-r-----  1 kurtz gistaff  2097152 2005-02-01 23:18 EcoliO157H7.bck
+-rw-r-----  1 kurtz gistaff  5471381 2005-02-01 23:18 EcoliO157H7.bwt
+-rw-r-----  1 kurtz gistaff       30 2005-02-01 23:18 EcoliO157H7.des
+-rw-r-----  1 kurtz gistaff  5471377 2005-02-01 23:18 EcoliO157H7.lcp
+-rw-r-----  1 kurtz gistaff  1031440 2005-02-01 23:18 EcoliO157H7.llv
+-rw-r-----  1 kurtz gistaff  5471376 2005-02-01 23:18 EcoliO157H7.ois
+-rw-r-----  1 kurtz gistaff      186 2005-02-01 23:18 EcoliO157H7.prj
+-rw-r-----  1 kurtz gistaff        8 2005-02-01 23:18 EcoliO157H7.sds
+-rw-r-----  1 kurtz gistaff  5471377 2005-02-01 23:18 EcoliO157H7.sti1
+-rw-r-----  1 kurtz gistaff 21885508 2005-02-01 23:18 EcoliO157H7.suf
+-rw-r-----  1 kurtz gistaff  5471376 2005-02-01 23:18 EcoliO157H7.tis

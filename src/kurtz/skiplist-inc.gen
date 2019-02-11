@@ -1,0 +1,79 @@
+/* skiplist.inc.c
+   This file contains the generic code for several functions of the type
+   'skiplistexternalfingernextequalkey' from the skiplist data structure. 
+   This file is included by the main code file 'skiplist.c'. By defining 
+   different values for the macro 'INTERNALKEYCOMPARE' before the include
+   statement, different precompiled specializations of the same function are
+   created.
+*/
+
+/* begin of function */
+
+    Skipnode ***update;
+    Sint cmp_result = 0;
+    Sint i;
+    Uint max_level;
+
+    /* check input parameters */
+    if(skiplist == NULL)
+    {
+      ERROR0("Could not find nextequalkey in skiplist. List handle is NULL.\n");
+      return NULL;
+    }
+    if(skiplist->headpointers == NULL)
+    {
+      ERROR0("Could not find nextequalkey in skiplist. Headpointers is NULL.\n");
+      return NULL;
+    }
+    if(finger == NULL)
+    {
+      ERROR0("Could not find nextequalkey in skiplist. External finger is NULL.\n");
+      return NULL;
+    }
+    if(key == NULL)
+    {
+      ERROR0("Could not find nextequalkey in skiplist. Key is NULL.\n");
+      return NULL;
+    }
+/*
+    if(cmpfun == NULL)
+    {
+      ERROR0("Could not find nextequalkey in skiplist. Compfun is NULL.\n");
+      return NULL;
+    }
+*/
+    update = finger; 
+    max_level = skiplist->maxnodelevel;
+
+    /* check whether end of list is already reached */
+    if(*update[0] == NULL) return NULL;
+
+    i = (Sint) max_level - 1;
+    for(;;) {
+
+	/* Ignore NULL pointers at the top of the forward pointer array. */
+	while(*update[i] == NULL) {
+	    i--;
+            if(i < 0) goto end_find_loop;
+	}
+
+	/* Don't traverse toward nodes which are not smaller than the
+	 * item being searched for.
+	 */
+        while((cmp_result = INTERNALKEYCOMPARE((*update[i])->key, key)) >= 0) {
+	    i--;
+	    if(i < 0) goto end_find_loop;
+	}
+
+	update[i] = &((*update[i])->forward[i]);
+    }
+  end_find_loop:
+    
+    /* If end is reached, no next item exists. */
+    if(*update[0] == NULL) return NULL; // no next key found
+
+    /* Otherwise the item found must be greater of equal than the query */
+    skiplist->currentelement = *update[0]; // update currentelement
+    return (*update[0])->key; 
+
+/* end of function */

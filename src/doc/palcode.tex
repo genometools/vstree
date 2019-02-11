@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide}
+\begin{document}
+Suppse a string \(u\) of length \(q\) over alphabet \(\Sigma=\{0,1,2,3\}\) and 
+define \(wcc:\Sigma\to\Sigma\) by \(wcc(i)=3-i\). If we interpret
+\(0\) by \(A\), \(1\) by \(C\), \(2\) by \(G\), and \(3\) by \(T\),
+then \(wcc\) is the Watson-Crick-complement. We define the integer \(code(u)\)
+by
+\[code(u):=\sum_{i=0}^{q-1}4^{q-1-i}u_{i}\]
+In other words, the first character is the most significant, and the last
+charcter is the least significant.
+Note that \(code(u)\leq code(u')\) if and only if \(u\) is 
+lexicographically smaller or equal to \(u'\). Now let
+
+Now consider the sequence \(w_{0},w_{1},\ldots w_{4^{q}-1}\) of all strings
+over \(\Sigma\) of length \(q\) in lexicographic order. Then 
+\(code(w_{i})=i\), i.e.\
+\[code(w_{0}),code(w_{1}),\ldots code(w_{4^{q}-1})\]
+is the sequence of integers \(0,1,\ldots,4^{q}-1\).
+
+Now define \(wcc(u)=wcc(u_{q-1})wcc(u_{q-2})\ldots wcc(u_{1})wcc(u_{0})\)
+to be the Watson-Crick complement of \(u\). Now what is the following sequence
+\begin{equation}
+code(wcc(w_{0})),code(wcc(w_{1})),\ldots code(wcc(w_{4^{q}-1}))\label{WCCcodeseq}
+\end{equation}
+
+We obtain
+\begin{eqnarray*}
+code(wcc(u))&=&\sum_{i=0}^{q-1}4^{q-1-i}wcc(u_{q-1-i})\\
+            &=&\sum_{i=0}^{q-1}4^{q-1-i}(3-u_{q-1-i})\\
+            &=&\sum_{i=0}^{q-1}4^{i}(3-u_{i})\\
+            &=&\sum_{i=0}^{q-1}(3\cdot 4^{i}-4^{i}\cdot u_{i})\\
+            &=&\sum_{i=0}^{q-1}3\cdot 4^{i}-\sum_{i=0}^{q-1}4^{i}\cdot u_{i}\\
+            &=&4^{q}-1-\sum_{i=0}^{q-1}4^{i}\cdot u_{i}
+\end{eqnarray*}
+In \(\sum_{i=0}^{q-1}4^{i}\cdot u_{i}\) the first character 
+has the smallest weight, while the last character has the highest weight. 
+Given this result it is easy to compute the sequence \ref{WCCcodeseq} in
+\(O(4^{q})\) time. Then idea is to simulate the addition operation on 
+the bit representation of the code, but take the bits in reverse order.
+\end{document}

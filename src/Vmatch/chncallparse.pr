@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parselocalchainingparameter(Chainmode *chainmode,
+                                 const char *option,
+                                 const char *lparam);
+
+Sint parsechain2dim(BOOL fromvmatch,
+                    Chaincallinfo *chaincallinfo,
+                    const char * const*argv,
+                    Argctype argc);
+
+#ifdef __cplusplus
+}
+#endif

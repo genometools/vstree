@@ -1,0 +1,116 @@
+\MKDNASIX is very similar to \MKV. While \MKV can handle sequences
+over arbitrary alphabets, \MKDNASIX requires DNA-sequences as input.
+It generates two indices, namely:
+\begin{itemize}
+\item
+A flat index \emph{indexname} for the the given DNA sequences.
+It mainly consists of the two files 
+\(\Indexfile{tis}\) and \(\Indexfile{ois}\). This index
+is mainly used for output purpose.
+\item
+An index \emph{indexname.6fr} for the given DNA sequences
+translated in all six reading frames. This is used for
+computing the matches.
+\end{itemize}
+These two indices allow \VM to compute matches on the protein level.
+
+\begin{Showprogramwithoptionswithoutindex}{\MKDNASIX}{}
+
+\Option{db}{\Showoptionarg{dbfiles}}{
+Specify a non empty list of database files separated by white spaces.
+Each database file contains sequences in one of the following formats:
+Fasta, Genbank, EMBL, and SWISSPROT. The user does not have to 
+specify the input format. However, the format of all files has to 
+be identical. The sequence must consist of characters over the alphabet
+\texttt{a}, \texttt{c}, \texttt{g}, \texttt{t}, or \texttt{u} (in
+lower or upper case), or wildcards
+\texttt{n}, \texttt{s}, \texttt{y}, \texttt{w}, \texttt{r}, \texttt{k},
+\texttt{v}, \texttt{b}, \texttt{d}, \texttt{h}, \texttt{m}. 
+White spaces in the input files are ignored. This option is mandatory.
+This option is identical with the same option 
+of the program \MKV.
+}
+
+\Option{smap}{\Showoptionarg{mapfile}}{
+Specify the file storing the symbol mapping applied
+to the amino acid symbols after the six frame translation.
+\index{symbol mapping}
+If the given \Showoptionarg{mapfile} cannot be found in the directory where
+\MKV is run, then all directories specified by the environment variable
+\Environmentvariable{MKVTREESMAPDIR}
+are searched. If defined correctly, this contains a
+list of directory paths separated by colons (\texttt{`:'}). For example, 
+if one uses the \Programname{csh} or the \Programname{tcsh}, 
+the definition of the environment-variable could look like this:
+
+\begin{LargeOutput}
+setenv MKVTREESMAPDIR \SY{34}\$HOME/vstree:/usr/vstree/TRANS\SY{34}
+\end{LargeOutput}
+
+For the \Programname{bash} or the \Programname{sh} the 
+definition could look like
+
+\begin{LargeOutput}
+MKVTREESMAPDIR=\SY{34}\$HOME/vstree:/usr/vstree/TRANS\SY{34}
+
+export MKVTREESMAPDIR
+\end{LargeOutput}
+
+Then, if \Showoptionarg{mapfile} is not available in the current directory, 
+\MKV searches for \Showoptionarg{mapfile} in the two given directories. It
+scans the directory-list from left to right. As soon as it has found the file
+it stops. If the file cannot be found, an error message is reported and
+the program exits with \index{error code} error code 1. 
+\AboutMkdnasixcmd{See the manual of the program Vmatch
+(\url{http://www.vmatch.de})}
+\AboutVmatchcmd{See Appendix \ref{Symbolmap}}
+for a more detailed explanation of the format of the symbol mapping file.
+}
+
+\Option{transnum}{\Showoptionarg{$t$}}{
+Specify the number of the codon translation table used for
+the six frame translation. $t$ must be a number in the range \([1,23]\) except
+for 7, 8, 17, 18, 19 and 20. Table \ref{Codontranstables} gives the possible numbers
+and their names. The codon translation tables, their numbers, and their
+names were taken from \url{ftp://ftp.ncbi.nih.gov/entrez/misc/data/gc.prt}.
+If this option is not used, then the standard codon translation
+table (number 1) is used.
+}
+
+\Option{indexname}{\Showoptionarg{filepath}}{
+Specify \Showoptionarg{filepath} to be the name of the index, later referred
+to by \emph{indexname}. This option is mandatory, if more than one database 
+file is given and if additionally at least one file comprising the 
+index is stored (i.e.\ if any of the output options is used). If no 
+file from the index is stored, then this option is not allowed. 
+If there is only one database file, and this option is not given, then 
+\emph{indexname} is the basename of the given \Showoptionarg{filepath},
+i.e.\ the filename stripped by the directory path where it is stored. 
+The \Showoptionarg{filepath} can be a complete path.
+}
+
+\Option{tis}{}{
+Store the table \(\TIS\) in file \(\Indexfilesixfr{tis}\).
+}
+
+\Option{ois}{}{
+Store the table \(\OIS\) in file \(\Indexfilesixfr{ois}\).
+}
+
+\Option{v}{~~~}{%
+Be verbose, that is, give reports about the different steps as well as the
+resource requirements of the computation. This option is recommended.
+}
+
+\Option{version}{~~~}{
+Show the version of the program.
+Also report the compilation date and the compilation options.
+}
+
+\Option{help}{~~~}{
+Show a summary of all options and terminate.
+}
+
+\end{Showprogramwithoptionswithoutindex}
+
+\input{codontrans}

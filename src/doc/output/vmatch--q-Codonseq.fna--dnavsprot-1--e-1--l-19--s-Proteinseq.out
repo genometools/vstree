@@ -1,0 +1,13 @@
+$ vmatch -q Codonseq.fna -dnavsprot 1 -e 1 -l 19 -s Proteinseq
+# args=-q Codonseq.fna -dnavsprot 1 -e 1 -l 19 -s Proteinseq
+28    1  15   F 84    0  0   0    2.71e-84 112   100.00
+Sbjct: YFNNIVKRLRQTNMVVFNNYYLHSKRLR                                          43
+Query: YFNNIVKRLRQTNMVVFNNYYLHSKRLR                                          28
+
+
+27    0  16   F 84    0  0   1    9.03e-81 108    98.81
+Sbjct: YFNNIVKR-RQTNMFILNNYYFHSKRIR                                          43
+               !     ===    =    = 
+Query: YFNNIVKRLRQTNMVVFNNYYLHSKRLR                                          28
+
+

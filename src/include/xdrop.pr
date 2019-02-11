@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void evalhammingxdropright(Xdropbest *bestmatch,Uchar *useq,Sint ulen,
+                           Uchar *vseq,Sint vlen,
+                           Xdropscore xdropbelowscore);
+
+BOOL evalhammingxdropleft(Xdropbest *bestmatch,
+                          Uchar *useq,Sint ulen,
+                          Uchar *vseq,Sint vlen,
+                          Xdropscore xdropbelowscore,
+                          Sint reachlength);
+
+#ifdef __cplusplus
+}
+#endif

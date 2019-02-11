@@ -1,0 +1,6 @@
+%[-+'#0 ]?[0-9*]*[diouxX]
+UINT_MAX
+INT_MAX
+UINT_MIN
+INT_MIN
+\<int\>

@@ -1,0 +1,213 @@
+
+
+/* 
+  This program can be optimized by dividing the loop of p
+  into a first phase with with r <= 0 and a second phase with 
+  r > 0. In the first phase, r is not important and several tests can be 
+  simplified.
+*/
+
+/*
+  A structure to store the global values.
+*/
+
+typedef struct
+{
+  Uchar *useq, 
+        *vseq,
+        *ubound, 
+        *vbound;
+  Sint ulen, 
+       vlen, 
+       integermin;
+  Frontvalue *frontspace;
+} FrontResource;
+
+#ifdef DEBUG
+static void showfront(FrontResource *gl,Frontspec *fspec,Sint r)
+{
+  Frontvalue *fval;
+  Sint k;
+
+  for(fval = gl->frontspace + fspec->offset, k=fspec->left; 
+      k < fspec->left + fspec->width; k++, fval++)
+  {
+    if(r <= 0 || k <= -r || k >= r)
+    {
+      printf("(k=%ld)%ld ",(Showsint) k,(Showsint) ROWVALUE(fval));
+      SHOWDIRECTION(fval);
+    } else
+    {
+      printf("(k=%ld)undef ",(Showsint) k);
+    }
+  }
+  (void) putchar('\n');
+}
+#endif
+
+static void frontspecparms(FrontResource *gl,Frontspec *fspec,Sint p,Sint r)
+{
+  if(r <= 0)
+  {
+    fspec->left = -p;
+    fspec->width = p + p + 1;
+  } else
+  {
+    fspec->left = MAX(-gl->ulen,-p);
+    fspec->width = MIN(gl->vlen,p) - fspec->left + 1;
+  }
+  DEBUG4(3,"p=%ld,offset=%ld,left=%ld,width=%ld\n",(Showsint) p,
+                                                   (Showsint) fspec->offset,
+                                                   (Showsint) fspec->left,
+                                                   (Showsint) fspec->width);
+}
+
+static Sint accessfront(FrontResource *gl,Frontvalue *fval,Frontspec *fspec,Sint k)
+{
+  if(fspec->left <= k && k < fspec->left + fspec->width)
+  {
+    return ROWVALUE(fval+k);
+  }
+  return MINUSINFINITYFRONT(gl);
+}
+
+/*
+  The following function evaluates an entry \(front(k,p)\) in a 
+  forward direction.
+*/
+
+static void evalentryforward(FrontResource *gl,
+                             Frontvalue *fval,
+                             Frontspec *fspec,
+                             Sint k)
+{
+  Sint value, t;
+  Uchar *uptr, *vptr, a, b;
+  Frontvalue *fptr;
+
+  DEBUG1(3,"evalentryforward(k=%ld)\n",(Showsint) k);
+  fptr = gl->frontspace + fspec->offset - fspec->left;
+  t = accessfront(gl,fptr,fspec,k) + 1;         // same diagonal
+  SETDIRECTION(fval,REPLACEMENTBIT);
+  DEBUG2(3,"same: access(k=%ld)=%ld\n",(Showsint) k,(Showsint) (t-1));
+
+  value = accessfront(gl,fptr,fspec,k-1);       // diagonal below
+  DEBUG2(3,"below: access(k=%ld)=%ld\n",(Showsint) (k-1),(Showsint) value);
+  if(t < value)
+  {
+    t = value;
+    SETDIRECTION(fval,INSERTIONBIT);
+  }
+  value = accessfront(gl,fptr,fspec,k+1) + 1;     // diagonal above
+  DEBUG2(3,"above: access(k=%ld)=%ld\n",(Showsint) (k+1),
+                                        (Showsint) (value-1));
+  if(t < value)
+  {
+    t = value;
+    SETDIRECTION(fval,DELETIONBIT);
+  }
+
+  DEBUG1(3,"maximum: t=%ld\n",(Showsint) t);   // the maximum over three values
+  if(t < 0 || t+k < 0)             // no negative value
+  {
+    STOREFRONT(gl,ROWVALUE(fval),MINUSINFINITYFRONT(gl));
+  } else
+  {
+    uptr = gl->useq + t;
+    vptr = gl->vseq + t + k;
+    if(gl->ulen != 0 && gl->vlen != 0)  // only for nonempty strings
+    {
+      if(uptr == vptr)    // strings are equal
+      {
+        t = gl->ulen-1;
+      } else
+      {
+        for(/* Nothing */; uptr < gl->ubound && vptr < gl->vbound;
+            uptr++, vptr++)
+        {
+          a = *uptr;
+          b = *vptr;
+          COMPARESYMBOLS(a,b);
+        }
+        t = (Sint) (uptr - gl->useq);
+      }
+    }
+    if(gl->useq + t > gl->ubound || gl->vseq + t + k > gl->vbound)
+    {
+      STOREFRONT(gl,ROWVALUE(fval),MINUSINFINITYFRONT(gl));
+    } else
+    {
+      STOREFRONT(gl,ROWVALUE(fval),t);
+    }
+  }
+}
+
+/* 
+  The following function evaluates a front in forward direction.
+  It returns True if any of the returned values is at least 0.
+*/
+
+static BOOL evalfrontforward(FrontResource *gl,
+                             Frontspec *prevfspec,
+                             Frontspec *fspec,
+                             Sint r)
+{
+  Sint k;
+  BOOL defined = False; 
+  Frontvalue *fval;
+
+  for(fval = gl->frontspace + fspec->offset, k = fspec->left; 
+      k < fspec->left + fspec->width; k++, fval++)
+  {
+    if(r <= 0 || k <= -r || k >= r)
+    {
+      evalentryforward(gl,fval,prevfspec,k);
+      if(ROWVALUE(fval) >= 0)
+      {
+        defined = True;
+      }
+      DEBUG2(3,"store front[k=%ld]=%ld ",(Showsint) k,
+                (Showsint) ROWVALUE(fval));
+      DEBUG1(3,"at index %ld\n",(Showsint) (fval-gl->frontspace));
+    } else
+    {
+      DEBUG1(3,"store front[k=%ld]=MINUSINFINITYFRONT ",(Showsint) k);
+      DEBUG1(3,"at index %ld\n",(Showsint) (fval-gl->frontspace));
+      STOREFRONT(gl,ROWVALUE(fval),MINUSINFINITYFRONT(gl));
+    }
+  }
+  DEBUG1(3,"frontvalues[r=%ld]=",(Showsint) r);
+  DEBUGCODE(3,showfront(gl,fspec,r));
+  return defined;
+}
+
+/*
+  The following function evaluates the entry \(front(0,0)\) in a 
+  forward direction.
+*/
+
+static void firstfrontforward(FrontResource *gl,Frontspec *fspec)
+{
+  Uchar a, b, *uptr, *vptr;
+
+  fspec->left = fspec->offset = 0;
+  fspec->width = (Sint) 1;
+  SETDIRECTION(&gl->frontspace[0],0);
+  if(gl->ulen == 0 || gl->vlen == 0)
+  {
+    STOREFRONT(gl,ROWVALUE(&gl->frontspace[0]),0);
+  } else
+  {
+    for(uptr = gl->useq, vptr = gl->vseq; 
+        uptr < gl->ubound && 
+        vptr < gl->vbound;
+        uptr++, vptr++)
+    {
+      a = *uptr;
+      b = *vptr;
+      COMPARESYMBOLS(a,b);
+    }
+    STOREFRONT(gl,ROWVALUE(&gl->frontspace[0]),(Sint) (uptr - gl->useq));
+  } 
+  DEBUG1(2,"forward front[0]=%ld\n",(Showsint) ROWVALUE(&gl->frontspace[0]));
+}

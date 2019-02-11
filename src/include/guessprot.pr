@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL guessifproteinsequence(Uchar *input,Uint inputlen);
+
+BOOL vm_guessifproteinsequencestream(Genericstream *inputstream);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,2 @@
+$ multimat -s -l 6 -selfun selmulticontext.so -units ATsmall.units ATsmall 
+# multimat -s -l 6 -selfun selmulticontext.so -units ATsmall.units ATsmall

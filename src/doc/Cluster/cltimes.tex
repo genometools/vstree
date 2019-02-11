@@ -1,0 +1,23 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide}
+\begin{document}
+\section{Index Contruction}
+\begin{verbatim}
+mkvtree -dna -pl 8 -v -bwt -suf -tis -lcp -bck -db estfile
+\end{verbatim}
+
+\section{Clustering}
+\begin{verbatim}
+vmatch -d -p -l 100 -e 2 -dbcluster 30 -v -bestall indexfile
+\end{verbatim}
+
+\section{Timing}
+
+\begin{tabular}{|l|r|r|r|r|}\hline
+Genome      &\# ESTs &Total length (bp)&Indexing (sec)&Clustering (sec)\\\hline\hline
+A.\ Thaliana&45798   &19,441,976& 62&110\\
+Z.\ Maize   &69155   &30,853,530&191&380\\
+M.\ Musculus&232561  &92,425,192&754&1642\\\hline
+\end{tabular}
+
+\end{document}

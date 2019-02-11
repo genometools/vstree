@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint mkvtreeprocess(Input *input,Virtualtree *virtualtree);
+
+#ifdef __cplusplus
+}
+#endif

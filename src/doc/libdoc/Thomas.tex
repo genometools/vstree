@@ -1,0 +1,97 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage{LocalDefs}
+
+\date{\today\\[1mm]
+\begin{minipage}[t]{0.75\linewidth}
+This is the documentation of general library functions compiled into
+the archive \texttt{libkurtz.a}. The include file used for compiling this
+library can be found in directory \texttt{include} and the library files
+in directory \texttt{kurtz-basic} and \texttt{kurtz}.
+For each library file, say \texttt{libfile.c} there exists a corresponding
+file \texttt{include/libfile.pr} containing the header of the functions
+exported from \texttt{libfile.c}.
+The prototypes of all library functions can be found in this document.
+The PDF-version of this document comes with hyperlinks,
+linking type names, function names, and macro names to their definition.
+The acrobat reader \texttt{acroread} conveniently allows navigating along
+these links. If you encounter broken or missing links, please contact the
+author at \texttt{kurtz@zbh.uni-hamburg.de}. Other comments
+are also welcome.
+\end{minipage}
+}
+
+\makeindex
+\begin{document}
+
+\maketitle
+\newpage
+\pagestyle{headings}
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Basic Definition}%%%
+\Showheaderfile{types}{March 2001}
+\Showheaderfile{absdef}{April 2001}
+\Showheaderfile{chardef}{January 2001}
+\Showheaderfile{maxfiles}{January 2001}
+\Showheaderfile{megabytes}{February 2000}
+\Showheaderfile{minmax}{June 1994}
+
+\section{Debugging Messages}%%%
+\Showheaderfile{debugdef}{March 1999}
+\Showcodefile{debug}{March 1997}
+
+\section{Error Messages}%%%
+\Showheaderfile{errordef}{December 1999}
+\Showcodefile{seterror}{January 1999}
+
+\section{Option Processing}%%%
+\Showheaderfile{optdesc}{March 1998}
+\Showcodefile{procopt}{October 1999}
+
+\section{Numbers}%%%
+\Showheaderfile{logbase}{February 2000}
+\Showcodefile{ceillog2}{July 2000}
+
+\section{Space Management}%%%
+\Showheaderfile{spacedef}{January 2000}
+\Showcodefile{space}{February 2001}
+\Showcodefile{mapfile}{May 2000}
+\Showheaderfile{arraydef}{May 2000}
+
+\section{Alphabets}%%%
+\Showheaderfile{alphadef}{March 2001}
+\Showcodefile{alphabet}{March 2000}
+
+\section{Multiple Sequences}%%%
+\Showheaderfile{multidef}{March 2000}
+\Showcodefile{multiseq}{July 2000}
+
+\section{Virtual Suffix Trees}%%%
+\Showheaderfile{virtualdef}{June 2000}
+\Showcodefile{readvirt}{June 2000}
+\Showcodefile{readmulti}{December 2000}
+\Showcodefile{mkskip}{October 2000}
+
+\section{Matches}%%%
+\Showheaderfile{match}{September 2000}
+\Showcodefile{bestmatch}{September 2000}
+\Showcodefile{mcontain}{October 2000}
+
+\section{Alignments}%%%
+\Showheaderfile{alignment}{March 2001}
+\Showcodefile{showalign}{November 2000}
+
+\section{Clustering}%%%
+\Showheaderfile{clusterdef}{February 2001}
+\Showcodefile{cluster}{February 2001}
+
+\newpage
+\FILEINFO{\Indexheader}{Stefan Kurtz}{March 2001}
+
+\input{Thomas.ind}
+
+\end{document}

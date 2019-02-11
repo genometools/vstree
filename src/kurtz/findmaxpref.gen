@@ -1,0 +1,96 @@
+FINDMAXPREFIXLEN
+{
+  register Uint left,     // left boundary of interval
+                right,    // right boundary of interval
+                mid,      // mid point of interval
+                lcplen,   // length of common prefix of all suffixes in interval
+                lpref,    // length of prefix of left interval
+                rpref;    // length of prefix of right interval
+  register Sint retcode;  // retcode from comparison
+  register Uchar *sptr,   // pointer to suffix in index
+                 *sentinel = virtualtree->multiseq.sequence + 
+                             virtualtree->multiseq.totallength; // points to $
+  DECLAREFINDMAXSTACKPTR
+ 
+  DEBUG4(3,"%s(l=%lu,r=%lu,querylen=%lu)\n",
+            FINDMAXPREFIXLENFUNCTION,
+            (Showuint) vnode->left,
+            (Showuint) vnode->right,
+            (Showuint) querylen);
+#ifdef DEBUG
+  if(querylen == 0)
+  {
+    fprintf(stderr,"cannot match empty string\n");
+    exit(EXIT_FAILURE);
+  }
+#endif
+  lcplen = vnode->offset;
+  COMPARE(virtualtree->multiseq.sequence + virtualtree->suftab[vnode->left]);
+  maxwit->uint0 = lcplen;
+  maxwit->uint1 = vnode->left; // Due to comparison of suffix s and 
+                               // query at offset 0
+  if(retcode <= 0)
+  {
+    return;
+  }
+  lpref = lcplen;
+  lcplen = vnode->offset;
+  COMPARE(virtualtree->multiseq.sequence + virtualtree->suftab[vnode->right]);
+  rpref = lcplen;
+  if(lpref < rpref)
+  {
+    maxwit->uint0 = rpref;
+    maxwit->uint1 = vnode->right; // Due to comparison of suffix r and 
+                                  // query, offset 0
+    lcplen = lpref;
+  } else
+  {
+    maxwit->uint0 = lpref;
+    maxwit->uint1 = vnode->left; // Due to comparison of suffix l and 
+                                 // query, offset 0
+  }
+  if(retcode >= 0 || maxwit->uint0 >= querylen)
+  {
+    return;
+  }
+  left = vnode->left;
+  right = vnode->right;
+  while(right > left + 1)
+  {
+    mid = DIV2(left+right);
+    COMPARE(virtualtree->multiseq.sequence + virtualtree->suftab[mid]);
+    if(maxwit->uint0 < lcplen)
+    {
+      maxwit->uint0 = lcplen;
+      maxwit->uint1 = mid;
+    }
+    if(retcode < 0)
+    {
+      rpref = lcplen;
+      if(lpref < rpref)
+      {
+        lcplen = lpref;
+      }
+      right = mid;
+    } else
+    {
+      if(retcode > 0)
+      {
+        lpref = lcplen;
+        if(rpref < lpref)
+        {
+          lcplen = rpref;
+        }
+        left = mid;
+      } else
+      {
+        // query completly matched
+        break;
+      }
+    }
+#ifdef COUNT
+    pushop++;
+#endif
+  }
+  PUSHFINDMAXPREFIXQUADRUPLE(left,right,lcplen,rpref);
+}

@@ -1,0 +1,23 @@
+$ uniquesub -max 4 -output querypos sequence indexname queryfile.fna
+# reading file "queryfile.fna"
+unit 0 (sequence 1)
+7 4 ctag
+9 3 agc
+13 3 tac
+29 4 cgga
+31 3 gac
+33 4 cggt
+71 4 aagt
+79 4 tgga
+81 4 gaaa
+82 3 aaa
+83 4 aagg
+84 4 aggc
+unit 1 (sequence 2)
+1 4 aagt
+9 4 tgga
+11 4 gaaa
+12 3 aaa
+13 4 aagg
+14 4 aggc
+# overall space peak: main=0.06 MB, secondary=0.00 MB

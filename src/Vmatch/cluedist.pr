@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint uedistcluster(Multiseq *virtualmultiseq,
+                   Alphabet *virtualalpha,
+                   Multiseq *querymultiseq,
+                   ArrayStoreMatch *matchtab,
+                   char *outprefix,
+                   char *mfargs,
+                   Uint errorrate);
+
+#ifdef __cplusplus
+}
+#endif

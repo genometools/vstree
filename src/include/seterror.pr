@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint maxerrormsg(void);
+
+char *messagespace(void);
+
+void seterror(Sint code);
+
+Sint geterror(void);
+
+void reseterror(void);
+
+#ifdef __cplusplus
+}
+#endif

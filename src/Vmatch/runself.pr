@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint runselfmatches(Matchcallinfo *matchcallinfo,
+                    Virtualtree *virtualtree,
+                    Procmultiseq *procmultiseq,
+                    Evalues *evalues);
+
+#ifdef __cplusplus
+}
+#endif

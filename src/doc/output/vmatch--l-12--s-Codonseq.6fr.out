@@ -1,0 +1,14 @@
+$ vmatch -l 12 -s Codonseq.6fr
+# args=-l 12 -s Codonseq.6fr
+12    0  20   F 12    0  71   0    1.15e-12  24   100.00
+Sbjct: ACAAACAAACAT                                                          32
+         !         
+Sbjct: ACGAACAAACAT                                                          83
+
+
+12    0  70   I 12    0  19   0    1.15e-12  24   100.00
+Sbjct: TGTTTGTTCGTA                                                          82
+               !  !
+Sbjct: TGTTTGTTTGTC                                                          31
+
+

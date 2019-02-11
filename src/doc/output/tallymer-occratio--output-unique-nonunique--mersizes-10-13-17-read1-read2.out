@@ -1,0 +1,12 @@
+$ tallymer-occratio -output unique nonunique -mersizes 10 13 17 read1 read2
+# init character encoding for index "read1" (Viauchartables,110471 bytes,2.28 bits/symbol)
+# init character encoding for index "read2" (Viauchartables,113688 bytes,2.37 bits/symbol)
+# distribution of unique mers
+10 223755
+13 465859
+17 455449
+# distribution of non unique mers (counting each non unique mer only once)
+10 135526
+13 49611
+17 39769
+# space peak: main=2.12 MB, secondary=0.00 MB

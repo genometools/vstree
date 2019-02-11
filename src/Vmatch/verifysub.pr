@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint verifysubstringinfo(FQFsubstringinfo *fqfsubstringinfo,
+                         Multiseq *querymultiseq);
+
+#ifdef __cplusplus
+}
+#endif

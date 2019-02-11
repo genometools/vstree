@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage{url}
+\begin{document}
+\begin{enumerate}
+\item
+Replace the modules for managing resources by threading a
+resource structure through the code.
+\item
+Use your own functions to write error messages and debug messages.
+Use the gcc to check the correctness of the format string, see also
+E-mail von rhomann, 5.102004
+\item
+Use basic object oriented style as suggested by Gordon.
+\item
+Always wrapup the data structures, even in cases where an error occurs.
+\item
+Never use printf as an output, but a callback function.
+\item
+Implement a streaming approach to generate the output.
+\item
+Use variable number of arguments for debug, see
+\url{http://gcc.gnu.org/onlinedocs/gcc-4.0.0/gcc/Variadic-Macros.html#Variadic-Macros}
+\item
+Use \texttt{typeof}-Operator to sometimes declare variables, for example
+\begin{verbatim}
+typeof (*x) y;
+\end{verbatim}
+declares a pointer to variables of the type of variable \texttt{x}.
+See \url{http://gcc.gnu.org/onlinedocs/gcc-4.0.0/gcc/Typeof.html#Typeof}.
+\end{enumerate}
+\item
+The part of the program managing resources should push references to all
+resources onto a stack. If an error occurs, all resources on the stack
+should be freed. This would lead to an appropriate behaviour in the error case.
+\item
+maybe it is better to use Gordon's style of programming.
+\end{enumerate}
+
+\section{The following usefull classes exist in Gordon's Implementation}
+\begin{enumerate}
+\item
+\texttt{Alpha} as replacement for \texttt{Alphabet}. However, mapping
+of arbitray alphabets is not supported. One maybe should add functions
+to output an entire sequence of symbols. It would also be nice to
+have functions, which encode a stream of symbols.
+\item
+\texttt{Bioseq} as replacement for \texttt{Multiseq}. Need example to
+see how it works. What about the performance? Reimplement this on the
+base of encodedsequences.
+\item
+\texttt{Fasta-reader}: Reading fasta files.
+\item
+\texttt{Dlist}: Double linked list.
+\item
+\texttt{error}: Error functions.
+\item
+\texttt{hashtable}: Hash table
+\item
+\texttt{IO}: input/output
+\item
+\texttt{Mergesort}: with buffer
+\item
+\texttt{option}: Option parsing
+\item
+\texttt{progressbar}: progress bar
+\item
+\texttt{scorefunction}
+\item
+\texttt{scorematrix}
+\end{enumerate}
+\end{document}

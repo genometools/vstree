@@ -1,0 +1,17 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+BOOL xdropseedextend(BOOL rcmode,
+                     BOOL querycompare,
+                     BOOL revmposorder,
+                     Xdropscore xdropbelowscore,
+                     Match *seed,
+                     Xdropscore seedscore,
+                     Multiseq *multiseq1,
+                     Multiseq *multiseq2,
+                     Uint seedlength,
+                     Match *ematch);
+
+#ifdef __cplusplus
+}
+#endif

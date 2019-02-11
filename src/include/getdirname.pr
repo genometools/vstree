@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ char *getdirname(char *path);
+
+#ifdef __cplusplus
+}
+#endif

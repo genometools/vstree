@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint callgenericextend(BOOL selfmatch,
+                       Matchstate *matchstate,
+                       Match *seed,
+                       Match *amatch,
+                       void *info,
+                       BOOL allmaximalmatches);
+
+#ifdef __cplusplus
+}
+#endif

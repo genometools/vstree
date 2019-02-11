@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{german}
+\begin{document}
+Angesichts des rasanten Wachstums der Sequenzdatenbanken l"a"st sich
+eine Vielzahl von Sequenzanalyseaufgaben heute nicht mehr
+mit den Verfahren erledigen, die in den vergangenen Jahrzehnten
+entwickelt wurden. Ein Beispiel ist hier neben der Repeat-Analyse
+der Genomvergleich von z.B.\ Mensch und Maus.
+Anstatt die zu untersuchenden Sequenzen linear zu durchsuchen,
+ist es in vielen F"allen sehr viel effizienter einen Index der
+Sequenzen zu erstellen.  Hierzu haben wir das Konzept der erweiterten
+Suffix-Arrays als Indexstrukur entwickelt \cite{ABO:KUR:OHL:2002} und 
+im Werkzeug \emph{vmatch} effizient implementiert. Dieses erlaubt neben
+der Suche verschiedener Arten von Repeats auch den
+Vergleich kompletter Genome, die Suche nach exakten und approximativen 
+Mustern, sowie das Maskieren und Clustern von DNA oder Proteinsequenzen,
+Im DFG-Projekt "`Hybride Muster"' werden erweiterte Suffix-Arrays verwendet,
+um komplexe Muster in RNA-Sequenzen zu suchen.
+\emph{vmatch} ist f"ur die genannten Aufgaben oft um einige Gr"o"senordnungen
+schneller als herk"ommliche Verfahren, die Sequenzen sequentiell durchsuchen.
+Es hat bisher Anwendungen in den folgenden Bereichen gefunden:
+\begin{enumerate}
+\item
+Beim Vergleich von Genomsequenzen und Proteinsequenzen
+von Arabidopsis und Mais \cite{BRE:KUR:WAL:2002}.
+\item
+Bei der effizienten Ermittlung von eindeutigen Signatur-Sequenzen f"ur die
+Erstellung von DNA-Assays \cite{FIT:GAR:KUC:KUR:MYE:OTT:SLE:VIT:ZEM:MCC:2002}.
+\item
+Bei der Erstellung von Gene-Indices \cite{COW:HAA:VIN:2002}.
+\end{enumerate}
+\bibliographystyle{plain}
+\bibliography{defines,kurtz,biotools}
+
+\end{document}

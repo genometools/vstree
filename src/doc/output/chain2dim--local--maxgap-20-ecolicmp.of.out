@@ -1,0 +1,5 @@
+$ chain2dim -local -maxgap 20 ecolicmp.of
+# chain 0: length 3 score 898
+3622 3749 3639 3766 256
+3763 3935 3780 3952 346
+3937 4100 3954 4117 328

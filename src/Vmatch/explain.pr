@@ -1,0 +1,20 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint explainmatchinfo(char *expstring,
+                      BOOL withid,
+                      Uint numberofqueryfiles,
+                      Uint showmode,
+                      Showdescinfo *showdesc,
+                      BOOL sixframematch);
+
+Sint explainmatchinfofp(BOOL withid,
+                        FILE *outfp,
+                        Uint numberofqueryfiles,
+                        Uint showmode,
+                        Showdescinfo *showdesc,
+                        BOOL sixframematch);
+
+#ifdef __cplusplus
+}
+#endif

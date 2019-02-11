@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void makeskiptable(Uint *skiptable,Uchar *lcptab,ArrayPairUint *largelcps,
+                   Uint totallength);
+
+#ifdef __cplusplus
+}
+#endif

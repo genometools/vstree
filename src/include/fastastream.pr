@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint getfastastream(Processbioseq processbioseq,
+                    void *applyinfo,
+                    FILE *inputstream);
+
+#ifdef __cplusplus
+}
+#endif

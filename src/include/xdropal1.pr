@@ -1,0 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint onexdropalignment1(BOOL forward,ArrayEditoperation *alignment,
+                        Uchar *useq,Uint ulen,Uchar *vseq, Uint vlen);
+
+#ifdef __cplusplus
+}
+#endif

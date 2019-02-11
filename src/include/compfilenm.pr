@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@notnull@*/ char *composefilename(char *file,
+                                    Uint linenum,
+                                    const char *filename,
+                                    const char *suffix);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,24 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void bwtdecode(Uint textlen,Uint *offset,Uchar *lastcolumn,Uint longest);
+
+void bwtdecode2(Uint textlen,Uint *offset,Uchar *lastcolumn,
+                Uint longest,Uchar *sndstring);
+
+void checkbwtdecode(char *filename,Uchar *text, Uint offset,
+                    Uint textlen,Uchar *dcword);
+
+void decodeburrowswheeler(Uint *decodesuftab,Uchar *decodetext,
+                          Uint *offset,Uchar *bwt,Uint longest,Uint textlen);
+
+void decodeburrowswheelerspecial(Uint *decodesuftab,Uchar *decodetext,
+                                 Uint *offset,Uchar *bwt,Uint longest,
+                                 Uint textlen);
+
+Sint encodeburrowswheeler(Uchar *bwt,Uint *suftab,
+                          Uchar *text,Uint textlen);
+
+#ifdef __cplusplus
+}
+#endif

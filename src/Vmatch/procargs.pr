@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint savethearguments(char **args,BOOL basic,Argctype argc,
+                      const char * const*argv,const char *indexormatchfile);
+
+Sint showargumentline(SelectmatchHeader paramselectmatchHeader,
+                      FILE *outfp,
+                      char *argstring,
+                      Argctype callargc,
+                      const char **callargv);
+
+#ifdef __cplusplus
+}
+#endif

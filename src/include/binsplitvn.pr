@@ -1,0 +1,19 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint binlcpvalue(Multiseq *multiseq,Uint *suftab,Uint offset,Uint l,Uint r);
+
+Uint splitnodewithcharbin(Multiseq *multiseq,Uint *suftab,
+                          Vbound *vbounds,Uint vboundsize,
+                          Uint lcpvalue,Uint i,Uint j);
+
+Uint splitnodewithcharbinwithoutspecial(Multiseq *multiseq,Uint *suftab,
+                                        Vbound *vbounds,Uint vboundsize,
+                                        Uint lcpvalue,Uint i,Uint j);
+
+BOOL findcharintervalbin(Multiseq *multiseq,Uint *suftab,Vnode *vnode,
+                         Uchar cc,Uint lcpvalue,Uint i,Uint j);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,18 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void adddistribution(ArrayUint *dist,Uint ind);
+
+void adddistributionUint64(ArrayUint64 *dist,Uint ind);
+
+void addmultidistribution(ArrayUint *dist,Uint ind,Uint howmany);
+
+void addmultidistributionUint64(ArrayUint64 *dist,Uint ind,Uint howmany);
+
+void showdistribution_generic(GENFILE *outfp,ArrayUint *distribution);
+
+void showdistribution(FILE *outfp,ArrayUint *distribution);
+
+#ifdef __cplusplus
+}
+#endif

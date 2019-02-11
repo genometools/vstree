@@ -1,0 +1,111 @@
+.PS
+define largebox {box ht 0.8 wid 1.2 $1}
+define mediumbox {box ht 0.5 wid 1.2 $1}
+define program {ellipse ht 0.5 wid 1.2 $1}
+scale=0.8
+Rms1:	mediumbox("masked" "sequences")
+	move right 0.2 from right of Rms1
+
+Rus1:	mediumbox("uncovered" "sequences")
+	move up 0.1 from top of Rms1
+
+Ral1:	mediumbox("alignments")
+
+	move right 0.3 from right of Rus1
+
+Ral2:	mediumbox("alignments")
+	move right 0.2
+
+Rms2:	mediumbox("masked" "sequences")
+        move up 0.1 from top of Rms2
+
+Rus2:	mediumbox("unique" "substrings") 
+        move up 0.1 from top of Rus2
+
+Rcl:    mediumbox("clusters") 
+
+	arrow <- up 0.3 from top of Rus1
+
+Rout1:	circle radius 0.05 fill
+	arrow <- up 0.3 from top of Rout1
+
+Sel1:	program("selection" "function")
+
+	arrow <- up 0.3 from top of Ral2
+
+Rout2:	circle radius 0.05 fill
+	arrow <- up 0.3 from top of Rout2
+
+Sel2:	program("selection" "function")
+	arrow <- up 0.2 from top of Sel1
+
+Mxm:	mediumbox("maximal" "matches")
+	arrow <- up 0.2 from top of Sel2
+
+Mxr:	mediumbox("maximal" "repeats")
+	arrow <- up 0.2 from top of Mxm
+
+Vm1:	program("vmatch")
+	arrow <- up 0.3 from top of Vm1
+
+Idx:	largebox("index" "(enhanced" "suffix array)")
+	move up 0.2 from top of Mxr
+
+Vm2:	program("vmatch")
+
+	arrow <- from Mxr.n to Vm2.s
+
+	move up 0.2 from top of Vm2
+
+Vsss:	program("vsubseqselect")
+	move up 0.1 from top of Vsss
+
+Vss:	program("vseqselect")
+	move up 0.1 from top of Vss
+
+Vtx:	program("vstree2tex")
+	move up 0.1 from top of Vtx
+
+Vsi:	program("vseqinfo")
+	move right 0.3 from right of Vsi
+
+Rsi:	mediumbox("sequence" "information")
+	move right 0.3 from right of Vtx
+
+Rlf:	mediumbox("latex" "format")
+	move right 0.3 from right of Vss
+
+Rss:	mediumbox("selected" "sequences")
+	move right 0.3 from right of Vsss
+
+Rsss:	mediumbox("selected" "subsequences")
+	arrow <- up 0.2 from top of Idx
+
+Mkv:	program("mkvtree" "mkdna6idx")
+	arrow <- 0.2 from top of Mkv
+
+	mediumbox("alphabet" "transformation")
+	arrow <- left 0.2 from left of Mkv
+
+	largebox("database" "sequences")
+	arrow <- left 0.3 from left of Vm1
+
+	largebox("query" "sequences")
+
+	arrow <- from Ral1.e to Rout1.w
+	arrow <- from Rms1.ne to Rout1.w
+	arrow <- from Rus2.w to Rout2.e
+	arrow <- from Rms2.nw to Rout2.e
+	arrow <- from Rcl.w to Rout2.e
+	arrow <- from Vm2.nw to Idx.s
+	arrow <- from Vsss.w to Idx.e
+	arrow <- from Vss.w to Idx.e
+	arrow <- from Vtx.w to Idx.e
+	arrow <- from Vsi.w to Idx.e
+	arrow <- from Rsi.w to Vsi.e
+	arrow <- from Rlf.w to Vtx.e
+	arrow <- from Rss.w to Vss.e
+	arrow <- from Rsss.w to Vsss.e
+
+
+.PE

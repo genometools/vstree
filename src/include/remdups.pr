@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void remdups(ArrayUint *ar);
+
+#ifdef __cplusplus
+}
+#endif

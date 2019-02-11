@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void showmatcount(FILE *outfp,
+                  Uint searchlength,
+                  ArrayUint *counttab);
+
+Sint immediatelycountmatch(void *showmatchinfo,
+                           /*@unused@*/ Multiseq *virtualmultiseq,
+                           /*@unused@*/ Multiseq *querymultiseq,
+                           StoreMatch *storematch);
+
+#ifdef __cplusplus
+}
+#endif

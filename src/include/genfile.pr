@@ -1,0 +1,19 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ GENFILE *genopen(Genfilemode genfilemode, const char *path,
+                            const char *mode);
+
+Fclosereturntype genclose(GENFILE *genfile);
+
+Fprintfreturntype vgenprintf(GENFILE *genfile, const char *format, va_list va);
+
+void genprintf(GENFILE *genfile, const char *format, ...);
+
+Fgetcreturntype gengetc(GENFILE *genfile);
+
+Fputcreturntype genputc(Fputcfirstargtype c, GENFILE *genfile);
+
+#ifdef __cplusplus
+}
+#endif

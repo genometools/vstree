@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ Uchar *readgzippedfile(const char *filename,Uint *filesize);
+
+/*@null@*/ Uchar *readgzippedfile(const char *filename,Uint *filesize);
+
+#ifdef __cplusplus
+}
+#endif

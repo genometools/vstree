@@ -1,0 +1,13 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint alignlinearspace(Uchar *u,
+                      Uchar *v,
+                      Uint ulen,
+                      Uint vlen,
+                      Uchar *ali1,
+                      Uchar *ali2);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,12 @@
+$ vmatch -i -complete -e 25p -q Patterns EcoliO157H7
+# args=-i -complete -e 25p -q Patterns EcoliO157H7
+# all 145
+# 14 2
+# 15 9
+# 16 18
+# 17 23
+# 18 35
+# 19 22
+# 20 20
+# 21 9
+# 22 7

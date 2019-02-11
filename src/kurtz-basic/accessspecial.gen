@@ -1,0 +1,174 @@
+#ifdef DEBUG
+#ifndef IGNORECHECKSPECIALPOSITIONS
+static void ADDTYPE(checkspecialpositions)(Encodedsequence *encseq)
+{
+  SPECIALTYPE *posptr, **endptr;
+  Uint *uintposptr, tmp, currentoffset = 0;
+
+  endptr = ACCESSENCSEQ(encseq,endspecialsubs);
+  while(endptr <= ACCESSENCSEQ(encseq,lastendspecialsubs) &&
+        *endptr == ACCESSENCSEQ(encseq,specialpositions) - 1)
+  {
+    endptr++;
+    currentoffset += (Uint) (MAXSPECIALTYPE+1);
+  }
+  DEBUG1(3,"endptr = %lu\n",
+            (Showuint) (*endptr - ACCESSENCSEQ(encseq,specialpositions)));
+  for(posptr = ACCESSENCSEQ(encseq,specialpositions),
+      uintposptr = encseq->uintspecialpositions;
+      posptr < ACCESSENCSEQ(encseq,specialpositions) + 
+               encseq->specialcharinfo.specialcharacters;
+      posptr++,
+      uintposptr++)
+  {
+    tmp = *posptr + currentoffset;
+    if(tmp != *uintposptr)
+    {
+      fprintf(stderr,"tmp = " "%lu" " != " "%lu" 
+                     " = *uintposptr, currentoffset = " "%lu" "\n",
+               (Showuint) tmp,
+               (Showuint) *uintposptr,
+               (Showuint) currentoffset);
+      exit(EXIT_FAILURE);
+    }
+    while(endptr <= ACCESSENCSEQ(encseq,lastendspecialsubs) && 
+          posptr == *endptr)
+    {
+      DEBUG1(3,"endptr = %lu\n",
+               (Showuint) (*endptr - ACCESSENCSEQ(encseq,specialpositions)));
+      endptr++;
+      currentoffset += (Uint) (MAXSPECIALTYPE+1);
+    }
+  }
+}
+#endif
+#endif
+
+static Sint ADDTYPE(fillspecialtables)(Encodedsequence *encseq,
+                                       UcharBufferedfile *inputstream)
+{
+  Uchar cc = 0;
+  Uint64 i, nextcheck;
+  Sint retval;
+  SPECIALTYPE *ptr, **endptrptr;
+
+  ALLOCASSIGNSPACE(ACCESSENCSEQ(encseq,specialpositions),NULL,SPECIALTYPE,
+                   encseq->specialcharinfo.specialcharacters);
+  ALLOCASSIGNSPACE(ACCESSENCSEQ(encseq,endspecialsubs),NULL,SPECIALTYPE *,
+                   (Uint) (encseq->totallength/MAXSPECIALTYPE + 1));
+  nextcheck = (Uint64) MAXSPECIALTYPE;
+  ptr = ACCESSENCSEQ(encseq,specialpositions);
+  endptrptr = ACCESSENCSEQ(encseq,endspecialsubs);
+  for(i=0; /* Nothing */; i++)
+  {
+    retval = readnextUchar(&cc,inputstream);
+    if(retval < 0)
+    {
+      return (Sint) -1;
+    }
+    if(retval == 0)
+    {
+      break;
+    }
+    if(ISSPECIAL(cc))
+    {
+      /*@ignore@*/
+      DEBUG3(3,"%lu, special at " FormatUint64 ", store %lu\n",
+              (Showuint) (ptr -  ACCESSENCSEQ(encseq,specialpositions)),
+              i,
+              (Showuint) (i & MAXSPECIALTYPE));
+      /*@end@*/
+      *ptr++ = (SPECIALTYPE) (i & MAXSPECIALTYPE);
+    }
+    if(i == nextcheck)
+    {
+      *endptrptr++ = ptr-1;
+      if(ptr - 1 >=  ACCESSENCSEQ(encseq,specialpositions))
+      {
+        DEBUG1(3,"store endptr = %lu\n",
+                (Showuint) (ptr - 1 - ACCESSENCSEQ(encseq,specialpositions)));
+      } else
+      {
+        DEBUG0(3,"store endptr = undef\n");
+      }
+      nextcheck += (Uint64) (MAXSPECIALTYPE+1);
+    }
+  }
+  *endptrptr = ptr-1;
+  ACCESSENCSEQ(encseq,lastendspecialsubs) = endptrptr;
+  DEBUG1(3,"store endptr = %lu\n",
+          (Showuint) (ptr - 1 - ACCESSENCSEQ(encseq,specialpositions)));
+  return 0;
+}
+
+static BOOL ADDTYPE(binarysearchpage)(SPECIALTYPE *leftptr,
+                                      SPECIALTYPE *rightptr,
+                                      SPECIALTYPE pos)
+{
+  SPECIALTYPE *midptr;
+
+  while (leftptr <= rightptr)
+  {
+    midptr = leftptr + DIV2((Uint) (rightptr-leftptr));
+    if(*midptr < pos)
+    {
+      leftptr = midptr + 1;
+    } else
+    {
+      if(*midptr > pos)
+      {
+        rightptr = midptr-1;
+      } else
+      {
+        return True;
+      }
+    }
+  }
+  return False;
+}
+
+#ifdef DIRECTBINSEARCH
+
+static BOOL ADDTYPE(checkspecial)(const Encodedsequence *encseq,Uint pos)
+{
+  return ADDTYPE(binarysearchpage)(ACCESSENCSEQ(encseq,specialpositions),
+                                   ACCESSENCSEQ(encseq,specialpositions) +
+                                   encseq->specialcharinfo.specialcharacters-1,
+                                   (SPECIALTYPE) pos);
+}
+
+#else
+
+static BOOL ADDTYPE(checkspecial)(const Encodedsequence *encseq,Uint pos)
+{
+  Uint pagenumber = DIVMAXSPECIALTYPE(pos);
+
+  if(pagenumber == 0)
+  {
+    if(ACCESSENCSEQ(encseq,endspecialsubs)[0] >= 
+       ACCESSENCSEQ(encseq,specialpositions))
+    {
+      if(ADDTYPE(binarysearchpage)(ACCESSENCSEQ(encseq,specialpositions),
+                                   ACCESSENCSEQ(encseq,endspecialsubs)[0],
+                                   (SPECIALTYPE) pos))
+      {
+        return True;
+      }
+    }
+  } else
+  {
+    if(ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber-1] < 
+       ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber])
+    {
+      if(ADDTYPE(binarysearchpage)(
+               ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber-1]+1,
+               ACCESSENCSEQ(encseq,endspecialsubs)[pagenumber],
+               (SPECIALTYPE) pos))
+      {
+        return True;
+      }
+    }
+  }
+  return False;
+}
+#endif

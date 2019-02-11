@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@ignore@*/
+Rmnsufinfo *initRmnsufinfo(Suffixptr *sortedsuffixes,Uint totallength,
+                           Uchar *sequence);
+
+void addunsortedrange(Rmnsufinfo *rmnsufinfo,
+                      Uint depth,
+                      Suffixptr *left,Suffixptr *right);
+
+void wrapRmnsufinfo(Rmnsufinfo **rmnsufinfo,Uint totallength);
+
+#ifdef __cplusplus
+}
+#endif

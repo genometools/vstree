@@ -1,0 +1,17 @@
+$ vmatch -l 250 -e 6 -q U89959 -s 70 atEST
+# args=-l 250 -e 6 -q U89959 -s 70 atEST
+  270    1265     63   D   269    0  72484   6   1.81e-135    521    97.78
+Sbjct: AGTATGGGAAGCCCTGTCTCAGCCTNNGCTTCCAGCNTCTCCTCCTTCCACATCNTTAAAACTCCAACCT         133
+                  !            !!!         !                 !               
+Query: agtatgggaag-cctgtctcagccacggcttccagcctctcctccttccacatcattaaaactccaacct       72553
+
+Sbjct: TGGAAGATTTTAGGAGAATGAGAGCGACACGCTCTGTGCTTCTTTTCCTTATGATCCAGCTCTTCCACGC         203
+Query: tggaagattttaggagaatgagagcgacacgctctgtgcttcttttccttatgatccagctcttccacgc       72623
+
+Sbjct: ACAAATGAACTATGAAACATATATAAAGCGCACACATATATTTATGCATATCAAGCTTTTGGTGATTATG         273
+Query: acaaatgaactatgaaacatatataaagcgcacacatatatttatgcatatcaagcttttggtgattatg       72693
+
+Sbjct: GTATTGATAGAGTCAAATTAAGCTCGGTGACTATGGTATTAATAAGAGTACTATTTCCTT                   333
+Query: gtattgatagagtcaaattaagctcggtgactatggtattaataagagtactatttcctt                 72753
+
+

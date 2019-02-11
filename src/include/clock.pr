@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initclock(void);
+
+double getruntime(void);
+
+Uint getclockticks(void);
+
+#ifdef __cplusplus
+}
+#endif

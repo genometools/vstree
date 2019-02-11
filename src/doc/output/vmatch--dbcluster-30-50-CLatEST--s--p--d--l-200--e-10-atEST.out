@@ -1,0 +1,13 @@
+$ vmatch -dbcluster 30 50 CLatEST -s -p -d -l 200 -e 10 atEST 
+# args=-dbcluster 30 50 CLatEST -s -p -d -l 200 -e 10 atEST
+# 152 clusters
+# 389 elements out of 1952 (19.93%) are in clusters
+# 1563 elements out of 1952 (80.07%) are singlets
+# 124 clusters of size 2
+# 18 clusters of size 3
+# 4 clusters of size 4
+# 2 clusters of size 5
+# 1 cluster of size 6
+# 1 cluster of size 7
+# 1 cluster of size 8
+# 1 cluster of size 40

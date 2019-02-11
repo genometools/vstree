@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint removecontained(ArrayStoreMatch *matchstore);
+
+Sint checkremoval(ArrayStoreMatch *matchstore);
+
+#ifdef __cplusplus
+}
+#endif

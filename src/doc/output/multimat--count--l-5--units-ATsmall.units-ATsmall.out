@@ -1,0 +1,5 @@
+$ multimat -count -l 5 -units ATsmall.units ATsmall
+# number of events: 16466
+5: 16412 (prob=0.9967,cumulative=0.9967)
+6: 52 (prob=0.0032,cumulative=0.9999)
+7: 2 (prob=0.0001,cumulative=1.0000)

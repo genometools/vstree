@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+\title{Vmotif: Efficient Searching of different classes of Biological Motifs
+in large datasets}
+\author{Diploma Thesis Topic; supervisor Stefan Kurtz}
+\begin{document}
+\maketitle
+\section{Kinds of motifs}
+\begin{enumerate}
+\item
+String motifs
+\item
+regular expressions 
+\item
+PSSMs
+\end{enumerate}
+
+\section{Operations on motifs}
+
+\begin{enumerate}
+\item
+Determining the Significance of exact and approximate motif matches.
+\item
+If there are different ways to search a motif, then
+determine the best strategy to search it. For example,
+regular expression may be searched with automata and bitvectors.
+There are many factors determining the choice of the strategy. These
+often depend on the machine. Therefore the parameters should be
+trained by running some tests for a representative class
+of motifs.
+\item
+Strategy also depends on what parts of the index are 
+available. The tables required are mapped in a lazy fashion,
+i.e.\ only immediately before they are required.
+\item
+Searching online (exact and approximate, simultaneous search of 
+different motifs).
+\item
+Searching offline (exact and approximate) based on Enhanced Suffix Array.
+\end{enumerate}
+
+\section{Algorithms to be implemented}
+
+\begin{enumerate}
+\item
+exact motif search with Boyer-Moore
+\item
+automata search for regular expressions
+\item
+bitvector approach of agrep
+\item
+approximate motif search and restricted regular expression search of Myers
+\end{enumerate}
+
+\section{Kind of postprocessing the matches}
+\begin{enumerate}
+\item
+Show motif match as alignment.
+\item
+Chaining of motif matches.
+\item
+Clustering of Matches (by content and positions)
+\item
+Masking of Matches
+\item
+Regions not covered by motif matches.
+\item
+Find a certain number of best motif matches, e.g.\ those matches 
+with a minimum number of errors.
+\end{enumerate}
+
+\section{Features}
+\begin{enumerate}
+\item
+Application to biological sequences
+\item
+Alphabet independency.
+\item
+Search direct and reverse complementary. 
+\item
+Allow to specify grouping of motifs. Find parts where a number of 
+motifs of a group matches.
+\item
+For DNA Motifs and Protein sequence also search Motif in 6 reading frame
+frames.
+\item
+Custom output via selection functions. Provide immediate postprocessing
+of matches but also collection of matches and later combination 
+of results.
+\item
+Portable to 64 bit platforms
+\item
+Use unique input format for motifs and supply parsers which 
+produce this format from different other formats.
+\item
+Heavy automatic testing of all parts of the code.
+\item
+Follow coding guidelines described by Kurtz \& Gremme.
+\end{enumerate}
+\end{document}

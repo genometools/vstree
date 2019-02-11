@@ -1,0 +1,22 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint singlesixframetranslateDNA(void *info,Uint seqnum,Uchar *start,Uint len);
+
+Sint multisixframetranslateDNA(Uint transnum,
+                               BOOL withdescription,
+                               Multiseq *proteinmultiseq,
+                               Multiseq *multiseq,
+                               Uint *proteinsymbolmap);
+
+Sint sixframeconvertmatch(Multiseq *dnamultiseq,
+                          BOOL *palindromic,
+                          Uint *dnarelpos,
+                          Uint *dnastartpos,
+                          Uint matchlength2,
+                          Uint matchseqnum2,
+                          Uint matchrelpos2);
+
+#ifdef __cplusplus
+}
+#endif

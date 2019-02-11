@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint stepdeleteandinsertothersuffixes(Emissionmergedesa *emmesa);
+
+Sint initEmissionmergedesa(Emissionmergedesa *emmesa,
+                           const char **indexnamelist,
+                           Uint numofindexes,
+                           Uint demand);
+
+Sint wraptEmissionmergedesa(Emissionmergedesa *emmesa);
+
+#ifdef __cplusplus
+}
+#endif

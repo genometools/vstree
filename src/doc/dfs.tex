@@ -1,0 +1,243 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide,command,environment,disstrees}
+
+\newcommand{\LCP}[0]{\mathsf{lcptab}}
+\newcommand{\SUF}[0]{\mathsf{suftab}}
+\newcommand{\BCK}[0]{\mathsf{bcktab}}
+\newcommand{\PRJ}[0]{\mathsf{prjtab}}
+\newcommand{\TIS}[0]{\mathsf{tistab}}
+\newcommand{\BWT}[0]{\mathsf{bwttab}}
+\newcommand{\LLV}[0]{\mathsf{llvtab}}
+\newcommand{\SKP}[0]{\mathsf{skptab}}
+\newcommand{\SSP}[0]{\mathsf{ssptab}}
+\newcommand{\DES}[0]{\mathsf{destab}}
+\newcommand{\SDS}[0]{\mathsf{sdstab}}
+\newcommand{\Longest}[0]{\mathsf{longest}}
+\newcommand{\PLEN}[0]{d}
+
+\newcommand{\ST}[1][]{\mathsf{ST}_{\!#1}}
+\newcommand{\LL}[1]{\ell(#1)}
+\newcommand{\Edge}[2]{\Transition{#1}{}{#2}}
+\newcommand{\RT}[0]{\mathsf{root}}
+\newcommand{\COM}[1]{\hfill\texttt{\symbol{47}\symbol{42}}\mbox{ #1 }\
+                           \texttt{\symbol{42}\symbol{47}}}
+\newcommand{\ABSNTtree}[2]{\SmallBinTree{}{ab\$}{\Leaf{#1}}{\$}{\Leaf{#2}}}
+\newcommand{\ABSNTtreeNEL}[2]{\SmallBinTree{}{}{\Leaf{#1}}{}{\Leaf{#2}}}
+
+\newcommand{\Depth}[0]{\mathit{depth}}
+\newcommand{\Lastisleafedge}[0]{\mathit{lastisleafedge}}
+
+\newcommand{\CN}[1]{\mathit{CN}(#1)}
+\newcommand{\SF}[1]{S_{\SUF[#1]}}
+\newcommand{\Stack}[1]{\mathit{Stack}_{#1}}
+\newcommand{\AnnoFun}[1]{\mathcal{P}_{#1}}
+\newcommand{\Anno}[2]{\AnnoFun{#1}(#2)}
+\newcommand{\Sigmaall}[0]{\Sigma\cup\{\bot\}}
+
+\begin{document}
+\section{Computing Maximal Repeats from Virtual Suffix Trees}
+The algorithm of Gusfield traverses the edges of a suffix tree in a bottom-up 
+strategy. The virtual suffix tree implicitly stores the edges
+of the suffix tree, and from Algorithm \ref{AlgSA2ST} we know how restore the
+suffix tree given a virtual suffix tree. The goal is to 
+enumerate its edges in a bottom-up order. From Algorithm \ref{AlgSA2ST} we
+know how to construct the suffix tree given the virtual tree. Unfortunately,
+the algorithm does not deliver the edges in bottom up order
+splits edges and and inserts nodes between are inserted
+between edges. The idea to achieve bottom-up processing, is to delay the 
+processing of an edge outgoing from, say \(\alpha\), until the 
+next edge outgoing from \(\alpha\) is created or until \(\alpha\) popped
+from the stack.
+
+To achieve this we do not even have to create the nodes. Instead it suffices
+to store for each node its depth (as in Algorithm \ref{AlgSA2ST}) and 
+and a boolean value \(\Lastisleafedge\). This is true \Iff\
+the last edge (implicitely) outgoing from the corresponding (implicit) node, 
+is a leaf edge.
+
+Then we process the suffixes from \(\SF{0}\) to \(\SF{n}\) from left to right.
+In step \(i\) we first check where the path for \(\SF{i}\) branches. 
+The depth of the branching node in step \(i\) is the \(\LCP[i]\) and 
+it must be on the current path, which is stored on the stack. So we first 
+
+We only store the depth 0 of the
+root on the stack and keep track of the fact that the
+last edge created from the \(\RT\) is a leaf edge.
+
+Consider a node, say \(\alpha\). A leaf edge outgoing from \(\alpha\) may become
+a branching edge, due to splitting. The processing of leaf edges
+and branching edges is different. Hence we cannot immediately process a leaf
+edge. We have to wait until it becomes clear if the leaf edge will become
+a branching edge or remain a leaf edge. The situation becomes clear, if
+we add a new edge to a branching node, say \(\alpha\), or if pop
+\(\alpha\) from the stack. In these situations, the edge which was last added
+to \(\alpha\) remains untouched, and hence we can process it. There is
+another situation in which we can immediately process the edge created:
+Whenever, we create a new branching node, this will initially have two
+edges. One is obtained from splitting a previous node, and the
+other is obtained from adding a new leaf edge labeled with, say,
+\(\ell(\SUF[i])\). The first edge leads to a subtree representing suffixes
+which are all shorter than \(\SF{i}\).
+le
+. The first edge leads
+is to perform the operations
+changing the tree only in this situation.
+tree 
+
+A leaf edge may be split into an edge leading to the branching node and
+
+\Ignore{
+       \If\ \SUF[i-1] = 0~~~~~~~~\COM{get character left of previous suffix}\\
+       \Then\\
+       \Block{\mathit{leftchar} := \bot}\\
+       \Else\\
+       \Block{\mathit{leftchar} := S[\SUF[i-1]-1]}\\
+}
+
+\Figure{Processing the Edges of an implicit suffix tree in depth first order}{DepthfirstVirtual}{
+\begin{AlgorithmNum}\label{Depthfirst}
+
+\noindent\Block[-4pt]{
+       stack[0].\Depth:=0\\
+       stack[0].\Lastisleafedge:=\mathit{True}~~~~\COM{add new edge $\Edge{\RT}{\LL{\SUF[0]}}$}\\
+       top:=0\\
+
+
+       \ForLoop{i:=1}{n}\\
+       \Block{\While{\LCP[i] < stack[top].\Depth}~~\COM{Case 1: process edges on popped path}\\
+              \Block{\If\ stack[top].\Lastisleafedge\\
+                     \Then\\
+                     \Block{\mathit{processleaf}(\mathit{False},\SUF[i-1],stack,top)}\\
+                     \Else\\
+                     \Block{\mathit{processbranch}(\mathit{False},stack,top)}\\
+                     top:=top-1~~~~~~~~~~\COM{pop}}\\
+       \COM{branching node $\alpha$ is on top of stack}\\
+       \If\ \LCP[i] = stack[top].\Depth~~~~\COM{Case 2: process old edge from node $\alpha$}\\
+       \Then~~~~~~~~~~~~\COM{and add new leaf edge $\Edge{\alpha}{\LL{\SUF[i]}}$}\\
+       \Block{\If\ stack[top].\Lastisleafedge\\
+              \Then\\
+              \Block{\mathit{processleaf}(\mathit{False},\SUF[i-1],stack,top)}\\
+              \Else\\
+              \Block{\mathit{processbranch}(\mathit{False},stack,top)\\
+                     stack[top].\Lastisleafedge = \mathit{True}}}\\
+       \Else~~~~~~~~~\COM{Case 3: split edge from $\beta$ and create new node}\\
+       \Block{top:=top+1~~~~~\COM{push}\\
+              stack[top].\Depth = \LCP[i]\\
+              stack[top].\Lastisleafedge = \mathit{True}\\
+              \If\ stack[top-1].\Lastisleafedge~~\COM{process old edge from $\beta$}\\
+              \Block{processleaf(\mathit{True},\SUF[i-1],stack,top)\\
+                     stack[top-1].\Lastisleafedge = \mathit{False}}\\
+              \Else\\
+              \Block{\mathit{processbranch}(\mathit{True},stack,top)}\\
+       }
+     }
+}
+\end{AlgorithmNum}
+}
+
+\newcommand{\Cedge}[3]{\mathit{createedge}(#2,#3)}
+\newcommand{\Cnode}[2]{\mathit{createnode}(#1,#2)}
+
+\Figure{Processing the Edges of an implicit suffix tree in bottom up order}{BottomUpTraversal}{
+\begin{AlgorithmNum}\label{BottomUp}
+
+\noindent\Block[-4pt]{
+       \Cnode{\RT}{0}\\
+       stack[0].node:=\RT\\
+       stack[0].\Depth:=0\\
+       stack[0].\Lastisleafedge:=\mathit{True}\\
+       top:=0\\
+       \ForLoop{i:=1}{n}\\
+       \Block{\While{\LCP[i] < stack[top].\Depth}\\
+              \Block{\If\ stack[top].\Lastisleafedge\\
+                     \Then\\
+                     \Block{\Cedge{\mathit{False}}{stack[top].node}{\LL{\SUF[i-1]}}}\\
+                     \Else\\
+                     \Block{\Cedge{\mathit{False}}{stack[top].node}{stack[top+1].node}}\\
+                     top:=top-1~~~~~~~~~~\COM{pop}}\\
+       \If\ \LCP[i] = stack[top].\Depth\\
+       \Then\\
+       \Block{\If\ stack[top].\Lastisleafedge\\
+              \Then\\
+              \Block{\Cedge{\mathit{False}}{stack[top].node}{\LL{\SUF[i-1]}}}\\
+              \Else\\
+              \Block{\Cedge{\mathit{False}}{stack[top].node}{stack[top+1].node}\\
+                     stack[top].\Lastisleafedge = \mathit{True}}}\\
+       \Else\\
+       \Block{\Cnode{\alpha}{\LCP[i]}\\
+              \If\ stack[top].\Lastisleafedge\\
+              \Block{\Cedge{\mathit{True}}{\alpha}{\LL{\SUF[i-1]}}\\
+                     stack[top].\Lastisleafedge:=\mathit{False}}\\
+              \Else\\
+              \Block{\Cedge{\mathit{True}}{\alpha}{stack[top+1].node}}\\
+              top:=top+1~~~~~\COM{push}\\
+              stack[top].node:=\alpha\\
+              stack[top].\Depth:=\LCP[i]\\
+              stack[top].\Lastisleafedge:=\mathit{True}\\
+       }
+     }\\
+     \Cedge{\mathit{False}}{\RT}{\LL{\SUF[n]}}\\
+}
+\end{AlgorithmNum}
+}
+
+\Figure{Processing the Edges of an implicit suffix tree in bottom up order}{BottomUpTraversalNew}{
+\begin{AlgorithmNum}\label{BottomUpNew}
+
+\noindent\Block[-4pt]{
+       \Cnode{\RT}{0}\\
+       top:=0\\
+       stack[top]:=\RT\\
+       stack[top+1]:=\LL{\SUF[0]}\\
+       \ForLoop{i:=1}{n}\\
+       \Block{\While{\LCP[i] < \Size{stack[top]}}\\
+              \Block{\Cedge{\mathit{False}}{stack[top]}{stack[top+1]}\\
+                     top:=top-1~~~~~~~~~~\COM{pop}}\\
+             \If\ \LCP[i] = \Size{stack[top]}\\
+             \Then\\
+             \Block{\Cedge{\mathit{False}}{stack[top]}{stack[top+1]}}\\
+             \Else\\
+             \Block{\Cnode{\alpha}{\LCP[i]}\\
+                    \Cedge{\mathit{True}}{\alpha}{stack[top+1]}\\
+                    top:=top+1~~~~~\COM{push}\\
+                    stack[top]:=\alpha}\\
+             stack[top+1]:=\LL{\SUF[i]}
+       }\\
+       \Cedge{\mathit{False}}{\RT}{\LL{\SUF[n]}}\\
+}
+\end{AlgorithmNum}
+}
+
+\noindent\begin{tabular}{@{}l@{~}l}
+Input:&$\SUF$ and $\LCP$ for $x$\\
+Output:&suffix tree for $x$
+\end{tabular}
+
+\medskip
+
+\noindent\Block[-4pt]{
+       \mbox{create }\RT\\
+       \mbox{add new edge }\Edge{\RT}{\LL{\SUF[0]}}\\
+       stack[0].node:=\RT\\
+       stack[0].depth:=0\\
+       top:=0\\
+       \ForLoop{i:=1}{n}\\
+       \Block{\While{\LCP[i] < stack[top].depth}\\
+              \Block{top:=top-1~~~~~~~~~~\COM{pop}}\\
+       \alpha:=stack[top].node\\
+       \If\ \LCP[i] = stack[top].depth\\
+       \Then\\
+         \Block{\mbox{add new edge }\Edge{\alpha}{\LL{\SUF[i]}}}\\
+       \Else\\
+         \Block{\mbox{create new node }\beta\\
+                let~\Edge{\alpha}{\gamma}\mbox{ be the edge from }\alpha\mbox{ which was added last}\\
+                \mbox{replace }\Edge{\alpha}{\gamma}\mbox{ by }\Edge{\alpha}{\beta}\\
+                \mbox{add new edge }\Edge{\beta}{\gamma}\\
+                \mbox{add new edge }\Edge{\beta}{\LL{\SUF[i]}}\\
+                top:=top+1~~~~~\COM{push}\\
+                stack[top].node = \beta\\
+                stack[top].depth = \LCP[i]
+         }
+       }
+}
+\end{document}

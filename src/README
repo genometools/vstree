@@ -1,0 +1,82 @@
+Compiling and Installing the Vmatch-Sources:
+
+Stefan Kurtz
+
+September 3, 2003
+
+This is a short description of how to compile the 
+Vmatch-sources and how to install the compiled
+libraries and binaries.
+
+Step 0: Extract
+
+extract the source from the gzipped tar file.
+
+Step 1: SKtools
+
+Install the SKtools in vol/Ccode/SKtools:
+
+- cd Ccode/SKtools
+- edit the Makefile 
+- i.e. set INSTALLDIR to be the path where the SKtools are to be found
+  do not forget to possibly change your PATH variable accordingly
+- make
+
+Step 2: DIRVSTREE
+
+setenv DIRVSTREE <the vstree root path>
+
+for example,  I have set
+
+setenv DIRVSTREE /home/skurtz/vol/vstree
+
+in my .tcshrc
+
+extend your PATH variable by 
+
+${DIRVSTREE}/src/vstree/src/bin
+
+in your .tcshrc or you .bashrc depending on what shell you use
+
+rehash (for csh and tcsh)
+
+Step 3: compile
+
+cd ${DIRVSTREE}/src/vstree/src
+
+make
+
+compiles all sources
+
+Step 4: Installing sources
+
+make srcinstall
+
+creates directories 
+${DIRVSTREE}/lib
+${DIRVSTREE}/include
+${DIRVSTREE}/share/doc
+
+and copies appropriate files there.
+All programs based on Vmatch suppose that the corresponding
+include and library files are in 
+${DIRVSTREE}/include and
+${DIRVSTREE}/lib
+
+Step 5: Installing binaries
+
+make install
+
+stores the binaries in ${DIRVSTREE}/bin
+So you may want to add ${DIRVSTREE}/bin to your PATH and
+${DIRVSTREE}/bin/SELECT to LD_LIBRARY_PATH
+
+Step 6: clean
+
+make clean
+
+cleans the objects and all temprary files.
+
+Hope it also works on your machine.
+
+Please do not distribute the sources.

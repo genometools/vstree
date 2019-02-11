@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ char *vm_getbasename(const char *path);
+
+#ifdef __cplusplus
+}
+#endif

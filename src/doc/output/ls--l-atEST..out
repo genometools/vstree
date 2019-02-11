@@ -1,0 +1,15 @@
+$ ls -l atEST.*
+-rw-r-----  1 kurtz gistaff      37 2005-02-01 01:43 atEST.al1
+-rw-r-----  1 kurtz gistaff  524288 2005-02-01 01:43 atEST.bck
+-rw-r-----  1 kurtz gistaff  772381 2005-02-01 01:43 atEST.bwt
+-rw-r-----  1 kurtz gistaff  215445 2005-02-01 01:43 atEST.des
+-rw-r-----  1 kurtz gistaff  772377 2005-02-01 01:43 atEST.lcp
+-rw-r-----  1 kurtz gistaff   18536 2005-02-01 01:43 atEST.llv
+-rw-r-----  1 kurtz gistaff  772376 2005-02-01 01:43 atEST.ois
+-rw-r-----  1 kurtz gistaff     179 2005-02-01 01:43 atEST.prj
+-rw-r-----  1 kurtz gistaff    7812 2005-02-01 01:43 atEST.sds
+-rw-r-----  1 kurtz gistaff 3089508 2005-02-01 01:43 atEST.skp
+-rw-r-----  1 kurtz gistaff    7804 2005-02-01 01:43 atEST.ssp
+-rw-r-----  1 kurtz gistaff  772377 2005-02-01 01:43 atEST.sti1
+-rw-r-----  1 kurtz gistaff 3089508 2005-02-01 01:43 atEST.suf
+-rw-r-----  1 kurtz gistaff  772376 2005-02-01 01:43 atEST.tis

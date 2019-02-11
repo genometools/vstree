@@ -1,0 +1,840 @@
+\documentclass[12pt]{article}
+\usepackage{ifpdf}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{natbib}
+\usepackage{numprint}
+\usepackage{bibentry}
+\usepackage{xspace}
+\usepackage[latin1]{inputenc}
+\usepackage{hyperref}
+\hypersetup{%
+   colorlinks=true,
+   linkcolor=blue
+}
+
+\newcommand{\Vmatch}[0]{\textit{Vmatch}\xspace}
+\newcommand{\Mybibentry}[2]{\item \bibentry{#1} \par%
+In this work \Vmatch was used \xspace #2\xspace}
+%\newcommand{\href}[2]{#2}
+%\nobibliography*
+\newcounter{Allusages}
+\newcommand{\Updateusages}{\addtocounter{Allusages}{\theenumi}}
+\newcommand{\PrintVol}[1]{#1}
+\newcommand{\Includegraphics}[2]{%
+\includegraphics[#1]{#2.pdf}
+}
+
+\makeatletter
+\edef\texforht{TT\noexpand\fi
+ \@ifpackageloaded{tex4ht}
+   {\noexpand\iftrue}
+   {\noexpand\iffalse}}
+\makeatother
+\ifpdf
+\newcommand{\HCode}[1]{}
+\fi
+
+\title{The \Vmatch large scale sequence analysis software}
+\author{Stefan Kurtz}
+\date{\today}
+\parskip5pt
+\parindent0pt
+\begin{document}
+\maketitle
+
+\bibliographystyle{plain}
+\nobibliography{defines,ltr,assembly,algorithms,rnafolding,commolbio,biotools,kurtz,genomes,strings,genetics,metagenomes}
+
+\HCode{
+<!--delete paragraph-->
+<br/>
+<center>
+<img src="matchgraph.gif"
+     alt="show matches of different sizes in a matchgraph"/>
+</center>
+<div id="downloadbox">
+<ul>
+  <li><a href="download.html">Download <i>Vmatch</i>!</a></li>
+</ul>
+</div>
+}
+
+This is the web-site for \Vmatch,
+a versatile software tool for efficiently
+solving large scale se\-quence matching tasks.
+\Vmatch subsumes the software tool
+\href{http://bibiserv.techfak.uni-bielefeld.de/reputer}{REPuter},
+but is much more general, with a very flexible user interface,
+and improved space and time requirements.
+\HCode{
+<a href="vmweb.pdf">Here</a> is a printable version of this
+HTML-page in PDF.
+}
+
+\section*{Features of \Vmatch}
+The \href{virtman.pdf}{\Vmatch-manual}
+gives many examples on how to use \Vmatch. Here are the program's most
+important features.
+
+\input{introduction.inc}
+
+\HCode{
+<a href="Dataflowfig.pdf">Here</a> is an overview of the dataflow
+in <i>Vmatch</i>.
+}
+
+\section*{Related tools}
+There are several tools which are
+based on the persistent index of \Vmatch:
+
+\begin{description}
+\item[Genalyzer]
+is a graphical user interface
+to visualize the output of \Vmatch in form of a match graph.
+For details see
+
+\bibentry{CHO:SCHLE:KUR:GIE:2004}
+
+Genalyzer is not available any more.
+\item[\href{http://bibiserv.techfak.uni-bielefeld.de/mga/}{MGA}]
+is a program to compute multiple alignments of complete
+genomes. For details see
+
+\bibentry{HOEH:KUR:OHL:2002}
+\item[Multimat] is a program to compute multiple exact matches between
+three or more genome size sequences. For details see
+
+\bibentry{OHL:KUR:2008}
+
+Please contact
+\href{http://www.zbh.uni-hamburg.de/kurtz}{Stefan Kurtz} if you are interested
+in using Multimat.
+
+\item[\href{http://bibiserv.techfak.uni-bielefeld.de/possumsearch/}{PossumSearch}]
+Is a program to search for position specific scoring matrices.
+For details, see
+
+\bibentry{BEC:HOM:GIE:KUR:2006}
+\item
+\item[\href{http://www.genomethreader.org/}{GenomeThreader}]
+is a software tool to compute gene structure predictions. The gene structure
+predictions are calculated using a similarity-based approach where additional
+cDNA/EST and/or protein sequences are used to predict gene structures via
+spliced alignments. \textit{GenomeThreader} uses the matching capabilities
+of \Vmatch to efficiently map the reference sequence to a genomic
+sequence. For details, see
+
+\bibentry{GRE:BRE:SPA:KUR:2005}
+\item
+\item[\href{http://www.biopieces.org/}{Biopieces}]
+is a collection of bioinformatics tools that can be pieced together in a
+very easy and flexible manner to perform both simple and complex tasks.
+Some Biopieces depend on \Vmatch. For details see
+\url{http://www.biopieces.org/}.
+\end{description}
+
+\HCode{
+<a name="CurrentUsage"/>
+}
+\section*{Previous and Current Usages}
+
+We provide an annotated bibliography listing papers which applied \Vmatch
+and shortly describe the tasks for which \Vmatch was used. We omit our own
+papers. The references were collected by a
+\href{https://scholar.google.de/scholar?q=Vmatch+AND+Kurtz+OR+www.vmatch.de}%
+     {search in Google scholar}
+(which, as of Jan 2, 2016 retrieved 397 results.)
+
+\subsection*{Usages in Plant Genome Research}
+\begin{enumerate}
+\Mybibentry{BRE:KUR:WAL:2002}{
+to a compute a non-redundant set from a large collection of protein sequences
+from Zea-Maize.}
+
+Similar applications are described in
+
+\bibentry{DON:ROY:FRE:WAL:BRE:2003}.
+%\item
+%For the development of the
+%\href{http://barleypop.vrac.iastate.edu/BarleyBase/content.php}{Barley1 GeneChip} \Vmatch is used to search
+%against probes.
+\item
+PLEXdb is a database for gene expression resources for plants and plant
+pathogens, see
+
+\bibentry{DAS:VAN:HON:WIS:DIC:2012}
+
+PLEXdb provides a \Vmatch-based
+\href{http://www.plantgdb.org/cgi-bin/prj/PLEXdb/ProbeMatch.pl}{web-service}
+to match PLEXdb probes.
+
+\item
+The assembly of the Arabidopsis thaliana genome from 2004
+(GenBank entries of 2/19/04) contained vector sequence contaminations.
+For example, region \numprint{3617880} to \numprint{3625027} of
+chromosome II contained
+a cloning vector. \Vmatch was used to detect the vector contamination,
+see \href{http://www.plantgdb.org/AtGDB/Annotation/vector.php}{here}
+
+\item
+\bibentry{DON:LAW:SCHLUE:WIL:KUR:LUS:BRE:2005}
+
+This work describes PlantGDB, which
+provides a service called
+\href{http://www.plantgdb.org/PlantGDB-cgi/vmatch/patternsearch.pl}{PatternSearch@PlantGDB}
+for genome wide pattern searches in plant sequences. The service is based
+on \Vmatch.
+\Mybibentry{LIN:KRO:2005}{
+for three different tasks:
+\begin{itemize}
+\item
+Searching spliced mRNA in the Arabidopsis genome to detect
+micromatches of length at least 20 with maximum 2 mismatches.
+\item
+Finding matches of length at least 15 long with at most one mismatch
+between predicted mature miRNA-sequences and a set of ESTs as well
+as sequences from the Arabidopsis Small RNA Project (ASRP).
+\item
+Aligning and performing single linkage clustering
+of the predicted mature miRNA sequences. Candidate pairs aligning over at least
+17 bases, allowing an edit distance of 1 were grouped in the same family.
+\end{itemize}}
+
+\item
+\bibentry{POM:LEM:TUR:2006}
+
+\bibentry{TUR:OTI:LEM:2006}
+
+In these papers \Vmatch was used to search
+and compare repeated elements in different chloroplast DNA.
+
+\item
+\bibentry{SPA:NOU:HAA:YAN:GUN:HIN:KLE:HAB:SCHOO:MAY:2007}
+In this work about the \textit{MIPSPlantsDB} database
+\Vmatch was used to cluster large sequence sets.
+
+\Mybibentry{SCHIJ:VOS:MAR:JON:ROS:MOL:TIK:ANG:TUN:BOV:2007}{
+to compare target genes of the tomato Chs RNAi to a tomato gene index.}
+
+\Mybibentry{LIN:JAC:NYG:MAN:KRO:2007}{
+to search different
+plant genomes for matches of length at least 20 with maximum of 2 mismatches.
+Here the fact that \Vmatch is an exhaustive search tool is important.}
+
+\Mybibentry{DEC:OTI:THU:LEM:2007}{
+to determine the presence of shared repeated elements of minimum length
+30, with up to 10\% mismatches using in different sequence sets from
+the green alga \textit{Leptosira terrestris}.}
+
+\Mybibentry{OSS:SCHNE:CLA:LAN:WAR:WEI:2008}{
+to map millions of short sequence reads to the \textit{A.~Thaliana} genome.
+Up to four mismatches and up to three indels were allowed in the matching
+process. The seed size was chosen to be 0. The reads were aligned using the
+best match strategy by iteratively increasing the the allowed number of
+mismatches and gaps at each round.}
+
+\Mybibentry{DIBO:OSS:SCHNE:RAT:2008}{
+to map millions of short sequence reads to the \textit{A.~Thaliana} genome.
+\Vmatch was part of a multi-step pipeline, combining a fast
+matching algorithm (\Vmatch) for initial read mapping and
+an optimal alignment algorithm based on dynamic programming (QPALMA)
+for high quality detection of splice sites.}
+
+\Mybibentry{ASS:HER:LIN:HUE:TAL:SMA:IMM:ELD:FIE:SCHAT:2010}{
+for motif searching in different plant genomes.}
+
+\Mybibentry{EVE:SAT:GOL:MEY:BET:SAK:WAR:JAC:2010}{
+to map unique consensus sequence tags to the maize reference genome.}
+
+\Mybibentry{BRO:OTI:LEM:TUR:2010}{
+to identify and cluster repeated sequences in \textit{Floydiella} chloroplast
+genome.}
+
+\Mybibentry{REH:AQU:GRU:HEN:HIL:LAU:NAO:PAT:ROM:SHU:2010}{
+to calculate direct and reverse complementary matches of length {17} bp or
+greater with edit distance {1} or less between five nuclear chromosomes
+and mitochondrial and chloroplast genome sequences.}
+
+\Mybibentry{SEK:LIN:CHI:HAN:BUE:LEO:KAE:2011}{
+to search probe sequences against the maize genome
+the cDNA sequences of the official maize gene models.}
+
+\Mybibentry{DAS:OH:HAA:HER:HON:ALI:YUN:BRE:ZHU:BOH:2011}{
+for clustering sequences assembled from 454-reads of
+\textit{Thellungiella parvula}, a model for the evolution of plant
+adaptation to extreme environments.}
+
+\Mybibentry{WIL:HOF:KLE:WEI:2011}{
+for grouping short reads into
+pools representing the same RAD tag.}
+
+\Mybibentry{GAO:ZHO:WAN:SU:WAN:2011}{
+for detecting and
+clustering repetitive sequences in diverse fern plastid genomes.}
+
+\Mybibentry{SLO:ALV:CHU:WU:MCC:PAL:TAY:2012}{
+to precisely
+define the boundaries of all repeats with 100\% sequence identity.}
+
+\Mybibentry{DUB:FAR:SCHLU:CAN:ABE:TUT:WOO:SHA:MUL:KUD:2011}{
+cluster sequences based on their six-frame translation.}
+
+\Mybibentry{SAX:PEN:UPA:KUM:CAR:SCHLU:FAR:WHA:SAR:MAY:2012}{
+to identify reciprocal best matches between the pigeonpea sequences and
+other legume sequences.}
+
+\Mybibentry{HAZ:REE:RIS:PEC:2012}{
+for assembly clustering and
+optimization of contigs for
+\textit{Neochloris oleoabundans} (a Chlorophyceae class green microalgae).}
+
+\Mybibentry{MAR:KLE:BAN:BLA:MAC:SCHMU:SCHOL:GUN:WIC:SIM:2012}{
+to match reads against a repeat library to
+identity the content of the repetitive DNA per sequence read.}
+
+\Mybibentry{CHI:DAV:BUE:2011}{
+to align individual probes to representative gene models.}
+
+\Mybibentry{SEV:DIJ:HAM:2011}{
+for performing exact searches with
+peptides against the filtered proteome of \textit{A. thaliana}.}
+
+\Mybibentry{WOL:WEI:SEG:ROS:BEI:DON:SPI:NOR:REH:KOE:2011}{
+to map RNAseq reads,
+allowing up to two mismatches (option \texttt{-h 2})
+and generating maximal substring matches
+that are unique in some reference dataset (option \texttt{-mum cand}).}
+
+\Mybibentry{FLE:KHA:JOH:YOU:MIT:WRE:HES:FOS:SCHAR:SCO:2011}{
+to identify terminal inverted repeats of length range {10-65} bp,
+$\geq 80\%$ identity, maximum inter-TIR distance 650~bp in in genomes of
+epichloid fungal endophytes of grasses.}
+
+\Mybibentry{CHI:KON:BUE:2012}{
+to match putative unique transcript sequence assemblies.}
+
+\Mybibentry{CHE:CAS:BAI:RED:MIC:2012}{
+for refining assemblies of Illumina reads in the context of a transcriptome
+project for plant virus vector \textit{Graminella nigrifrons}.}
+
+\Mybibentry{KRI:PAT:JAI:GAU:CHOU:VAI:DEE:HAR:KRI:NAI:2012}{
+for clustering repeats and for building a consensus repeat library in the
+context of genome and transcriptome projects for \textit{Azadirachta indica}, a
+medicinal and pesticidal angiosperm.}
+
+\Mybibentry{LIU:KUM:ZHA:ZHE:WAR:2012}{
+to map unique consensus sequences tags to the maize reference
+genome and to predict targets of novel miRNAs.}
+
+\Mybibentry{BOU:KOU:PAV:MIN:TSA:DAR:2012}{
+for masking Long Terminal Repeats in the Maize Genome Sequence.}
+
+\item In the papers
+
+\bibentry{HER:MAR:DOR:PFE:GAL:SCHAA:JOU:SIM:VAL:DOL:2012}
+
+\bibentry{PHI:PAU:BER:SOU:CHO:LAU:SIM:SAF:BEL:VAU:2013}
+
+\Vmatch was used to mask repetitive DNA.
+
+\Mybibentry{HOW:YU:KNA:CRO:KOL:DOL:LOR:DEA:2013}{
+to cluster \numprint{40010} assembled isotigs.}
+
+\Mybibentry{KAR:HAA:MAL:GEE:BOV:LAM:ANG:MAA:2013}{
+to preprocess short reads in the context of identifying mircoRNA targets in
+tomato fruit development.}
+
+\Mybibentry{GRO:MAR:SIM:ABR:WAN:VIS:2013}{
+in an all-vs-all comparison to bin contigs into
+loci based on a minimum of 200~bp sequence overlap in the context of
+transcriptome assembly for two Agave-species.}
+
+\Mybibentry{KAN:HEL:DUR:WIN:ENG:BEH:HOL:BRA:HAU:FER:2013}{
+to align 454-reads to assembled isotigs for Ragweed pollen.}
+
+\Mybibentry{KUG:SIE:NUS:AME:SPAN:STEI:LEM:MAY:BUE:SCHWE:2013}{
+for comparing gene sets.}
+
+\Mybibentry{MAR:ZHO:HAS:SCHMU:VRA:KUB:KOEN:KUG:SCHOL:HAC:2013}{
+to detect repetitive DNA content of chromosomal survey
+sequences from the Rye genome.}
+
+\item
+In the papers
+
+\bibentry{KOP:MAR:VHA:HRV:VRA:BAR:KOP:CAT:STO:NOV:2013}
+
+\bibentry{KOP:MAR:CHA:HRI:VRA:BAR:2013}
+
+\Vmatch was used for
+identifying repetitive DNA content in contigs of meadow fescue chromosome 4F
+assembled from Illumina short reads.
+
+\item
+In the papers
+
+\bibentry{JAY:WAN:YU:TAC:PEL:COL:REN:VOI:2011}
+
+\bibentry{WAN:WEI:SMI:2013}
+
+\Vmatch was used for mapping siRNA sequences to the
+\textit{Arabidopsis thaliana} genome.
+
+\Mybibentry{HEN:VIV:DES:CHAU:PAY:GUT:CAS:2014}{
+for the identification of binding motifs.}
+
+\Mybibentry{WAN:HAB:GUN:GLAE:NUS:LUO:LOM:BOR:KER:SHA:2014}{
+for masking one sequence set with another and for
+mapping miRNA sequences of all plant species present in a reference database
+to whole-genome assembly of \textit{Spirodela polyrhiza}.}
+
+\Mybibentry{LOG:SCHEL:NUR:SAM:PEN:2014}{
+for repeat detection.}
+
+\Mybibentry{WAN:SHI:RIN:2015}{
+to eliminate redundancies in assemblies of Illumina reads in
+the context of studying plant defense mechanisms.}
+
+\Mybibentry{ASH:HUL:WAN:YAN:GUA:JON:MAT:MOC:CHE:STE:2015}{
+for clustering to determine a non-redundant set of assembled contigs.}
+
+\Mybibentry{UST:NOV:BLI:SMY:2015}{
+for clustering sequences based on their RT and aRNH domain.}
+
+\Mybibentry{HLE:RIV:CLA:MAR:VAN:GON:GAR:LER:SIM:VAL:2015}{
+for identifying repeats in contigs assembled from 454-reads.}
+
+\Mybibentry{SHE:YAN:LU:WAN:SON:2015}{
+for identifying inverted repeats in chloroplast genomes.}
+
+\Mybibentry{PAN:MOH:KHA:MEH:EBR:2015}{
+to identify contaminations and repetitive elements by
+comparison of mRNA sequences to vector, bacterial and repeat databases.}
+
+\Mybibentry{WOL:TWO:GAD:KNA:GRU:GEN:2015}{
+to cluster contigs of different assemblies into groups of homologous sequences.}
+
+\Mybibentry{YAN:LU:SHE:YAN:XU:SON:2015}{
+to identify inverted repeats in chloroplast genomes.}
+
+\Updateusages
+\end{enumerate}
+
+\subsection*{Usages in the Microbial Genome Research}
+\begin{enumerate}
+\item
+The
+\href{http://www.llnl.gov/str/April04/Slezak.html}{KPATH system},
+developed at the Lawrence Livermore National Laboratories, and
+described in
+
+\bibentry{FIT:GAR:KUC:KUR:MYE:OTT:SLE:VIT:ZEM:MCC:2002}
+
+\bibentry{SLE:KUC:OTT:TOR:MED:SMI:TRU:MUL:LAM:VIT:ZEM:ZHO:GAR:2003}
+
+used \Vmatch to detect unique substrings in large
+collection of DNA sequences. These unique substrings serve as
+signatures allowing for rapid and accurate diagnostics
+to identify pathogen bacteria and viruses. A similar application
+is reported in \bibentry{GAR:KUC:VIT:SLE:2003}.
+
+\Mybibentry{POB:WET:SZY:SCHIL:KUR:MEY:NAT:BECK:2006}{
+to map signature tags to the genome
+of \textit{S.~meliloti}.}
+
+\item
+The
+\href{http://crispr.u-psud.fr/Server/CRISPRfinder.php}{CRISPRFinder}-program
+and the
+\href{http://crispr.u-psud.fr/crispr/CRISPRdatabase.php}{CRISPRdatabase}, described in
+
+\bibentry{GRI:VER:POU:2007A}
+
+\bibentry{GRI:VER:POU:2007B}
+
+used \Vmatch to
+efficiently find maximal repeats, as a first step in localizing
+Clustered regularly interspaced short palindromic repeats (CRISPRs).
+
+\Mybibentry{VOSS:GEO:SCHOE:UDE:HES:2009}{
+to map predicted sequences to
+information about Rho-independent terminators provided by a specific database.}
+
+\Mybibentry{SCHMU:CAN:SCHLU:MA:MIT:NEL:HYT:SON:THE:CHE:2010}{
+to cluster DNA-sequences into families based on their
+six-frame translation.}
+
+\Mybibentry{ZIM:GES:CHE:LOR:SCHRO:2010}{
+to align 454-sequences to the Ecoli-genome and to cluster the sequences.}
+
+\Mybibentry{TOU:DEN:MED:BAR:ELK:PET:2010}{
+for detecting repeats in three bacterial species.}
+
+\Mybibentry{MAY:MAR:HED:SIM:LIU:MOR:STEU:TAU:ROE:GUN:2011}{
+for masking repeats in 454-reads.}
+
+\Mybibentry{PUS:MAN:JI:LI:EVA:CRA:MOR:MEA:SIN:SAX:2011}{
+to identify distal primers.}
+
+\Mybibentry{BRE:SHE:POP:2011}{
+for removing redundant transcripts assembled in an RNA-seq study based on
+Illumina reads for \textit{Heliothis virescens} (tobacco budworm), infected
+with a virus.}
+
+\Mybibentry{TRI:HAM:BUE:TIS:VER:ZIN:LEA:2011}{
+to search unassembled Illumina reads of US and African strains of
+\textit{Xanthomonas oryzae} for evidence of transcriptional activator-like
+effector sequences.}
+
+\item
+\Vmatch is used as an integral part of the PriMUX software package described in
+
+\bibentry{HYS:NAR:ELS:CAR:WIL:GAR:2012}
+
+In this context \Vmatch used for selecting multiplex compatible,
+degenerate primers and probes to detect diverse targets such as viruses.
+
+\Mybibentry{SHE:POP:2012}{
+to identify redundant contigs from de novo exome assemblies.}
+
+\Mybibentry{HUR:SUL:2013}{
+to identify reads which have no common 20-mers with other
+reads in a context of a marine viral metagenome project.}
+
+\Mybibentry{ZHU:RHO:FESCH:2013}{
+for clustering potential complete
+Endogenous retroviruses of the bat \textit{Myotis lucifugus} into subfamilies.}
+
+\item In the three papers
+
+\bibentry{HUR:WES:BRU:SUL:2014}
+
+\bibentry{HUR:DEN:POU:SUL:2013}
+
+\bibentry{BRU:HUR:SCHOF:DUC:SUL:2015}
+
+\Vmatch was used for $k$-mer analysis in the context of different marine
+metagenome projects.
+
+\Mybibentry{DEC:PAR:2014}{
+for $k$-mer analysis in the context of microbial communities.}
+
+\Mybibentry{BEN:BOU:FIC:KRI:LAR:2014}{
+in an iterative scheme to construct contigs from reads associated with
+resistance genes in the context of a shotgun metagenome project.}
+
+\Mybibentry{NIC:THI:GAR:MCL:FOF:KOS:ELL:BRE:JAC:JAI:2013}{
+to match probe candidate sequences against viral sequences and the human
+genmome sequence.}
+
+\Mybibentry{HEN:RUM:SCZ:VEL:DIE:GER:GOM:RAH:STO:BOR:2014}{
+to identify the species of the Streptococcaceae
+by comparing with Silva 115 release 16S reference sequence database.}
+\Updateusages
+\end{enumerate}
+
+\subsection*{Usages in General Web-Servers or Sequence Analysis Software}
+\begin{enumerate}
+\item
+Since 2000,
+the \href{http://rsat.ulb.ac.be/rsat/}{RSA-tools}, described in
+
+\bibentry{HEL:RIO:COL:2000}
+
+and developed by Jacques van Helden
+use \Vmatch to \href{http://rsat.ulb.ac.be/rsat/purge-sequence_form.cgi}{purge}
+sequences before computing sequence statistics. Similar applications are
+reported in the following papers:
+
+\bibentry{HUL:WEE:CRO:GER:HEP:HEL:2003}
+
+\bibentry{SIM:WOD:COH:HEL:2004}
+
+\bibentry{SIM:HEL:COH:WOD:2004}.
+
+\item
+The program \href{http://splicenest.molgen.mpg.de/}{SpliceNest}, described in
+
+\bibentry{COW:HAA:VIN:2002}
+
+computes gene indices and uses \Vmatch to
+\href{http://splicenest.molgen.mpg.de/doc/help.html\#mapping}{map} clustered
+sequences to large genomes.
+%\item
+%The oligo design program
+%\href{http://oligos.molgen.mpg.de/}{Promide}
+%\bibentry{RAH:2002} developed by
+%Sven Rahmann is based on the persistent index structure of \Vmatch.
+%Promide uses \textit{mkvtree} for generating the index.
+\item
+\href{http://bibiserv.techfak.uni-bielefeld.de/e2g/}{e2g}
+is a web-based server which efficiently maps large
+EST and cDNA data sets to genomic DNA. The use of \Vmatch
+allows to significantly extend the size of data that can be mapped in
+reasonable time. e2g is available as a web service and hosts
+large collections of EST sequences (e.g.\ 4.1 million mouse ESTs
+of 1.87 Gbp) in a precomputed persistent index. For details see
+
+\bibentry{KRUE:SCZ:KUR:GIE:2004}.
+
+\item
+The \href{http://bibiserv.techfak.uni-bielefeld.de/}{Bielefeld Bioinformatics Server} provides the
+\href{http://bibiserv.techfak.uni-bielefeld.de/reputer/}{REPuter}
+web-service to compute repeats in complete genomes. The service is based on
+\Vmatch.
+
+\Mybibentry{FER:DON:SCHNE:MOR:NAN:BRE:WAL:2004}{
+to (1) match \numprint{130861} vector-trimmed sequences against the maize
+repeat database, and (2) to cluster near-identical sequences. }
+%The \href{http://www.mutransposon.org/project/RescueMu/research/GSSanalysis}%
+         %{Mu Transposon Information Resource},
+\item
+\href{http://www-ab.informatik.uni-tuebingen.de/software/crosslink/welcome.html}{CrossLink}, described in
+
+\bibentry{DEZ:SCHAEF:WIE:WEI:HUS:2006}
+
+is a versatile computational tool which aids in visualizing
+relationships between RNA sequences (particularly between ncRNAs and
+their putative target transcripts) in an intuitive and accessible way.
+Besides BLAST, CrossLink uses \Vmatch to reveal the sequence
+relationships to be visualized.
+
+\item
+The early version of the web-service \href{http://mips.gsf.de/simap/}%
+         {Similarity matrix of Proteins (SIMAP)}, see
+
+\bibentry{ARN:RAT:TIS:TRU:STU:MEW:2005}
+
+used \Vmatch to locate
+the sequences in SIMAP which are similar to a given query. This is much
+faster than running BLAST.
+
+\Mybibentry{FIE:VAN:PEE:VAN:NAP:2005}{
+to compute similarities between genomes, which are then visualized by the
+program \href{http://www.win.tue.nl/dnavis/}{DNAVis}.}
+
+\item In the paper
+
+\bibentry{SEI:KRUE:HAR:SCHWA:LOEW:MER:DAN:GIE:2006}
+
+Seidel et.\ al.\ describe
+methods for creating web-services and give examples which, among other tools,
+also integrate \Vmatch.
+
+\item
+The program \textit{Gepard}
+
+\bibentry{KRU:ARN:RAT:2007}
+
+uses \textit{mkvtree} to compute enhanced suffix arrays.
+
+\item
+\Vmatch is used a part of the transcriptome assembler software Rnnotator,
+described in
+
+\bibentry{MAR:BRU:FAN:MEN:BLO:ZHA:SHE:SNY:WAN:2010}
+\item
+The BioExtract-Server described in
+
+\bibentry{LUS:JEN:BRE:2011}
+
+uses \Vmatch to remove duplicated sequences.
+
+\Mybibentry{LUS:GNI:DOO:2015}{
+for removing duplicates in BlastP results. This use is
+part of a workflow in
+\href{http://www.myexperiment.org/workflows/3131.html}{myexperiment}.
+}
+
+\Mybibentry{GRE:LOY:HOR:RAT:2015}{
+for probe/primer search functionality in the probeBase database.}
+\Updateusages
+\end{enumerate}
+
+\subsection*{Current Usages in Human Genome Research}
+\begin{enumerate}
+\Mybibentry{BUC:JAR:MEN:MAT:SCO:GRE:LAN:DUM:2005}{
+to reveal long repeats inside human chromosome 1 and long similar regions
+between human chromosome 1 and all other human chromosomes.}
+
+\Mybibentry{LIA:WAN:LIU:JI:LIU:CHE:WEB:REE:DEA:2007}{
+for Vector screening.}
+
+\Mybibentry{NYG:JAC:LIN:ERI:BAL:FLY:TOL:MOE:SOE:KRO:LIT:2009}{
+for mapping short reads.}
+
+\Mybibentry{COL:SOB:LU:THA:BOW:BRO:GRE:BAR:HUT:2009}{
+for matching reads to sets of RNA sequences and the Human genome.}
+
+\Mybibentry{CLO:WAN:XU:GU:LEA:HEA:BAR:STE:MAR:NOU:2011}{
+to uniquely map miRNAs against the human genome.}
+
+\Mybibentry{TAK:TSU:KAT:OKA:HOR:IKE:URA:KAW:HAS:IKE:2011}{
+to determine the positions of CAGE tags on the human genome.}
+
+\Mybibentry{KEV:LAL:LI:CAV:NAR:KAM:MIT:HAK:KOZ:GEN:2011}{
+to align sections of reads against RefSeq mRNA exon sequences.}
+
+\Mybibentry{KID:CHE:WAN:JAC:ZHA:BOY:FIR:TAN:GAE:COL:2012}{
+to align sets of genes.}
+
+\Mybibentry{YAM:IKE:BOE:HOR:TAK:URA:KAI:CAR:KAW:HAY:2014}{
+to determine the positions of CAGE tags on the human genome.}
+
+\Updateusages
+\end{enumerate}
+
+\subsection*{Current Usages for different Model Organisms}
+\begin{enumerate}
+\Mybibentry{SCZ:BECK:BRI:GIE:ALT:2005}{
+to cluster \numprint{317242} EST and cDNA sequences from
+\textit{Xenopus laevis}.  \Vmatch was chosen for the following reasons:
+\begin{itemize}
+\item
+At first, there was no clustering tool available which could handle
+large data sets efficiently, and which was documented well enough to
+allow a detailed b replication and evaluation of existing clusters.
+\item
+Second, \Vmatch identifies similarities between sequences rapidly,
+and it provides additional options to cluster a set of sequences
+based on these matches. Furthermore, the \Vmatch output provides
+information about how the clusters were derived. Due to the
+efficiency of \Vmatch, it was possible to perform the clustering for a
+wide variety of parameters on the complete sequence set.
+This allows to study the effect of the parameter choice on the clustering.
+\end{itemize}}
+
+\Mybibentry{SPIT:LOR:CUL:SCZ:FUEL:2006}{
+to cluster EST-sequences of \textit{Xenopus laevis}.}
+
+\Mybibentry{EIS:COY:WU:WU:THI:WOR:BAD:REN:AME:JON:2006}{
+to search exact repeats in the Macronuclear Genome Sequence of the Ciliate
+\textit{Tetrahymena thermophila}.}
+%\item
+%\href{http://www.plantgdb.org/}{PlantGDB} provides a Web Service
+%named \href{https://biomoby.tigr.org/wiki/index.php/Code_Examples_-_Java}{VMatchForArabidopsis}%
+%
+%based on \Vmatch. It allows to search sequences
+%from \textit{Arabidopsis Thaliana}.
+%\item
+%The \href{http://www.jgi.doe.gov/science/posters/LBNL-59860goltsman.pdf}{DOE Joint Genome Institute}%
+%
+%used \Vmatch to
+%identify and mask all continuous non-unique sequence fragments over
+%500~bp in \textit{Frankia sp.} and \textit{Shewanella oneidensis}.
+
+\Mybibentry{FAU:FOR:CHA:SCHRO:HAY:CAR:HUM:GRI:2008}{
+for mapping
+\begin{itemize}
+\item
+\numprint{11567973} FANTOM3 mouse CAGE tags to the mouse genome
+with minimum match length of {18} bp, a single internal mismatch allowed,
+and multiple mismatches allowed at tag ends.
+\item
+Affymetrix GNF probe sequences to transcripts without allowing for mismatches.
+\end{itemize}}
+
+
+\Mybibentry{PRI:JOR:2008}{
+to search small RNA signatures in entire miRNA gene sequences for
+Arabidopsis and rice.}
+
+\Mybibentry{TAF:GLA:LASS:HAY:CAR:MAT:2009}{
+to map small RNA data sets onto the corresponding reference
+genomes for different model organisms.}
+
+\Mybibentry{PLE:PAS:BER:AKA:CAR:VAS:LAZ:SEV:VLA:SIM:2012}{
+for mapping Illumina reads to the mouse genome.}
+
+\Mybibentry{KEN:SHI:2012}{
+for redundancy removal in the context of transcriptome assembly of
+a keelworm species.}
+
+\Mybibentry{GOS:OHM:KOG:SON:TUR:ZAJ:ZAL:GRU:SUN:HAN:2014}{
+to remove redundant contigs in a genome project of four
+\textit{Aureobasidium pullulans} varieties.}
+
+\Mybibentry{MCM:GAR:BAI:KEM:WAR:CEV:ROB:SCHUL:BAL:HOL:2015}{
+for merging assemblies of Illumina sequenced cDNA.}
+
+% add applications at Bioinformatics Center Copenhagen Univ., see E-mails from
+% Feb 2007, this may be the Biopieces.
+
+% the following paper cites \Vmatch, but does not use it.
+% http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1868776
+% \bibentry{TEM:ZAV:BOD:CHA:GEY:WAS:BEN:REI:2007}, Tembe et et.\ al.\
+
+%Add "Highly Specific Gene Silencing by Artificial MicroRNAs in Arabidopsis"
+%of Schwab et al, 2006, and implemented on wmd2.weigelworld.org.
+%refers to Hypa and not really to \Vmatch.
+
+\Mybibentry{MOR:DHA:PAV:TRO:WHE:HEL:2015}{
+to combine and scaffold contigs.}
+
+\Updateusages
+\end{enumerate}
+
+Total number of usages: \arabic{Allusages}
+
+\section*{Availability}
+\Vmatch is available for
+\href{http://www.vmatch.de/download.html}{download}
+in executable form for the following platforms:
+
+\begin{itemize}
+\item
+Linux
+\item
+Mac OS X
+\item
+MS Windows
+\end{itemize}
+
+\section*{Developer}
+\Vmatch was developed since May 2000 by
+\href{http://www.zbh.uni-hamburg.de/kurtz}{Stefan Kurtz},
+a professor of
+Computer Science at the Center for Bioinformatics, University of Hamburg,
+Germany.
+
+\HCode{
+<!--delete paragraph-->
+<b>Important Documents</b>
+<ul>
+<li>
+The <a href="virtman.pdf"><i>Vmatch</i>-manual</a>
+</li>
+</ul>
+}
+
+\HCode{
+<!--delete paragraph-->
+<div id="footer">
+Copyright &copy; 2000-2017 <a href="mailto:kurtz@zbh.uni-hamburg.de">
+Stefan Kurtz</a>. Last update: 2017-06-15
+</div>
+}
+
+\HCode{
+<!--delete paragraph-->
+<!-- Piwik -->
+<div id="piwik">
+<script type="text/javascript">
+var pkBaseURL = "https://zenlicensemanager.com/piwik/";
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script>
+<br/>
+<noscript>
+<img src="https://zenlicensemanager.com/piwik/piwik.php?idsite=3" style="border:0" alt=""/>
+</noscript>
+<!-- End Piwik Tracking Tag -->
+</div>
+}
+\end{document}

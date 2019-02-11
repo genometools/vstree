@@ -1,0 +1,23 @@
+$ vmatch -dbcluster 30 50 -p -d -l 200 -e 10 -showdesc 0 atEST 
+# args=-dbcluster 30 50 -p -d -l 200 -e 10 -showdesc 0 atEST
+# 152 clusters
+# 389 elements out of 1952 (19.93%) are in clusters
+# 1563 elements out of 1952 (80.07%) are singlets
+# 124 clusters of size 2
+# 18 clusters of size 3
+# 4 clusters of size 4
+# 2 clusters of size 5
+# 1 cluster of size 6
+# 1 cluster of size 7
+# 1 cluster of size 8
+# 1 cluster of size 40
+0:
+  gi|2764304|gb|R65326.1|R65326
+  gi|2764088|gb|R30410.1|R30410
+1:
+  gi|4714047|dbj|C99930.1|C99930
+  gi|4714011|dbj|C99887.1|C99887
+  gi|4714044|dbj|C99927.1|C99927
+2:
+  gi|2764186|gb|R64887.1|R64887
+  gi|2764054|gb|R30268.1|R30268

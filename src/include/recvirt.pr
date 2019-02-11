@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void recomputevirtualtreemarkpos(Virtualtree *virtualtree);
+
+Sint constructvirtualtreetables(Virtualtree *virtualtree,
+                               char *indexname,Uint demand);
+
+#ifdef __cplusplus
+}
+#endif

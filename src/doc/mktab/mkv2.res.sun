@@ -1,0 +1,708 @@
+Wed Nov 29 11:39:22 MET 2000
+-------------aero.fna----------
+reading databasefile "bacteria/Aero/aero.fna"
+creating file "aero.fna.des"
+creating file "aero.fna.lcp"
+total length of sequences: 1669695, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "aero.fna.llv"
+creating file "aero.fna.suf"
+creating file "aero.fna.bwt"
+creating file "aero.fna.prj"
+creating file "aero.fna.al1"
+overall space peak: main=6.69 MB (4.20 bytes/symbol), secondary=1.62 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Aero/aero.fna 2.21
+-------------aful.fna----------
+reading databasefile "bacteria/Aful/aful.fna"
+creating file "aful.fna.des"
+creating file "aful.fna.lcp"
+total length of sequences: 2178400, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "aful.fna.llv"
+creating file "aful.fna.suf"
+creating file "aful.fna.bwt"
+creating file "aful.fna.prj"
+creating file "aful.fna.al1"
+overall space peak: main=8.67 MB (4.17 bytes/symbol), secondary=2.11 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Aful/aful.fna 3.27
+-------------aquae.fna----------
+reading databasefile "bacteria/Aquae/aquae.fna"
+creating file "aquae.fna.des"
+creating file "aquae.fna.lcp"
+total length of sequences: 1551335, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "aquae.fna.llv"
+creating file "aquae.fna.suf"
+creating file "aquae.fna.bwt"
+creating file "aquae.fna.prj"
+creating file "aquae.fna.al1"
+overall space peak: main=6.25 MB (4.22 bytes/symbol), secondary=1.50 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Aquae/aquae.fna 2.12
+-------------bbur.plasmids.fna----------
+reading databasefile "bacteria/Bbur/bbur.plasmids.fna"
+creating file "bbur.plasmids.fna.ssp"
+creating file "bbur.plasmids.fna.des"
+creating file "bbur.plasmids.fna.lcp"
+total length of sequences: 318744 (including 10 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "bbur.plasmids.fna.llv"
+creating file "bbur.plasmids.fna.suf"
+creating file "bbur.plasmids.fna.bwt"
+creating file "bbur.plasmids.fna.prj"
+creating file "bbur.plasmids.fna.al1"
+overall space peak: main=1.55 MB (5.09 bytes/symbol), secondary=0.31 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Bbur/bbur.plasmids.fna 0.36
+-------------bhal.fna----------
+reading databasefile "bacteria/Bhal/bhal.fna"
+creating file "bhal.fna.des"
+creating file "bhal.fna.lcp"
+total length of sequences: 4202353, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "bhal.fna.llv"
+creating file "bhal.fna.suf"
+creating file "bhal.fna.bwt"
+creating file "bhal.fna.prj"
+creating file "bhal.fna.al1"
+overall space peak: main=17.08 MB (4.26 bytes/symbol), secondary=4.06 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Bhal/bhal.fna 11.96
+-------------bsub.fna----------
+reading databasefile "bacteria/Bsub/bsub.fna"
+creating file "bsub.fna.des"
+creating file "bsub.fna.lcp"
+total length of sequences: 4214814, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "bsub.fna.llv"
+creating file "bsub.fna.suf"
+creating file "bsub.fna.bwt"
+creating file "bsub.fna.prj"
+creating file "bsub.fna.al1"
+overall space peak: main=16.60 MB (4.13 bytes/symbol), secondary=4.08 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Bsub/bsub.fna 8.82
+-------------buch.fna----------
+reading databasefile "bacteria/Buch/buch.fna"
+creating file "buch.fna.des"
+creating file "buch.fna.lcp"
+total length of sequences: 640681, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "buch.fna.llv"
+creating file "buch.fna.suf"
+creating file "buch.fna.bwt"
+creating file "buch.fna.prj"
+creating file "buch.fna.al1"
+overall space peak: main=2.76 MB (4.52 bytes/symbol), secondary=0.62 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Buch/buch.fna 0.75
+-------------cjej.fna----------
+reading databasefile "bacteria/Cjej/cjej.fna"
+creating file "cjej.fna.des"
+creating file "cjej.fna.lcp"
+total length of sequences: 1641481, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "cjej.fna.llv"
+creating file "cjej.fna.suf"
+creating file "cjej.fna.bwt"
+creating file "cjej.fna.prj"
+creating file "cjej.fna.al1"
+overall space peak: main=6.72 MB (4.29 bytes/symbol), secondary=1.59 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Cjej/cjej.fna 3.90
+-------------cpneu.fna----------
+reading databasefile "bacteria/Cpneu/cpneu.fna"
+creating file "cpneu.fna.des"
+creating file "cpneu.fna.lcp"
+total length of sequences: 1230230, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "cpneu.fna.llv"
+creating file "cpneu.fna.suf"
+creating file "cpneu.fna.bwt"
+creating file "cpneu.fna.prj"
+creating file "cpneu.fna.al1"
+overall space peak: main=5.02 MB (4.28 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Cpneu/cpneu.fna 1.61
+-------------cpneuA.fna----------
+reading databasefile "bacteria/CpneuA/cpneuA.fna"
+creating file "cpneuA.fna.des"
+creating file "cpneuA.fna.lcp"
+total length of sequences: 1229853, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "cpneuA.fna.llv"
+creating file "cpneuA.fna.suf"
+creating file "cpneuA.fna.bwt"
+creating file "cpneuA.fna.prj"
+creating file "cpneuA.fna.al1"
+overall space peak: main=5.02 MB (4.28 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/CpneuA/cpneuA.fna 1.63
+-------------cpneuJ.fna----------
+reading databasefile "bacteria/CpneuJ/cpneuJ.fna"
+creating file "cpneuJ.fna.des"
+creating file "cpneuJ.fna.lcp"
+total length of sequences: 1228267, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "cpneuJ.fna.llv"
+creating file "cpneuJ.fna.suf"
+creating file "cpneuJ.fna.bwt"
+creating file "cpneuJ.fna.prj"
+creating file "cpneuJ.fna.al1"
+overall space peak: main=5.02 MB (4.28 bytes/symbol), secondary=1.19 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/CpneuJ/cpneuJ.fna 1.57
+-------------ctra.fna----------
+reading databasefile "bacteria/Ctra/ctra.fna"
+creating file "ctra.fna.des"
+creating file "ctra.fna.lcp"
+total length of sequences: 1042519, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "ctra.fna.llv"
+creating file "ctra.fna.suf"
+creating file "ctra.fna.bwt"
+creating file "ctra.fna.prj"
+creating file "ctra.fna.al1"
+overall space peak: main=4.34 MB (4.36 bytes/symbol), secondary=1.01 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Ctra/ctra.fna 1.61
+-------------ctraM.fna----------
+reading databasefile "bacteria/CtraM/ctraM.fna"
+creating file "ctraM.fna.des"
+creating file "ctraM.fna.lcp"
+total length of sequences: 1069412, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "ctraM.fna.llv"
+creating file "ctraM.fna.suf"
+creating file "ctraM.fna.bwt"
+creating file "ctraM.fna.prj"
+creating file "ctraM.fna.al1"
+overall space peak: main=4.41 MB (4.32 bytes/symbol), secondary=1.03 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/CtraM/ctraM.fna 1.32
+-------------dra1.fna----------
+reading databasefile "bacteria/Drad/dra1.fna"
+creating file "dra1.fna.des"
+creating file "dra1.fna.lcp"
+total length of sequences: 2648638, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "dra1.fna.llv"
+creating file "dra1.fna.suf"
+creating file "dra1.fna.bwt"
+creating file "dra1.fna.prj"
+creating file "dra1.fna.al1"
+overall space peak: main=10.53 MB (4.17 bytes/symbol), secondary=2.56 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Drad/dra1.fna 4.59
+-------------ecoli.fna----------
+reading databasefile "bacteria/Ecoli/ecoli.fna"
+creating file "ecoli.fna.des"
+creating file "ecoli.fna.lcp"
+total length of sequences: 4639221, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "ecoli.fna.llv"
+creating file "ecoli.fna.suf"
+creating file "ecoli.fna.bwt"
+creating file "ecoli.fna.prj"
+creating file "ecoli.fna.al1"
+overall space peak: main=18.28 MB (4.13 bytes/symbol), secondary=4.49 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Ecoli/ecoli.fna 9.14
+-------------hbsp.fna----------
+reading databasefile "bacteria/Hbsp/hbsp.fna"
+creating file "hbsp.fna.des"
+creating file "hbsp.fna.lcp"
+total length of sequences: 2014239, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "hbsp.fna.llv"
+creating file "hbsp.fna.suf"
+creating file "hbsp.fna.bwt"
+creating file "hbsp.fna.prj"
+creating file "hbsp.fna.al1"
+overall space peak: main=8.05 MB (4.19 bytes/symbol), secondary=1.95 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Hbsp/hbsp.fna 3.14
+-------------hinf.fna----------
+reading databasefile "bacteria/Hinf/hinf.fna"
+creating file "hinf.fna.des"
+creating file "hinf.fna.lcp"
+total length of sequences: 1830138, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "hinf.fna.llv"
+creating file "hinf.fna.suf"
+creating file "hinf.fna.bwt"
+creating file "hinf.fna.prj"
+creating file "hinf.fna.al1"
+overall space peak: main=7.44 MB (4.26 bytes/symbol), secondary=1.77 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Hinf/hinf.fna 4.18
+-------------hpyl.fna----------
+reading databasefile "bacteria/Hpyl/hpyl.fna"
+creating file "hpyl.fna.des"
+creating file "hpyl.fna.lcp"
+total length of sequences: 1667867, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "hpyl.fna.llv"
+creating file "hpyl.fna.suf"
+creating file "hpyl.fna.bwt"
+creating file "hpyl.fna.prj"
+creating file "hpyl.fna.al1"
+overall space peak: main=6.76 MB (4.25 bytes/symbol), secondary=1.61 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Hpyl/hpyl.fna 2.63
+-------------hpyl99.fna----------
+reading databasefile "bacteria/Hpyl99/hpyl99.fna"
+creating file "hpyl99.fna.des"
+creating file "hpyl99.fna.lcp"
+total length of sequences: 1643831, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "hpyl99.fna.llv"
+creating file "hpyl99.fna.suf"
+creating file "hpyl99.fna.bwt"
+creating file "hpyl99.fna.prj"
+creating file "hpyl99.fna.al1"
+overall space peak: main=6.67 MB (4.25 bytes/symbol), secondary=1.59 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Hpyl99/hpyl99.fna 2.66
+-------------mgen.fna----------
+reading databasefile "bacteria/Mgen/mgen.fna"
+creating file "mgen.fna.des"
+creating file "mgen.fna.lcp"
+total length of sequences: 580074, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "mgen.fna.llv"
+creating file "mgen.fna.suf"
+creating file "mgen.fna.bwt"
+creating file "mgen.fna.prj"
+creating file "mgen.fna.al1"
+overall space peak: main=2.53 MB (4.57 bytes/symbol), secondary=0.56 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Mgen/mgen.fna 0.61
+-------------mjan.fna----------
+reading databasefile "bacteria/Mjan/mjan.fna"
+creating file "mjan.fna.des"
+creating file "mjan.fna.lcp"
+total length of sequences: 1664970, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "mjan.fna.llv"
+creating file "mjan.fna.suf"
+creating file "mjan.fna.bwt"
+creating file "mjan.fna.prj"
+creating file "mjan.fna.al1"
+overall space peak: main=6.68 MB (4.21 bytes/symbol), secondary=1.61 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Mjan/mjan.fna 2.43
+-------------mpneu.fna----------
+reading databasefile "bacteria/Mpneu/mpneu.fna"
+creating file "mpneu.fna.des"
+creating file "mpneu.fna.lcp"
+total length of sequences: 816394, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "mpneu.fna.llv"
+creating file "mpneu.fna.suf"
+creating file "mpneu.fna.bwt"
+creating file "mpneu.fna.prj"
+creating file "mpneu.fna.al1"
+overall space peak: main=3.44 MB (4.42 bytes/symbol), secondary=0.79 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Mpneu/mpneu.fna 1.00
+-------------mthe.fna----------
+reading databasefile "bacteria/Mthe/mthe.fna"
+creating file "mthe.fna.des"
+creating file "mthe.fna.lcp"
+total length of sequences: 1751377, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "mthe.fna.llv"
+creating file "mthe.fna.suf"
+creating file "mthe.fna.bwt"
+creating file "mthe.fna.prj"
+creating file "mthe.fna.al1"
+overall space peak: main=7.04 MB (4.22 bytes/symbol), secondary=1.69 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Mthe/mthe.fna 2.54
+-------------mtub.fna----------
+reading databasefile "bacteria/Mtub/mtub.fna"
+creating file "mtub.fna.des"
+creating file "mtub.fna.lcp"
+total length of sequences: 4411529, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "mtub.fna.llv"
+creating file "mtub.fna.suf"
+creating file "mtub.fna.bwt"
+creating file "mtub.fna.prj"
+creating file "mtub.fna.al1"
+overall space peak: main=17.38 MB (4.13 bytes/symbol), secondary=4.27 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Mtub/mtub.fna 8.82
+-------------nmen.fna----------
+reading databasefile "bacteria/Nmen/nmen.fna"
+creating file "nmen.fna.des"
+creating file "nmen.fna.lcp"
+total length of sequences: 2272351, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "nmen.fna.llv"
+creating file "nmen.fna.suf"
+creating file "nmen.fna.bwt"
+creating file "nmen.fna.prj"
+creating file "nmen.fna.al1"
+overall space peak: main=9.44 MB (4.36 bytes/symbol), secondary=2.20 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Nmen/nmen.fna 19.63
+-------------nmenA.fna----------
+reading databasefile "bacteria/NmenA/nmenA.fna"
+creating file "nmenA.fna.des"
+creating file "nmenA.fna.lcp"
+total length of sequences: 2184406, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "nmenA.fna.llv"
+creating file "nmenA.fna.suf"
+creating file "nmenA.fna.bwt"
+creating file "nmenA.fna.prj"
+creating file "nmenA.fna.al1"
+overall space peak: main=8.82 MB (4.23 bytes/symbol), secondary=2.11 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/NmenA/nmenA.fna 4.82
+-------------pabyssi.fna----------
+reading databasefile "bacteria/Pabyssi/pabyssi.fna"
+creating file "pabyssi.fna.des"
+creating file "pabyssi.fna.lcp"
+total length of sequences: 1765118, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "pabyssi.fna.llv"
+creating file "pabyssi.fna.suf"
+creating file "pabyssi.fna.bwt"
+creating file "pabyssi.fna.prj"
+creating file "pabyssi.fna.al1"
+overall space peak: main=7.05 MB (4.19 bytes/symbol), secondary=1.71 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Pabyssi/pabyssi.fna 2.44
+-------------paer.fna----------
+reading databasefile "bacteria/Paer/paer.fna"
+creating file "paer.fna.des"
+creating file "paer.fna.lcp"
+total length of sequences: 6264403, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "paer.fna.llv"
+creating file "paer.fna.suf"
+creating file "paer.fna.bwt"
+creating file "paer.fna.prj"
+creating file "paer.fna.al1"
+overall space peak: main=24.39 MB (4.08 bytes/symbol), secondary=6.06 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Paer/paer.fna 13.57
+-------------pyro.fna----------
+reading databasefile "bacteria/Pyro/pyro.fna"
+creating file "pyro.fna.des"
+creating file "pyro.fna.lcp"
+total length of sequences: 1738505, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "pyro.fna.llv"
+creating file "pyro.fna.suf"
+creating file "pyro.fna.bwt"
+creating file "pyro.fna.prj"
+creating file "pyro.fna.al1"
+overall space peak: main=6.95 MB (4.19 bytes/symbol), secondary=1.68 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Pyro/pyro.fna 2.41
+-------------pNGR234.fna----------
+reading databasefile "bacteria/R_pNGR/pNGR234.fna"
+creating file "pNGR234.fna.des"
+creating file "pNGR234.fna.lcp"
+total length of sequences: 536165, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "pNGR234.fna.llv"
+creating file "pNGR234.fna.suf"
+creating file "pNGR234.fna.bwt"
+creating file "pNGR234.fna.prj"
+creating file "pNGR234.fna.al1"
+overall space peak: main=2.50 MB (4.89 bytes/symbol), secondary=0.52 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/R_pNGR/pNGR234.fna 1.41
+-------------rpxx.fna----------
+reading databasefile "bacteria/Rpxx/rpxx.fna"
+creating file "rpxx.fna.des"
+creating file "rpxx.fna.lcp"
+total length of sequences: 1111523, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "rpxx.fna.llv"
+creating file "rpxx.fna.suf"
+creating file "rpxx.fna.bwt"
+creating file "rpxx.fna.prj"
+creating file "rpxx.fna.al1"
+overall space peak: main=4.57 MB (4.31 bytes/symbol), secondary=1.08 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Rpxx/rpxx.fna 1.44
+-------------synecho.fna----------
+reading databasefile "bacteria/Synecho/synecho.fna"
+creating file "synecho.fna.des"
+creating file "synecho.fna.lcp"
+total length of sequences: 3573470, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "synecho.fna.llv"
+creating file "synecho.fna.suf"
+creating file "synecho.fna.bwt"
+creating file "synecho.fna.prj"
+creating file "synecho.fna.al1"
+overall space peak: main=14.10 MB (4.14 bytes/symbol), secondary=3.46 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Synecho/synecho.fna 6.48
+-------------tacid.fna----------
+reading databasefile "bacteria/Tacid/tacid.fna"
+creating file "tacid.fna.des"
+creating file "tacid.fna.lcp"
+total length of sequences: 1564906, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "tacid.fna.llv"
+creating file "tacid.fna.suf"
+creating file "tacid.fna.bwt"
+creating file "tacid.fna.prj"
+creating file "tacid.fna.al1"
+overall space peak: main=6.30 MB (4.22 bytes/symbol), secondary=1.51 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Tacid/tacid.fna 2.07
+-------------tmar.fna----------
+reading databasefile "bacteria/Tmar/tmar.fna"
+creating file "tmar.fna.des"
+creating file "tmar.fna.lcp"
+total length of sequences: 1860725, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "tmar.fna.llv"
+creating file "tmar.fna.suf"
+creating file "tmar.fna.bwt"
+creating file "tmar.fna.prj"
+creating file "tmar.fna.al1"
+overall space peak: main=7.43 MB (4.19 bytes/symbol), secondary=1.80 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Tmar/tmar.fna 2.64
+-------------tpal.fna----------
+reading databasefile "bacteria/Tpal/tpal.fna"
+creating file "tpal.fna.des"
+creating file "tpal.fna.lcp"
+total length of sequences: 1138011, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "tpal.fna.llv"
+creating file "tpal.fna.suf"
+creating file "tpal.fna.bwt"
+creating file "tpal.fna.prj"
+creating file "tpal.fna.al1"
+overall space peak: main=4.73 MB (4.36 bytes/symbol), secondary=1.10 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Tpal/tpal.fna 1.70
+-------------uure.fna----------
+reading databasefile "bacteria/Uure/uure.fna"
+creating file "uure.fna.des"
+creating file "uure.fna.lcp"
+total length of sequences: 751719, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "uure.fna.llv"
+creating file "uure.fna.suf"
+creating file "uure.fna.bwt"
+creating file "uure.fna.prj"
+creating file "uure.fna.al1"
+overall space peak: main=3.23 MB (4.51 bytes/symbol), secondary=0.73 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Uure/uure.fna 1.01
+-------------vcho1.fna----------
+reading databasefile "bacteria/Vcho/vcho1.fna"
+creating file "vcho1.fna.des"
+creating file "vcho1.fna.lcp"
+total length of sequences: 2961149, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "vcho1.fna.llv"
+creating file "vcho1.fna.suf"
+creating file "vcho1.fna.bwt"
+creating file "vcho1.fna.prj"
+creating file "vcho1.fna.al1"
+overall space peak: main=11.81 MB (4.18 bytes/symbol), secondary=2.86 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Vcho/vcho1.fna 5.60
+-------------xfas.fna----------
+reading databasefile "bacteria/Xfas/xfas.fna"
+creating file "xfas.fna.des"
+creating file "xfas.fna.lcp"
+total length of sequences: 2679306, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 8
+sorting all buckets
+creating file "xfas.fna.llv"
+creating file "xfas.fna.suf"
+creating file "xfas.fna.bwt"
+creating file "xfas.fna.prj"
+creating file "xfas.fna.al1"
+overall space peak: main=10.83 MB (4.24 bytes/symbol), secondary=2.59 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 8 -db bacteria/Xfas/xfas.fna 8.43
+-------------athaliana.list----------
+reading databasefile "A_thaliana/CHR_II/ath2.fna"
+reading databasefile "A_thaliana/CHR_IV/ath4.fna"
+creating file "athaliana.list.ssp"
+creating file "athaliana.list.des"
+creating file "athaliana.list.lcp"
+total length of sequences: 37197174 (including 1 separator), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "athaliana.list.llv"
+creating file "athaliana.list.suf"
+creating file "athaliana.list.bwt"
+creating file "athaliana.list.prj"
+creating file "athaliana.list.al1"
+overall space peak: main=180.12 MB (5.08 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -prefix athaliana.list -lcp -bwt -suf -v -dna -pl 9 -db A_thaliana/CHR_II/ath2.fna A_thaliana/CHR_IV/ath4.fna 126.89
+-------------celegans.list----------
+reading databasefile "C_elegans/sanger/C_elegans_concat.fna"
+creating file "celegans.list.des"
+creating file "celegans.list.lcp"
+total length of sequences: 96893008, alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "celegans.list.llv"
+creating file "celegans.list.suf"
+creating file "celegans.list.bwt"
+creating file "celegans.list.prj"
+creating file "celegans.list.al1"
+overall space peak: main=376.99 MB (4.08 bytes/symbol), secondary=94.30 MB
+TIME mkvtree -prefix celegans.list -lcp -bwt -suf -v -dna -pl 9 -db C_elegans/sanger/C_elegans_concat.fna 394.65
+-------------drosophila.list----------
+reading databasefile "D_melanogaster/celera/arm2L_noN.fna"
+reading databasefile "D_melanogaster/celera/arm2R_noN.fna"
+reading databasefile "D_melanogaster/celera/arm3L_noN.fna"
+reading databasefile "D_melanogaster/celera/arm3R_noN.fna"
+reading databasefile "D_melanogaster/celera/arm4_noN.fna"
+reading databasefile "D_melanogaster/celera/armU_noN.fna"
+reading databasefile "D_melanogaster/celera/armX_noN.fna"
+creating file "drosophila.list.ssp"
+creating file "drosophila.list.des"
+creating file "drosophila.list.lcp"
+total length of sequences: 119996196 (including 6 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "drosophila.list.llv"
+creating file "drosophila.list.suf"
+creating file "drosophila.list.bwt"
+creating file "drosophila.list.prj"
+creating file "drosophila.list.al1"
+overall space peak: main=582.23 MB (5.09 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -prefix drosophila.list -lcp -bwt -suf -v -dna -pl 9 -db D_melanogaster/celera/arm2L_noN.fna D_melanogaster/celera/arm2R_noN.fna D_melanogaster/celera/arm3L_noN.fna D_melanogaster/celera/arm3R_noN.fna D_melanogaster/celera/arm4_noN.fna D_melanogaster/celera/armU_noN.fna D_melanogaster/celera/armX_noN.fna 464.20
+-------------human.list----------
+reading databasefile "H_sapiens/CHR_21/chr21_all.fna"
+reading databasefile "H_sapiens/CHR_22/hs_chr22.fna"
+creating file "human.list.ssp"
+creating file "human.list.des"
+creating file "human.list.lcp"
+total length of sequences: 66595703 (including 16 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "human.list.llv"
+creating file "human.list.suf"
+creating file "human.list.bwt"
+creating file "human.list.prj"
+creating file "human.list.al1"
+overall space peak: main=320.87 MB (5.05 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -prefix human.list -lcp -bwt -suf -v -dna -pl 9 -db H_sapiens/CHR_21/chr21_all.fna H_sapiens/CHR_22/hs_chr22.fna 194.27
+-------------scerevisae.list----------
+reading databasefile "S_cerevisiae/Chr01/I.fna"
+reading databasefile "S_cerevisiae/Chr02/II.fna"
+reading databasefile "S_cerevisiae/Chr03/III.fna"
+reading databasefile "S_cerevisiae/Chr04/IV.fna"
+reading databasefile "S_cerevisiae/Chr05/V.fna"
+reading databasefile "S_cerevisiae/Chr06/VI.fna"
+reading databasefile "S_cerevisiae/Chr07/VII.fna"
+reading databasefile "S_cerevisiae/Chr08/VIII.fna"
+reading databasefile "S_cerevisiae/Chr09/IX.fna"
+reading databasefile "S_cerevisiae/Chr10/X.fna"
+reading databasefile "S_cerevisiae/Chr11/XI.fna"
+reading databasefile "S_cerevisiae/Chr12/XII.fna"
+reading databasefile "S_cerevisiae/Chr13/XIII.fna"
+reading databasefile "S_cerevisiae/Chr14/XIV.fna"
+reading databasefile "S_cerevisiae/Chr15/XV.fna"
+reading databasefile "S_cerevisiae/Chr16/XVI.fna"
+reading databasefile "S_cerevisiae/ChrMT/MT.fna"
+creating file "scerevisae.list.ssp"
+creating file "scerevisae.list.des"
+creating file "scerevisae.list.lcp"
+total length of sequences: 12155042 (including 16 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "scerevisae.list.llv"
+creating file "scerevisae.list.suf"
+creating file "scerevisae.list.bwt"
+creating file "scerevisae.list.prj"
+creating file "scerevisae.list.al1"
+overall space peak: main=61.20 MB (5.28 bytes/symbol), secondary=0.00 MB
+TIME mkvtree -prefix scerevisae.list -lcp -bwt -suf -v -dna -pl 9 -db S_cerevisiae/Chr01/I.fna S_cerevisiae/Chr02/II.fna S_cerevisiae/Chr03/III.fna S_cerevisiae/Chr04/IV.fna S_cerevisiae/Chr05/V.fna S_cerevisiae/Chr06/VI.fna S_cerevisiae/Chr07/VII.fna S_cerevisiae/Chr08/VIII.fna S_cerevisiae/Chr09/IX.fna S_cerevisiae/Chr10/X.fna S_cerevisiae/Chr11/XI.fna S_cerevisiae/Chr12/XII.fna S_cerevisiae/Chr13/XIII.fna S_cerevisiae/Chr14/XIV.fna S_cerevisiae/Chr15/XV.fna S_cerevisiae/Chr16/XVI.fna S_cerevisiae/ChrMT/MT.fna 39.51
+-------------Mouse----------
+reading databasefile "/vol/biodata/est/est_mouse"
+creating file "est_mouse.ssp"
+creating file "est_mouse.des"
+creating file "est_mouse.lcp"
+total length of sequences: 375453505 (including 1051686 separators), alphabet size 4
+initializing data structures
+sorting suffixes according to prefix of length 9
+sorting all buckets
+creating file "est_mouse.llv"
+creating file "est_mouse.suf"
+creating file "est_mouse.bwt"
+creating file "est_mouse.prj"
+creating file "est_mouse.al1"
+overall space peak: main=1828.16 MB (5.11 bytes/symbol), secondary=507.58 MB
+TIME mkvtree -lcp -bwt -suf -v -dna -pl 9 -db /vol/biodata/est/est_mouse 3507.10
+-------------/vol/biodata/swissprot/sprot.fas----------
+reading databasefile "/vol/biodata/swissprot/sprot.fas"
+creating file "sprot.fas.ssp"
+creating file "sprot.fas.des"
+creating file "sprot.fas.lcp"
+total length of sequences: 31791220 (including 87251 separators), alphabet size 20
+initializing data structures
+sorting suffixes according to prefix of length 4
+sorting all buckets
+creating file "sprot.fas.llv"
+creating file "sprot.fas.suf"
+creating file "sprot.fas.bwt"
+creating file "sprot.fas.prj"
+creating file "sprot.fas.al1"
+overall space peak: main=130.61 MB (4.31 bytes/symbol), secondary=35.45 MB
+TIME mkvtree -lcp -bwt -suf -v -protein -pl 4 -db /vol/biodata/swissprot/sprot.fas 90.38
+Wed Nov 29 13:33:41 MET 2000

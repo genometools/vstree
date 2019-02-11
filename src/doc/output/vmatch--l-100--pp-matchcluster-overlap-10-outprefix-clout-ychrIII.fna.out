@@ -1,0 +1,6 @@
+$ vmatch -l 100 -pp matchcluster overlap 10 outprefix clout ychrIII.fna
+# args=-l 100 -pp matchcluster overlap 10 outprefix clout ychrIII.fna
+# cluster 16 matches
+# create cluster 0 of size 3
+# create cluster 1 of size 5
+# create cluster 2 of size 3

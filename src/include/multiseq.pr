@@ -1,0 +1,24 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initmultiseq(Multiseq *multiseq);
+
+void freemultiseqfileinfo(Multiseq *multiseq);
+
+void freemultiseq(Multiseq *multiseq);
+
+Sint overallsequences(BOOL rcmode,Multiseq *multiseq,void *applyinfo,
+                      Sint(*apply)(void *,Uint,Uchar *,Uint));
+
+Sint getrecordnum(Uint *recordseps,
+                  Uint numofrecords,
+                  Uint totalwidth,
+                  Uint position);
+
+Sint getseqnum(Multiseq *multiseq,Uint position);
+
+Sint pos2pospair(Multiseq *multiseq,PairUint *pos,Uint position);
+
+#ifdef __cplusplus
+}
+#endif

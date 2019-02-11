@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint simplebck2superbck(Superbckinterval *superbck,
+                        Uint numofsuperbck,
+                        Virtualtree *virtualtree);
+
+void showsuperbck(Virtualtree *virtualtree,
+                  Superbckinterval *superbck,
+                  Uint numofsuperbck);
+
+#ifdef __cplusplus
+}
+#endif

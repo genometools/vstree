@@ -1,0 +1,42 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ FILE *createfilehandle(char *file,
+                                  const Uint line,
+                                  const char *path,
+                                  const char *mode);
+
+void inittmpfiledesc(Tmpfiledesc *tmpfiledesc);
+
+Sint maketmpfile(char *file,
+                 Uint line,
+                 Tmpfiledesc *tmpfiledesc,
+                 char *fileprefix);
+
+void wraptmpfiledesc(Tmpfiledesc *tmpfiledesc);
+
+Sint deletefilehandle(char *file,
+                      Uint line,
+                      FILE *fp);
+
+Sint writetofilehandle(char *file,
+                       Uint line,
+                       void *ptr,
+                       Uint size,
+                       Uint nmemb,
+                       FILE *stream);
+
+Sint readfromfilehandle(char *file,
+                       Uint line,
+                       void *ptr,
+                       Uint size,
+                       Uint nmemb,
+                       FILE *stream);
+
+void checkfilehandles(void);
+
+BOOL filealreadyexists(char *filename);
+
+#ifdef __cplusplus
+}
+#endif

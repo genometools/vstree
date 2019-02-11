@@ -1,0 +1,21 @@
+$ mkvtree -indexname ATS -dna -tis -sti1 -bck -suf -lcp -pl -v -db ATs-00
+reading file "ATs-00"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 3,
+the recommended prefixlength is 2
+total length of sequences: 275
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "ATS.tis"
+create file "ATS.des"
+create file "ATS.sds"
+create file "ATS.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 2
+sorting all buckets
+create file "ATS.llv"
+create file "ATS.bck"
+create file "ATS.suf"
+create file "ATS.sti1"
+create file "ATS.prj"
+create file "ATS.al1"
+overall space peak: main=0.13 MB (498.37 bytes/symbol), secondary=0.00 MB

@@ -1,0 +1,140 @@
+${COMPILEDIR}vmatfind4.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=4 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount4.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=4 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind4.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=4 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount4.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=4 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind4.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind4.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount4.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount4.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind12.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=12 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount12.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=12 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind12.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=12 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount12.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=12 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind12.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind12.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount12.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount12.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind21.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=21 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount21.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=21 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind21.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=21 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount21.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=21 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind21.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind21.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount21.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount21.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind31.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=31 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount31.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=31 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind31.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=31 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount31.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=31 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind31.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind31.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount31.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount31.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind42.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=42 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount42.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=42 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind42.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=42 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount42.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=42 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind42.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind42.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount42.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount42.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind53.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=53 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount53.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=53 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind53.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=53 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount53.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=53 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind53.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind53.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount53.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount53.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind66.o:vmatfind.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=66 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount66.o:vmatcount.c
+	$(CC) $(CFLAGS) -DALPHABETSIZE=66 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind66.dbg.o:vmatfind.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=66 -c vmatfind.c -o $@
+
+${COMPILEDIR}vmatcount66.dbg.o:vmatcount.c
+	$(CC) $(CFLAGS) -DDEBUG -DALPHABETSIZE=66 -c vmatcount.c -o $@
+
+${COMPILEDIR}vmatfind66.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatfind66.dbg.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount66.o:alphasize.h ../include/vdfstrav.c
+
+${COMPILEDIR}vmatcount66.dbg.o:alphasize.h ../include/vdfstrav.c
+

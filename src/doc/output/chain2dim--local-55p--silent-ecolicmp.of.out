@@ -1,0 +1,3 @@
+$ chain2dim -local 55p -silent ecolicmp.of
+# chain 0: length 2 score 440
+# chain 1: length 4 score 964

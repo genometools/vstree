@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint outindextab(const char *indexname,
+                 const char *filenamesuffix,
+                 void *tab,
+                 Uint bytes,
+                 Uint len);
+
+void outputUintvalue(FILE *fpout,Uint value);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,92 @@
+LIBOBJECTS=\
+  ${COMPILEDIR}approxcompl.o\
+  ${COMPILEDIR}edistcompl.o\
+  ${COMPILEDIR}esaapm.o\
+  ${COMPILEDIR}esahamming.o\
+  ${COMPILEDIR}exactcompl.o\
+  ${COMPILEDIR}extendgen.o\
+  ${COMPILEDIR}fcomplete.o\
+  ${COMPILEDIR}fmumself.o\
+  ${COMPILEDIR}fquery.o\
+  ${COMPILEDIR}fself.o\
+  ${COMPILEDIR}fsuper.o\
+  ${COMPILEDIR}ftandem.o\
+  ${COMPILEDIR}hamcompl.o\
+  ${COMPILEDIR}initcompl.o\
+  ${COMPILEDIR}initmstate.o\
+  ${COMPILEDIR}leafblocktree.o\
+  ${COMPILEDIR}longestmatch.o\
+  ${COMPILEDIR}procexqu.o\
+  ${COMPILEDIR}splitesaapm.o\
+  ${COMPILEDIR}vmatbgfind.o\
+  ${COMPILEDIR}xdropext.o
+
+LIBDEBUGOBJECTS=\
+  ${COMPILEDIR}approxcompl.dbg.o\
+  ${COMPILEDIR}edistcompl.dbg.o\
+  ${COMPILEDIR}esaapm.dbg.o\
+  ${COMPILEDIR}esahamming.dbg.o\
+  ${COMPILEDIR}exactcompl.dbg.o\
+  ${COMPILEDIR}extendgen.dbg.o\
+  ${COMPILEDIR}fcomplete.dbg.o\
+  ${COMPILEDIR}fmumself.dbg.o\
+  ${COMPILEDIR}fquery.dbg.o\
+  ${COMPILEDIR}fself.dbg.o\
+  ${COMPILEDIR}fsuper.dbg.o\
+  ${COMPILEDIR}ftandem.dbg.o\
+  ${COMPILEDIR}hamcompl.dbg.o\
+  ${COMPILEDIR}initcompl.dbg.o\
+  ${COMPILEDIR}initmstate.dbg.o\
+  ${COMPILEDIR}leafblocktree.dbg.o\
+  ${COMPILEDIR}longestmatch.dbg.o\
+  ${COMPILEDIR}procexqu.dbg.o\
+  ${COMPILEDIR}splitesaapm.dbg.o\
+  ${COMPILEDIR}vmatbgfind.dbg.o\
+  ${COMPILEDIR}xdropext.dbg.o
+
+SPLINTALL=\
+  approxcompl.splint\
+  edistcompl.splint\
+  esaapm.splint\
+  esahamming.splint\
+  exactcompl.splint\
+  extendgen.splint\
+  fcomplete.splint\
+  fmumself.splint\
+  fquery.splint\
+  fself.splint\
+  fsuper.splint\
+  ftandem.splint\
+  hamcompl.splint\
+  initcompl.splint\
+  initmstate.splint\
+  leafblocktree.splint\
+  longestmatch.splint\
+  procexqu.splint\
+  splitesaapm.splint\
+  vmatbgfind.splint\
+  xdropext.splint
+
+PROTOTYPES=\
+  ../include/approxcompl.pr\
+  ../include/edistcompl.pr\
+  ../include/esaapm.pr\
+  ../include/esahamming.pr\
+  ../include/exactcompl.pr\
+  ../include/extendgen.pr\
+  ../include/fcomplete.pr\
+  ../include/fmumself.pr\
+  ../include/fquery.pr\
+  ../include/fself.pr\
+  ../include/fsuper.pr\
+  ../include/ftandem.pr\
+  ../include/hamcompl.pr\
+  ../include/initcompl.pr\
+  ../include/initmstate.pr\
+  ../include/leafblocktree.pr\
+  ../include/longestmatch.pr\
+  ../include/procexqu.pr\
+  ../include/splitesaapm.pr\
+  ../include/vmatbgfind.pr\
+  ../include/xdropext.pr
+

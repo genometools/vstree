@@ -1,0 +1,27 @@
+binsplitvn.c  new in Vmatch
+chain2dim.c   new in Vmatch
+checkonoff.c  new in Vmatch
+dictmaxsize.c new in Vmatch
+distri.c      new in Vmatch
+genfile.c     Gordon
+mapfile.c     Open Source
+multiseq.c    Open Source
+procopt.c     Open Source
+redblack.c    GPL
+safescpy.c    Open Source
+seterror.c    Open Source
+space.c       Open Source
+clock.c       Open Source
+debug.c       Open Source
+
+accvirt.c     Critical
+alphabet.c    Critical
+getbasename.c Critical
+getEqs.c      Critical
+getEqs.gen    Critical
+readgzip.c    Critical
+readmulti.c   Critical
+readvirt.c    Critical
+multiseq-adv.c Critical
+comparetabs.c  Critical
+parsemultiform.c Critical

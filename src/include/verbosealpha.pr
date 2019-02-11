@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uchar verbosealphachar(const Alphabet *alpha,Uint ind);
+
+void verbosealphabet(Alphabet *alpha,Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

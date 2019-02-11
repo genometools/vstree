@@ -1,0 +1,22 @@
+$ mkvtree -db Proteinseq -smap TransProt11 -pl -allout -v
+reading file "Proteinseq"
+maximal value for argument of option -pl is 1, recommended value is 1
+total length of sequences: 117 (including 1 separator)
+alphabet "LVIFKREDAGSTNQYWPHMCXUBZ*-" (size 26) mapped to "i+-sonaphmcx" (size 12)
+create file "Proteinseq.tis"
+create file "Proteinseq.ois"
+create file "Proteinseq.des"
+create file "Proteinseq.sds"
+create file "Proteinseq.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 1
+sorting all buckets
+create file "Proteinseq.llv"
+create file "Proteinseq.bck"
+create file "Proteinseq.suf"
+create file "Proteinseq.sti1"
+create file "Proteinseq.bwt"
+create file "Proteinseq.prj"
+create file "Proteinseq.al1"
+create file "Proteinseq.skp"
+overall space peak: main=0.13 MB (1171.36 bytes/symbol), secondary=0.00 MB

@@ -1,0 +1,17 @@
+$ cat clout.4.1.match
+# args=-l 100 ychrIII.fna
+# id 14
+  126      0  83680   D   126      0  84422   0    3.86e-66    252   100.00
+# id 7
+  280      0  83954   D   280      0  84469   0   7.41e-159    560   100.00
+# id 8
+  239      0  83954   D   239      0  90099   0   3.58e-134    478   100.00
+# id 12
+  286      0  84422   D   286      0  90052   0   1.81e-162    572   100.00
+# linked 8 and 7 with gapsize 276
+# linked 8 and 14 with gapsize 229
+# linked 8 and 12 with gapsize 229
+# linked 14 and 7 with gapsize 663
+# linked 14 and 12 with gapsize 616
+# linked 14 and 8 with gapsize 148
+# linked 14 and 7 with gapsize 148

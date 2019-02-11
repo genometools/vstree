@@ -1,0 +1,2 @@
+$ vmatch -complete -d -q Patterns EcoliO157H7
+# args=-complete -d -q Patterns EcoliO157H7

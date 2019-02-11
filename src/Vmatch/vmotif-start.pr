@@ -1,0 +1,21 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void vmotifstart(Vmotifdata *vmotifdata,
+                 Matchcallinfo *matchcallinfo,
+                 Virtualtree *virtualtree);
+
+Sint vmotifinitMatchstate(Vmotifdata *vmotifdata,
+                          Matchcallinfo *matchcallinfo,
+                          Virtualtree *virtualtree,
+                          Procmultiseq *procmultiseq,
+                          Currentdirection currentdirection,
+                          BOOL revmposorder,
+                          Evalues *evalues,
+                          BOOL domatchbuffering);
+
+Sint vmotifwrap(Vmotifdata *vmotifdata);
+
+#ifdef __cplusplus
+}
+#endif

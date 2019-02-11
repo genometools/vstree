@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint huffmanencoding(Uint *totalbits,
+                     Uint *totalnumofvalues,
+                     const ArrayUint *distribution);
+
+#ifdef __cplusplus
+}
+#endif

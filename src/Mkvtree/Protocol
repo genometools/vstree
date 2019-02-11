@@ -1,0 +1,8 @@
+kurtz@tamarinde[182] time mkvtree.x -smap TransDNA -v -pl 8 est_mouse1
+# reading inputfile "est_mouse1"
+# length of text: 301248610, real alphabet size 4
+# initializing data structures
+# sorting suffixes according to prefix of length 8
+# sorting all buckets
+# overall space peak in MB 1232.86
+2344.25u 16.83s 40:38.79 96.8%

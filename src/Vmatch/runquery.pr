@@ -1,0 +1,20 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint runquerymatches(Matchcallinfo *matchcallinfo,
+                     Virtualtree *virtualtree,
+                     Uint onlinequerynumoffset,
+                     Queryinfo *queryinfo,
+                     Procmultiseq *procmultiseq,
+                     BOOL revmposorder,
+                     Evalues *evalues);
+
+Sint runcompletematches(Matchcallinfo *matchcallinfo,
+                        Virtualtree *virtualtree,
+                        Queryinfo *queryinfo,
+                        Procmultiseq *procmultiseq,
+                        Evalues *evalues);
+
+#ifdef __cplusplus
+}
+#endif

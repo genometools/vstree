@@ -1,0 +1,58 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage{LocalDefs}
+
+\date{\today\\[1mm]
+\begin{minipage}[t]{0.75\linewidth}
+This is the documentation of general library functions compiled into 
+the archive \texttt{libkurtz.a}. The include file used for compiling this
+library can be found in directory \texttt{include} and the library files 
+in directory \texttt{kurtz-basic} and \texttt{kurtz}. 
+For each library file, say \texttt{libfile.c} there exists a corresponding
+file \texttt{include/libfile.pr} containing the header of the functions
+exported from \texttt{libfile.c}.
+The prototypes of all library functions can be found in this document.
+The PDF-version of this document comes with hyperlinks,
+linking type names, function names, and macro names to their definition. 
+The acrobat reader \texttt{acroread} conveniently allows navigating along
+these links. If you encounter broken or missing links, please contact the
+author at \texttt{kurtz@zbh.uni-hamburg.de}. Other comments
+are also welcome.
+\end{minipage}
+}
+
+\makeindex
+\begin{document}
+
+\maketitle
+\newpage
+\pagestyle{headings}
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Basic Definition}%%%
+\Showheaderfile{types}{March 2001}
+
+\section{Debugging Messages}%%%
+\Showheaderfile{debugdef}{March 1999}
+
+\section{Error Messages}%%%
+\Showheaderfile{errordef}{December 1999}
+
+\section{Space Management}%%%
+\Showheaderfile{spacedef}{January 2000}
+\Showcodefile{space}{February 2001}
+\Showcodefile{mapfile}{May 2000}
+
+\section{Option Processing}%%%
+\Showheaderfile{optdesc}{March 1998}
+\Showcodefile{procopt}{October 1999}
+
+\newpage
+\FILEINFO{\Indexheader}{Stefan Kurtz}{March 2001}
+
+\input{Algseq.ind}
+
+\end{document}

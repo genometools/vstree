@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint checkenvvaronoff(char *varname);
+
+#ifdef __cplusplus
+}
+#endif

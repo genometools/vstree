@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void initDictmaxsize(Dictmaxsize *dict,
+                     Uint maxsize);
+
+Sint insertDictmaxsize(Dictmaxsize *dict,
+                       Dictcomparefunction comparefunction,
+                       void *cmpinfo,
+                       Dictshowelem showelem,
+                       void *showinfo,
+                       void *elemin);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,13 @@
+vm_recommendedprefixlength
+vm_whatisthemaximalprefixlength
+vm_checkprefixlength
+showmaximalprefixlength
+encodeburrowswheeler
+makeskiptable
+outindextab
+outputUintvalue
+qsortUint
+reverseinplace
+checksufencoding
+encodeburrowswheeler
+decodeburrowswheelerspecial

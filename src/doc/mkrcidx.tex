@@ -1,0 +1,42 @@
+
+\begin{Showprogramwithoptionswithoutindex}{\MKRC}{}
+
+\Option{db}{\Showoptionarg{dbfiles}}{
+Specify a non empty list of database files separated by white spaces.
+Each database file contains sequences in one of the following formats:
+Fasta, Genbank, EMBL, and SWISSPROT. The user does not have to 
+specify the input format. However, the format of all files has to 
+be identical. The sequence must consist of characters over the alphabet
+\texttt{a}, \texttt{c}, \texttt{g}, \texttt{t}, or \texttt{u} (in
+lower or upper case), or wildcards
+\texttt{n}, \texttt{s}, \texttt{y}, \texttt{w}, \texttt{r}, \texttt{k},
+\texttt{v}, \texttt{b}, \texttt{d}, \texttt{h}, \texttt{m}. 
+White spaces in the input files are ignored. This option is mandatory.
+This option is identical with the same option 
+of the program \MKV.
+}
+
+\Option{indexname}{\Showoptionarg{filepath}}{
+Specify \Showoptionarg{filepath} to be the name of the index, later referred
+to by \emph{indexname}. This option is mandatory, if more than one database 
+file is given.
+If there is only one database file, and this option is not given, then 
+\emph{indexname} is the basename of the given \Showoptionarg{filepath},
+i.e.\ the filename stripped by the directory path where it is stored. 
+\Showoptionarg{filepath} can be a complete path.
+}
+
+\Option{v}{~~~}{%
+Be verbose, that is, give reports about the different steps as well as the
+resource requirements of the computation. This option is recommended.
+}
+
+\Option{version}{~~~}{
+Show the version of the program.
+Also report the compilation date and the compilation options.
+}
+
+\Option{help}{~~~}{
+Show a summary of all options and terminate.
+}
+\end{Showprogramwithoptionswithoutindex}

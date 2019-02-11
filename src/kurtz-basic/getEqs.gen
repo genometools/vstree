@@ -1,0 +1,49 @@
+
+
+void GETEQS(DPBITVECTOR *Eqs,Uint eqslen,Uchar *u,Uint ulen)
+{
+  DPBITVECTOR *vptr, shiftmask;
+  Uchar *uptr;
+
+  for(vptr = Eqs; vptr < Eqs + eqslen; vptr++)
+  {
+    *vptr = (DPBITVECTOR) 0;
+  }
+  for(uptr = u, shiftmask = (DPBITVECTOR) 1; 
+      uptr < u + ulen && shiftmask != 0; 
+      uptr++, shiftmask <<= 1)
+  {
+    if(*uptr == (Uchar) SEPARATOR)
+    {
+      NOTSUPPOSED;
+    }
+    if(*uptr != (Uchar) WILDCARD)
+    {
+      Eqs[(Uint) *uptr] |= shiftmask;
+    }
+  }
+}
+
+void GETEQSREV(DPBITVECTOR *Eqs,Uint eqslen,Uchar *u,Uint ulen)
+{
+  DPBITVECTOR *vptr, shiftmask;
+  Uchar *uptr;
+
+  for(vptr = Eqs; vptr < Eqs + eqslen; vptr++)
+  {
+    *vptr = (DPBITVECTOR) 0;
+  }
+  for(uptr = u+ulen-1, shiftmask = (DPBITVECTOR) 1; 
+      uptr >= u && shiftmask != 0; 
+      uptr--, shiftmask <<= 1)
+  {
+    if(*uptr == (Uchar) SEPARATOR)
+    {
+      NOTSUPPOSED;
+    }
+    if(*uptr != (Uchar) WILDCARD)
+    {
+      Eqs[(Uint) *uptr] |= shiftmask;
+    }
+  }
+}

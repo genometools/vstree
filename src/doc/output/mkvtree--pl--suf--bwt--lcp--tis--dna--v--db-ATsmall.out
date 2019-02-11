@@ -1,0 +1,20 @@
+$ mkvtree -pl -suf -bwt -lcp -tis -dna -v -db ATsmall
+reading file "ATsmall"
+for this input size and alphabet size, the maximal prefixlength
+(argument of option -pl) is 5,
+the recommended prefixlength is 4
+total length of sequences: 6728 (including 10 separators)
+alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+create file "ATsmall.tis"
+create file "ATsmall.des"
+create file "ATsmall.sds"
+create file "ATsmall.lcp"
+initializing data structures
+sorting suffixes according to prefix of length 4
+sorting all buckets
+create file "ATsmall.llv"
+create file "ATsmall.suf"
+create file "ATsmall.bwt"
+create file "ATsmall.prj"
+create file "ATsmall.al1"
+overall space peak: main=0.14 MB (21.71 bytes/symbol), secondary=0.01 MB

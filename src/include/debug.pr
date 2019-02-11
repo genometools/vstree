@@ -1,0 +1,18 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint getdebuglevel(void);
+
+BOOL getdebugwhere(void);
+
+void setdebuglevel(void);
+
+void setdebuglevelfilename(char *filename);
+
+FILE *getdbgfp(void);
+
+void debugclosefile(void);
+
+#ifdef __cplusplus
+}
+#endif

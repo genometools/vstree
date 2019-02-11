@@ -1,0 +1,190 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage{skaff,LocalDefs}
+
+\date{\today\\[1mm]
+\begin{minipage}[t]{0.75\linewidth}
+This is the documentation of library functions compiled into 
+the archives \texttt{libkurtz-basic.a}, \texttt{libkurtz.a},
+\texttt{libmkvtree.a} and \texttt{libvmatch.a}. 
+The include file used for compiling these
+library can be found in directory \texttt{include}.  
+The library files for \texttt{libkurtz.a} are in the directory \texttt{lib}. 
+The library files for \texttt{libvmkvtree.a} are in the directory 
+\texttt{virtual/Mkvtree}. 
+The library files for \texttt{libvmatch.a} are in the directory 
+\texttt{virtual/Vmatch}. 
+For each library file, say \texttt{libfile.c} there exists a corresponding
+file \texttt{include/libfile.pr} containing the header of the functions
+exported from \texttt{libfile.c}.
+The PDF-version of this document comes with hyperlinks,
+linking type names, function names, and macro names to their definition. 
+The acrobat reader \texttt{acroread} conveniently allows navigating along
+these links. If you encounter broken or missing links, please contact the
+author at \texttt{kurtz@zbh.uni-hamburg.de}. Other comments
+are also welcome.
+\end{minipage}
+}
+
+\makeindex
+\begin{document}
+
+\maketitle
+\newpage
+\pagestyle{headings}
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Basic Definition}%%%
+\Showheaderfile{types}{March 2001}
+\Showheaderfile{absdef}{April 2001}
+\Showheaderfile{chardef}{January 2001}
+\Showheaderfile{maxfiles}{January 2001}
+\Showheaderfile{megabytes}{February 2000}
+\Showheaderfile{divmodmul}{February 2003}
+\Showheaderfile{minmax}{June 1994}
+\Showheaderfile{scoredef}{January 2000}
+\Showheaderfile{fopen}{June 1999}
+\Showheaderfile{mumcand}{March 2003}
+\Showheaderfile{safecast}{May 2003}
+\Showheaderfile{safeadd}{March 2003}
+\Showheaderfile{safemult}{March 2003}
+\Showheaderfile{evaluedef}{March 2003}
+\Showheaderfile{visible}{March 1994}
+
+\section{Debugging Messages}%%%
+\Showheaderfile{debugdef}{March 1999}
+\Showcodefile{debug}{March 1997}
+
+\section{Error Messages}%%%
+\Showheaderfile{errordef}{December 1999}
+\Showcodefile{seterror}{January 1999}
+
+\section{Option Processing}%%%
+\Showheaderfile{optdesc}{March 1998}
+\Showcodefile{procopt}{October 1999}
+
+\section{Numbers}%%%
+\Showheaderfile{logbase}{February 2000}
+
+\section{Space Management}%%%
+\Showheaderfile{spacedef}{January 2000}
+\Showcodefile{space}{February 2001}
+\Showcodefile{mapfile}{May 2000}
+\Showheaderfile{arraydef}{May 2000}
+
+\section{File Management}%%%
+\Showheaderfile{fhandledef}{November 2003}
+\Showcodefile{filehandle}{November 2003}
+\Showcodefile{outindextab}{March 2000}
+\Showcodefile{readgzip}{May 2003}
+%\Showcodefile{recvirt}{June 2000}
+
+\section{Alphabets}%%%
+\Showheaderfile{alphadef}{March 2001}
+\Showcodefile{alphabet}{March 2000}
+\Showcodefile{codon}{March 2001}
+\Showheaderfile{compl}{May 2002}
+
+\section{Multiple Sequences}%%%
+\Showcodefile{getfasta}{March 2000}
+\Showheaderfile{multidef}{March 2000}
+\Showcodefile{multiseq}{July 2000}
+\Showcodefile{multiseq-adv}{July 2000}
+
+\section{Dynamic Programming}%%%
+\Showcodefile{uedist}{Nov 1999}
+\Showcodefile{dpacp}{Nov 2003}
+\Showcodefile{extendHD}{March 2000}
+\Showcodefile{extendED}{March 2000}
+\Showheaderfile{frontdef}{June 1999}
+\Showcodefile{front}{June 1999}
+\Showcodefile{frontSEP}{June 1999}
+\Showcodefile{galign}{June 1999}
+\Showcodefile{xdropal1}{March 2001}
+\Showcodefile{xdropal2}{March 2001}
+
+\section{Virtual Suffix Trees}%%%
+\Showheaderfile{virtualdef}{June 2000}
+\Showcodefile{readvirt}{June 2000}
+\Showcodefile{vnodes}{June 2000}
+\Showcodefile{readmulti}{December 2000}
+\Showcodefile{accvirt}{December 2001}
+\Showcodefile{mkskip}{October 2000}
+\Showcodefile{binsplitvn}{December 2001}
+
+\section{Matches}%%%
+\Showheaderfile{match}{September 2000}
+\Showheaderfile{select}{January 2002}
+\Showcodefile{extcmp}{September 2000}
+\Showcodefile{bestmatch}{September 2000}
+\Showcodefile{mcontain}{October 2000}
+\Showcodefile{maxpref}{July 2000}
+\Showcodefile{mkcld}{July 2000}
+
+\section{Alignments}%%%
+\Showheaderfile{alignment}{March 2001}
+\Showcodefile{showalign}{November 2000}
+
+\section{Bit Vector Manipulation}%%%
+\Showheaderfile{dpbitvec}{October 1999}
+\Showcodefile{dpvecdbg}{October 1999}
+\Showheaderfile{intbits}{January 1998}
+\Showcodefile{showibit}{January 1998}
+
+\section{Xdrop Algorithms}%%%
+\Showheaderfile{xdropdef}{March 2001}
+\Showcodefile{xdrop}{March 2001}
+
+\section{Clustering}%%%
+\Showheaderfile{clusterdef}{February 2001}
+\Showcodefile{cluster}{February 2001}
+
+\section{Queues}%%%
+\Showcodefile{queue}{February 1999}
+
+\section{Sorting and Searching}%%%
+\Showcodefile{binsearch}{April 1997}
+\Showcodefile{bmhfun}{July 2000}
+\Showcodefile{matsort}{May 2001}
+\Showcodefile{remdups}{May 2001}
+\Showheaderfile{redblackdef}{May 2003}
+\Showcodefile{redblack}{May 2003}
+\Showcodefile{dictmaxsize}{May 2003}
+
+\section{Miscallaneous}%%%
+\Showcodefile{bwtcode}{May 2000}
+\Showheaderfile{iubdef}{February 1999}
+\Showheaderfile{dlopen}{March 2003}
+\Showheaderfile{experim}{March 2000}
+\Showheaderfile{args}{July 1994}
+\Showcodefile{distri}{May 2000}
+\Showcodefile{clock}{May 2000}
+\Showcodefile{emptyln}{March 1997}
+\Showcodefile{evalues}{November 1999}
+\Showcodefile{applall}{July 2000}
+\Showcodefile{getbasename}{June 2000}
+\Showcodefile{getdirname}{June 2000}
+\Showcodefile{splitargs}{December 2000}
+\Showcodefile{checkonoff}{December 2000}
+\Showcodefile{cleanMUMcand}{July 2002}
+\Showcodefile{reverse}{May 2001}
+%\Showcodefile{searchpath}{May 2001}
+
+\section{The Vmatch Library}
+
+\Showheaderfile{outinfo}{November 2000}
+\Showheaderfile{mparms}{January 2001}
+\Showheaderfile{matchtask}{January 2001}
+\Showheaderfile{matchstate}{January 2001}
+\Showcodefile{detmatch}{December 2000}
+\Showcodefile{echomatch}{October 2000}
+
+\newpage
+\FILEINFO{\Indexheader}{Stefan Kurtz}{March 2001}
+
+\input{vstree.ind}
+
+\end{document}

@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void showStoreMatch(const Keytype bminfo,void *showinfo);
+
+void initbml(BestMatchlist *bml,Uint bestnumber);
+
+Sint insertintobml(BestMatchlist *bml,StoreMatch *matchin);
+
+void freebestmatchlist(BestMatchlist *bml);
+
+#ifdef __cplusplus
+}
+#endif

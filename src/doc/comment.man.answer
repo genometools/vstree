@@ -1,0 +1,250 @@
+>1
+>Section 4 not mentioned
+>we explaining -> We explain
+
+Done
+
+>2.1
+>option -smap: a :-separated list -> a list of ..., separated by colons (':')
+>
+
+Done
+
+>option -prefix: I find the name confusing, especially since there is
+>also an option -pl (prefixlength) that has nothing to do with -prefix.
+>So I think that -indexname is better.
+
+Done.
+
+>
+>-cld, -iso: They are mentioned here, but not explained later
+>
+
+These are experimental features, which I will remove later,
+since they are not important for the functionality.
+
+>The sentence "On the other hand, any of these input formats..." is
+>redundant to me.
+
+Right, I have deleted this sentence.
+
+>4
+>(plus some linear amount): linear in what?
+
+Right, it should be "constant amount".
+
+>What do you mean by, the size of the output is 10 times the number of
+>options?
+
+I have changed the paragraph:
+
+Suppose the total length of all sequences
+in the index is \(n\). If the option \texttt{-s} is not
+used, then the output size of \VtoTex is about \(10n\) bytes per option.
+(plus some constant number of bytes for the header and the footer of the
+\LaTex-file). If the option \texttt{-s} is not
+used, then the output is quadratic in \(n\).
+
+>7.1
+>option -qspeedup: Algorithm 0: three algorithm -> algorithms
+
+Done
+
+>"Algorithm 2 requires n bytes more space than Algorithm 0." Does that
+>mean, as much as Algorithm 1? 
+
+Yes. I have added this fact.
+
+>What is the worst running time of Algorithm
+>2 when that of Alg. 1 is O(m log n)?
+
+There was a typo. The running time of algorithm 2 is \(O(m\log n)\).
+
+>
+>7.3
+>symbol62 is probably a '>'
+>
+
+Yes.
+
+>8
+>cluster -> clustered
+
+Done.
+
+>
+>9
+>I'm curious how, e.g. in the example run of atEST, the .lcp file
+>can be created BEFORE the .suf file.
+
+Once I know that two neighboring suffixes do not change their location,
+I know their lcp value. So I compute the lcp value as a side effect 
+of the suffix sorting without any additional computational overhead. 
+So the .lcp file and the .suf file are filled simulteneously. 
+Thus the can create the .lcp file before the .suf file or vice versa.
+By the way, I use the algorithm of 
+
+@INPROCEEDINGS{BEN:SED:1997,
+  author = "Bentley, J. and Sedgewick, R.",
+  title =  {{Fast Algorithms for Sorting and Searching Strings}},
+  booktitle = {{Proceedings of the ACM-SIAM Symposium on Discrete Algorithms}},
+  pages =  {{360-369}},
+  keywords = {{STRINGMATCHING}},
+  comment = {\url{http://www.cs.princeton.edu/~rs/strings/}},
+  year = 1997}
+
+to sort the suffixes. This does an in-place sorting of the suffixes,
+and thus requires only 4n bytes. There are several important engineering
+tricks to make the program fast, expecially in the presence of wildcard
+symbols. Unfortunatly, I have not described this.
+
+>
+>9.5
+>corresponingmatches -> two words
+
+Done.
+
+>
+>Appendix B
+>
+>the symbol on the first line are -> symbols
+
+Done.
+
+>pairwise equivalent -> equivalent (pairwise is redundant)
+>
+
+Done.
+
+>Appendix C
+>
+>- As a practical question: When you use stitab1 and encounter a value
+>of 255, you don't know if you have an overflow, according to the
+>description on p.36. Assume you have loaded only stitab1 into memory.
+>Then I assume you need to look up stitab on disk if stitab[i]==255.
+>Is this correct?
+
+There was a typo in the definition. If case condition is "< 255"
+stitab1 is only used to support the simulation of suffix links.
+If the value in stitab1 is >= 255, then I do a binary search
+in the appropriate bucket to find the interval for the current suffix
+of the query string. The value of stitab1 is only very rarely
+\(\geq\) 255. So this gives a speedup in practice. You can of course
+construct cases where stitab1 does not help. But my focus was on practical
+performance, not on worst case performance.
+
+>
+>- The definition of skptab seems wrong to me, but maybe I'm thinking
+>of a different interpretation than you are. This is my version:
+>If lcp(i)=d, then a d+1-interval (or more, a d+k-interval for k>=1, but in
+>any case, that's also a d+1-interval) starts at i. Now I want to skip
+>over that interval. So I'm looking for the next j where lcp(j)<=d, or
+>maybe even <d if I want to skip the whole d-interval I was in at i.
+>So the definition of skptab should read lcp(i)>lcp(j), not <.
+>Otherwise, maybe you can explain to me what you intended with skptab.
+
+It should be lcp(i)>lcp(j). I corrected the typo. 
+
+>
+>- isotab is not explained.
+>I assume:
+>  isotab[i] = [min {skptab[i]} u {j| i<j<=skptab[i] and lcp(j)=lcp(i)}] - i,
+>i.e. the offset from i to the right where the lcp value is the same as at
+>i before becoming ever smaller.
+>But maybe I have the wrong intuition here?
+
+The idea of the isotab can be understood if you consider isomorphic subtrees.
+These are connected by suffix links. An interval [i..j] is connected
+to [i'..j'] by a suffix link, if both intervals contain the same 
+suffixes up to the first character. This is the same in all suffixes
+in interval [i..j] and it is skipped in all suffixes in [i'..j'].
+The isomorphism property is equivalent to the condition j-i = j'-i'.
+Suppose [i..j] is isomoprhic to [i'..j'].
+Any child interval of [i..j] is connected via a suffix link to an isomorphic
+child interval of [i'..j']. Now consider some suffix h in the interval l
+[i..j], i.e. h\in[i..j]. Suppose that [i..j] is not child interval of some
+interval which is isomorphic to the suffix linked interval. Then 
+isotab[h]=l. The isotab can be used to skip an entire subtree if the previous
+interval did not contain any matches. A more formal definition of
+isotab is necessary. However, I do not need it, since stitab1 gives me
+a much larger speedup.
+
+>- What is cldtab?
+
+See the paper we have submitted to CPM2002.
+
+>- In its current form, bcktab seems to waste a lot of space.
+>In fact, compare the end of the bucket for word w: bcktab[k(w)].q
+>Then the start of bucket for word w+1, bcktab[k(w)+1].p is 'almost'
+>at the same position, except when there are some special words
+>between the bucket boundaries, such as words with wildcards, with
+>text separators, etc. But bcktab[k(w)].q could be encoded with only
+>1 byte when interpreted as offset to the left of bcktab[k(w)+1].p
+
+You are right, this would save 3 bytes per bucket. I will incorporate
+this sometimes. 
+
+>A possible Extension (suffix links)
+>-----------------------------------
+>suffix link table (sultab): Suffix links for suffix arrays (SARs)
+>are a map between intervals in the suffix array.
+>
+>An internal node of a suffix tree, corresponding to a string ax (a is
+>a character, x a string), is represented in the suffix array as
+>(l,r,d), where [l,r] is an interval in the SAR and d is the depth,
+>i.e., the length of xa. Note that lcp(l)<d and lcp(r+1)<d [but
+>lcp(l+1),...,lcp(r) all >= d].
+>
+>The suffix x of ax is likewise represented as (l',r',d-1).
+>Now sultab must map [l,r] to [l',r'].
+>
+>Ideally we would like to have
+>sultab[l]=l', but several intervals [l,R] with different R's
+>of different depths may start at l.
+>But we know that we can store l' either as suftab[l] or as suftab[r],
+>according to what I leared in Bielefeld.
+
+I cannot remember that this was shown in the talk.
+
+Dirk Strothman has simplified the injective function home which maps 
+some l interval to some integer in the range [0..n]. It does not need
+an extra table any more. If I remember it correctly, the definition is
+
+home[l..r] = l, if lcp[l] >= lcp[r+1]
+           = r, otherwise
+
+I will send you the definition and a proof.
+
+Home could be used here.
+
+>Whenever we want to follow a link (l,r,d)->(l',r',d-1), we
+>first try l'=suftab[l] and check if lcp(l')<d-1. If no, goto FAIL.
+>Now we obtain r' via one of the other auxiliary tables, but I don't
+>know their exact meaning from the manual. I suppose isotab of skptab
+>or something like that will work. Then we check if lcp(r'+1)<d-1.
+>If yes, then [l',r'] is correct, else goto FAIL.
+>FAIL: At this point we know that l'=suftab[r].
+
+Why should l' be equal to suftab[l] or suftab[r]? I do not understand.
+
+>For matching statistcs, the use of sultab means that stitab(1) is
+>no longer required.
+>
+>
+>Another issue
+>-------------
+>
+>The purpose of the WILDCARD characters is to eliminate insecure or
+>false matches. However, for oligo selection, I have to consider
+>a wildcard as a potential match to anything. In other words,
+>the oligo ACCA does (potentially) match ANCA for its full length
+>and is therefore a bad oligo.
+>An option allowing WILDCARDs to match anything would be useful,
+>although if there is a long string of wildcards, this will
+>match anything and let the number of matches explode...
+
+You are right, that would be nice. However, using a wildcard, would lead to 
+non-determinism if you interpret an index as some graph in which edges
+are labelled by characters. I have no idea how to implement
+this with an index structure. If you have ideas it would be interesting
+to discuss this.

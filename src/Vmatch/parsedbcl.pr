@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint parsedbclusterparameters(Matchcallinfo *matchcallinfo,
+                              const char * const*argv,
+                              Argctype argc,
+                              Uint argnum,
+                              const char *optname);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint splitesaapm(BOOL doedist,
+                 Sint (*processapmstartpos) (Uint, Uint, void *),
+                 void *apmoutinfo,
+                 Virtualtree *virtualtree,
+                 DPbitvector4 *Eqs4split,
+                 Uint threshold,
+                 Uchar *pattern,
+                 Uint patternlength);
+
+#ifdef __cplusplus
+}
+#endif

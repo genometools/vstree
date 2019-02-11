@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*@null@*/ FILE *scanpathsforfile(const char *envstring,const char *filename);
+
+#ifdef __cplusplus
+}
+#endif

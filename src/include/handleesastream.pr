@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint initUcharBufferedfile(UcharBufferedfile *stream,
+                           const char *indexname,
+                           const char *suffix);
+
+Sint initesastream(Esastream *esastream,
+                   const char *indexname,
+                   Uint demand);
+
+Sint closeesastream(Esastream *esastream);
+
+#ifdef __cplusplus
+}
+#endif

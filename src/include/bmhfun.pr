@@ -1,0 +1,12 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint bmhcount(Uchar *p, Uint m, Uchar *t, Uint n);
+
+void bmhcheck(Uchar *p, Uint m, Uchar *t, Uint n,ArrayUint *result);
+
+void bmhout(FILE *fp,Uchar *p, Uint m, Uchar *t, Uint n);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,52 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint checktransnum(Uint transnum);
+
+char *transnum2name(Uint transnum);
+
+void helptransnumorganism(Uint maxsize,char *sbuf);
+
+Sint findstartcodon(Uint transnum,Uchar *dnaseq,Uint dnaseqlen);
+
+void outrubytranstable(Uint transnum);
+
+Sint translateDNAforward(Uint transnum,Sint frame,Uchar *proteinseq,
+                         Uchar *dnaseq,Uint dnaseqlen);
+
+Sint translateDNAbackward(Uint transnum,Sint frame,Uchar *proteinseq,
+                          Uchar *dnaseq,Uint dnaseqlen);
+
+char extractaminoacid(BOOL forward,
+                      Uint transnum,
+                      Uchar *dnaseq,
+                      Uint mmlength,
+                      Uint start);
+
+Sint checkproteindnamatch(Alphabet *proteinalphabet,
+                          Uint transnum,
+                          BOOL forward,
+                          Uchar *proteinseq,
+                          Uint proteinmatchlength,
+                          Uchar *dnaseq,
+                          Uint dnamatchlength);
+
+Sint checkprotprotmatchondna(Alphabet *proteinalphabet,
+                            Uint transnum,
+                            BOOL leftforward,
+                            BOOL rightforward,
+                            Uchar *dnaseq1,
+                            Uint dnamatchlength,
+                            Uchar *dnaseq2);
+
+Sint checkmultiproteinmatchondna(Uint transnum,
+                                 Uint *symbolmap,
+                                 Uchar *dnaseq,
+                                 Uint dnamatchlength,
+                                 Uint *positions,
+                                 Uchar *forwardtable,
+                                 Uint units);
+
+#ifdef __cplusplus
+}
+#endif

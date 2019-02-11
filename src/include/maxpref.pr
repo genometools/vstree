@@ -1,0 +1,24 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void maxprefixmatch2(Virtualtree *virtualtree,Vnode *vnode,
+                     Uchar *query,Uint querylen,ThreeUint *maxwit);
+
+BOOL mmsearch(Uchar *sequence,Uint totallength,Uint *suftab,Vnode *vnode,
+              Uchar *query,Uint querylen);
+
+void maxprefixmatchbinstep(Virtualtree *virtualtree,Vnode *vnode,
+                           Uchar *query,Uint querylen);
+
+BOOL isbranching(Virtualtree *virtualtree,Vnode *vnode);
+
+void maxprefixmatchbinstepwithprevious(Virtualtree *virtualtree,Vnode *vnode,
+                                       Vnode *branchfather,
+                                       Uchar *query,Uint querylen);
+
+void maxprefixmatchmm(Virtualtree *virtualtree,Vnode *vnode,
+                      Uchar *query,Uint querylen);
+
+#ifdef __cplusplus
+}
+#endif

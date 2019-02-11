@@ -1,0 +1,48 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint showClusterSet(ClusterSet *clusterset,
+                    Uint clminsize,Uint clmaxsize,
+                    void *infocstart,
+                    Sint (*showclusterstart)(void *,Uint,Uint),
+                    void *info1,
+                    Sint (*showelem)(void *,Uint),
+                    void *infocend,
+                    Sint (*showclusterend)(void *,Uint),
+                    void *info2,
+                    Sint (*showedge)(void *,void *,Uint));
+
+Sint showClusterSetwithmaxelem(ClusterSet *clusterset,
+                               Uint clminsize,Uint clmaxsize,
+                               void *infocstart,
+                               Sint (*showclusterstart)(void *,Uint,Uint),
+                               void *cmpinfo,
+                               Sint (*cmpelems)(void *,Uint,Uint),
+                               void *info1,
+                               Sint (*showelem)(void *,Uint),
+                               void *infocend,
+                               Sint (*showclusterend)(void *,Uint),
+                               void *info2,
+                               Sint (*showedge)(void *,void *,Uint));
+
+Sint showSingletonSet(ClusterSet *clusterset,
+                      void *info1,Sint (*showelem)(void *,Uint));
+
+Sint checkClusterSet(ClusterSet *clusterset,void *info,
+                     Sint (*checkrel)(void *,Uint,Uint));
+
+void initClusterSet(ClusterSet *clusterset,Uint numofelems);
+
+BOOL isinsingleton(ClusterSet *clusterset,Uint i);
+
+Sint linkcluster(ClusterSet *clusterset,Uint e1,Uint e2);
+
+Sint addClusterEdge(ClusterSet *clusterset,Uint e1,Uint e2,Uint edgenum);
+
+void clusterSizedistribution(ClusterSet *clusterset);
+
+void freeClusterSet(ClusterSet *clusterset);
+
+#ifdef __cplusplus
+}
+#endif

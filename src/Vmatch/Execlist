@@ -1,0 +1,7 @@
+rfbrute.x	${HOME}/Ccode/streelib/REP
+estmatch.x	${HOME}/Ccode/streelib/EST
+makefasta.x	${HOME}/Ccode/binsrc
+mstat.dbg.x	${HOME}/Ccode/streelib/MSTAT
+mum.x		${HOME}/Ccode/streelib/MUM
+oneFE.rand.x	${HOME}/Ccode/binsrc
+onePE.rand.x	${HOME}/Ccode/binsrc

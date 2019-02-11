@@ -1,0 +1,14 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void showbitvector(DPbitvector4 v);
+
+void showallbitvectors(DPbitvector4 *vs,Uint len);
+
+void showbitvectorsuffix(DPbitvector4 v,Uint plen);
+
+void showcolumn(Uint firstval,Uint plen,DPbitvector4 plus,DPbitvector4 minus);
+
+#ifdef __cplusplus
+}
+#endif

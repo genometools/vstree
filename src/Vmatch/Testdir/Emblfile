@@ -1,0 +1,1158 @@
+ID   AA03518    standard; DNA; FUN; 237 BP.
+XX
+AC   U03518;
+XX
+SV   U03518.1
+XX
+NI   g424136
+XX
+DT   24-NOV-1993 (Rel. 37, Created)
+DT   18-FEB-1995 (Rel. 42, Last updated, Version 2)
+XX
+DE   Aspergillus awamori internal transcribed spacer 1 (ITS1) and 18S
+DE   rRNA and 5.8S rRNA genes, partial sequence.
+XX
+KW   .
+XX
+OS   Aspergillus awamorii
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-237
+RX   MEDLINE; 94303342.
+RA   Borsuk P., Gniadkowski M., Kucharski R., Bisko M., Kanabus M.,
+RA   Stepien P.P., Bartnik E.;
+RT   "Evolutionary conservation of the transcribed spacer sequences of the
+RT   rDNA repeat unit in three species of the genus Aspergillus";
+RL   Acta Biochim. Pol. 41:73-77(1994).
+XX
+RN   [2]
+RP   1-237
+RA   Borsuk P.;
+RT   ;
+RL   Submitted (17-NOV-1993) to the EMBL/GenBank/DDBJ databases.
+RL   Borsuk P., University of Warsaw, Department of Genetics, Al.Ujazdowskie
+RL   4, Warsaw, Pl-00478, Poland
+XX
+CC   NCBI gi: 424136
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..237
+FT                   /organism="Aspergillus awamorii"
+FT                   /db_xref="taxon:5055"
+FT                   /clone="clone pAaw1"
+FT                   /clone_lib="A.awamori Sau3AI partial digest genomic library
+FT                   in pUC18"
+FT                   /strain="wild type"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="mycelia, young"
+FT   rRNA            <1..20
+FT                   /product="18S ribosomal RNA"
+FT   misc_RNA        21..205
+FT                   /standard_name="Internal transcribed spacer 1 (ITS1)"
+FT   rRNA            206..>237
+FT                   /product="5.8S ribosomal RNA"
+XX
+SQ   Sequence 237 BP; 41 A; 77 C; 67 G; 52 T; 0 other;
+     aacctgcgga aggatcatta ccgagtgcgg gtcctttggg cccaacctcc catccgtgtc        60
+     tattgtaccc tgttgcttcg gcgggcccgc cgcttgtcgg ccgccggggg ggcgcctctg       120
+     ccccccgggc ccgtgcccgc cggagacccc aacacgaaca ctgtctgaaa gcgtgcagtc       180
+     tgagttgatt gaatgcaatc agttaaaact ttcaacaatg gatctcttgg ttccggc          237
+//
+ID   AA03519    standard; DNA; FUN; 222 BP.
+XX
+AC   U03519;
+XX
+SV   U03519.1
+XX
+NI   g424137
+XX
+DT   24-NOV-1993 (Rel. 37, Created)
+DT   18-FEB-1995 (Rel. 42, Last updated, Version 2)
+XX
+DE   Aspergillus awamori internal transcribed spacer 2 (ITS2) and 28S
+DE   rRNA and 5.8S rRNA genes, partial sequence.
+XX
+KW   .
+XX
+OS   Aspergillus awamorii
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-222
+RX   MEDLINE; 94303342.
+RA   Borsuk P., Gniadkowski M., Kucharski R., Bisko M., Kanabus M.,
+RA   Stepien P.P., Bartnik E.;
+RT   "Evolutionary conservation of the transcribed spacer sequences of the
+RT   rDNA repeat unit in three species of the genus Aspergillus";
+RL   Acta Biochim. Pol. 41:73-77(1994).
+XX
+RN   [2]
+RP   1-222
+RA   Borsuk P.;
+RT   ;
+RL   Submitted (17-NOV-1993) to the EMBL/GenBank/DDBJ databases.
+RL   Borsuk P., University of Warsaw, Department of Genetics, Al.Ujazdowskie
+RL   4, Warsaw, Pl-00478, Poland
+XX
+CC   NCBI gi: 424137
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..222
+FT                   /organism="Aspergillus awamorii"
+FT                   /db_xref="taxon:5055"
+FT                   /clone="clone pAaw1"
+FT                   /clone_lib="A.awamori Sa3AI partial digest genomic library
+FT                   in pUC18"
+FT                   /strain="wild type"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="mycelia, young"
+FT   rRNA            <1..27
+FT                   /product="5.8S ribosomal RNA"
+FT   misc_RNA        28..194
+FT                   /standard_name="Internal transcribed spacer 2 (ITS2)"
+FT   rRNA            195..>222
+FT                   /product="28S ribosomal RNA"
+XX
+SQ   Sequence 222 BP; 29 A; 70 C; 74 G; 49 T; 0 other;
+     ggggggcatg cctgtccgag cgtcattgct gccctcaagc ccggcttgtg tgttgggtcg        60
+     ccgtccccct ctccgggggg acggcccgaa aggcagcggc ggcaccggtc cgatcctcga       120
+     gcgtatgggg ctttgtcaca tgctctgtag gattggccgg cgcctgccga cgttttccaa       180
+     ccattctttc caggttgacc tcggatcagg tagggatacc cg                          222
+//
+ID   AA05194    standard; DNA; FUN; 1780 BP.
+XX
+AC   U05194;
+XX
+SV   U05194.1
+XX
+NI   g451830
+XX
+DT   04-FEB-1994 (Rel. 38, Created)
+DT   08-FEB-1997 (Rel. 50, Last updated, Version 17)
+XX
+DE   Alternaria alternata AA6 nuclear 18S ribosomal RNA gene, partial
+DE   sequence.
+XX
+KW   .
+XX
+OS   Alternaria alternata
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Loculoascomycetes;
+OC   mitosporic Loculoascomycetes; Alternaria.
+XX
+RN   [1]
+RP   1-1780
+RA   Morales V.M., Jasalavich C.A., Pelcher L.E., Petrie A.G., Taylor J.L.;
+RT   "Phylogenetic relationship among several Leptosphaeria species based on
+RT   their ribosomal DNA sequences";
+RL   Mycol. Res. 99:593-603(1995).
+XX
+RN   [2]
+RP   7-1768
+RA   Jasalavich C.A., Morales V.M., Pelcher L.E., Seguin-Swartz G.;
+RT   "Comparison of nuclear ribosomal DNA sequences from Alternaria species
+RT   pathogenic to crucifers";
+RL   Mycol. Res. 99:604-614(1995).
+XX
+RN   [3]
+RP   1-1780
+RA   Jasalavich C.A.;
+RT   ;
+RL   Submitted (14-JAN-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Claudia A. Jasalavich, Agriculture Canada Research Station, 107 Science
+RL   Place, Saskatoon, Saskatchewan S7N 0X2, Canada
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1780
+FT                   /organism="Alternaria alternata"
+FT                   /db_xref="taxon:5599"
+FT                   /strain="AA6"
+FT                   /specific_host="Brassica rapa ssp. oleifera"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="mycelia, young"
+FT   rRNA            <1..>1780
+FT                   /citation=[2]
+FT                   /citation=[1]
+FT                   /note="18S rRNA"
+FT                   /product="nuclear 18S ribosomal RNA"
+XX
+SQ   Sequence 1780 BP; 467 A; 370 C; 461 G; 482 T; 0 other;
+     gtagtcatat gcttgtctca aagattaagc catgcatgtc taagtataag caattatacc        60
+     gtgaaactgc gaatggctca ttaaatcagt tatcgtttat ttgataatac cttactactt       120
+     ggataaccgt ggtaattcta gagctaatac atgctgaaaa tcccgacttc ggaagggatg       180
+     tgtttattag ataaaaaacc aatgcccttc ggggcttttt ggtgattcat gataacttta       240
+     cggatcgcat agccttgcgc tggcgacggt tcattcaaat ttctgcccta tcaactttcg       300
+     atggtaaggt attggcttac catggtttca acgggtaacg gggaattagg gttcgattcc       360
+     ggagagggag cctgagaaac ggctaccaca tccaaggaag gcagcaggcg cgcaaattac       420
+     ccaatcccga cacggggagg tagtgacaat aaatactgat acagggctct tttgggtctt       480
+     gtaattggaa tgagtacaat ttaaacctct taacgaggaa caattggagg gcaagtctgg       540
+     tgccagcagc cgcggtaatt ccagctccaa tagcgtatat taaagttgtt gcagttaaaa       600
+     agctcgtagt tgaaacttgg gcctggctgg cgggtccgcc tcaccgcgtg cactcgtccg       660
+     gccgggcctt ccttctgaag aacctcatgc ccttcactgg gcgtgctggg gaatcaggac       720
+     ttttactttg aaaaaattag agtgttcaaa gcaggccttt gctcgaatac gttagcatgg       780
+     aataataaaa tagggcgtgc gtttctattt tgttggtttc tagagacgcc gcaatgatta       840
+     acaggaacag tcgggggcat cagtattcag ttgtcagagg tgaaattctt ggatttactg       900
+     aagactaact actgcgaaag catttgccaa ggatgttttc attaatcagt gaacgaaagt       960
+     taggggatcg aagacgatca gataccgtcg tagtcttaac cgtaaactat gccgactagg      1020
+     gatcgggcga tgttcttttt ctgactcgct cggcacctta cgagaaatca aagtttttgg      1080
+     gttctggggg gattatggtc gcaaggctga aacttaaaga aattgacgga aggtcaccac      1140
+     caggcgtgga gcctgcggct taatttgact caacacgggg aaactcacca ggtccagatg      1200
+     aaataaggat tgacagattg agagctcttt cttgattttt caggtggtgg tgcatggccg      1260
+     ttcttagatc gtggggtgac ttgtctgctt aattgcgata acgagcgaga ccttactctg      1320
+     ctaaatagcc aggctaactt tggttggtcg ccggcttctt agagagacta tcaactcaag      1380
+     ttgatggaag tttgaggcaa taacaggtct gtgatgccct tagatgttct gggccgcacg      1440
+     cgcgctacac tgacagagcc aacgagttct tttccttgtt cgaaagaatt gggtaatctt      1500
+     gttaaactct gtcgtgctgg ggataaagca ttgcaattat tgcttttcaa cgaggaatgc      1560
+     ctagtaagcg cgtgtcatca gcatgcgttg attacgtccc tgacctttgt acacaccgcc      1620
+     cgtcgctact accgattgaa tggctcagtg aggccttcgg actggctcga ggaggttggc      1680
+     aacgaccacc tcaagccgga aagttcgcca aactcggtca tttagaggaa gtaaaagtcg      1740
+     taacaaggtc tccgtaggtg aacctgcgga gggatcatta                            1780
+//
+ID   AA05195    standard; DNA; FUN; 550 BP.
+XX
+AC   U05195;
+XX
+SV   U05195.1
+XX
+NI   g451831
+XX
+DT   04-FEB-1994 (Rel. 38, Created)
+DT   08-FEB-1997 (Rel. 50, Last updated, Version 17)
+XX
+DE   Alternaria alternata AA6 internal transcribed spacers 1 and 2 and
+DE   5.8S rRNA gene, complete sequence.
+XX
+KW   .
+XX
+OS   Alternaria alternata
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Loculoascomycetes;
+OC   mitosporic Loculoascomycetes; Alternaria.
+XX
+RN   [1]
+RP   31-513
+RA   Morales V.M., Jasalavich C.A., Pelcher L.E., Petrie A.G., Taylor J.L.;
+RT   "Phylogenetic relationship among several Leptosphaeria species based on
+RT   their ribosomal DNA sequences";
+RL   Mycol. Res. 99:593-603(1995).
+XX
+RN   [2]
+RP   31-513
+RA   Jasalavich C.A., Morales V.M., Pelcher L.E., Seguin-Swartz G.;
+RT   "Comparison of nuclear ribosomal DNA sequences from Alternaria species
+RT   pathogenic to crucifers";
+RL   Mycol. Res. 99:604-614(1995).
+XX
+RN   [3]
+RP   1-550
+RA   Jasalavich C.A.;
+RT   ;
+RL   Submitted (14-JAN-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Claudia A. Jasalavich, Agriculture Canada Research Station, 107 Science
+RL   Place, Saskatoon, Saskatchewan S7N 0X2, Canada
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..550
+FT                   /organism="Alternaria alternata"
+FT                   /db_xref="taxon:5599"
+FT                   /strain="AA6"
+FT                   /specific_host="Brassica rapa ssp. oleifera"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="mycelia, young"
+FT   misc_RNA        31..194
+FT                   /citation=[2]
+FT                   /citation=[1]
+FT                   /note="ITS1"
+FT                   /product="internal transcribed spacer 1"
+FT   rRNA            195..353
+FT                   /citation=[2]
+FT                   /citation=[1]
+FT                   /note="5.8S rRNA"
+FT                   /product="5.8S ribosomal RNA"
+FT   misc_RNA        354..513
+FT                   /citation=[2]
+FT                   /citation=[1]
+FT                   /note="ITS2"
+FT                   /product="internal transcribed spacer 2"
+XX
+SQ   Sequence 550 BP; 134 A; 129 C; 127 G; 160 T; 0 other;
+     tccgtaggtg aacctgcgga gggatcatta cacaaatatg aaggcgggct ggaacctctc        60
+     ggggttacag ccttgctgaa ttattcaccc ttgtcttttg cgtacttctt gtttccttgg       120
+     tgggttcgcc caccactagg acaaacataa accttttgta attgcaatca gcgtcagtaa       180
+     caaattaata attacaactt tcaacaacgg atctcttggt tctggcatcg atgaagaacg       240
+     cagcgaaatg cgataagtag tgtgaattgc agaattcagt gaatcatcga atctttgaac       300
+     gcacattgcg ccctttggta ttccaaaggg catgcctgtt cgagcgtcat ttgtaccctc       360
+     aagctttgct tggtgttggg cgtcttgtct ctagctttgc tggagactcg ccttaaagta       420
+     attggcagcc ggcctactgg tttcggagcg cagcacaagt cgcactctct atcagcaaag       480
+     gtctagcatc cattaagcct ttttttcaac ttttgacctc ggatcaggta gggatacccg       540
+     ctgaacgtaa                                                              550
+//
+ID   AA11910    standard; DNA; FUN; 936 BP.
+XX
+AC   U11910;
+XX
+SV   U11910.1
+XX
+NI   g595454
+XX
+DT   03-JAN-1995 (Rel. 42, Created)
+DT   03-JAN-1995 (Rel. 42, Last updated, Version 1)
+XX
+DE   Agaricus arvensis 28S rRNA gene, 5' region, partial sequence.
+XX
+KW   .
+XX
+OS   Agaricus arvensis
+OC   Eukaryota; Fungi; Basidiomycota; Hymenomycetes; Agaricales; Agaricaceae;
+OC   Agaricus.
+XX
+RN   [1]
+RP   1-936
+RA   Rehner S.A., Chapela I.H., Schultz T.R., Mueller U.G.;
+RT   "Evolutionary history of the symbiosis between fungus-growing ants and
+RT   their fungi";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-936
+RA   Rehner S.A.;
+RT   ;
+RL   Submitted (07-JUL-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Stephen A. Rehner, Systematic Mycology Laboratory, U.S. Department of
+RL   Agriculture, Agricultural Research Service, Bldg 011A, Rm 304, BARC-W,
+RL   Beltsville, MD 20705, USA
+XX
+CC   NCBI gi: 595454
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..936
+FT                   /organism="Agaricus arvensis"
+FT                   /db_xref="taxon:34428"
+FT                   /isolate="SAR 93/494"
+FT   rRNA            1..>936
+FT                   /product="28S rRNA"
+XX
+SQ   Sequence 936 BP; 254 A; 191 C; 275 G; 216 T; 0 other;
+     aggaaaagaa actaacaagg attcccctag taactgcgag tgaagcggga aaagctcaaa        60
+     tttaaaatct ggcggtctct ggccgtccga gttgtaatct agagaagtaa tgcccgtgct       120
+     ggaccgtgta taagtctcct gggatggggc gtcatagagg gtgagaatcc cgtctttgac       180
+     acggactacc agtacattgt ggtatgctct caaagagtcg agttgtttgg gaatgcagcc       240
+     caaaatgggt ggtaaattcc atctaaagct aaatattggc gagagaccga tagcgaacaa       300
+     gtaccgtgag ggaaagatga aaagaacttt ggaaagagag ttaaacagta cgtgaaattc       360
+     tgaaagggaa acgcttgaag tcagtcgcgt tggccgggga tcagccttgc ttttgcatgg       420
+     tgtactttct ggttgacggg tcagcatcaa ttttgaccgc tggaaaaaga cctggggaat       480
+     gtggcagctt cggctgtgtt atagccccta gtcgcataca gtggttggga ttgaggaact       540
+     cagcacgccg caagcccggg tttcgaccac gttcgtgctt aggatgctgg cataatggct       600
+     ttaagcgacc cctcttgaaa cacggaccaa ggagtctaac atgcctccga gtatttgggt       660
+     ggaaaaccca agtgcgtaat gaaagtgaaa gttgagatcc ctctcgtggg gagcatcgac       720
+     gcccggacca gaacttttgg gacggatccc cggtggagca tgtatgttgg gacccgaaag       780
+     atggtgaact atgcctgaat agggtgaagc cagaggaaac tctggtggag gctcgtagcg       840
+     attctgacgt gcaaatcgat cgtcaaattt gggtataggg gcgaaagact aatcgaacca       900
+     tctagtagct ggttcctgcc gaagtttccc tcagga                                 936
+//
+ID   AA14BEXS   standard; DNA; FUN; 960 BP.
+XX
+AC   X78115;
+XX
+SV   X78115.1
+XX
+NI   g460340
+XX
+DT   14-MAR-1994 (Rel. 38, Created)
+DT   10-MAY-1995 (Rel. 43, Last updated, Version 3)
+XX
+DE   A.awamori gene for 1,4-beta-endoxylase
+XX
+KW   endo-1,4-beta-xylanase; endoxylanase; ex1A gene.
+XX
+OS   Aspergillus awamorii
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RX   MEDLINE; 95163119.
+RA   Hessing J.G.M., Van Rotterdam C.O., Verbakel J.M.A., Roza M., Maat J.,
+RA   Van Gorcom R.F.M., van den Hondel C.A.M.J.J.;
+RT   "Isolation and characterization of a 1,4-beta-endoxylanase gene of
+RT   A.awamori";
+RL   Curr. Genet. 26:228-232(1994).
+XX
+RN   [2]
+RP   1-960
+RA   Hessing J.G.M.;
+RT   ;
+RL   Submitted (08-MAR-1994) to the EMBL/GenBank/DDBJ databases.
+RL   J.G.M. Hessing, TNO Nutrition and Food Research, PO Box 5815, 2280 HV
+RL   Rijswijk, NETHERLANDS
+XX
+DR   SWISS-PROT; P55328; XYN1_ASPAW.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..960
+FT                   /organism="Aspergillus awamorii"
+FT                   /db_xref="taxon:5055"
+FT                   /strain="ATCC11358"
+FT                   /clone_lib="lambda EMBL3-library"
+FT                   /clone="pAW14"
+FT   CDS             join(111..340,390..795)
+FT                   /db_xref="PID:g460341"
+FT                   /db_xref="SWISS-PROT:P55328"
+FT                   /EC_number="3.2.1.8"
+FT                   /product="endo-1,4-beta-xylanase"
+FT                   /gene="ex1A"
+FT                   /protein_id="CAA55005.1"
+FT                   /translation="MKVTAAFAGLLVTAFAAPVPEPVLVSRSAGINYVQNYNGNLGDFT
+FT                   YDESAGTFSMYWEDGVSSDFVVGLGWTTGSSNAITYSAEYSASGSSSYLAVYGWVNYPQ
+FT                   AEYYIVEDYGDYNPCSSATSLGTVYSDGSTYQVCTDTRTNEPSITGTSTFTQYFSVRES
+FT                   TRTSGTVTVANHFNFWAQHGFGNSDFNYQVMAVEAWSGAGSASVTISS"
+FT   sig_peptide     111..158
+FT   mat_peptide     join(159..340,390..792)
+FT   prim_transcript 45..795
+FT                   /gene="ex1A"
+FT   exon            111..340
+FT                   /number=1
+FT   exon            390..795
+FT                   /number=2
+FT   intron          341..389
+FT                   /number=1
+XX
+SQ   Sequence 960 BP; 217 A; 242 C; 243 G; 258 T; 0 other;
+     cgcagaatat aaatagaggt agagtgggct cgcagcaata ttgaccagca cagtgcttct        60
+     cttccagttg cataaatcca ttcaccagca tttagctttc ttcaatcatc atgaaggtca       120
+     ctgcggcttt tgcaggtctt ttggtcacgg cattcgccgc tcctgtgccg gaacctgttc       180
+     tggtgtcgcg aagtgctggt attaactacg tgcaaaacta caacggcaac cttggtgatt       240
+     tcacctatga cgagagtgcc ggaacatttt ccatgtactg ggaagatgga gtgagctccg       300
+     actttgtcgt tggtctgggc tggaccactg gttcttctaa gtgagtgact gtattcttta       360
+     accaaagtct aggatctaac gttttctagc gctatcacct actctgccga atacagtgct       420
+     tctggctcct cttcctacct cgctgtgtac ggctgggtca actatcctca ggctgaatac       480
+     tacatcgtcg aggattacgg tgattacaac ccttgcagct cggccacaag ccttggtacc       540
+     gtgtactctg atggaagcac ctaccaagtc tgcaccgaca ctcgaactaa cgaaccgtcc       600
+     atcacgggaa caagcacgtt cacgcagtac ttctccgttc gagagagcac gcgcacatct       660
+     ggaacggtga ctgttgccaa ccatttcaac ttctgggcgc agcatgggtt cggaaatagc       720
+     gacttcaatt atcaggtcat ggcagtggaa gcatggagcg gtgctggcag cgccagtgtc       780
+     acgatctcct cttaagggat aagtgccttg gtagtcggaa gatgtcaacg cggaactttg       840
+     ttctcagctg gtgtgatgat cggatccggc ctctggtggt tacattgagg ctgtataagt       900
+     tattctgggg ccgagctgtc agcggctgcg tttccaattt gcacagataa tcaactttcg       960
+//
+ID   AA15500    standard; DNA; FUN; 575 BP.
+XX
+AC   U15500;
+XX
+SV   U15500.1
+XX
+NI   g882045
+XX
+DT   05-JUL-1995 (Rel. 44, Created)
+DT   05-JUL-1995 (Rel. 44, Last updated, Version 1)
+XX
+DE   Aspergillus avenaceus isolate NRRL 4517 28S ribosomal RNA gene,
+DE   D1-D2 region.
+XX
+KW   .
+XX
+OS   Aspergillus avenaceus
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-575
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus section Cremei and Wentii based on
+RT   ribosomal DNA sequences";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-575
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (03-OCT-1994) to the EMBL/GenBank/DDBJ databases.
+RL   S.W. Peterson, National Center for Agricultural Utilization Research,
+RL   Microbial Properties Research, 1815 N. University St., Peoria, IL 61604,
+RL   USA
+XX
+CC   NCBI gi: 882045
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..575
+FT                   /organism="Aspergillus avenaceus"
+FT                   /db_xref="taxon:36643"
+FT                   /isolate="NRRL 4517"
+FT   rRNA            <1..>575
+FT                   /note="D1-D2 region"
+FT                   /product="28S ribosomal RNA"
+XX
+SQ   Sequence 575 BP; 133 A; 144 C; 190 G; 108 T; 0 other;
+     aaagaaacca accgggattg cctcagtaac ggcgagtgaa gcggcaagag ctcaaatttg        60
+     aaagctggcc ccctcggggt ccgcgttgta atttgcagag gatgcttcgg gtgtggcccc       120
+     cgtctaagtg ccctggaacg ggccgtcata gagggtgaga atcccgtctg ggacggggtg       180
+     tccgcgcccg tgtgaagctc cttcgacgag tcgagttgtt tgggaatgca gctctaaatg       240
+     ggtggtaaat ttcatctaaa gctaaatact ggccggagac cgatagcgca caagtagagt       300
+     gatcgaaaga tgaaaagcac tttgaaaaga gagttaaaaa gcacgtgaaa ttgttgaaag       360
+     ggaagcgctt gcgaccagac tcgcctccgg ggttcagccg gccttagggc cggtgtactt       420
+     ccccgggggc gggccagcgt cggtttgggc ggccggtcaa aggcccctgg aatgtagtgc       480
+     cccccggggc accttatagc caggggtgca atgcggcctg cccggaccga ggaacgcgct       540
+     ccggcacgga cgctggcata atggtcgtaa acgac                                  575
+//
+ID   AA15508    standard; DNA; FUN; 575 BP.
+XX
+AC   U15508;
+XX
+SV   U15508.1
+XX
+NI   g882053
+XX
+DT   05-JUL-1995 (Rel. 44, Created)
+DT   05-JUL-1995 (Rel. 44, Last updated, Version 1)
+XX
+DE   Aspergillus avenaceus isolate NRRL 517 28S ribosomal RNA gene,
+DE   D1-D2 region.
+XX
+KW   .
+XX
+OS   Aspergillus avenaceus
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-575
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus section Cremei and Wentii based on
+RT   ribosomal DNA sequences";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-575
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (03-OCT-1994) to the EMBL/GenBank/DDBJ databases.
+RL   S.W. Peterson, National Center for Agricultural Utilization Research,
+RL   Microbial Properties Research, 1815 N. University St., Peoria, IL 61604,
+RL   USA
+XX
+CC   NCBI gi: 882053
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..575
+FT                   /organism="Aspergillus avenaceus"
+FT                   /db_xref="taxon:36643"
+FT                   /isolate="NRRL 517"
+FT   rRNA            <1..>575
+FT                   /note="D1-D2 region"
+FT                   /product="28S ribosomal RNA"
+XX
+SQ   Sequence 575 BP; 133 A; 144 C; 190 G; 108 T; 0 other;
+     aaagaaacca accgggattg cctcagtaac ggcgagtgaa gcggcaagag ctcaaatttg        60
+     aaagctggcc ccctcggggt ccgcgttgta atttgcagag gatgcttcgg gtgtggcccc       120
+     cgtctaagtg ccctggaacg ggccgtcata gagggtgaga atcccgtctg ggacggggtg       180
+     tccgcgcccg tgtgaagctc cttcgacgag tcgagttgtt tgggaatgca gctctaaatg       240
+     ggtggtaaat ttcatctaaa gctaaatact ggccggagac cgatagcgca caagtagagt       300
+     gatcgaaaga tgaaaagcac tttgaaaaga gagttaaaaa gcacgtgaaa ttgttgaaag       360
+     ggaagcgctt gcgaccagac tcgcctccgg ggttcagccg gccttagggc cggtgtactt       420
+     ccccgggggc gggccagcgt cggtttgggc ggccggtcaa aggcccctgg aatgtagtgc       480
+     cccccggggc accttatagc caggggtgca atgcggcctg cccggaccga ggaacgcgct       540
+     ccggcacgga cgctggcata atggtcgtaa acgac                                  575
+//
+ID   AA17914    standard; DNA; FUN; 581 BP.
+XX
+AC   U17914;
+XX
+SV   U17914.1
+XX
+NI   g608563
+XX
+DT   12-JAN-1995 (Rel. 42, Created)
+DT   12-JAN-1995 (Rel. 42, Last updated, Version 1)
+XX
+DE   Amauroascus albicans 28S rRNA gene, partial sequence.
+XX
+KW   .
+XX
+OS   Amauroascus albicans
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Onygenales;
+OC   Onygenaceae; Amauroascus.
+XX
+RN   [1]
+RP   1-581
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus sections Cremei and Wentii, based
+RT   on ribosomal DNA sequences";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-581
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (01-DEC-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Stephen W. Peterson, National Center for Agricultural Utilization
+RL   Research, Microbial Properties Research, 1815 N. University Street,
+RL   Peoria, IL 61604, USA
+XX
+CC   NCBI gi: 608563
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..581
+FT                   /organism="Amauroascus albicans"
+FT                   /db_xref="taxon:37237"
+FT                   /strain="NRRL 5141"
+FT   rRNA            <1..>581
+FT                   /note="D1-D2 regions"
+FT                   /product="28S rRNA"
+XX
+SQ   Sequence 581 BP; 131 A; 135 C; 194 G; 121 T; 0 other;
+     aaagaaacca actgggattg cctcagtaac ggcgagtgaa gcggcaaaag ctcaaatttg        60
+     aaatctggct ctctaacggg ggtccgagtt gtaatttgaa gaggatgctt cgggtgcgac       120
+     cgcggcgcaa gtcccctgga acggggcgtc gcagagggtg agaatcccgt cttgagtcgc       180
+     tggtacgcgc ccgtgtgaag ctccttcgac gagtcgagtt gtttgggaat gcagctctaa       240
+     gcgggtggta aatttcatct aaagctaaat attggccgga gaccgatagc gcacaagtag       300
+     agtgatcgaa aggttaaaag caccttgaaa agggagttaa atagcacgtg aaattgttga       360
+     aagggaagcg cttgcggcca gactcgggtg cgggggttca gcggccattc gtggtcgtgt       420
+     actcccccgc tgctcgggcc agcatcggtt cgggcggtcg gtcaaaggcc ccaggaatgt       480
+     gtcacctctc ggggtgtctt atagcctggg gtgcaatgcg gcctgcctgg accgaggaac       540
+     gcgcttcggc tcggatgctg gcataatggc cgtaagcggg c                           581
+//
+ID   AA17916    standard; DNA; FUN; 575 BP.
+XX
+AC   U17916;
+XX
+SV   U17916.1
+XX
+NI   g608565
+XX
+DT   12-JAN-1995 (Rel. 42, Created)
+DT   12-JAN-1995 (Rel. 42, Last updated, Version 1)
+XX
+DE   Aspergillus anthodesmis 28S rRNA gene, partial sequence.
+XX
+KW   .
+XX
+OS   Aspergillus anthodesmis
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-575
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus sections Cremei and Wentii, based
+RT   on ribosomal DNA sequences";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-575
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (01-DEC-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Stephen W. Peterson, National Center for Agricultural Utilization
+RL   Research, Microbial Properties Research, 1815 N. University Street,
+RL   Peoria, IL 61604, USA
+XX
+CC   NCBI gi: 608565
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..575
+FT                   /organism="Aspergillus anthodesmis"
+FT                   /db_xref="taxon:37233"
+FT                   /strain="NRRL 22884"
+FT   rRNA            <1..>575
+FT                   /note="D1-D2 regions"
+FT                   /product="28S rRNA"
+XX
+SQ   Sequence 575 BP; 131 A; 144 C; 190 G; 110 T; 0 other;
+     aaagaaacca accgggattg ccccagtaac ggcgagtgaa gcggcaagag ctcaaatttg        60
+     aaatctggcc cctccggggt ccgagttgta atttgcagag gatgcttcgg gtgcggcccc       120
+     cgtctaagtg ccctggaacg ggccgtcaga gagggtgaga atcccgtctt gggcggggtg       180
+     tccgtgcccg tgtgaagctc cttcgacgag tcgagttgtt tgggaatgca gctctaaatg       240
+     ggtggtaaat ttcatctaaa gctaaatact ggccggagac cgatagcgca caagtagagt       300
+     gatcgaaaga tgaaaagcac tttgaaaaga gagttaaaca gcacgtgaaa ttgttgaaag       360
+     ggaagcgctt gcgaccagac tcgcccgcgg ggttcagccg gcactcgtgc cggtgtactt       420
+     ccccgtgggc gggccagcgt cggtttgggc ggccggtcaa aggcctccgg aatgtatcgc       480
+     cctccggggc gtcttatagc cgggggtgca atgcggccag cccggaccga ggaacgcgct       540
+     tcggcacgga cgctggcata atggtcgtaa acgac                                  575
+//
+ID   AA18362    standard; DNA; FUN; 590 BP.
+XX
+AC   U18362;
+XX
+SV   U18362.1
+XX
+NI   g639450
+XX
+DT   31-JAN-1995 (Rel. 42, Created)
+DT   20-FEB-1995 (Rel. 42, Last updated, Version 2)
+XX
+DE   Ascosphaera apis 5.8S rRNA gene, complete sequence, and ITS1 and
+DE   ITS2.
+XX
+KW   .
+XX
+OS   Ascosphaera apis
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes;
+OC   Ascosphaerales; Ascosphaeraceae; Ascosphaera.
+XX
+RN   [1]
+RP   1-590
+RA   Berbee M.L., Yoshimura A., Sugiyama J., Taylor J.W.;
+RT   "Is Penicillium monophyletic? An evaluation of phylogeny in the family
+RT   Trichocomaceae from 18S, 5.8S and ITS ribosomal DNA sequence data";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-590
+RA   Berbee M.L.;
+RT   ;
+RL   Submitted (10-DEC-1994) to the EMBL/GenBank/DDBJ databases.
+RL   Mary L. Berbee, Botany, University of British Columbia, 6270 University
+RL   Blvd, Vancouver, BC, V6T 1Z4, Canada
+XX
+CC   NCBI gi: 639450
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..590
+FT                   /organism="Ascosphaera apis"
+FT                   /db_xref="taxon:5105"
+FT                   /note="(Maasen ex Claussen) Olive & Spiltoir"
+FT                   /tissue_type="mycelium"
+FT                   /dev_stage="hyphal"
+FT   misc_feature    49..243
+FT                   /note="ITS1"
+FT   rRNA            244..400
+FT                   /product="5.8S ribosomal RNA"
+FT   misc_feature    401..567
+FT                   /note="ITS2"
+XX
+SQ   Sequence 590 BP; 121 A; 164 C; 172 G; 131 T; 2 other;
+     aaaagtcgta acaaggtnnc cgtaggtgaa cctgcggaag gatcattact gtgtgtttgt        60
+     gcggccttca ccggccgcgc actcccaccc ttgtctacct tacctgttgc ttcggcgggc       120
+     ctgcggttgg cctgcgtgcc gccgctgccg gggggccttt tcggtccccg ggcgcgctgc       180
+     ccgccgaagg aaactgaact ccagtcgaag attgaagtct gagatagatt gagaaataac       240
+     tcaaaacttt caacaacgga tctcttggtt ccgacatcga tgaagaacgc agcgaaatgc       300
+     gataagtaat gtgaattgca gaattccgtg aatcatcgaa tctttgaacg cacattgcgc       360
+     cctctggtat tccggggggc atgcctgtcc gagcgtcatt gcaaccctca agcacggctt       420
+     gtgtgttggg cgatcgtcct gtccgtgagg cgggacgcac ccgaaaggca gtgacggcgt       480
+     cgtgatccgg tgcccgagcg catggaactt gaacccgctc gtgaggcctg gccgaccgtc       540
+     ggtccaacca tctactactt ccagtggttg acctcggatc aggtagggat                  590
+//
+ID   AA18SRR1   standard; DNA; FUN; 1733 BP.
+XX
+AC   D63695;
+XX
+SV   D63695.1
+XX
+NI   d1049998
+XX
+DT   16-AUG-1995 (Rel. 44, Created)
+DT   03-NOV-1997 (Rel. 53, Last updated, Version 4)
+XX
+DE   Aspergillus awamori DNA for 18S rRNA, partial sequence.
+XX
+KW   18S rRNA.
+XX
+OS   Aspergillus awamorii
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-1733
+RA   Nikkuni S.;
+RT   ;
+RL   Submitted (27-JUL-1995) to the EMBL/GenBank/DDBJ databases.
+RL   Sayuki Nikkuni, Japan International Research Center for Agricultural
+RL   Sci.; Ohwashi 1-2, Tsukuba, Ibarakki 305, Japan
+RL   (E-mail:nikkuni@jircas.affrc.go.jp, Tel:0298-38-6362, Fax:0298-38-6652)
+XX
+RN   [2]
+RP   1-1733
+RA   Nikkuni S.;
+RT   ;
+RL   Unpublished.
+XX
+RN   [3]
+RA   Nikkuni S., Kosaka N., Suzuki C., Mori K.;
+RT   "Comparative sequence analysis on the 18S rRNA gene of Aspergillus
+RT   Oryzae, A. Sojae, A. Flavus, A. Parasiticus, A. Niger, A. Awamori and A.
+RT   Tamarii";
+RL   J. Gen. Appl. Microbiol. 42:181-187(1996).
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1733
+FT                   /organism="Aspergillus awamorii"
+FT                   /db_xref="taxon:5055"
+FT                   /sequenced_mol="DNA"
+FT                   /strain="IFO4033"
+FT   rRNA            <1..>1733
+FT                   /product="18S rRNA"
+XX
+SQ   Sequence 1733 BP; 444 A; 375 C; 473 G; 441 T; 0 other;
+     aaagattaag ccatgcatgt ctaagtataa gcactttata ctgtgaaact gcgaatggct        60
+     cattaaatca gttatcgttt atttgatagt accttactac atggatacct gtggtaattc       120
+     tagagctaat acatgctgaa aacctcgact tcggaagggg tgtatttatt agataaaaaa       180
+     ccaatgccct tcggggctcc ttggtgaatc ataataactt aacgaatcgc atggccttgc       240
+     gccggcgatg gttcattcaa atttctgccc tatcaacttt cgatggtagg atagtggcct       300
+     accatggtgg caacgggtaa cggggaatta gggttcgatt ccggagaggg agcctgagaa       360
+     acggctacca catccaagga aggcagcagg cgcgcaaatt acccaatccc gacacgggga       420
+     ggtagtgaca ataaatactg atacggggct cttttgggtc tcgtaattgg aatgagtaca       480
+     atctaaatcc cttaacgagg aacaattgga gggcaagtct ggtgccagca gccgcggtaa       540
+     ttccagctcc aatagcgtat attaaagttg ttgcagttaa aaagctcgta gttgaacctt       600
+     gggtctggct ggccggtccg cctcaccgcg agtactggtc cggctggacc tttccttctg       660
+     gggaatctca tggccttcac tggctgtggg gggaaccagg acttttactg tgaaaaaatt       720
+     agagtgttca aagcaggcct ttgctcgaat acattagcat ggaataatag aataggacgt       780
+     gcggttctat tttgttggtt tctaggaccg ccgtaatgat taatagggat agtcgggggc       840
+     gtcagtattc agctgtcaga ggtgaaattc ttggatttgc tgaagactaa ctactgcgaa       900
+     agcattcgcc aaggatgttt tcattaatca gggaacgaaa gttaggggat cgaagacgat       960
+     cagataccgt cgtagtctta accataaact atgccgacta gggatcggac ggtgtttcta      1020
+     ttatgacccg ttcggcacct tacgagaaat caaagttttt gggttctggg gggagtatgg      1080
+     tcgcaaggct gaaacttaaa gaaattgacg gaagggcacc accaggcgtg gagcctgcgg      1140
+     cttaatttga ctcaacacgg ggaaactcac caggtccaga caaaataagg attgacagat      1200
+     tgagagctct ttcttgatct tttggatggt ggtgcatggc cgttcttagt tggtggagtg      1260
+     atttgtctgc ttaattgcga taacgaacga gacctcggcc cttaaatagc ccggtccgca      1320
+     tttgcgggcc gctggcttct tagggggact atcggctcaa gccgatggaa gtgcgcggca      1380
+     ataacaggtc tgtgatgccc ttagatgttc tgggccgcac gcgcgctaca ctgacagggc      1440
+     cagcgagtac atcaccttgg ccgagaggtc tgggtaatct tgttaaaccc tgtcgtgctg      1500
+     gggatagagc attgcaatta ttgctcttca acgaggaatg cctagtaggc acgagtcatc      1560
+     agctcgtgcc gattacgtcc ctgccctttg tacacaccgc ccgtcgctac taccgattga      1620
+     atggctcggt gaggccttcg gactggctca ggagggttgg caacgacccc ccagagccgg      1680
+     aaagttggtc aaacccggtc atttagagga agtaaaagtc gtaacaaggt ttc             1733
+//
+ID   AA18SRRA   standard; DNA; FUN; 1800 BP.
+XX
+AC   X69849;
+XX
+SV   X69849.1
+XX
+NI   g529649
+XX
+DT   08-AUG-1994 (Rel. 40, Created)
+DT   08-AUG-1994 (Rel. 40, Last updated, Version 3)
+XX
+DE   A.apis gene for 18S rRNA
+XX
+KW   18S ribosomal RNA; 18S rRNA.
+XX
+OS   Ascosphaera apis
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes;
+OC   Ascosphaerales; Ascosphaeraceae; Ascosphaera.
+XX
+RN   [1]
+RP   1-1800
+RA   Wilmotte A.M.;
+RT   ;
+RL   Submitted (17-DEC-1992) to the EMBL/GenBank/DDBJ databases.
+RL   A.M. Wilmotte, University of Antwerp (U.I.A.), Dept of Biochemistry,
+RL   Universiteitsplein 1, 2610 Wilrijk, BELGIUM
+XX
+RN   [2]
+RA   Wilmotte A.M., Van de Peer Y., Goris A., Chapelle S., De Baere R.,
+RA   Nelissen B., Neefs J.M., Hennebert G.L., De Wachter R.;
+RT   "Evolutionary relationships among higher fungi inferred by small
+RT   ribosomal subunit RNA sequence analysis";
+RL   Syst. Appl. Microbiol. 16:436-444(1993).
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1800
+FT                   /organism="Ascosphaera apis"
+FT                   /db_xref="taxon:5105"
+FT                   /strain="MUCL 30764"
+FT   rRNA            1..1800
+FT                   /product="18S ribosomal RNA"
+FT                   /gene="18S rRNA"
+XX
+SQ   Sequence 1800 BP; 449 A; 366 C; 464 G; 460 T; 61 other;
+     nnnnnnnnnn nnnnnnnnnn nagtcatatg cttgtctcaa rgattaagcc atgcatgtct        60
+     aagtcccagc gatctatagc gaaactgcga atggctcatt aaatcagtta tagtttattt       120
+     gatagtacct ttactacatg gataaccgtg gtaattctag agctaataca tgctaaaaac       180
+     ctcgacttcg gaaggggtgt atttattaga taaaaaacca atgcccttcg gggntccttg       240
+     gtgaatcata ataacttaac gaaccgcatg gccttgtgcc ggcggtggtt cattcaaatt       300
+     tctgccctat caactttcga tggtaggata gtggcctacc atggtggcaa cgggtaacgg       360
+     gaattagggt tcgattccgg agagggagcc tgagaaacgg ctaccacatc taaggaaggc       420
+     agcaggcgcg caaattaccc aatcccgata cgnggaggta gtgacaataa atactgatac       480
+     agggctcttt cgggtcgtgt aattggaatg agtacaatct aaatccctta acgagtaaca       540
+     attggagggc aagtctggtg ccagcnnccg cggtaattcc agctccaata gcgtatatta       600
+     aagttgttgc agttaaaaag ctcgtagttg aaccttgggt ctggctggcc ggtccgcctc       660
+     accgcgtgta ctggtccggc tggacctttc cttctgggga accctatggc cttcactggc       720
+     tgtaggggga accaggactt ttactgtgaa aaaattagag tgttcaaagc aggcctttgc       780
+     tcggatacat tagcatggaa taatagaata ggacgtgtgg ttctattttg ttggtttcta       840
+     ggaccgccgt aatgattaat agggatagtc gggggcgtca gtattcggct gtcagaggtg       900
+     aaattcttgg atttgctgaa gactaactac tgcgaaagca ttcgccaagg atgttttcat       960
+     taatcagtga acgaaagtta ggggatcgaa gacgatcaga taccgtcgta gtcttaacca      1020
+     taaactatgc cgactaggga tcggacgggg ttctacttta tgacccgttc ggcaccttac      1080
+     gagaaatcaa agtttttggg ttctgggnnn ngtatggtcg caaggctgaa acttaaataa      1140
+     attgacggaa gggcaccaca aggcgtggag cctgcggctt aatttgactc aacacgggga      1200
+     aactcaccag gtccagacaa aataaggatt gacagattga gagctctttc ttgatctttt      1260
+     ggatggtggt gcatggccgt tcttagttgg tggagtgatt tgtctgctta attgcgataa      1320
+     cgaacgagac cttaacctgc taaatagccc ggtcgacgtt tgtcggctgc tggcttctta      1380
+     gagggactat cggttcttaa gccgatggaa gtttgaggca ataactggtc tgtgatgccc      1440
+     ttagatgttc tgggccgcac gcgcgctaca ctgacagggc caacgagtac atcaccttgg      1500
+     ccgagaggtc tgggtaatct tgttaaaccc tgtcgtrctg gggatagaca ttgcaattat      1560
+     tgctcttcaa cgaggaatgc ctagtaggcg caagtcatca gcttgtgccg attacgtccc      1620
+     tgccctttgt acacaccgcc cgtcgctact accgattgaa tggctcagtg rggccttcgg      1680
+     actggcgcca ggaggttgga aacgaccgcc tagagccgga aagttggtca aacttggtca      1740
+     tttagaggaa gtaaaagtcg taacaaggtt tnnnnnnnnn nnnnnnnnnn nnnnnnnnnn      1800
+//
+ID   AA25SLS3   standard; DNA; FUN; 3882 BP.
+XX
+AC   Z50840;
+XX
+SV   Z50840.1
+XX
+NI   g951224
+XX
+DT   22-AUG-1995 (Rel. 44, Created)
+DT   01-NOV-1996 (Rel. 49, Last updated, Version 3)
+XX
+DE   A.adeninivorans 25S rRNA gene
+XX
+KW   25S ribosomal RNA; 25S rRNA gene.
+XX
+OS   Arxula adeninivorans
+OC   Eukaryota; Fungi; Ascomycota; Hemiascomycetes; Saccharomycetales;
+OC   Candidaceae; Arxula.
+XX
+RN   [1]
+RP   1-3882
+RA   Roesel H., Kunze G.;
+RT   "Identification of a group-I intron within the 25S rDNA from the yeast
+RT   Arxula adeninivorans";
+RL   Yeast 12:1201-1208(1996).
+XX
+RN   [2]
+RP   1-3882
+RX   MEDLINE; 94338136.
+RA   Kunze G., Kunze I.;
+RT   "Characterization of Arxula adeninivorans strains from different
+RT   habitats";
+RL   Antonie Van Leeuwenhoek 65:29-34(1994).
+XX
+RN   [3]
+RP   1-3882
+RA   Kunze G.;
+RT   ;
+RL   Submitted (21-AUG-1995) to the EMBL/GenBank/DDBJ databases.
+RL   Kunze G., Institut fuer Pflanzengenetik und Kulturpflanzenforschung,
+RL   Molekulare Zellbiologie, Corrensstrasse 3, Gatersleben, Sachsen-Anhalt,
+RL   Germany, D-06466
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..3882
+FT                   /organism="Arxula adeninivorans"
+FT                   /chromosome="I"
+FT                   /db_xref="taxon:37620"
+FT                   /strain="Ls3"
+FT                   /clone="pAL3R und pBS3_R1"
+FT                   /clone_lib="lambda gt11"
+FT   prim_transcript 93..3882
+FT                   /evidence=EXPERIMENTAL
+FT                   /gene="25S rRNA"
+FT   rRNA            join(93..2900,3312..3882)
+FT                   /evidence=EXPERIMENTAL
+FT                   /gene="25S rRNA"
+FT                   /product="25S ribosomal RNA"
+FT   exon            93..2900
+FT                   /evidence=EXPERIMENTAL
+FT                   /number=1
+FT   intron          2901..3311
+FT                   /cons_splice=(5'site:NO,3'site:NO)
+FT                   /evidence=EXPERIMENTAL
+FT                   /number=1
+FT   exon            3312..3882
+FT                   /evidence=EXPERIMENTAL
+FT                   /number=2
+XX
+SQ   Sequence 3882 BP; 1051 A; 779 C; 1051 G; 1001 T; 0 other;
+     gaattcagtg ctttacagtg tcttaggttt taccaactac gctggcctag taactgtttt        60
+     ctgagctggc ctttataaca gttcttttaa aagtttgacc tcaaatcagg caagactacc       120
+     cgctgaactt aagcatatca ataagcggag gaaaagaaac caaccgggat tgccctagta       180
+     acggcgagcg aaggccaaaa gtccaaattt gaaatctggc gtcctacggg cgtccgagtt       240
+     gtaatttgaa gatggtaact ttgggtttgg ctcttgcata agttccttgg aacaggacgt       300
+     catagagggt gagaatcccg ttcatggtaa gatgcccatt cctttgtaaa gtgccttcga       360
+     agagtcgagt tgtttgggaa tgcagctcta agtgggtggt aaattccatc taagactaaa       420
+     tattggccga gagaccgata gcgaacaagt acagtgatcg gaaagatgaa aagaactttg       480
+     aaaagagagt gaaaaagtac gtgaaattgt tgaaagggaa gggcttgaag tcagacttgg       540
+     tattcagtga tcaactgtct ttcgggactg tgcactcgct gtttactggg ccaacatcgg       600
+     ttttggcggc gagataaatg cattggaacg tggctctatc ttcggatgga gtgttatagc       660
+     ctttgtaaat atcgcctgct gggaccgagg actgcgcatc tgctaggatg ttggcgtaat       720
+     gactttaagc cacccgtctt gaaacacgga ccaaggagtc taacgtctat gcgagtgttt       780
+     gggtgtaaaa cccgtacgcg taatgaaagt gaacgtagat gagaacccct gagggtgcat       840
+     catcgaccga tcctgatgtt ctcggatgga tttgagtaag agcatagctg ttgggacccg       900
+     aaagatggtg aactatgcct gaatagggtg aagccagagg aaactctggt ggaggctcgt       960
+     agcgattctg acgtgcaaat cgatcgtcaa atttgggtat aggggcgaaa gactaatcga      1020
+     accatctagt agctggttcc tgccgaagtt tccctcagga tagcagaagc tcgtatcagt      1080
+     tttatgaggt aaagcgaatg attagaggta ttgggattga aacgatcttg acctattctc      1140
+     aaactttgaa tatgtaagaa gtccttgtta cttaattgaa cgtggacatt agaatgaaga      1200
+     gcttttagtg ggccattttt ggtaagcaga actggcgatg cgggatgaac cgaacgtaga      1260
+     gttaaggtgc cggaatgcac gctcatcaga caccagaaaa ggtgttagtt catctagaca      1320
+     gccggacggt ggccatggaa gtcggaatcc gctaaggagt gtgtaacaac tcaccggccg      1380
+     aatgaactag ccctgaaaat ggatggcgct caagcgtgtt acctatactc taccgttagg      1440
+     ttaatgcgat gccctaacga gtaggcaggc gtggaggtca gtgacgaagc ctttgcagtg      1500
+     atgctgggtc gaacggcctc tagtgcagat cttggtggta gtagcaaata ttcaaatgag      1560
+     aactttgaag actgaagtgg ggaaaggttc cgtgtgaaca gcagttggcc acgggttagt      1620
+     cgatcctaag agatggggaa gctccgtttc aatgtgctcg atttttcgag ccaccatcga      1680
+     aagggaatcc ggttaatatt ccggaacttg gatatggaat cttcacggta acgtaactga      1740
+     aagtggagac gtcggcataa gccctgggag gagttatctt ttcttcttaa cagtctatca      1800
+     ccctgaaatt ggtttgtcca gagctagggt cttagggctg gaagagcctg acacctctgt      1860
+     caggtccggt gcgcttatga cgtcccttga aaatccactg gaaggttttg ttttcatgcc      1920
+     aagtcgtact cataaccgca gcaggtctcc aaggtgaaca gcctctagtt gatagaataa      1980
+     tgtaggtaag ggaagtcggc aaaatagatc cgtaacttcg ggataaggat tggctctaag      2040
+     ggtcgagtgt ttcgggcctt gtttcagaac ccggggaacc cggacggaac tgcgcagggg      2100
+     caaccttgtg tggagctgac tgggatcctt cggcggacgt gcttggcagg tcttttcgac      2160
+     cgtccgattc acaccgaacg actaacttag aactggtacg gacaagggga atctgactgt      2220
+     ctaattaaaa catagcattc cgatggtcag aaagtgatgt tgacggaatg tgatttctgc      2280
+     ccagtgctct gaatgtcaaa gtgaagaaat tcaaccaagc gcgggtaaac ggcgggagta      2340
+     actatgactc tcttaaggta gccaaatgcc tcgtcatcta attagtgacg cgcatgaatg      2400
+     gattaacgag attcccactg tccctatcta ctatctagcg aaaccacagc caagggaacg      2460
+     ggcttggcag aatcagcggg gaaagaagac cctgttgagc ttgactctag tttgacattg      2520
+     tgaaaagaca tagagggtgt agaataagtg ggagcttcgg cgccggtgaa ataccactac      2580
+     ctttatcgtt tttttactta ttcaattaag cggaactgga cttcaccgtc caacttctag      2640
+     acttaaggtc cttcggggct gatccgggtt gaagacattg tcaggtgggg agtttggctg      2700
+     gggcggcaca tctgttaaaa gataacgcag atgtcctaag ggggactcat ggagaacaga      2760
+     aatctccagt agaacaaaag ggtaaaagtc cccttgattt tgattttcag tgtgaataca      2820
+     aaccatgaaa gtgtggccta tcgatccttt agtccctcag aatttgaggc tagaggtgcc      2880
+     agaaaagtta ccacagggat gtgctaagtc tattaagaca aatttacaac ataacgtccc      2940
+     aggcatcgac tcccattgat gcctagtccg gctatagctt acttgtgctt gctatagtta      3000
+     gctctctaga agagtgtaag ggcaacacgt ctggatgcgg ggaactctcg ctaggtcttt      3060
+     ggtaccaaac attggcggta acaccccaat gtagagtctg ttggggcaga cgggtaaaaa      3120
+     tccaaagaat agagacaatc cgcagctgac ctggccaaaa gtatatttac aaagtagcta      3180
+     ggcagttcaa cgctcgctaa gatgtgggtt gaccattaat ggtcggctta aggtacgggc      3240
+     tacgccaccc gagagggtgc aactacctac cgggcgcaca acctgagaag tagttggtca      3300
+     tggtagtacg gaactggctt gtggcagtca agcgttcata gcgacattgc tttttgatcc      3360
+     ttcgatgtcg gctcttccta tcataccgaa gcagaattcg gtaagcgttg gattgttcac      3420
+     ccactaatag ggaacgtgag ctgggtttag accgtcgtga gacaggttag ttttacccta      3480
+     ctgatgaatg tcatcgcaat agtaattgaa cttagtacga gaggaaccgt tcattcagat      3540
+     aattggtttt tgcggctgtc tgatcaggca gtgccgcgaa gctaccatct gctggattat      3600
+     ggctgaacgc ctctaagtca gaatccatac tagaaagcga tgatttttgc cctcgcacat      3660
+     tttagatgga taagaataag gccttgtgcc gctgaaccat agcaggctgg caatggtgct      3720
+     cttaacggaa aggttttggg tgcttgccgg cggatcgcaa tgtaattatg cgcggggata      3780
+     aatcctttgc agacgactta aatgtacaac ggagtattgt aagcagtaga gtagccttgt      3840
+     tgttacgatc tgctgagatt aagcctttgt tgtctgattt gt                         3882
+//
+ID   AA28813    standard; DNA; FUN; 575 BP.
+XX
+AC   U28813;
+XX
+SV   U28813.1
+XX
+NI   g1143949
+XX
+DT   02-JAN-1996 (Rel. 46, Created)
+DT   02-JAN-1996 (Rel. 46, Last updated, Version 1)
+XX
+DE   Aspergillus aculeatus NRRL 5094 28S ribosomal RNA gene, D1-D2
+DE   region.
+XX
+KW   .
+XX
+OS   Aspergillus aculeatus
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-575
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus based upon rDNA sequence";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-575
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (08-JUN-1995) to the EMBL/GenBank/DDBJ databases.
+RL   Stephen W. Peterson, Microbial Properties Research, National Center for
+RL   Agricultural Utilization Research, 1815 N. University St., Peoria, IL
+RL   61604, USA
+XX
+CC   NCBI gi: 1143949
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..575
+FT                   /organism="Aspergillus aculeatus"
+FT                   /db_xref="taxon:5053"
+FT                   /strain="NRRL 5094"
+FT   rRNA            <1..>575
+FT                   /note="D1-D2 region"
+FT                   /product="28S ribosomal RNA"
+XX
+SQ   Sequence 575 BP; 133 A; 143 C; 189 G; 110 T; 0 other;
+     aaagaaacca accgggattg cctcagtaac ggcgagtgaa gcggcaagag ctcaaatttg        60
+     aaagctggcc ccttcggggt ccgcgttgta atttgcagag gatgctttgg gtgcggcccc       120
+     cgtctaagtg ccctggaacg ggccgtcaga gagggtgaga atcccgtctt gggcggggtg       180
+     tccgtgcccg tgtaaagctc cttcgacgag tcgagttgtt tgggaatgca gctctaaatg       240
+     ggtggtaaat ttcatctaaa gctaaatact ggccggagac cgatagcgca caagtagagt       300
+     gatcgaaaga tgaaaagcac tttgaaaaga gagttaaaca gcacgtgaaa ttgttgaaag       360
+     ggaagcgctt gcgaccagac tcgccctcgg ggttcagccg gcactcgtgc cggtgtactt       420
+     ccccgggggc gggccagcgt cagcttgggc ggccggtcaa aggcctccgg aatgtagtgc       480
+     cccccggggc accttatagc cggaggtgca atgcggccag cctgggctga ggaacgcgct       540
+     tcggcacgga cgctggcata atggtcgcaa acgac                                  575
+//
+ID   AA28829    standard; DNA; FUN; 575 BP.
+XX
+AC   U28829;
+XX
+SV   U28829.1
+XX
+NI   g1143950
+XX
+DT   02-JAN-1996 (Rel. 46, Created)
+DT   02-JAN-1996 (Rel. 46, Last updated, Version 1)
+XX
+DE   Aspergillus aculeatus NRRL 360 28S ribosomal RNA gene, D1-D2
+DE   region.
+XX
+KW   .
+XX
+OS   Aspergillus aculeatus
+OC   Eukaryota; Fungi; Ascomycota; Euascomycetes; Plectomycetes; Eurotiales;
+OC   Trichocomaceae; mitosporic Trichocomaceae; Aspergillus.
+XX
+RN   [1]
+RP   1-575
+RA   Peterson S.W.;
+RT   "Phylogenetic analysis of Aspergillus based upon rDNA sequence";
+RL   Unpublished.
+XX
+RN   [2]
+RP   1-575
+RA   Peterson S.W.;
+RT   ;
+RL   Submitted (08-JUN-1995) to the EMBL/GenBank/DDBJ databases.
+RL   Stephen W. Peterson, Microbial Properties Research, National Center for
+RL   Agricultural Utilization Research, 1815 N. University St., Peoria, IL
+RL   61604, USA
+XX
+CC   NCBI gi: 1143950
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..575
+FT                   /organism="Aspergillus aculeatus"
+FT                   /db_xref="taxon:5053"
+FT                   /strain="NRRL 360"
+FT   rRNA            <1..>575
+FT                   /note="D1-D2 region"
+FT                   /product="28S ribosomal RNA"
+XX
+SQ   Sequence 575 BP; 133 A; 144 C; 189 G; 109 T; 0 other;
+     aaagaaacca accgggattg cctcagtaac ggcgagtgaa gcggcaagag ctcaaatttg        60
+     aaagctggcc cctccggggt ccgcgttgta atttgcagag gatgctttgg gtgcggcccc       120
+     cgtctaagtg ccctggaacg ggccgtcaga gagggtgaga atcccgtctt gggcggggtg       180
+     tccgtgcccg tgtaaagctc cttcgacgag tcgagttgtt tgggaatgca gctctaaatg       240
+     ggtggtaaat ttcatctaaa gctaaatact ggccggagac cgatagcgca caagtagagt       300
+     gatcgaaaga tgaaaagcac tttgaaaaga gagttaaaca gcacgtgaaa ttgttgaaag       360
+     ggaagcgctt gcgaccagac tcgccctcgg ggttcagccg gcactcgtgc cggtgtactt       420
+     ccccgggggc gggccagcgt cagcttgggc ggccggtcaa aggcctccgg aatgtagtgc       480
+     cccccggggc accttatagc cggaggtgca atgcggccag cctgggctga ggaacgcgct       540
+     tcggcacgga cgctggcata atggtcgcaa acgac                                  575
+//

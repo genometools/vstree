@@ -1,0 +1,17 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint fastchaining(Chainmode *chainmode,
+                  Chain *chain,
+                  Fragmentinfo *fragmentinfo,
+                  Uint numofmatches,
+                  BOOL gapsL1,
+                  Uint presortdim,
+                  BOOL withequivclasses,
+                  Chainprocessor chainprocessor,
+                  void *cpinfo,
+                  Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

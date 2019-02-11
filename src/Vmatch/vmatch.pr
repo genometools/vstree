@@ -1,0 +1,25 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint callvmatch(Argctype argc,
+                const char **argv,
+                void *processinfo,
+                void initinfo(void *,void *),
+                const char *functionname,
+                Showmatchfuntype showmatchfun,
+                Showverbose showverbose,
+                FILE *outfp,
+                SelectBundle *precompiledselectbundle,
+                Virtualtree *virtualtree,
+                Virtualtree *queryvirtualtree,
+                Virtualtree *sixframeofqueryvirtualtree,
+                Virtualtree *dnavirtualtree);
+
+Sint wrapvmatch(Virtualtree *virtualtree,
+                Virtualtree *queryvirtualtree,
+                Virtualtree *sixframeofqueryvirtualtree,
+                Virtualtree *dnavirtualtree);
+
+#ifdef __cplusplus
+}
+#endif

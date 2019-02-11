@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint *transsuftab(Uchar **sortedsuffixes,Uchar *sequence,Uint seqlen);
+
+Sint checksufencoding(BOOL special,Uint *suftab,Uint longest,
+                      Uchar *sequence,Uint seqlen);
+
+#ifdef __cplusplus
+}
+#endif

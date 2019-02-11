@@ -1,0 +1,22 @@
+$ ramaco -v -phase search -l 6 -rare 5 ATS -ATs-01
+# file=ATs-00 350 275
+# databaselength=274
+# alphabet "aAcCgGtTuUnsywrkvbdhmNSYWRKVBDHM" (size 32) mapped to "acgtn" (size 5)
+# ATS.tis read
+# ATS.suf read
+# ATS.lcp read
+# ATS.sti1 read
+# ATS.bck read
+# searchlength = 6
+# width0 = 5
+# width1 = 5
+# queryfile=ATs-01 of length 852
+# match ATs-01 against index ATS
+# create match file "ATS.ATs-01-match"
+# number of matchleaves = 40
+# number of matchbranches = 2 (2 = 100.00% relevant)
+# matchnodes: 42 = 0.00 MB
+# matchpos: 48 = 0.00 MB
+# relevant intervals: 0.00 MB
+# redblacktreespacepeak = 0.00 MB
+# overall space peak: main: 0.08 MB, secondary: 0.00 MB

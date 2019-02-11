@@ -1,0 +1,28 @@
+$ vmerdistrib -output unique nonunique -minmersize 10 -maxmersize 20 read1 read2
+# init character encoding for index "read1" (Viauchartables,110471 bytes,2.28 bits/symbol)
+# init character encoding for index "read2" (Viauchartables,113688 bytes,2.37 bits/symbol)
+# distribution of unique mers
+10 223755
+11 373775
+12 444083
+13 465859
+14 468735
+15 465646
+16 460791
+17 455449
+18 450049
+19 444720
+20 439532
+# distribution of non unique mers (counting each non unique mer only once)
+10 135526
+11 92162
+12 62347
+13 49611
+14 44618
+15 42301
+16 40867
+17 39769
+18 38815
+19 37961
+20 37166
+# space peak: main=2.16 MB, secondary=0.00 MB

@@ -1,0 +1,42 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint transformstring(Alphabet *alpha,Uchar *seq,Uint seqlen);
+
+Sint transformstringincopy(Alphabet *alpha,Uchar *outseq,
+                           Uchar *inseq,Uint seqlen);
+
+Sint readsymbolmap(Alphabet *alpha,Uint undefsymbol,Uint wildcard,
+                   const char *mapfile);
+
+void assignDNAalphabet(Alphabet *alpha);
+
+void assignProteinalphabet(Alphabet *alpha);
+
+void findalphabet(Alphabet *alpha, Uchar *text, Uint textlen,
+                  Uint undefsymbol);
+
+Sint determineAlphabet(Alphabet *alpha,Inputalpha *inputalpha);
+
+void vm_showsymbolstringgeneric(FILE *fpout,Alphabet *alpha,Uchar *w,Uint wlen);
+
+void vm_showsymbolstring(Alphabet *alpha,Uchar *w,Uint wlen);
+
+void copyAlphabet(Alphabet *alpha1,const Alphabet *alpha2);
+
+BOOL vm_isproteinalphabet(Alphabet *alpha);
+
+BOOL vm_isdnaalphabet(Alphabet *alpha);
+
+void initmappower(Uint *mappower,Uint numofchars,Uint prefixlength);
+
+BOOL containswildcard(Uchar *seq,Uint len);
+
+Sint mapalphabetifyoucan(BOOL *hasspecialsymbols,
+                         Alphabet *alpha,const char *indexname);
+
+void showsymbolmap(Alphabet *alpha);
+
+#ifdef __cplusplus
+}
+#endif

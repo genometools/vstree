@@ -1,0 +1,1372 @@
+enqueue 0
+enqueue 1
+dequeue 0
+enqueue 3
+dequeue 1
+enqueue 5
+enqueue 6
+dequeue 3
+dequeue 5
+dequeue 6
+enqueue 10
+enqueue 11
+enqueue 12
+dequeue 10
+enqueue 14
+enqueue 15
+dequeue 11
+dequeue 12
+dequeue 14
+enqueue 19
+enqueue 20
+dequeue 15
+dequeue 19
+enqueue 23
+dequeue 20
+enqueue 25
+enqueue 26
+enqueue 27
+enqueue 28
+dequeue 23
+enqueue 30
+enqueue 31
+enqueue 32
+enqueue 33
+dequeue 25
+enqueue 35
+dequeue 26
+enqueue 37
+enqueue 38
+enqueue 39
+enqueue 40
+enqueue 41
+enqueue 42
+enqueue 43
+enqueue 44
+enqueue 45
+dequeue 27
+enqueue 47
+enqueue 48
+dequeue 28
+dequeue 30
+enqueue 51
+enqueue 52
+enqueue 53
+enqueue 54
+enqueue 55
+dequeue 31
+dequeue 32
+enqueue 58
+enqueue 59
+dequeue 33
+dequeue 35
+enqueue 62
+enqueue 63
+dequeue 37
+dequeue 38
+dequeue 39
+enqueue 67
+dequeue 40
+enqueue 69
+enqueue 70
+enqueue 71
+enqueue 72
+enqueue 73
+enqueue 74
+enqueue 75
+dequeue 41
+enqueue 77
+dequeue 42
+enqueue 79
+dequeue 43
+enqueue 81
+enqueue 82
+enqueue 83
+dequeue 44
+enqueue 85
+dequeue 45
+enqueue 87
+dequeue 47
+dequeue 48
+enqueue 90
+dequeue 51
+enqueue 92
+enqueue 93
+enqueue 94
+enqueue 95
+enqueue 96
+enqueue 97
+enqueue 98
+enqueue 99
+enqueue 100
+dequeue 52
+dequeue 53
+enqueue 103
+dequeue 54
+enqueue 105
+enqueue 106
+dequeue 55
+enqueue 108
+enqueue 109
+enqueue 110
+enqueue 111
+dequeue 58
+enqueue 113
+enqueue 114
+enqueue 115
+enqueue 116
+dequeue 59
+dequeue 62
+enqueue 119
+enqueue 120
+enqueue 121
+dequeue 63
+enqueue 123
+enqueue 124
+enqueue 125
+dequeue 67
+enqueue 127
+enqueue 128
+enqueue 129
+enqueue 130
+dequeue 69
+dequeue 70
+enqueue 133
+dequeue 71
+enqueue 135
+dequeue 72
+enqueue 137
+enqueue 138
+enqueue 139
+enqueue 140
+dequeue 73
+enqueue 142
+enqueue 143
+enqueue 144
+dequeue 74
+dequeue 75
+enqueue 147
+enqueue 148
+enqueue 149
+enqueue 150
+enqueue 151
+dequeue 77
+dequeue 79
+enqueue 154
+enqueue 155
+enqueue 156
+enqueue 157
+enqueue 158
+enqueue 159
+enqueue 160
+enqueue 161
+enqueue 162
+enqueue 163
+enqueue 164
+enqueue 165
+dequeue 81
+enqueue 167
+enqueue 168
+dequeue 82
+enqueue 170
+enqueue 171
+enqueue 172
+enqueue 173
+enqueue 174
+enqueue 175
+enqueue 176
+enqueue 177
+enqueue 178
+enqueue 179
+enqueue 180
+enqueue 181
+dequeue 83
+enqueue 183
+dequeue 85
+enqueue 185
+dequeue 87
+dequeue 90
+enqueue 188
+enqueue 189
+dequeue 92
+enqueue 191
+enqueue 192
+enqueue 193
+dequeue 93
+enqueue 195
+enqueue 196
+enqueue 197
+enqueue 198
+enqueue 199
+enqueue 200
+enqueue 201
+dequeue 94
+enqueue 203
+dequeue 95
+enqueue 205
+dequeue 96
+enqueue 207
+dequeue 97
+enqueue 209
+enqueue 210
+enqueue 211
+enqueue 212
+enqueue 213
+enqueue 214
+enqueue 215
+enqueue 216
+dequeue 98
+enqueue 218
+enqueue 219
+dequeue 99
+enqueue 221
+dequeue 100
+enqueue 223
+enqueue 224
+dequeue 103
+dequeue 105
+enqueue 227
+enqueue 228
+dequeue 106
+enqueue 230
+dequeue 108
+enqueue 232
+dequeue 109
+enqueue 234
+enqueue 235
+dequeue 110
+dequeue 111
+enqueue 238
+dequeue 113
+dequeue 114
+enqueue 241
+enqueue 242
+dequeue 115
+dequeue 116
+dequeue 119
+enqueue 246
+enqueue 247
+dequeue 120
+enqueue 249
+enqueue 250
+dequeue 121
+dequeue 123
+enqueue 253
+enqueue 254
+dequeue 124
+enqueue 256
+enqueue 257
+enqueue 258
+enqueue 259
+enqueue 260
+enqueue 261
+dequeue 125
+dequeue 127
+enqueue 264
+dequeue 128
+dequeue 129
+enqueue 267
+enqueue 268
+enqueue 269
+enqueue 270
+enqueue 271
+enqueue 272
+enqueue 273
+enqueue 274
+enqueue 275
+enqueue 276
+dequeue 130
+enqueue 278
+dequeue 133
+dequeue 135
+enqueue 281
+enqueue 282
+enqueue 283
+dequeue 137
+enqueue 285
+enqueue 286
+enqueue 287
+enqueue 288
+dequeue 138
+enqueue 290
+enqueue 291
+dequeue 139
+dequeue 140
+enqueue 294
+enqueue 295
+dequeue 142
+dequeue 143
+enqueue 298
+enqueue 299
+enqueue 300
+enqueue 301
+enqueue 302
+enqueue 303
+enqueue 304
+enqueue 305
+dequeue 144
+enqueue 307
+enqueue 308
+enqueue 309
+enqueue 310
+enqueue 311
+enqueue 312
+enqueue 313
+dequeue 147
+enqueue 315
+enqueue 316
+dequeue 148
+enqueue 318
+enqueue 319
+enqueue 320
+dequeue 149
+enqueue 322
+enqueue 323
+dequeue 150
+dequeue 151
+enqueue 326
+dequeue 154
+enqueue 328
+dequeue 155
+enqueue 330
+enqueue 331
+enqueue 332
+enqueue 333
+enqueue 334
+dequeue 156
+enqueue 336
+enqueue 337
+enqueue 338
+dequeue 157
+enqueue 340
+enqueue 341
+enqueue 342
+enqueue 343
+enqueue 344
+enqueue 345
+dequeue 158
+dequeue 159
+dequeue 160
+enqueue 349
+dequeue 161
+dequeue 162
+enqueue 352
+enqueue 353
+dequeue 163
+enqueue 355
+enqueue 356
+enqueue 357
+dequeue 164
+enqueue 359
+enqueue 360
+enqueue 361
+enqueue 362
+dequeue 165
+dequeue 167
+enqueue 365
+enqueue 366
+enqueue 367
+dequeue 168
+enqueue 369
+enqueue 370
+enqueue 371
+enqueue 372
+enqueue 373
+dequeue 170
+enqueue 375
+dequeue 171
+enqueue 377
+enqueue 378
+enqueue 379
+enqueue 380
+enqueue 381
+dequeue 172
+dequeue 173
+dequeue 174
+enqueue 385
+dequeue 175
+enqueue 387
+enqueue 388
+enqueue 389
+enqueue 390
+enqueue 391
+enqueue 392
+dequeue 176
+enqueue 394
+enqueue 395
+enqueue 396
+enqueue 397
+enqueue 398
+dequeue 177
+enqueue 400
+enqueue 401
+enqueue 402
+dequeue 178
+enqueue 404
+enqueue 405
+enqueue 406
+enqueue 407
+enqueue 408
+enqueue 409
+enqueue 410
+dequeue 179
+enqueue 412
+enqueue 413
+enqueue 414
+enqueue 415
+enqueue 416
+enqueue 417
+enqueue 418
+enqueue 419
+enqueue 420
+dequeue 180
+enqueue 422
+dequeue 181
+enqueue 424
+enqueue 425
+dequeue 183
+dequeue 185
+enqueue 428
+enqueue 429
+dequeue 188
+enqueue 431
+dequeue 189
+enqueue 433
+enqueue 434
+enqueue 435
+enqueue 436
+enqueue 437
+dequeue 191
+enqueue 439
+dequeue 192
+enqueue 441
+enqueue 442
+dequeue 193
+enqueue 444
+enqueue 445
+enqueue 446
+enqueue 447
+enqueue 448
+dequeue 195
+enqueue 450
+dequeue 196
+dequeue 197
+enqueue 453
+dequeue 198
+enqueue 455
+enqueue 456
+dequeue 199
+dequeue 200
+dequeue 201
+enqueue 460
+dequeue 203
+enqueue 462
+enqueue 463
+enqueue 464
+dequeue 205
+enqueue 466
+dequeue 207
+enqueue 468
+enqueue 469
+enqueue 470
+dequeue 209
+dequeue 210
+enqueue 473
+dequeue 211
+dequeue 212
+enqueue 476
+enqueue 477
+dequeue 213
+dequeue 214
+enqueue 480
+enqueue 481
+enqueue 482
+enqueue 483
+enqueue 484
+enqueue 485
+enqueue 486
+enqueue 487
+enqueue 488
+enqueue 489
+enqueue 490
+enqueue 491
+enqueue 492
+dequeue 215
+enqueue 494
+enqueue 495
+enqueue 496
+enqueue 497
+enqueue 498
+enqueue 499
+enqueue 500
+enqueue 501
+enqueue 502
+enqueue 503
+dequeue 216
+enqueue 505
+enqueue 506
+enqueue 507
+dequeue 218
+enqueue 509
+enqueue 510
+enqueue 511
+dequeue 219
+enqueue 513
+dequeue 221
+dequeue 223
+enqueue 516
+enqueue 517
+enqueue 518
+enqueue 519
+enqueue 520
+enqueue 521
+enqueue 522
+enqueue 523
+dequeue 224
+enqueue 525
+enqueue 526
+enqueue 527
+enqueue 528
+enqueue 529
+enqueue 530
+enqueue 531
+enqueue 532
+enqueue 533
+dequeue 227
+enqueue 535
+enqueue 536
+enqueue 537
+enqueue 538
+enqueue 539
+dequeue 228
+enqueue 541
+enqueue 542
+enqueue 543
+enqueue 544
+enqueue 545
+dequeue 230
+enqueue 547
+enqueue 548
+dequeue 232
+enqueue 550
+enqueue 551
+enqueue 552
+dequeue 234
+enqueue 554
+dequeue 235
+enqueue 556
+enqueue 557
+enqueue 558
+enqueue 559
+dequeue 238
+enqueue 561
+enqueue 562
+dequeue 241
+dequeue 242
+enqueue 565
+enqueue 566
+enqueue 567
+dequeue 246
+enqueue 569
+dequeue 247
+enqueue 571
+enqueue 572
+enqueue 573
+enqueue 574
+enqueue 575
+enqueue 576
+enqueue 577
+enqueue 578
+enqueue 579
+enqueue 580
+enqueue 581
+enqueue 582
+enqueue 583
+enqueue 584
+enqueue 585
+dequeue 249
+enqueue 587
+enqueue 588
+dequeue 250
+dequeue 253
+dequeue 254
+enqueue 592
+dequeue 256
+dequeue 257
+enqueue 595
+enqueue 596
+enqueue 597
+enqueue 598
+enqueue 599
+dequeue 258
+enqueue 601
+enqueue 602
+enqueue 603
+dequeue 259
+enqueue 605
+dequeue 260
+enqueue 607
+enqueue 608
+enqueue 609
+dequeue 261
+enqueue 611
+enqueue 612
+enqueue 613
+dequeue 264
+enqueue 615
+dequeue 267
+enqueue 617
+enqueue 618
+dequeue 268
+dequeue 269
+dequeue 270
+dequeue 271
+dequeue 272
+dequeue 273
+enqueue 625
+dequeue 274
+enqueue 627
+enqueue 628
+dequeue 275
+dequeue 276
+enqueue 631
+enqueue 632
+enqueue 633
+dequeue 278
+enqueue 635
+enqueue 636
+enqueue 637
+dequeue 281
+enqueue 639
+enqueue 640
+enqueue 641
+enqueue 642
+enqueue 643
+dequeue 282
+enqueue 645
+enqueue 646
+dequeue 283
+enqueue 648
+enqueue 649
+dequeue 285
+enqueue 651
+enqueue 652
+enqueue 653
+dequeue 286
+dequeue 287
+dequeue 288
+enqueue 657
+dequeue 290
+enqueue 659
+enqueue 660
+enqueue 661
+enqueue 662
+dequeue 291
+enqueue 664
+dequeue 294
+enqueue 666
+dequeue 295
+enqueue 668
+enqueue 669
+dequeue 298
+enqueue 671
+enqueue 672
+enqueue 673
+enqueue 674
+enqueue 675
+enqueue 676
+dequeue 299
+enqueue 678
+enqueue 679
+dequeue 300
+enqueue 681
+enqueue 682
+dequeue 301
+dequeue 302
+enqueue 685
+dequeue 303
+enqueue 687
+enqueue 688
+dequeue 304
+enqueue 690
+enqueue 691
+enqueue 692
+enqueue 693
+enqueue 694
+dequeue 305
+enqueue 696
+enqueue 697
+enqueue 698
+enqueue 699
+enqueue 700
+enqueue 701
+enqueue 702
+dequeue 307
+enqueue 704
+dequeue 308
+enqueue 706
+enqueue 707
+enqueue 708
+dequeue 309
+dequeue 310
+dequeue 311
+dequeue 312
+enqueue 713
+enqueue 714
+dequeue 313
+dequeue 315
+enqueue 717
+enqueue 718
+enqueue 719
+dequeue 316
+enqueue 721
+enqueue 722
+enqueue 723
+enqueue 724
+enqueue 725
+dequeue 318
+enqueue 727
+enqueue 728
+enqueue 729
+enqueue 730
+enqueue 731
+enqueue 732
+enqueue 733
+enqueue 734
+enqueue 735
+dequeue 319
+dequeue 320
+enqueue 738
+enqueue 739
+enqueue 740
+enqueue 741
+enqueue 742
+enqueue 743
+enqueue 744
+enqueue 745
+enqueue 746
+dequeue 322
+enqueue 748
+enqueue 749
+enqueue 750
+dequeue 323
+enqueue 752
+enqueue 753
+enqueue 754
+enqueue 755
+dequeue 326
+enqueue 757
+enqueue 758
+enqueue 759
+enqueue 760
+enqueue 761
+enqueue 762
+enqueue 763
+enqueue 764
+dequeue 328
+dequeue 330
+enqueue 767
+enqueue 768
+dequeue 331
+dequeue 332
+enqueue 771
+dequeue 333
+dequeue 334
+dequeue 336
+enqueue 775
+enqueue 776
+enqueue 777
+enqueue 778
+enqueue 779
+enqueue 780
+enqueue 781
+enqueue 782
+enqueue 783
+dequeue 337
+dequeue 338
+dequeue 340
+enqueue 787
+enqueue 788
+dequeue 341
+dequeue 342
+enqueue 791
+dequeue 343
+enqueue 793
+enqueue 794
+enqueue 795
+enqueue 796
+dequeue 344
+enqueue 798
+dequeue 345
+enqueue 800
+dequeue 349
+dequeue 352
+enqueue 803
+enqueue 804
+dequeue 353
+enqueue 806
+dequeue 355
+enqueue 808
+dequeue 356
+enqueue 810
+enqueue 811
+dequeue 357
+dequeue 359
+dequeue 360
+enqueue 815
+enqueue 816
+enqueue 817
+enqueue 818
+enqueue 819
+enqueue 820
+enqueue 821
+dequeue 361
+enqueue 823
+dequeue 362
+dequeue 365
+enqueue 826
+enqueue 827
+dequeue 366
+enqueue 829
+dequeue 367
+dequeue 369
+enqueue 832
+dequeue 370
+enqueue 834
+enqueue 835
+dequeue 371
+enqueue 837
+enqueue 838
+dequeue 372
+enqueue 840
+enqueue 841
+enqueue 842
+dequeue 373
+enqueue 844
+dequeue 375
+enqueue 846
+dequeue 377
+enqueue 848
+enqueue 849
+dequeue 378
+dequeue 379
+enqueue 852
+enqueue 853
+enqueue 854
+dequeue 380
+dequeue 381
+dequeue 385
+enqueue 858
+enqueue 859
+dequeue 387
+dequeue 388
+dequeue 389
+dequeue 390
+enqueue 864
+enqueue 865
+dequeue 391
+enqueue 867
+dequeue 392
+enqueue 869
+dequeue 394
+dequeue 395
+enqueue 872
+enqueue 873
+enqueue 874
+dequeue 396
+dequeue 397
+dequeue 398
+enqueue 878
+enqueue 879
+dequeue 400
+enqueue 881
+dequeue 401
+enqueue 883
+enqueue 884
+dequeue 402
+enqueue 886
+enqueue 887
+enqueue 888
+enqueue 889
+dequeue 404
+enqueue 891
+enqueue 892
+dequeue 405
+enqueue 894
+enqueue 895
+dequeue 406
+dequeue 407
+enqueue 898
+enqueue 899
+dequeue 408
+enqueue 901
+enqueue 902
+enqueue 903
+enqueue 904
+enqueue 905
+enqueue 906
+enqueue 907
+enqueue 908
+enqueue 909
+enqueue 910
+enqueue 911
+enqueue 912
+enqueue 913
+dequeue 409
+dequeue 410
+dequeue 412
+enqueue 917
+enqueue 918
+enqueue 919
+enqueue 920
+enqueue 921
+enqueue 922
+dequeue 413
+dequeue 414
+dequeue 415
+enqueue 926
+enqueue 927
+enqueue 928
+enqueue 929
+enqueue 930
+enqueue 931
+dequeue 416
+enqueue 933
+enqueue 934
+enqueue 935
+enqueue 936
+dequeue 417
+enqueue 938
+enqueue 939
+enqueue 940
+enqueue 941
+enqueue 942
+enqueue 943
+enqueue 944
+dequeue 418
+enqueue 946
+dequeue 419
+dequeue 420
+dequeue 422
+enqueue 950
+enqueue 951
+enqueue 952
+enqueue 953
+enqueue 954
+enqueue 955
+dequeue 424
+enqueue 957
+dequeue 425
+dequeue 428
+enqueue 960
+enqueue 961
+dequeue 429
+enqueue 963
+enqueue 964
+dequeue 431
+enqueue 966
+dequeue 433
+enqueue 968
+enqueue 969
+dequeue 434
+enqueue 971
+enqueue 972
+enqueue 973
+enqueue 974
+dequeue 435
+enqueue 976
+dequeue 436
+enqueue 978
+dequeue 437
+dequeue 439
+enqueue 981
+enqueue 982
+enqueue 983
+enqueue 984
+enqueue 985
+dequeue 441
+enqueue 987
+dequeue 442
+dequeue 444
+dequeue 445
+enqueue 991
+dequeue 446
+enqueue 993
+enqueue 994
+dequeue 447
+enqueue 996
+enqueue 997
+enqueue 998
+dequeue 448
+450
+453
+455
+456
+460
+462
+463
+464
+466
+468
+469
+470
+473
+476
+477
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+505
+506
+507
+509
+510
+511
+513
+516
+517
+518
+519
+520
+521
+522
+523
+525
+526
+527
+528
+529
+530
+531
+532
+533
+535
+536
+537
+538
+539
+541
+542
+543
+544
+545
+547
+548
+550
+551
+552
+554
+556
+557
+558
+559
+561
+562
+565
+566
+567
+569
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+587
+588
+592
+595
+596
+597
+598
+599
+601
+602
+603
+605
+607
+608
+609
+611
+612
+613
+615
+617
+618
+625
+627
+628
+631
+632
+633
+635
+636
+637
+639
+640
+641
+642
+643
+645
+646
+648
+649
+651
+652
+653
+657
+659
+660
+661
+662
+664
+666
+668
+669
+671
+672
+673
+674
+675
+676
+678
+679
+681
+682
+685
+687
+688
+690
+691
+692
+693
+694
+696
+697
+698
+699
+700
+701
+702
+704
+706
+707
+708
+713
+714
+717
+718
+719
+721
+722
+723
+724
+725
+727
+728
+729
+730
+731
+732
+733
+734
+735
+738
+739
+740
+741
+742
+743
+744
+745
+746
+748
+749
+750
+752
+753
+754
+755
+757
+758
+759
+760
+761
+762
+763
+764
+767
+768
+771
+775
+776
+777
+778
+779
+780
+781
+782
+783
+787
+788
+791
+793
+794
+795
+796
+798
+800
+803
+804
+806
+808
+810
+811
+815
+816
+817
+818
+819
+820
+821
+823
+826
+827
+829
+832
+834
+835
+837
+838
+840
+841
+842
+844
+846
+848
+849
+852
+853
+854
+858
+859
+864
+865
+867
+869
+872
+873
+874
+878
+879
+881
+883
+884
+886
+887
+888
+889
+891
+892
+894
+895
+898
+899
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+917
+918
+919
+920
+921
+922
+926
+927
+928
+929
+930
+931
+933
+934
+935
+936
+938
+939
+940
+941
+942
+943
+944
+946
+950
+951
+952
+953
+954
+955
+957
+960
+961
+963
+964
+966
+968
+969
+971
+972
+973
+974
+976
+978
+981
+982
+983
+984
+985
+987
+991
+993
+994
+996
+997
+998

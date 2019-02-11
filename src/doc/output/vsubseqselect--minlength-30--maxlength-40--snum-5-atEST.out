@@ -1,0 +1,10 @@
+$ vsubseqselect -minlength 30 -maxlength 40 -snum 5 atEST
+agtttacttttctctcttcttgttttctgtgttggaag
+tccttactgacttagtcatactcttctcaatc
+cccattttatttcctctcaaatgctttccgtagt
+atagtaagtaaaattgaactactgttattgagtt
+gtttcttgtgtttgtgcttacgatactttcctc
+# 1 subsequences of length 32
+# 1 subsequences of length 33
+# 2 subsequences of length 34
+# 1 subsequences of length 38

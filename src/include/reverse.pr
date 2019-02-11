@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+void reverseinplace(Uchar *s,Uint len);
+
+Sint reversecomplementinplace(Uchar *s,Uint len);
+
+Sint onlycomplement(Uchar *s,Uint len);
+
+void reversestring(char *s, Uint m, char *sreverse);
+
+Sint reversecomplement(Uchar *dest,Uchar *src,Uint len);
+
+#ifdef __cplusplus
+}
+#endif

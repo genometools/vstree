@@ -1,0 +1,7 @@
+$ vmatch -qnomatch 10000 -q EcoliK12 -l 18 EcoliO157H7
+# args=-qnomatch 10000 -q EcoliK12 -l 18 EcoliO157H7
+>0 1385319 10800
+>0 1398241 10711
+>0 1570168 20414
+>0 1599821 12375
+>0 2755646 11820

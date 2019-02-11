@@ -1,0 +1,16 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint freeMatchcallinfo(Matchcallinfo *matchcallinfo);
+
+Sint parsevmatchargs(BOOL withindexfile,
+                     Argctype argc,
+                     const char * const*argv,
+                     Showverbose showverbose,
+                     FILE *outfp,
+                     SelectBundle *precompiledselectbundle,
+                     Matchcallinfo *matchcallinfo);
+
+#ifdef __cplusplus
+}
+#endif

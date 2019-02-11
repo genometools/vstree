@@ -1,0 +1,5 @@
+$ vmatch -l 100 -pp matchcluster gapsize 1000 outprefix clout ychrIII.fna
+# args=-l 100 -pp matchcluster gapsize 1000 outprefix clout ychrIII.fna
+# cluster 16 matches
+# create cluster 0 of size 9
+# create cluster 1 of size 4

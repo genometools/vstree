@@ -1,0 +1,11 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint parsesequenceoutparms(Argctype argc,
+                           const char * const*argv,
+                           Uint *argnum,
+                           const char *optname);
+
+#ifdef __cplusplus
+}
+#endif

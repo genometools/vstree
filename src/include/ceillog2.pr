@@ -1,0 +1,8 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Uint ceillog2(Uint v);
+
+#ifdef __cplusplus
+}
+#endif

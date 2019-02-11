@@ -1,0 +1,30 @@
+$ zcat swissp.sp.gz 
+ID   110K_PLAKN     STANDARD;      PRT;   296 AA.
+AC   P13813;
+DT   01-JAN-1990 (Rel. 13, Created)
+DT   01-JAN-1990 (Rel. 13, Last sequence update)
+DT   01-FEB-1994 (Rel. 28, Last annotation update)
+DE   110 KD ANTIGEN (PK110) (FRAGMENT).
+OS   Plasmodium knowlesi.
+OC   Eukaryota; Alveolata; Apicomplexa; Haemosporida; Plasmodium.
+RN   [1]
+RP   SEQUENCE FROM N.A.
+RX   MEDLINE; 88039002.
+RA   PERLER F.B., MOON A.M., QIANG B.Q., MEDA M., DALTON M., CARD C.,
+RA   SCHMIDT-ULLRICH R., WALLACH D., LYNCH J., DONELSON J.E.;
+RT   "Cloning and characterization of an abundant Plasmodium knowlesi
+RT   antigen which cross reacts with Gambian sera.";
+RL   Mol. Biochem. Parasitol. 25:185-193(1987).
+DR   EMBL; M19152; AAA29471.1; -.
+DR   PIR; A54527; A54527.
+KW   Malaria; Antigen; Repeat.
+FT   NON_TER       1      1
+FT   DOMAIN      131    296       13.5 X 12 AA TANDEM REPEATS OF E-E-T-Q-K-
+FT                                T-V-E-P-E-Q-T.
+SQ   SEQUENCE   296 AA;  34077 MW;  666F88DF CRC32;
+     FNSNMLRGSV CEEDVSLMTS IDNMIEEIDF YEKEIYKGSH SGGVIKGMDY DLEDDENDED
+     EMTEQMVEEV ADHITQDMID EVAHHVLDNI THDMAHMEEI VHGLSGDVTQ IKEIVQKVNV
+     AVEKVKHIVE TEETQKTVEP EQIEETQNTV EPEQTEETQK TVEPEQTEET QNTVEPEQIE
+     ETQKTVEPEQ TEEAQKTVEP EQTEETQKTV EPEQTEETQK TVEPEQTEET QKTVEPEQTE
+     ETQKTVEPEQ TEETQKTVEP EQTEETQKTV EPEQTEETQN TVEPEPTQET QNTVEP
+//

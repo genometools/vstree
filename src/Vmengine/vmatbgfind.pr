@@ -1,0 +1,15 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint compareleafblocktrees(Leafblocktree *lbt1, Leafblocktree *lbt2);
+
+Sint vmatmaxoutwithgaps(Virtualtree *virtualtree,
+                        Uint numberofprocessors,
+                        Uint searchlength,
+                        void *repeatgapspecinfo,
+                        void *outinfo,
+                        Outputfunction output);
+
+#ifdef __cplusplus
+}
+#endif

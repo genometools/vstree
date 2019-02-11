@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide,alltt,xspace,times}
+\newcommand{\Maxsub}[2]{\emph{maxsub}(#1,#2)}
+\newcommand{\Substring}[3]{#1[#2..#3]}
+\newcommand{\Matchpos}[2]{\emph{matchpos}(#1,#2)}
+\newcommand{\Nats}{\textrm{I}\!\textrm{N}}
+\newcommand{\Size}[1]{|#1|}
+
+\begin{document}
+Consider two strings \(p\) and \(t\) of length \(m\) and \(n\), respectively.
+Let \(w\) be a string. 
+\(\Maxsub{w}{p}\) is the longest prefix \(y\) of \(w\) such that 
+\(y\) is a substring of \(p\). 
+\(\Matchpos{y}{p}\) is the set of positions \(i\in[0,m-\Size{y}]\) such that
+\(\Substring{p}{i}{\Size{y}-1}=y\).
+
+The \emph{matching statistics} of \(t\) w.r.t.\ \(p\) is the function
+\(mstats:[0,n-1]\to \Nats\times\Nats\)
+defined by \(mstats(j)=(\Size{y},q)\) where 
+\(y=\Maxsub{\Substring{t}{j}{n}}{p}\) and 
+\(q\in\Matchpos{\Substring{t}{j}{n}}{p}\).
+For a given threshold value \(\ell\geq 1\), the \(\ell\)-matching statistics
+is the partial function
+\(mstats_{\ell}:[0,n-1]\to \Nats\times\Nats\) defined by
+\[
+mstats_{\ell}(j)=\left\{
+\begin{array}{ll}
+mstats(j)&\mbox{if }mstats(j)\geq\ell\\
+\bot&\mbox{otherwise}
+\end{array}\right.
+\]
+
+We consider sequences \(T_{1},\ldots,T_{k}\) and a threshold value 
+\(\ell\). The \emph{multi matching statistics problem} is to compute 
+for each \(i,j\in[1,k]\), \(i\neq j\), the \(\ell\)-matching statistics
+of \(T_{i}\) w.r.t.\ \(T_{j}\).
+\end{document}

@@ -1,0 +1,10 @@
+$ mkvtree -db EcoliK12 -tis -ois -v -dna
+reading file "EcoliK12"
+total length of sequences: 4639221
+create file "EcoliK12.tis"
+create file "EcoliK12.ois"
+create file "EcoliK12.des"
+create file "EcoliK12.sds"
+create file "EcoliK12.prj"
+create file "EcoliK12.al1"
+overall space peak: main=4.55 MB (1.03 bytes/symbol), secondary=4.49 MB

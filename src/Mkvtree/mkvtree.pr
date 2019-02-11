@@ -1,0 +1,27 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+Sint callmkvtreegeneric(BOOL useformkrcidx,
+                        BOOL useformkdna6idx,
+                        Argctype argc,
+                        const char **argv,
+                        BOOL storeonfile,
+                        Virtualtree *virtualtree,
+                        BOOL storedesc,
+                        Showverbose showverbose,
+                        Uint *transnum);
+
+Sint callmkvtree(Argctype argc,
+                 const char **argv,
+                 BOOL storeonfile,
+                 Virtualtree *virtualtree,
+                 BOOL storedesc,
+                 Showverbose showverbose);
+
+Sint completevirtualtree(Virtualtree *virtualtree,
+                         Uint demand,
+                         Showverbose showverbose);
+
+#ifdef __cplusplus
+}
+#endif

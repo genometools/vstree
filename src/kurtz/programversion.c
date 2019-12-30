@@ -11,15 +11,12 @@ static void showgenericprogramversion(FILE *fp,
                                       char *cflags)
 {
   fprintf(fp, "%s (Vmatch) %s (%s)\n", program, version, compiledate);
-  fprintf(fp, "All rights reserved. Do not distribute.\n\n");
   fprintf(fp, "libvmatch:\n");
   fprintf(fp, "Copyright (c) 2000-2016 LScSA-Software GmbH\n\n");
 #ifndef NOLICENSEMANAGER
   fprintf(fp, "libzlm:\n");
   fprintf(fp, "Copyright (c) 2013-2016 Wikena GmbH\n\n");
 #endif
-  fprintf(fp, "LScSA-Software GmbH is the exclusive worldwide distributor of "
-              "Vmatch.\n");
   fprintf(fp, "Email: kurtz@zbh.uni-hamburg.de\n\n");
   fprintf(fp, "Compile flags: %s\n\n", cflags);
   fprintf(fp, "Vmatch is provided on an AS IS basis. The developers do not "

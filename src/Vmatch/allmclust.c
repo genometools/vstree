@@ -56,7 +56,7 @@ Sint genericmatchclustering(Matchclustercallinfo *matchclustercallinfo,
         }
       } else
       {
-        ERROR0("unkown matchclustertype");
+        ERROR0("unknown matchclustertype");
         return (Sint) -3;
       }
     }

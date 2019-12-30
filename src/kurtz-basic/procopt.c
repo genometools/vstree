@@ -499,7 +499,7 @@ Sint checkdoubleexclude(Uint numofopts,
       DEBUG2(2,"Exclude %s %s\n",opt[indi].optname,opt[indj].optname);
       if(excludepairs[indi*numofopts+indj])
       {
-        ERROR2("option %s and option %s already specfied as excluded",
+        ERROR2("option %s and option %s already specified as excluded",
                opt[indi].optname,opt[indj].optname);
         return (Sint) -1;
       }

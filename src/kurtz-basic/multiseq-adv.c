@@ -1471,7 +1471,7 @@ void echothedescription(FILE *outfp,Showdescinfo *showdesc,Multiseq *multiseq,
 
   if(!showdesc->defined)
   {
-    fprintf(stderr,"programm error: format specification for "
+    fprintf(stderr,"programming error: format specification for "
                    "description is undefined\n");
     exit(EXIT_FAILURE);
   }
@@ -1879,7 +1879,7 @@ static Sint parsemultiseqprojectfilefromfileptr(Multiseq *multiseq,
   }
   if(fscanf(fp,"littleendian=%ld\n",&readint1) != 1)
   {
-    ERROR2("%s.%s contains illegal line defining the endianess",
+    ERROR2("%s.%s contains illegal line defining the endianness",
                indexname,PROJECTFILESUFFIX);
     return (Sint) -8;
   }

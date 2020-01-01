@@ -270,7 +270,7 @@ Sint parsechain2dim(BOOL fromvmatch,
                            "each followed by a number specifies the minimum\n"
                            "length and the maximum error rate of thread\n"
                            "1 refers to match instance in indexed sequence\n"
-                           "2 refers to matchin instance in query");
+                           "2 refers to matching instance in query");
   ADDOPTION(OPTSILENT,"-silent","do not output the chains\n"
                                 "and only report "
                                 "their lengths and scores");

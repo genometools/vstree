@@ -195,7 +195,7 @@ void addunsortedrange(Rmnsufinfo *rmnsufinfo,
 {
   if(left == right)
   {
-    printf("allready sorted(%lu,%lu,%lu)\n",
+    printf("already sorted(%lu,%lu,%lu)\n",
             (Showuint) depth,(Showuint) (left-rmnsufinfo->sortedsuffixes),
                   (Showuint) (right-rmnsufinfo->sortedsuffixes));
     rmnsufinfo->countovermaxdepthsingle++;

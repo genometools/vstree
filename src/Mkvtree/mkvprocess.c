@@ -74,7 +74,7 @@
 #ifdef WITHLCP
 static Sint remaplcptab(Input *input,Virtualtree *virtualtree)
 {
-  char tmpfilename[PATH_MAX+EXTRASUFFIXLENGTH+1];
+  char tmpfilename[PATH_MAX+EXTRASUFFIXLENGTH+1+3]; // +3 do remove gcc warning
   Uint numofbytes;
 
   sprintf(tmpfilename,"%s.%s",input->indexname,"lcp");
@@ -648,7 +648,7 @@ static Sint makestitab1(Input *input,Virtualtree *virtualtree)
 
 static Sint remapbcktab(Input *input,Virtualtree *virtualtree)
 {
-  char tmpfilename[PATH_MAX+EXTRASUFFIXLENGTH+1];
+  char tmpfilename[PATH_MAX+EXTRASUFFIXLENGTH+1+3]; // +3 to remove gcc warning
   Uint numofbytes;
 
   sprintf(tmpfilename,"%s.%s",input->indexname,"bck");

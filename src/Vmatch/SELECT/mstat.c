@@ -87,20 +87,20 @@ static Sint sortMstatvalue(Mstatvalue *p,Mstatvalue *q)
   and \(iend\). The following function reports such section.
 */
 
-static void showsection(ArrayMstatvalue *mstat,Uint istart,Uint iend)
+static void showsection(ArrayMstatvalue *mmstat,Uint istart,Uint iend)
 {
   Uint i;
   Mstatvalue *mstatptr;
 
-  printf("%lu:\n",(Showuint) mstat->spaceMstatvalue[istart].seqnum1);
+  printf("%lu:\n",(Showuint) mmstat->spaceMstatvalue[istart].seqnum1);
   for(i=istart; i<=iend; i++)
   {
-    mstatptr = mstat->spaceMstatvalue + i;
-    if(mstatptr->seqnum1 != mstat->spaceMstatvalue[istart].seqnum1)
+    mstatptr = mmstat->spaceMstatvalue + i;
+    if(mstatptr->seqnum1 != mmstat->spaceMstatvalue[istart].seqnum1)
     {
       fprintf(stderr,"seqnum1 =%lu != %lu\n",
               (Showuint) mstatptr->seqnum1,
-              (Showuint) mstat->spaceMstatvalue[istart].seqnum1);
+              (Showuint) mmstat->spaceMstatvalue[istart].seqnum1);
       exit(EXIT_FAILURE);
     }
     printf("     %lu %lu %lu %lu\n",
@@ -117,27 +117,27 @@ static void showsection(ArrayMstatvalue *mstat,Uint istart,Uint iend)
   function \texttt{showsection} is applied.
 */
 
-static void splitMstatvalues(ArrayMstatvalue *mstat)
+static void splitMstatvalues(ArrayMstatvalue *mmstat)
 {
   Uint i, lastseqnum, istart;
 
-  if(mstat->nextfreeMstatvalue == 0)
+  if(mmstat->nextfreeMstatvalue == 0)
   {
     fprintf(stderr,"no matches available\n");
     exit(EXIT_FAILURE);
   }
-  lastseqnum = mstat->spaceMstatvalue[0].seqnum1;
+  lastseqnum = mmstat->spaceMstatvalue[0].seqnum1;
   istart = 0;
-  for(i=1; i<mstat->nextfreeMstatvalue; i++)
+  for(i=1; i<mmstat->nextfreeMstatvalue; i++)
   {
-    if(lastseqnum < mstat->spaceMstatvalue[i].seqnum1)
+    if(lastseqnum < mmstat->spaceMstatvalue[i].seqnum1)
     {
-      showsection(mstat,istart,i-1);
-      lastseqnum = mstat->spaceMstatvalue[i].seqnum1;
+      showsection(mmstat,istart,i-1);
+      lastseqnum = mmstat->spaceMstatvalue[i].seqnum1;
       istart = i;
     }
   }
-  showsection(mstat,istart,i-1);
+  showsection(mmstat,istart,i-1);
 }
 
 /*

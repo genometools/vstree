@@ -222,10 +222,10 @@ ${LIBVMATCHDBG}:${LIBVMATCHDBGOBJ}
 	$(RANLIB) $@
 
 vmotif-demo.o:vmotif-demo.c
-	${CC} ${CFLAGS} -fPIC -c $< -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -fPIC -c $< -o $@
 
 cpridxps-demo.o:cpridxps-demo.c
-	${CC} ${CFLAGS} -fPIC -c $< -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -fPIC -c $< -o $@
 
 vmotif-demo.so:vmotif-demo.o ${LIBKURTZ}
 	${CC} ${SHARED} $< ${LIBKURTZ} -o $@
@@ -282,6 +282,6 @@ mkincludes:
 -include Filegoals.mf
 
 cflagsstring:
-	@echo "${CFLAGS} -DALPHABETSIZE=4"
+	@echo "${CFLAGS} ${CPPFLAGS} -DALPHABETSIZE=4"
 
 -include $(wildcard ${COMPILEDIR}/*.d)

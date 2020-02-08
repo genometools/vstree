@@ -182,10 +182,10 @@ ${EXECDIR}mkdna6idx.dbg.x:${COMPILEDIR}mkdna6idx.dbg.o ${LIBSDBG}
 	${LD} ${LDFLAGS} ${COMPILEDIR}mkdna6idx.dbg.o ${LIBSDBG} ${LDLIBS} -o $@
 
 ${COMPILEDIR}besespecial.o:besespecial.c
-	${CC} ${CFLAGS} -DSPECIAL -c besespecial.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DSPECIAL -c besespecial.c -o $@
 
 ${COMPILEDIR}besespecial.dbg.o:besespecial.c
-	${CC} ${CFLAGS} -DSPECIAL -DDEBUG -c besespecial.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DSPECIAL -DDEBUG -c besespecial.c -o $@
 
 besespecial.splint:besespecial.c
 	splint ${SPLINTFLAGS} -DSPECIAL -DDEBUG besespecial.c
@@ -223,6 +223,6 @@ cleanpp:
 	cleanpp.sh
 
 cflagsstring:
-	@echo "${CFLAGS}"
+	@echo "${CFLAGS} ${CPPFLAGS}"
 
 -include $(wildcard ${COMPILEDIR}/*.d)

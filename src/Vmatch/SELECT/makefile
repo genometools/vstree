@@ -1,11 +1,11 @@
 # makefile to compile shared objects using the gnu C compiler
 # Stefan Kurtz, October 2000
 
-CC=gcc
+#CC=gcc
 
 # in 64-bit mode add -m64
 
-CFLAGS=-Wall -Werror -O3 -g
+CFLAGS+=-Wall -Werror -O3 -g
 
 ifneq ($(SYSTEM),Windows)
 CFLAGS+=-fPIC
@@ -43,21 +43,21 @@ all:selsplicesite.${SHAREDSUFFIX}\
 # on most platforms the shared objects have a suffix .so
 
 %.so:%.c Shareddef
-	${CC} ${CFLAGS} ${SHARED} $< -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} ${SHARED} $< -o $@ ${LDFLAGS}
 
 mergematches-dbg.so:mergematches.c Shareddef
-	${CC} ${CFLAGS} -DDEBUG ${SHARED} $< -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DDEBUG ${SHARED} $< -o $@ ${LDFLAGS}
 
 # on HP-UX the shared objects have a suffix .sl
 
 %.sl:%.c Shareddef
-	@${CC} ${CFLAGS} ${SHARED} $< -o $@
+	@${CC} ${CFLAGS} ${CPPFLAGS} ${SHARED} $< -o $@ ${LDFLAGS}
 
 # the following goal generates the output of the C-preprocessor
 # applied to the given C-file.
 
 %.prepro:%.c Shareddef
-	@${CC} -E -g3 ${CFLAGS} -c $< -o $@
+	@${CC} -E -g3 ${CFLAGS} ${CPPFLAGS} -c $< -o $@
 
 %.splint:%.c Shareddef
 	splint ${SPLINTFLAGS} -DDEBUG -DALPHABETSIZE=4 $<

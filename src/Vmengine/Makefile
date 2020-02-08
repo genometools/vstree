@@ -43,7 +43,7 @@ clean:splintclean
 	rm -f *.[oa] *.dbg.o *.inc *.aux *.dvi *.log
 
 cflagsstring:
-	@echo "${CFLAGS}"
+	@echo "${CFLAGS} ${CPPFLAGS}"
 
 libtest:${LIBVMENGINE} ${LIBVMENGINEDBG}
 	${MAKE} -C libtest
@@ -52,16 +52,16 @@ vmengineexport.h:${VMENGINEKERN}
 	cat ${VMENGINEKERN} | skproto > $@
 
 ${COMPILEDIR}vmatfind-dyn.o:vmatfind.c ../include/virtualdef.h
-	${CC} ${CFLAGS} -DDYNAMICALPHABET -c vmatfind.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DDYNAMICALPHABET -c vmatfind.c -o $@
 
 ${COMPILEDIR}vmatfind-strm.o:vmatfind.c ../include/esastream.h
-	${CC} ${CFLAGS} -DDYNAMICALPHABET -DESASTREAMACCESS -c vmatfind.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DDYNAMICALPHABET -DESASTREAMACCESS -c vmatfind.c -o $@
 
 ${COMPILEDIR}vmatfind-dyn.dbg.o:vmatfind.c ../include/virtualdef.h
-	${CC} ${CFLAGS} -DDEBUG -DDYNAMICALPHABET -c vmatfind.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DDEBUG -DDYNAMICALPHABET -c vmatfind.c -o $@
 
 ${COMPILEDIR}vmatfind-strm.dbg.o:vmatfind.c ../include/esastream.h
-	${CC} ${CFLAGS} -DDEBUG -DDYNAMICALPHABET -DESASTREAMACCESS -c vmatfind.c -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DDEBUG -DDYNAMICALPHABET -DESASTREAMACCESS -c vmatfind.c -o $@
 
 vmatfind4.splint:vmatfind.c
 	splint ${SPLINTFLAGS} -DDEBUG -DALPHABETSIZE=4 vmatfind.c

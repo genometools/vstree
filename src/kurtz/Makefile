@@ -25,14 +25,14 @@ $(LIBKURTZDBG):$(LIBDEBUGOBJECTS)
 	$(RANLIB) $@
 
 release:
-	vmrelease.sh VMATCH ${CFLAGS} > ../include/vmrelease.h
+	vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
 
 .PHONY:clean
 clean:splintclean
 	rm -f *.[oa] *.dbg.o *.inc *.aux *.dvi *.log
 
 cflagsstring:
-	@echo "${CFLAGS}"
+	@echo "${CFLAGS} ${CPPFLAGS}"
 
 libtest:$(LIBKURTZ) $(LIBKURTZDBG)
 	${MAKE} -C libtest

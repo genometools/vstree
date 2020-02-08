@@ -50,7 +50,7 @@ strmfna.x:strmfna.o ${LIBS}
 	${LD} ${LDFLAGS} strmfna.o ${LIBS} ${LDLIBS} -o $@
 
 readdb.o:readdb.c
-	${CC} -c ${CFLAGS} readdb.c
+	${CC} -c ${CFLAGS} ${CPPFLAGS} readdb.c
 
 suffixprefix.x:suffixprefix.o
 	${LD} ${LDFLAGS} suffixprefix.o ${LIBSDBG} ${LDLIBS} -o $@
@@ -151,6 +151,6 @@ clean:splintclean
 	cleanpp.sh
 
 cflagsstring:
-	@echo "${CFLAGS}"
+	@echo "${CFLAGS} ${CPPFLAGS}"
 
 -include $(wildcard *.d)

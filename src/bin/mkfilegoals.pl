@@ -225,7 +225,7 @@ sub genericgoal
   }
   if($kind eq 'o')
   {
-    printf("\t\${CC} \${CFLAGS} -c \$< -o \$@ -MT \$@ -MMD -MP -MF \$(\@:.o=.d)\n\n");
+    printf("\t\${CC} \${CFLAGS} ${CPPFLAGS} -c \$< -o \$@ -MT \$@ -MMD -MP -MF \$(\@:.o=.d)\n\n");
   } elsif($kind eq 'splint')
   {
     printf("\tsplint \${SPLINTFLAGS} \$<\n");
@@ -235,20 +235,20 @@ sub genericgoal
     printf("\tskproto \$< > \$@\n\n");
   } elsif($kind eq 'prepro')
   {
-    printf("\t\${CC} -E -g3 \${CFLAGS} -DDEBUG -c \$< -o \$@\n");
+    printf("\t\${CC} -E -g3 \${CFLAGS} ${CPPFLAGS} -DDEBUG -c \$< -o \$@\n");
     printf("\tindent \$@\n\n");
   } elsif($kind eq 'dbg4')
   {
-    printf("\t\${CC} \${CFLAGS} -DDEBUG -DSYMBOLBYTES=4 -c \$< -o \$@\n\n");
+    printf("\t\${CC} \${CFLAGS} ${CPPFLAGS} -DDEBUG -DSYMBOLBYTES=4 -c \$< -o \$@\n\n");
   } elsif($kind eq '4')
   {
-    printf("\t\${CC} \${CFLAGS} -DSYMBOLBYTES=4 -c \$< -o \$@\n\n");
+    printf("\t\${CC} \${CFLAGS} ${CPPFLAGS} -DSYMBOLBYTES=4 -c \$< -o \$@\n\n");
   } elsif($kind eq 'dbg')
   {
-    printf("\t\${CC} \${CFLAGS} -DDEBUG -c \$< -o \$@\n\n");
+    printf("\t\${CC} \${CFLAGS} ${CPPFLAGS} -DDEBUG -c \$< -o \$@\n\n");
   } elsif($kind eq 'so')
   {
-    printf("\t\${CC} \${CFLAGS} \${SHARED} \$< -o \$@\n\n");
+    printf("\t\${CC} \${CFLAGS} ${CPPFLAGS} \${SHARED} \$< -o \$@\n\n");
   } else
   {
     printf("illegal kind value \"%s\"\n",$kind);

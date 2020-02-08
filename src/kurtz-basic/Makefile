@@ -28,17 +28,17 @@ $(LIBKURTZBASICDBG):$(LIBDEBUGOBJECTS)
 	$(RANLIB) $@
 
 release:
-	vmrelease.sh VMATCH ${CFLAGS} > ../include/vmrelease.h
+	vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
 
 chain2dim2.o:chain2dim.c
-	${CC} ${CFLAGS} -DREVERSEDIM -c $< -o $@
+	${CC} ${CFLAGS} ${CPPFLAGS} -DREVERSEDIM -c $< -o $@
 
 .PHONY:clean
 clean:splintclean
 	rm -f *.[oa] *.dbg.o *.inc *.aux *.dvi *.log
 
 cflagsstring:
-	@echo "${CFLAGS}"
+	@echo "${CFLAGS} ${CPPFLAGS}"
 
 .PHONY:prototypes
 prototypes:${PROTOTYPES}

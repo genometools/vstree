@@ -99,7 +99,7 @@ static ArrayMatchdata *multmatches;
 static ArrayConnectdata *edges;
 
 /*Sorting and grouping of matches. Returns number of generated groups*/
-static Uint multmatchesCountingSort ()
+static Uint multmatchesCountingSort (void)
 {
   Uint maxmatchlen = 0,
        nof_matches,

@@ -22,14 +22,21 @@ cat << ENDOFRELEASEPRE
 #define ${PROGRAM}RELEASE_H
 ENDOFRELEASEPRE
 
-date +"#define ${PROGRAM}COMPILEDATE \"%Y-%m-%d %H:%M:%S\""
+date +"#define ${PROGRAM}COMPILEDATE \"%Y-%m-%d %H:%M:%S\"" --utc --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}"
 
 shift # get rid of first argument
-echo "#define ${PROGRAM}CFLAGS \"$*\""
+echo "#define ${PROGRAM}CFLAGS \"(reproducible build)\""
+
+if [ -n "${SOURCE_DATE_EPOCH}" ]
+then
+  HOSTNAME="(reproducible build)"
+else
+  HOSTNAME="`hostname`"
+fi
 
 cat << ENDOFRELEASEPOST
 #define ${PROGRAM}RELEASEDATE "2007-Aug-27"
 #define ${PROGRAM}VERSION "`cat ${WORKVSTREESRC}/VERSION`"
-#define ${PROGRAM}COMPILEHOST "`hostname`"
+#define ${PROGRAM}COMPILEHOST "${HOSTNAME}"
 #endif
 ENDOFRELEASEPOST

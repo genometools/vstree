@@ -30,10 +30,6 @@
 #include "mkvprocess.pr"
 #include "mkvtree.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 static void showonstdout(char *s)
 {
   printf("%s\n",s);
@@ -116,11 +112,6 @@ MAINFUNCTION
   Sint ret;
   Showverbose showverbose;
   Uint transnum;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   if(extractoption("-v",argv,argc) > 0)
   {
@@ -214,8 +205,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

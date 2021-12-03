@@ -48,10 +48,10 @@ INSTALLLIST=Mkvtree/mkvtree.x\
 
 all:
 	${MAKE} -C kurtz-basic
-	${MAKE} -C kurtz licensemanager=${licensemanager}
-	${MAKE} -C Mkvtree licensemanager=${licensemanager}
+	${MAKE} -C kurtz
+	${MAKE} -C Mkvtree
 	${MAKE} -C Vmengine
-	${MAKE} -C Vmatch licensemanager=${licensemanager}
+	${MAKE} -C Vmatch
 
 release:
 	git tag "v`cat VERSION`"
@@ -65,8 +65,8 @@ libs:
 
 vmatch:libs
 	${MAKE} -C kurtz/libtest
-	${MAKE} -C Mkvtree licensemanager=${licensemanager}
-	${MAKE} -C Vmatch licensemanager=${licensemanager}
+	${MAKE} -C Mkvtree
+	${MAKE} -C Vmatch
 
 cleanup:
 	find . -name '*.[oa]' | xargs rm -f

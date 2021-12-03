@@ -6,13 +6,6 @@ CFLAGS=${WITHSYSCONF} ${DEFINECFLAGS} ${DEFINECPPFLAGS}
 SPLINTFLAGS=${WITHSYSCONF} ${DEFINESPLINTFLAGS} ${DEFINECPPFLAGS}
 COMPILEDIR=${COMPILEDIRPREFIX}/kurtz-basic/
 
-ifneq ($(licensemanager),no)
-  CFLAGS += -I../../../licensemanager/src \
-            -I../../../genometools/src
-else
-  CFLAGS += -DNOLICENSEMANAGER
-endif
-
 -include Filelists.mf
 
 all:release mkdircompiledir prototypes $(LIBKURTZBASIC) $(LIBKURTZBASICDBG)

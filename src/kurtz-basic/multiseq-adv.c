@@ -37,10 +37,6 @@
 #include "endianess.pr"
 #include "checkgzip.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 //}
 
 /*EE 
@@ -2010,10 +2006,6 @@ Sint mapmultiseqifyoucan(Uint *indexsize,
 {
   Uint numofbytes;
   char *tmpfilename;
-
-#ifndef NOLICENSEMANAGER
-  lm_license_check_l();
-#endif
 
   if(demandTISTAB)
   {

@@ -13,10 +13,6 @@
 #include "readvirt.pr"
 #include "filehandle.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 static void showonstdout(char *s)
 {
   printf("%s\n",s);
@@ -45,18 +41,9 @@ MAINFUNCTION
 #ifndef NOSPACEBOOKKEEPING
   Sint i;
 #endif
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("mkvtree", license);
-#else
   CALLSHOWPROGRAMVERSION("mkvtree");
-#endif
   makeemptyvirtualtree(&virtualtree);
   ret = callmkvtree(argc,argv,True,&virtualtree,True,showonstdout);
   if(ret == (Sint) 1)
@@ -88,8 +75,5 @@ MAINFUNCTION
   mmcheckspaceleak();
 #endif
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

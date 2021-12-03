@@ -11,17 +11,8 @@ LDLIBS=${DEFINELDLIBS}
 COMPILEDIR=${COMPILEDIRPREFIX}/Vmatch/
 #EXECDIR=${EXECDIRPREFIX}/Vmatch/
 
-ifneq ($(licensemanager),no)
-  CFLAGS += -I../../../licensemanager/src \
-            -I../../../genometools/src
-  LDLIBS = ${CURDIR}/../../../licensemanager/lib/$(BIT)/liblicensemanager.a \
-           ${CURDIR}/../../../genometools/lib/libgenometools.a \
-           ${DEFINELDLIBS}
-else
-  CFLAGS += -DNOLICENSEMANAGER
-  LDLIBS = ${CURDIR}/../../../genometools/lib/libgenometools.a \
-           ${DEFINELDLIBS}
-endif
+LDLIBS = ${CURDIR}/../../../genometools/lib/libgenometools.a \
+         ${DEFINELDLIBS}
 
 LIBS=${LIBVMATCH}\
      ${LIBVMENGINE}\

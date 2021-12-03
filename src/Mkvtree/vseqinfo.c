@@ -12,18 +12,9 @@
 #include "filehandle.pr"
 #include "multiseq-adv.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 MAINFUNCTION
 {
   Virtualtree virtualtree;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   VSTREECHECKARGNUM(2,"indexname");
   DEBUGLEVELSET;
@@ -45,8 +36,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

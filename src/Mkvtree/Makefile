@@ -9,17 +9,8 @@ LDLIBS=${DEFINELDLIBS}
 COMPILEDIR=${COMPILEDIRPREFIX}/Mkvtree/
 #EXECDIR=${EXECDIRPREFIX}/Mkvtree/
 
-ifneq ($(licensemanager),no)
-  CFLAGS += -I../../../licensemanager/src \
-            -I../../../genometools/src
-  LDLIBS = ${CURDIR}/../../../licensemanager/lib/$(BIT)/liblicensemanager.a \
-           ${CURDIR}/../../../genometools/lib/libgenometools.a \
-           ${DEFINELDLIBS}
-else
-  CFLAGS += -DNOLICENSEMANAGER
-  LDLIBS = ${CURDIR}/../../../genometools/lib/libgenometools.a \
-           ${DEFINELDLIBS}
-endif
+LDLIBS = ${CURDIR}/../../../genometools/lib/libgenometools.a \
+         ${DEFINELDLIBS}
 
 MKVTREEOBJ=${COMPILEDIR}mkvtree.o\
            ${COMPILEDIR}mkvprocess.o\

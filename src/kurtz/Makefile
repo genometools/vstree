@@ -6,10 +6,6 @@ CFLAGS=${DEFINECFLAGS} ${DEFINECPPFLAGS}
 SPLINTFLAGS=${WITHSYSCONF} ${DEFINESPLINTFLAGS} ${DEFINECPPFLAGS}
 COMPILEDIR=${COMPILEDIRPREFIX}/kurtz/
 
-ifeq ($(licensemanager),no)
-  CFLAGS += -DNOLICENSEMANAGER
-endif
-
 -include Filelists.mf
 
 all:mkdircompiledir prototypes $(LIBKURTZ) $(LIBKURTZDBG)

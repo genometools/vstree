@@ -22,10 +22,6 @@
 #include "safescpy.pr"
 #include "multiseq.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 #define READPOSITIVEINT\
         READINTGENERIC(options[(Uint) optval].optname,\
                        readint,argc-1,<=,"positive")
@@ -343,19 +339,10 @@ MAINFUNCTION
   Virtualtree virtualtree;
   Sint ret;
   Selectcallinfo selectcallinfo;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
 
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("vsubseqselect", license);
-#else
   CALLSHOWPROGRAMVERSION("vsubseqselect");
-#endif
   ret = parseseselect(&selectcallinfo,argv,argc);
   if(ret == (Sint) 1)
   {
@@ -430,8 +417,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

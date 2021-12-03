@@ -15,10 +15,6 @@
 #include "parsemcl.pr"
 #include "allmclust.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 static void showonstdout(char *s)
 {
   printf("# %s\n",s);
@@ -29,18 +25,9 @@ MAINFUNCTION
   Matchinfo matchinfo;
   Matchclustercallinfo matchclustercallinfo;
   Sint retcode;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("matchcluster", license);
-#else
   CALLSHOWPROGRAMVERSION("matchcluster");
-#endif
   retcode = parsematchcluster(False,
                               &matchclustercallinfo,
                               argv,
@@ -85,8 +72,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

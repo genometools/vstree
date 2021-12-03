@@ -25,10 +25,6 @@
 #include "safescpy.pr"
 #include "filehandle.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 #define MAXPART 0.5    // maximum of randomselnum/numofsequences resp.
                        // randomsellength/numofsequences
 
@@ -523,18 +519,9 @@ MAINFUNCTION
   Virtualtree virtualtree;
   Sint ret;
   Selectcallinfo selectcallinfo;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("vseqselect", license);
-#else
   CALLSHOWPROGRAMVERSION("vseqselect");
-#endif
   ret = parseseselect(&selectcallinfo,argv,argc);
   if(ret == (Sint) 1)
   {
@@ -624,8 +611,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

@@ -17,10 +17,6 @@
 #include "filehandle.pr"
 #include "safescpy.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 #define BCKTABHORIZONTAL FIRSTBIT
 
 typedef struct
@@ -187,18 +183,9 @@ MAINFUNCTION
   Callinfo callinfo;
   Uint demand;
   Sint retval;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("vstree2tex", license);
-#else
   CALLSHOWPROGRAMVERSION("vstree2tex");
-#endif
   retval = parseoptions(&callinfo,argc,argv);
   if(retval == (Sint) -1)
   {
@@ -236,8 +223,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

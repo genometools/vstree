@@ -25,26 +25,13 @@
 #include "chncallparse.pr"
 #include "echomatch.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 MAINFUNCTION
 {
   Chaincallinfo chaincallinfo;
   Sint ret;
-#ifndef NOLICENSEMANAGER
-  LmLicense *license;
-  if (!(license = lm_license_new_vmatch(argv[0])))
-    return EXIT_FAILURE;
-#endif
 
   DEBUGLEVELSET;
-#ifndef NOLICENSEMANAGER
-  CALLSHOWPROGRAMVERSIONWITHLICENSE("chain2dim", license);
-#else
   CALLSHOWPROGRAMVERSION("chain2dim");
-#endif
   ret = parsechain2dim(False,&chaincallinfo, argv, argc);
   if(ret == (Sint) 1)
   {
@@ -120,8 +107,5 @@ MAINFUNCTION
 #endif
   mmcheckspaceleak();
   checkfilehandles();
-#ifndef NOLICENSEMANAGER
-  lm_license_delete(license);
-#endif
   return EXIT_SUCCESS;
 }

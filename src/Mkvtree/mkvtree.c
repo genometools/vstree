@@ -25,10 +25,6 @@
 #include "mkvprocess.pr"
 #include "getbasename.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 #define USAGEERRORCODE (-99)
 
 #define MAXTABOPTSPACE 256
@@ -602,10 +598,6 @@ Sint callmkvtreegeneric(BOOL useformkrcidx,
 {
   Input input;
   Sint pret;
-
-#ifndef NOLICENSEMANAGER
-  lm_license_check_j();
-#endif
 
 #ifdef DEBUG
   showargumentlist(argc,argv);

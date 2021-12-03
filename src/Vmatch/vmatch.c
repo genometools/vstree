@@ -19,10 +19,6 @@
 #include "parsevm.pr"
 #include "procargs.pr"
 
-#ifndef NOLICENSEMANAGER
-#include "licensemanager.h"
-#endif
-
 #ifndef NOSPACEBOOKKEEPING
 static void printspacepeak(Showverbose showverbose,
                            Uint totallength)
@@ -65,10 +61,6 @@ Sint callvmatch(Argctype argc,
   Sint pret;
 
   assert(functionname);
-
-#ifndef NOLICENSEMANAGER
-  lm_license_check_k();
-#endif
 
 #ifdef SIXTYFOURBITS
   if(setlocalpagesize() != 0)

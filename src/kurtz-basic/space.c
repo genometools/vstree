@@ -269,18 +269,18 @@ static ResourceEntry *reusespaceblock(void *ptr,
   void *tmpptr;
   ResourceEntry *reuseresource;
 
-  tmpptr = realloc(ptr,(size_t) (size*number));
-  if(tmpptr == NULL)
-  {
-    ALLOCERRORMSG("reusespaceblock",
-                  "not enough space for the space block");
-    exit(EXIT_FAILURE);
-  }
   reuseresource = findthespaceblock(ptr);
   if(reuseresource == NULL)
   {
     ALLOCERRORMSG("reusespaceblock",
                   "cannot find space block");
+    exit(EXIT_FAILURE);
+  }
+  tmpptr = realloc(ptr,(size_t) (size*number));
+  if(tmpptr == NULL)
+  {
+    ALLOCERRORMSG("reusespaceblock",
+                  "not enough space for the space block");
     exit(EXIT_FAILURE);
   }
   if(ptr != tmpptr)

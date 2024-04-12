@@ -187,7 +187,8 @@ static Sint checkifoneiscontainedinother(ArrayStoreMatch *matchtab1,
   StoreMatch *mptr, *tmpptr;
   BOOL foundcontained;
   PairUint bounds;
-  Uint idx, countnotcontained = 0;
+  Uint idx;
+  __attribute__ ((unused)) Uint countnotcontained = 0;
 
   printf("checkifoneiscontainedinother\n");
   (void) fflush(stdout);

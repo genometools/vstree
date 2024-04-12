@@ -1980,7 +1980,8 @@ Sint parseprojectfile(Multiseq *multiseq,
 
 /*@null@*/ Uchar *createtistabmap(Uint totallength,const char *indexname)
 {
-  Uint numofbytes, indexsize = 0;
+  Uint numofbytes;
+  __attribute__ ((unused)) Uint indexsize = 0;
   Uchar *sequence;
   char *tmpfilename;
 

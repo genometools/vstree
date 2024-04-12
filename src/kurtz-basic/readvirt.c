@@ -566,8 +566,9 @@ Sint showvirtualtreestatusonstdout(Virtualtree *virtualtree,
 
 Sint pumpthroughcache(Virtualtree *virtualtree,Uint demand)
 {
-  Uint uivalue = 0, i;
-  Uchar cvalue = 0;
+  __attribute__ ((unused)) Uint uivalue = 0;
+  Uint i;
+  __attribute__ ((unused)) Uchar cvalue = 0;
 
   if(demand == 0)
   {
@@ -699,7 +700,8 @@ static Uint decodelongest(Uint totallength,Uchar *bwttab)
 
 Sint mapskptab(Virtualtree *virtualtree,const char *indexname)
 {
-  Uint numofbytes, indexsize = 0;
+  Uint numofbytes;
+  __attribute__ ((unused)) Uint indexsize = 0;
   char *tmpfilename = COMPOSEFILENAME(indexname,"skp");
 
   virtualtree->skiptab = (Uint *) CREATEMEMORYMAP(tmpfilename,False,

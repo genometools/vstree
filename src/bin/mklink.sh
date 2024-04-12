@@ -31,7 +31,7 @@ ENDOFMKFILE
 cmd="make -f ${TMPFILE}"
 CFLAGS=`${cmd}`
 
-cmd="vmrelease.sh ${CFLAGS} ${CPPFLAGS}"
-${cmd} > ${WORKVSTREESRC}/include/vmrelease.h
+cmd="../bin/vmrelease.sh ${CFLAGS} ${CPPFLAGS}"
+${cmd} > ../include/vmrelease.h
 
 rm -f ${TMPFILE}

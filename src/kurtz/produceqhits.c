@@ -151,10 +151,10 @@ Sint produceqhits(Uchar *dbseq,
        sufindex, 
        jpos, 
        *bckptr,
-       qgram2codecalls = 0,
        startpos,
        extendlength,
        mappower[UCHAR_MAX+1];
+  __attribute__ ((unused)) Uint qgram2codecalls = 0;
   Vnode vnode;
 
   initmappower(&mappower[0],numofchars,prefixlength);

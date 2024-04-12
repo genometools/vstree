@@ -1440,15 +1440,18 @@ static void mergestartandendpoints(Chainmode *chainmode,
                                    BOOL gapsL1,
                                    Uint presortdim)
 {
-  Uint xidx, startcount, endcount;
+#ifdef DEBUG
+  __attribute__ ((unused)) Uint xidx = 0;
+#endif
+  Uint startcount, endcount;
   BOOL addterminal;
   Uint postsortdim = UintConst(1) - presortdim;
 
   addterminal = (chainmode->chainkind == GLOBALCHAINING) ? False : True;
   fragmentstore->dictroot = NULL;
-  for(xidx = 0, startcount = 0, endcount = 0; 
+  for(startcount = 0, endcount = 0; 
       startcount < numofmatches && endcount < numofmatches; 
-      xidx++)
+      /* Nothing */)
   {
     if(comparestartandend(fragmentinfo + startcount,
                           fragmentinfo + fragmentstore->endpointperm[endcount],
@@ -1483,6 +1486,9 @@ static void mergestartandendpoints(Chainmode *chainmode,
                                             postsortdim));
       endcount++;
     }
+#ifdef DEBUG
+    xidx++;
+#endif
   }
   while(startcount < numofmatches)
   {
@@ -1500,7 +1506,9 @@ static void mergestartandendpoints(Chainmode *chainmode,
                       startcount,
                       presortdim);
     startcount++;
+#ifdef DEBUG
     xidx++;
+#endif
   }
   while(endcount < numofmatches)
   {
@@ -1516,7 +1524,9 @@ static void mergestartandendpoints(Chainmode *chainmode,
                                           endpointperm[endcount],
                                           postsortdim));
     endcount++;
+#ifdef DEBUG
     xidx++;
+#endif
   }
 #ifdef DEBUG
   if(chainmode->chainkind == GLOBALCHAINING)
@@ -1651,7 +1661,10 @@ static void makesortedendpointpermutation(Uint *perm,
                                           Uint numofmatches,
                                           Uint presortdim)
 {
-  Uint temp, *iptr, *jptr, i, moves = 0;
+  Uint temp, *iptr, *jptr, i;
+#ifdef DEBUG
+  Uint moves = 0;
+#endif
 
   for (i = 0; i < numofmatches; i++)
   {
@@ -1669,7 +1682,9 @@ static void makesortedendpointpermutation(Uint *perm,
       temp = *(jptr-1);
       *(jptr-1) = *jptr;
       *jptr = temp;
+#ifdef DEBUG
       moves++;
+#endif
     }
   }
   DEBUG2(1,"# moves for insertion sort = %lu (%.2f)\n",

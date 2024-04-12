@@ -2,7 +2,7 @@
 # mkMakedef.pl osx gcc
 # do not edit
 
-CC=gcc
+CC?=gcc
 
 # the base directory: 
 

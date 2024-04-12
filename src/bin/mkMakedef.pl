@@ -12,9 +12,9 @@
 
 #blade-0 [178] diff Makedef-linux-xlc Makedef-linux-gcc
 #5c5
-#< CC=xlc
+#< CC?=xlc
 #---
-#> CC=gcc
+#> CC?=gcc
 #21c21
 #< DEFINECFLAGS=-DWITHREGEXP -g -O3
 #---
@@ -144,7 +144,7 @@ print <<HEREDOC;
 # mkMakedef.pl @ARGV
 # do not edit
 
-CC=$compiler
+CC?=$compiler
 
 # the base directory: 
 

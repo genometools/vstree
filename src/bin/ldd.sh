@@ -10,9 +10,9 @@ else
 fi
 }
 
-
 if test "${CONFIGGUESS}" = "powerpc-apple-darwin" \
-     -o "${CONFIGGUESS}" = "i686-apple-darwin"
+     -o "${CONFIGGUESS}" = "i686-apple-darwin" \
+     -o "${CONFIGGUESS}" = "arm64-apple-darwin"
 then
   cmd="otool -L $*"
 else

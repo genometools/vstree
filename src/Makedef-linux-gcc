@@ -2,7 +2,7 @@
 # mkMakedef.pl linux gcc
 # do not edit
 
-CC=gcc
+CC?=gcc
 RANLIB=ranlib
 
 # the base directory: 

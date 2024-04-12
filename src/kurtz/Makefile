@@ -21,7 +21,7 @@ $(LIBKURTZDBG):$(LIBDEBUGOBJECTS)
 	$(RANLIB) $@
 
 release:
-	vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
+	../bin/vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
 
 .PHONY:clean
 clean:splintclean

@@ -11,10 +11,10 @@ fi
 prefix="${WORK}/bin-ops/${CONFIGGUESS}"
 for binaryfile in $*
 do
-  ldd.sh ${binaryfile} > /dev/null
+  bin/ldd.sh ${binaryfile} > /dev/null
   if test $? -ne 0
   then
-    echo "ldd.sh ${binaryfile} fails"
+    echo "bin/ldd.sh ${binaryfile} fails"
     exit 1
   fi
   if test ${CONFIGGUESS} = "sparc-sun-solaris"

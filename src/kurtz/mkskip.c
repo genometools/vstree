@@ -56,7 +56,8 @@ void makeskiptable(Uint *skiptable,Uchar *lcptab,ArrayPairUint *largelcps,
   register Uint i, currentlcp;
   Uint exception = 0;
   ArrayStackelem stack;
-  Uint sumsmall = 0, smallvalue, countsmall = 0;
+  Uint smallvalue;
+  __attribute__ ((unused)) Uint sumsmall = 0, countsmall = 0;
 
   INITARRAY(&stack,Stackelem);
   PUSHMKSKIP((Uint) 0,(Uint) 0);

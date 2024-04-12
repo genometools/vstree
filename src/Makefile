@@ -109,7 +109,7 @@ cleanpp:
 	${MAKE} -C Vmatch cleanpp
 
 install:
-	bininstall.sh ${INSTALLLIST}
+	bin/bininstall.sh ${INSTALLLIST}
 	${INSTALL_CMD_BIN} bin/cleanmkv.sh ${INSTALLBIN}/.
 	${INSTALL_CMD_BIN} bin/cleanpp.sh ${INSTALLBIN}/.
 	${INSTALL_CMD_BIN} bin/vmigrate.sh ${INSTALLBIN}/.

@@ -433,9 +433,9 @@ Sint parsechain2dim(BOOL fromvmatch,
                 options[OPTWEIGHTFACTOR].optname+1,
                 options[OPTLOCALCHAINING].optname+DROPCHAIN,
                 options[OPTGLOBALCHAINING].optname+DROPCHAIN,
-                GAPCOSTSWITCH+1,
+                GAPCOSTSWITCH,
                 options[OPTGLOBALCHAINING].optname+DROPCHAIN,
-                OVERLAPSWITCH+1);
+                OVERLAPSWITCH);
       } else
       {
         ERROR5("option %s requires either option %s or option %s with "

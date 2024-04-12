@@ -21,7 +21,7 @@ $(LIBKURTZBASICDBG):$(LIBDEBUGOBJECTS)
 	$(RANLIB) $@
 
 release:
-	vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
+	../bin/vmrelease.sh VMATCH ${CFLAGS} ${CPPFLAGS} > ../include/vmrelease.h
 
 chain2dim2.o:chain2dim.c
 	${CC} ${CFLAGS} ${CPPFLAGS} -DREVERSEDIM -c $< -o $@

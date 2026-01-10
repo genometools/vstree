@@ -22,7 +22,12 @@ cat << ENDOFRELEASEPRE
 #define ${PROGRAM}RELEASE_H
 ENDOFRELEASEPRE
 
-compiledate=`date +%Y-%m-%d`
+if [ -n "${SOURCE_DATE_EPOCH}" ]
+then
+  compiledate=`date -d "@$SOURCE_DATE_EPOCH" +%Y-%m-%d`
+else
+  compiledate=`date +%Y-%m-%d`
+fi
 echo "#define ${PROGRAM}COMPILEDATE "\"${compiledate}\"""
 
 shift # get rid of first argument
